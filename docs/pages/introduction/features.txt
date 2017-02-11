@@ -1,17 +1,17 @@
 Supported types are as follows:
 
-- bool
-- datetime
-- dict
-- int
+- `bool <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#bool-type-class>`__
+- `datetime <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#datetime-type-class>`__
+- `dict <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
+- `int <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
 - float
-    - Real number
-    - Infinite
-    - Not a number
-- None
-- str
-    - null string
+    - `Real number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
+    - `Infinite <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
+    - `Not a number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
+- `None <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
+- `str <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#string-type-class>`__
+    - `Null string <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
 
 Type check/validate/convert results will be decided according to ``strict_level``
-which can be passed to constructors. API reference can be found at the document.
-
+which can be passed to constructors. API reference can be found at the 
+`document <http://pytypeutil.rtfd.io/>`__.
