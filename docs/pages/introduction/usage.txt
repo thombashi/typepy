@@ -1,0 +1,65 @@
+Type Check
+----------------------
+
+.. code:: pycon
+
+    >>> from pytypeutil.type import Integer
+    >>> Integer(1).is_type()
+    True
+    >>> Integer(1.1).is_type()
+    False
+
+
+Type Validation
+----------------------
+
+.. code:: pycon
+
+    >>> from pytypeutil.type import Integer
+    >>> Integer(1).validate()
+    >>> try:
+    ...     Integer(1.1).validate()
+    ... except TypeError as e:
+    ...     print(e)
+    ...
+    invalid value type: expected=INTEGER, actual=<type 'float'>
+
+
+Type Conversion
+----------------------
+
+convert
+~~~~~~~~~~~~~~
+.. code:: pycon
+
+    >>> from pytypeutil.type import Integer
+    >>> from pytypeutil import TypeConversionError
+    >>> Integer("1").convert()
+    1
+    >>> try:
+    ...     Integer(1.1).convert()
+    ... except TypeConversionError as e:
+    ...     print(e)
+    ...
+    failed to convert from float to INTEGER
+
+try_convert
+~~~~~~~~~~~~~~
+.. code:: pycon
+
+    >>> from pytypeutil.type import Integer
+    >>> Integer("1").try_convert()
+    1
+    >>> print(Integer(1.1).try_convert())
+    None
+
+force_convert
+~~~~~~~~~~~~~~
+.. code:: pycon
+
+    >>> from pytypeutil.type import Integer
+    >>> Integer("1").force_convert()
+    1
+    >>> Integer(1.1).force_convert()
+    1
+

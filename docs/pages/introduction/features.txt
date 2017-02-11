@@ -1,0 +1,17 @@
+Supported types are as follows:
+
+- bool
+- datetime
+- dict
+- int
+- float
+    - Real number
+    - Infinite
+    - Not a number
+- None
+- str
+    - null string
+
+Type check/validate/convert results will be decided according to ``strict_level``
+which can be passed to constructors. API reference can be found at the document.
+

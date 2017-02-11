@@ -1,0 +1,24 @@
+.. table:: :py:class:`pytypeutil.type.Nan`: :py:attr:`~pytypeutil.type.Nan.strict_level` = 0
+
+    ===================================  ==================  ==================  =========
+                  Method                  ``float("nan")``       ``"NaN"``        ``0.1`` 
+    ===================================  ==================  ==================  =========
+    :py:meth:`~.type.Nan.is_type`        ``True``            ``True``            ``False``
+    :py:meth:`~.type.Nan.validate`       NOP [#f1]_          NOP [#f1]_          E [#f2]_ 
+    :py:meth:`~.type.Nan.convert`        ``Decimal("nan")``  ``Decimal("nan")``  E [#f3]_ 
+    :py:meth:`~.type.Nan.try_convert`    ``Decimal("nan")``  ``Decimal("nan")``  ``None`` 
+    :py:meth:`~.type.Nan.force_convert`  ``Decimal("nan")``  ``Decimal("nan")``  0.1      
+    ===================================  ==================  ==================  =========
+
+.. table:: :py:class:`pytypeutil.type.Nan`: :py:attr:`~pytypeutil.type.Nan.strict_level` = 1
+
+    ===================================  ==================  ==================  =========
+                  Method                  ``float("nan")``       ``"NaN"``        ``0.1`` 
+    ===================================  ==================  ==================  =========
+    :py:meth:`~.type.Nan.is_type`        ``True``            ``False``           ``False``
+    :py:meth:`~.type.Nan.validate`       NOP [#f1]_          E [#f2]_            E [#f2]_ 
+    :py:meth:`~.type.Nan.convert`        ``Decimal("nan")``  E [#f3]_            E [#f3]_ 
+    :py:meth:`~.type.Nan.try_convert`    ``Decimal("nan")``  ``None``            ``None`` 
+    :py:meth:`~.type.Nan.force_convert`  ``Decimal("nan")``  ``Decimal("nan")``  0.1      
+    ===================================  ==================  ==================  =========
+

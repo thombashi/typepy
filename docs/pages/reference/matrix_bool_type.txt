@@ -1,0 +1,36 @@
+.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 0
+
+    ====================================  ==========  ==========  ==========
+                   Method                  ``True``   ``"true"``      1     
+    ====================================  ==========  ==========  ==========
+    :py:meth:`~.type.Bool.is_type`        ``True``    ``True``    ``True``  
+    :py:meth:`~.type.Bool.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_
+    :py:meth:`~.type.Bool.convert`        ``True``    ``True``    ``True``  
+    :py:meth:`~.type.Bool.try_convert`    ``True``    ``True``    ``True``  
+    :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True``  
+    ====================================  ==========  ==========  ==========
+
+.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 1
+
+    ====================================  ==========  ==========  =========
+                   Method                  ``True``   ``"true"``      1    
+    ====================================  ==========  ==========  =========
+    :py:meth:`~.type.Bool.is_type`        ``True``    ``True``    ``False``
+    :py:meth:`~.type.Bool.validate`       NOP [#f1]_  NOP [#f1]_  E [#f2]_ 
+    :py:meth:`~.type.Bool.convert`        ``True``    ``True``    E [#f3]_ 
+    :py:meth:`~.type.Bool.try_convert`    ``True``    ``True``    ``None`` 
+    :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True`` 
+    ====================================  ==========  ==========  =========
+
+.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 2
+
+    ====================================  ==========  ==========  =========
+                   Method                  ``True``   ``"true"``      1    
+    ====================================  ==========  ==========  =========
+    :py:meth:`~.type.Bool.is_type`        ``True``    ``False``   ``False``
+    :py:meth:`~.type.Bool.validate`       NOP [#f1]_  E [#f2]_    E [#f2]_ 
+    :py:meth:`~.type.Bool.convert`        ``True``    E [#f3]_    E [#f3]_ 
+    :py:meth:`~.type.Bool.try_convert`    ``True``    ``None``    ``None`` 
+    :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True`` 
+    ====================================  ==========  ==========  =========
+
