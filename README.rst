@@ -117,7 +117,7 @@ Supported types are as follows:
     - `Null string <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
 
 Type check/validate/convert results will be decided according to ``strict_level``
-which can be passed to constructors. API reference can be found at the
+which can be passed to constructors. API reference can be found in the
 `document <http://pytypeutil.rtfd.io/>`__.
 
 Installation
