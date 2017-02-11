@@ -6,7 +6,6 @@
 
 from __future__ import absolute_import
 
-from .._const import StrictLevel
 from .._typecode import Typecode
 from ..checker._bool import BoolTypeChecker
 from ..converter._bool import BoolConverter
