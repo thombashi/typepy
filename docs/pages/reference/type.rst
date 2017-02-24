@@ -1,57 +1,57 @@
 Type Classes
 =====================
 
-Bool Type Class
+Bool Type
 -------------------------------
 .. autoclass:: typepy.type.Bool
     :inherited-members:
 
-DateTime Type Class
+DateTime Type
 -------------------------------
 .. autoclass:: typepy.type.DateTime
     :inherited-members:
 
-Dictionary Type Class
+Dictionary Type
 -------------------------------
 .. autoclass:: typepy.type.Dictionary
     :inherited-members:
 
-Infinity Type Class
+Infinity Type
 -------------------------------
 .. autoclass:: typepy.type.Infinity
     :inherited-members:
 
-Integer Type Class
+Integer Type
 -------------------------------
 .. autoclass:: typepy.type.Integer
     :inherited-members:
 
-Nan Type Class
+Nan Type
 -------------------------------
 .. autoclass:: typepy.type.Nan
     :inherited-members:
 
-None Type Class
+None Type
 -------------------------------
 .. autoclass:: typepy.type.NoneType
     :inherited-members:
 
-Null String Type Class
+Null String Type
 -------------------------------
 .. autoclass:: typepy.type.NullString
     :inherited-members:
 
-Real Number Type Class
+Real Number Type
 -------------------------------
 .. autoclass:: typepy.type.RealNumber
     :inherited-members:
 
-String Type Class
+String Type
 -------------------------------
 .. autoclass:: typepy.type.String
     :inherited-members:
 
 
 .. [#f1] No Operation
-.. [#f2] Error (raise :py:class:`TypeError`)
+.. [#f2] Error (raise :py::`TypeError`)
 .. [#f3] Error (raise |TypeConversionError|)
