@@ -1,23 +1,23 @@
-pytypeutil
-==========
+typepy
+======
 
-.. image:: https://badge.fury.io/py/pytypeutil.svg
-    :target: https://badge.fury.io/py/pytypeutil
+.. image:: https://badge.fury.io/py/typepy.svg
+    :target: https://badge.fury.io/py/typepy
 
-.. image:: https://img.shields.io/pypi/pyversions/pytypeutil.svg
-   :target: https://pypi.python.org/pypi/pytypeutil
+.. image:: https://img.shields.io/pypi/pyversions/typepy.svg
+   :target: https://pypi.python.org/pypi/typepy
 
-.. image:: https://img.shields.io/travis/thombashi/pytypeutil/master.svg?label=Linux
-    :target: https://travis-ci.org/thombashi/pytypeutil
+.. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux
+    :target: https://travis-ci.org/thombashi/typepy
 
-.. image:: https://img.shields.io/appveyor/ci/thombashi/pytypeutil/master.svg?label=Windows
-    :target: https://ci.appveyor.com/project/thombashi/pytypeutil
+.. image:: https://img.shields.io/appveyor/ci/thombashi/typepy/master.svg?label=Windows
+    :target: https://ci.appveyor.com/project/thombashi/typepy
 
-.. image:: https://coveralls.io/repos/github/thombashi/pytypeutil/badge.svg?branch=master
-    :target: https://coveralls.io/github/thombashi/pytypeutil?branch=master
+.. image:: https://coveralls.io/repos/github/thombashi/typepy/badge.svg?branch=master
+    :target: https://coveralls.io/github/thombashi/typepy?branch=master
 
-.. image:: https://img.shields.io/github/stars/thombashi/pytypeutil.svg?style=social&label=Star
-   :target: https://github.com/thombashi/pytypeutil
+.. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
+   :target: https://github.com/thombashi/typepy
 
 Summary
 -------
@@ -27,24 +27,24 @@ A python library for variable type checker/validator/converter at run time.
 Usage
 =====
 
-Type Check
+Type Check Method
 ----------------------
 
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer(1).is_type()
     True
     >>> Integer(1.1).is_type()
     False
 
 
-Type Validation
-----------------------
+Type Validation Method
+--------------------------------------------
 
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer(1).validate()
     >>> try:
     ...     Integer(1.1).validate()
@@ -54,21 +54,21 @@ Type Validation
     invalid value type: expected=INTEGER, actual=<type 'float'>
 
 
-Type Conversion
-----------------------
+Type Conversion Methods
+--------------------------------------------
 
 convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
-    >>> from pytypeutil import TypeConversionError
+    >>> from typepy.type import Integer
+    >>> from typepy import TypeConversionError
     >>> Integer("1").convert()
     1
     >>> try:
     ...     Integer(1.1).convert()
     ... except TypeConversionError as e:
-    ...     print(e)
+    ...     print(e)  # convert method will raise TypeConversionError when conversion failed
     ...
     failed to convert from float to INTEGER
 
@@ -76,56 +76,56 @@ try_convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer("1").try_convert()
     1
-    >>> print(Integer(1.1).try_convert())
+    >>> print(Integer(1.1).try_convert())  # try_convert method will return None when conversion failed
     None
 
 force_convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
-    >>> Integer("1").force_convert()
+    >>> from typepy.type import Integer
+    >>> Integer("1").force_convert()  # force_convert will forcibly convert the value
     1
     >>> Integer(1.1).force_convert()
     1
 
-
 For more information
 ====================
 
-More examples are available at 
-http://pytypeutil.rtfd.io/en/latest/pages/reference/index.html
+Type check/validate/convert results will be changed according to
+``strict_level`` value which can be passed to constructors as an argument.
+More information can be found in the 
+`API reference <http://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
 
 Features
 ========
 
-Supported types are as follows:
+The association between Python types and typepy classes is as follows:
 
-- `bool <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#bool-type-class>`__
-- `datetime <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#datetime-type-class>`__
-- `dict <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
-- `int <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
-- float
-    - `Real number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
-    - `Infinite <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
-    - `Not a number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
-- `None <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
-- `str <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#string-type-class>`__
-    - `Null string <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
-
-Type check/validate/convert results will be decided according to ``strict_level``
-which can be passed to constructors. API reference can be found in the
-`document <http://pytypeutil.rtfd.io/>`__.
+==================  =======================================================================================================
+Python Type         typepy Class
+==================  =======================================================================================================
+``bool``            `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type-class>`__
+``datetime``        `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type-class>`__
+``dict``            `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
+``inf``             `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
+``int``             `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
+``float``           `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
+``NaN``             `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
+``None``            `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
+``str`` (not null)  `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type-class>`__
+``str`` (null)      `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
+==================  =======================================================================================================
 
 Installation
 ============
 
 ::
 
-    pip install pytypeutil
+    pip install typepy
 
 
 Dependencies
@@ -147,5 +147,5 @@ Test dependencies
 Documentation
 =============
 
-http://pytypeutil.rtfd.io/
+http://typepy.rtfd.io/
 
