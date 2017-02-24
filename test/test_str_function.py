@@ -10,8 +10,8 @@ import itertools
 
 import pytest
 from pytypeutil import (
-    is_empty_string,
-    is_not_empty_string,
+    is_null_string,
+    is_not_null_string,
 )
 
 
@@ -32,7 +32,7 @@ class Test_is_not_empty_string:
         ))
     )
     def test_normal(self, value, expected):
-        assert is_not_empty_string(value) == expected
+        assert is_not_null_string(value) == expected
 
 
 class Test_is_empty_string:
@@ -48,4 +48,4 @@ class Test_is_empty_string:
         ))
     )
     def test_normal(self, value, expected):
-        assert is_empty_string(value) == expected
+        assert is_null_string(value) == expected

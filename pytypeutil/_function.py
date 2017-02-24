@@ -37,16 +37,26 @@ def is_list_or_tuple(value):
     return any([_is_list(value), _is_tuple(value)])
 
 
-def is_empty_string(value):
+def is_null_string(value):
     from .type import NullString
 
     return NullString(value, strict_level=StrictLevel.MIN).is_type()
 
 
-def is_not_empty_string(value):
+def is_not_null_string(value):
     from .type import String
 
     return String(value, strict_level=StrictLevel.MAX).is_type()
+
+
+def is_empty_string(value):
+    # this function will be deleted in the future
+    return is_null_string(value)
+
+
+def is_not_empty_string(value):
+    # this function will be deleted in the future
+    return is_not_null_string(value)
 
 
 def is_empty_sequence(value):

@@ -13,6 +13,8 @@ from ._error import TypeConversionError
 from ._function import (
     is_hex,
     is_list_or_tuple,
+    is_null_string,
+    is_not_null_string,
     is_empty_string,
     is_not_empty_string,
     is_empty_sequence,
