@@ -13,11 +13,11 @@ from dateutil.tz import tzoffset
 import pytest
 import six
 
-from pytypeutil import (
+from typepy import (
     Typecode,
     StrictLevel,
 )
-from pytypeutil.type import DateTime
+from typepy.type import DateTime
 
 
 nan = float("nan")

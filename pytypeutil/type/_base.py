@@ -102,7 +102,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     def force_convert(self):
         """
         :return: Converted value.
-        :raises pytypeutil.TypeConversionError:
+        :raises typepy.TypeConversionError:
             If the value cannot convert.
         """
 
@@ -111,7 +111,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     def convert(self):
         """
         :return: Converted value.
-        :raises pytypeutil.TypeConversionError:
+        :raises typepy.TypeConversionError:
             If the value cannot convert.
         """
 

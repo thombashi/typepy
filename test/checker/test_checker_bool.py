@@ -10,11 +10,11 @@ import itertools
 
 import pytest
 
-from pytypeutil import (
+from typepy import (
     Typecode,
     StrictLevel,
 )
-from pytypeutil.type import Bool
+from typepy.type import Bool
 
 
 nan = float("nan")

@@ -6,8 +6,8 @@
 
 import pytest
 
-from pytypeutil import StrictLevel
-from pytypeutil.type import Integer
+from typepy import StrictLevel
+from typepy.type import Integer
 
 
 class Test_DataPeroperty_repr:

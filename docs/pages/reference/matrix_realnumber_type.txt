@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.RealNumber`: :py:attr:`~pytypeutil.type.RealNumber.strict_level` = 0
+.. table:: :py:class:`typepy.type.RealNumber`: :py:attr:`~typepy.type.RealNumber.strict_level` = 0
 
     ==========================================  ==========  ==========  ==========  ==========  ==========  ==========  =========
                       Method                        1          1.0         1.1       ``"1"``    ``"1.0"``   ``"1.1"``   ``True`` 
@@ -10,7 +10,7 @@
     :py:meth:`~.type.RealNumber.force_convert`  1           1           1.1         1           1           1.1         1        
     ==========================================  ==========  ==========  ==========  ==========  ==========  ==========  =========
 
-.. table:: :py:class:`pytypeutil.type.RealNumber`: :py:attr:`~pytypeutil.type.RealNumber.strict_level` = 1
+.. table:: :py:class:`typepy.type.RealNumber`: :py:attr:`~typepy.type.RealNumber.strict_level` = 1
 
     ==========================================  =========  =========  ==========  =========  =========  ==========  =========
                       Method                        1         1.0        1.1       ``"1"``   ``"1.0"``  ``"1.1"``   ``True`` 
@@ -22,7 +22,7 @@
     :py:meth:`~.type.RealNumber.force_convert`  1          1          1.1         1          1          1.1         1        
     ==========================================  =========  =========  ==========  =========  =========  ==========  =========
 
-.. table:: :py:class:`pytypeutil.type.RealNumber`: :py:attr:`~pytypeutil.type.RealNumber.strict_level` = 2
+.. table:: :py:class:`typepy.type.RealNumber`: :py:attr:`~typepy.type.RealNumber.strict_level` = 2
 
     ==========================================  =========  =========  ==========  =========  =========  =========  =========
                       Method                        1         1.0        1.1       ``"1"``   ``"1.0"``  ``"1.1"``  ``True`` 

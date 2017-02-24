@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-import pytypeutil.type
+import typepy.type
 
 from ._const import StrictLevel
 from ._error import TypeConversionError

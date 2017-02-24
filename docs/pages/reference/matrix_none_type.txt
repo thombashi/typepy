@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.NoneType`: :py:attr:`~pytypeutil.type.NoneType.strict_level` = 0
+.. table:: :py:class:`typepy.type.NoneType`: :py:attr:`~typepy.type.NoneType.strict_level` = 0
 
     ========================================  =========  =========  =========  ==========  =========
                      Method                   ``"abc"``   ``""``    ``"  "``    ``None``       1    

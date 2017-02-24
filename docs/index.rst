@@ -1,4 +1,4 @@
-Welcome to pytypeutil's documentation!
+Welcome to typepy's documentation!
 ======================================
 
 .. toctree::

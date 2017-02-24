@@ -1,4 +1,4 @@
-pytypeutil
+typepy
 =============
 .. include:: badges.txt
 

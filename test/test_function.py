@@ -10,7 +10,7 @@ from __future__ import unicode_literals
 import pytest
 import six
 
-from pytypeutil import (
+from typepy import (
     is_hex,
     is_list_or_tuple,
     is_empty_sequence,

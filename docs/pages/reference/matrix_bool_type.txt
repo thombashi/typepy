@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 0
+.. table:: :py:class:`typepy.type.Bool`: :py:attr:`~typepy.type.Bool.strict_level` = 0
 
     ====================================  ==========  ==========  ==========
                    Method                  ``True``   ``"true"``      1     
@@ -10,7 +10,7 @@
     :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True``  
     ====================================  ==========  ==========  ==========
 
-.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 1
+.. table:: :py:class:`typepy.type.Bool`: :py:attr:`~typepy.type.Bool.strict_level` = 1
 
     ====================================  ==========  ==========  =========
                    Method                  ``True``   ``"true"``      1    
@@ -22,7 +22,7 @@
     :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True`` 
     ====================================  ==========  ==========  =========
 
-.. table:: :py:class:`pytypeutil.type.Bool`: :py:attr:`~pytypeutil.type.Bool.strict_level` = 2
+.. table:: :py:class:`typepy.type.Bool`: :py:attr:`~typepy.type.Bool.strict_level` = 2
 
     ====================================  ==========  ==========  =========
                    Method                  ``True``   ``"true"``      1    

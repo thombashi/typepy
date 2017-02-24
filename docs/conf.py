@@ -7,7 +7,7 @@ import pkg_resources
 import sphinx_rtd_theme
 
 
-sys.path.insert(0, os.path.abspath('../pytypeutil'))
+sys.path.insert(0, os.path.abspath('../typepy'))
 
 
 # -- General configuration ------------------------------------------------
@@ -38,7 +38,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pytypeutil'
+project = u'typepy'
 copyright = u'2017, Tsuyoshi Hombashi'
 author = u'Tsuyoshi Hombashi'
 
@@ -47,7 +47,7 @@ author = u'Tsuyoshi Hombashi'
 # built documents.
 #
 # The short X.Y version.
-version = pkg_resources.get_distribution("pytypeutil").version
+version = pkg_resources.get_distribution("typepy").version
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -121,7 +121,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'pytypeutil.tex', u'pytypeutil Documentation',
+    (master_doc, 'typepy.tex', u'typepy Documentation',
      u'Tsuyoshi Hombashi', 'manual'),
 ]
 
@@ -131,7 +131,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'pytypeutil', u'pytypeutil Documentation',
+    (master_doc, 'typepy', u'typepy Documentation',
      [author], 1)
 ]
 
@@ -142,8 +142,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'pytypeutil', u'pytypeutil Documentation',
-     author, 'pytypeutil', 'One line description of project.',
+    (master_doc, 'typepy', u'typepy Documentation',
+     author, 'typepy', 'One line description of project.',
      'Miscellaneous'),
 ]
 
@@ -170,16 +170,16 @@ rp_builtin = u"""
 """
 
 rp_class = u"""
-.. |TypeConversionError| replace:: :py:class:`pytypeutil.TypeConversionError`
-.. |DateTime| replace:: :py:class:`pytypeutil.type.DateTime`
-.. |Dictionary| replace:: :py:class:`pytypeutil.type.Dictionary`
-.. |Infinity| replace:: :py:class:`pytypeutil.type.Infinity`
-.. |Integer| replace:: :py:class:`pytypeutil.type.Integer`
-.. |Nan| replace:: :py:class:`pytypeutil.type.Nan`
-.. |NoneType| replace:: :py:class:`pytypeutil.type.NoneType`
-.. |NullString| replace:: :py:class:`pytypeutil.type.NullString`
-.. |RealNumber| replace:: :py:class:`pytypeutil.type.RealNumber`
-.. |String| replace:: :py:class:`pytypeutil.type.String`
+.. |TypeConversionError| replace:: :py:class:`typepy.TypeConversionError`
+.. |DateTime| replace:: :py:class:`typepy.type.DateTime`
+.. |Dictionary| replace:: :py:class:`typepy.type.Dictionary`
+.. |Infinity| replace:: :py:class:`typepy.type.Infinity`
+.. |Integer| replace:: :py:class:`typepy.type.Integer`
+.. |Nan| replace:: :py:class:`typepy.type.Nan`
+.. |NoneType| replace:: :py:class:`typepy.type.NoneType`
+.. |NullString| replace:: :py:class:`typepy.type.NullString`
+.. |RealNumber| replace:: :py:class:`typepy.type.RealNumber`
+.. |String| replace:: :py:class:`typepy.type.String`
 """
 
 rp_docstring = u"""

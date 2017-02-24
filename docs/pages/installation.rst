@@ -3,7 +3,7 @@ Installation
 
 ::
 
-    pip install pytypeutil
+    pip install typepy
 
 
 Dependencies

@@ -10,11 +10,11 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
-from pytypeutil import (
+from typepy import (
     Typecode,
     StrictLevel,
 )
-from pytypeutil.type import (
+from typepy.type import (
     String,
     NullString,
 )

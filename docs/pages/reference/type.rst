@@ -3,52 +3,52 @@ Type Classes
 
 Bool Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.Bool
+.. autoclass:: typepy.type.Bool
     :inherited-members:
 
 DateTime Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.DateTime
+.. autoclass:: typepy.type.DateTime
     :inherited-members:
 
 Dictionary Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.Dictionary
+.. autoclass:: typepy.type.Dictionary
     :inherited-members:
 
 Infinity Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.Infinity
+.. autoclass:: typepy.type.Infinity
     :inherited-members:
 
 Integer Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.Integer
+.. autoclass:: typepy.type.Integer
     :inherited-members:
 
 Nan Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.Nan
+.. autoclass:: typepy.type.Nan
     :inherited-members:
 
 None Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.NoneType
+.. autoclass:: typepy.type.NoneType
     :inherited-members:
 
 Null String Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.NullString
+.. autoclass:: typepy.type.NullString
     :inherited-members:
 
 Real Number Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.RealNumber
+.. autoclass:: typepy.type.RealNumber
     :inherited-members:
 
 String Type Class
 -------------------------------
-.. autoclass:: pytypeutil.type.String
+.. autoclass:: typepy.type.String
     :inherited-members:
 
 

@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.Infinity`: :py:attr:`~pytypeutil.type.Infinity.strict_level` = 0
+.. table:: :py:class:`typepy.type.Infinity`: :py:attr:`~typepy.type.Infinity.strict_level` = 0
 
     ========================================  ==================  ==================  =========
                      Method                    ``float("inf")``     ``"Infinity"``     ``0.1`` 
@@ -10,7 +10,7 @@
     :py:meth:`~.type.Infinity.force_convert`  ``Decimal("inf")``  ``Decimal("inf")``  0.1      
     ========================================  ==================  ==================  =========
 
-.. table:: :py:class:`pytypeutil.type.Infinity`: :py:attr:`~pytypeutil.type.Infinity.strict_level` = 1
+.. table:: :py:class:`typepy.type.Infinity`: :py:attr:`~typepy.type.Infinity.strict_level` = 1
 
     ========================================  ==================  ==================  =========
                      Method                    ``float("inf")``     ``"Infinity"``     ``0.1`` 

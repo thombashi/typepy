@@ -9,7 +9,7 @@ from __future__ import unicode_literals
 from decimal import Decimal
 
 import pytest
-import pytypeutil
+import typepy
 
 from ._common import (
     EXCEPTION_RESULT,
@@ -138,11 +138,11 @@ class Test_RealNumber(object):
         ]
     )
     def test_normal(self, method, strict_level, value, expected):
-        from pytypeutil import StrictLevel
-        from pytypeutil.type import Nan
+        from typepy import StrictLevel
+        from typepy.type import Nan
 
         actual = convert_wrapper(
-            pytypeutil.type.RealNumber(value, strict_level),
+            typepy.type.RealNumber(value, strict_level),
             method
         )
         if Nan(expected, strict_level=StrictLevel.MIN).is_type():

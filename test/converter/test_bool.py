@@ -8,7 +8,7 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 
 import pytest
-import pytypeutil
+import typepy
 
 from ._common import (
     EXCEPTION_RESULT,
@@ -70,4 +70,4 @@ class Test_Integer(object):
     )
     def test_normal(self, method, strict_level, value, expected):
         assert convert_wrapper(
-            pytypeutil.type.Bool(value, strict_level), method) == expected
+            typepy.type.Bool(value, strict_level), method) == expected

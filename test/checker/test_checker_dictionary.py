@@ -11,11 +11,11 @@ import itertools
 
 import pytest
 
-from pytypeutil import (
+from typepy import (
     Typecode,
     StrictLevel,
 )
-from pytypeutil.type import Dictionary
+from typepy.type import Dictionary
 
 
 nan = float("nan")

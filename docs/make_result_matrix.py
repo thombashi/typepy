@@ -13,7 +13,7 @@ import io
 import os
 import sys
 
-import pytypeutil
+import typepy
 import six
 
 import dataproperty as dp
@@ -58,7 +58,7 @@ class ResultMatrixWriter(ExampleWriter):
 
     def write_type_matrix(self):
         self.__table_writer.table_name = (
-            ":py:class:`pytypeutil.type.{0:s}`: :py:attr:`~pytypeutil.type.{0:s}.strict_level` = {1:d}".format(
+            ":py:class:`typepy.type.{0:s}`: :py:attr:`~typepy.type.{0:s}.strict_level` = {1:d}".format(
                 self.typeclass.__name__, self.strict_level))
         self.__table_writer.header_list = self.header_list
         self.__table_writer.value_matrix = self.__get_result_matrix()
@@ -77,7 +77,7 @@ class ResultMatrixWriter(ExampleWriter):
                 result = '``"{:s}"``'.format(result)
         except TypeError:
             result = "E [#f2]_"
-        except pytypeutil.TypeConversionError:
+        except typepy.TypeConversionError:
             result = "E [#f3]_"
 
         return result
@@ -177,61 +177,61 @@ class ResultMatrixManager(object):
         self.__ewriter.set_stream(output_stream)
 
     def write_none(self):
-        self.__ewriter.typeclass = pytypeutil.type.NoneType
+        self.__ewriter.typeclass = typepy.type.NoneType
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_bool(self):
-        self.__ewriter.typeclass = pytypeutil.type.Bool
+        self.__ewriter.typeclass = typepy.type.Bool
         self.__ewriter.header_list = self.ExampleBool.HEADER
         self.__ewriter.value_list = self.ExampleBool.VALUE
         self.__write()
 
     def write_string(self):
-        self.__ewriter.typeclass = pytypeutil.type.String
+        self.__ewriter.typeclass = typepy.type.String
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_null_string(self):
-        self.__ewriter.typeclass = pytypeutil.type.NullString
+        self.__ewriter.typeclass = typepy.type.NullString
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_integer(self):
-        self.__ewriter.typeclass = pytypeutil.type.Integer
+        self.__ewriter.typeclass = typepy.type.Integer
         self.__ewriter.header_list = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_realnumber(self):
-        self.__ewriter.typeclass = pytypeutil.type.RealNumber
+        self.__ewriter.typeclass = typepy.type.RealNumber
         self.__ewriter.header_list = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_infinity(self):
-        self.__ewriter.typeclass = pytypeutil.type.Infinity
+        self.__ewriter.typeclass = typepy.type.Infinity
         self.__ewriter.header_list = self.ExampleInfinity.HEADER
         self.__ewriter.value_list = self.ExampleInfinity.VALUE
         self.__write()
 
     def write_nan(self):
-        self.__ewriter.typeclass = pytypeutil.type.Nan
+        self.__ewriter.typeclass = typepy.type.Nan
         self.__ewriter.header_list = self.ExampleNan.HEADER
         self.__ewriter.value_list = self.ExampleNan.VALUE
         self.__write()
 
     def write_datetime(self):
-        self.__ewriter.typeclass = pytypeutil.type.DateTime
+        self.__ewriter.typeclass = typepy.type.DateTime
         self.__ewriter.header_list = self.ExampleDateTime.HEADER
         self.__ewriter.value_list = self.ExampleDateTime.VALUE
         self.__write()
 
     def write_dictionary(self):
-        self.__ewriter.typeclass = pytypeutil.type.Dictionary
+        self.__ewriter.typeclass = typepy.type.Dictionary
         self.__ewriter.header_list = self.ExampleDictionary.HEADER
         self.__ewriter.value_list = self.ExampleDictionary.VALUE
         self.__write()

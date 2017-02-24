@@ -3,7 +3,7 @@ Type Check Method
 
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer(1).is_type()
     True
     >>> Integer(1.1).is_type()
@@ -15,7 +15,7 @@ Type Validation Method
 
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer(1).validate()
     >>> try:
     ...     Integer(1.1).validate()
@@ -32,8 +32,8 @@ convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
-    >>> from pytypeutil import TypeConversionError
+    >>> from typepy.type import Integer
+    >>> from typepy import TypeConversionError
     >>> Integer("1").convert()
     1
     >>> try:
@@ -47,7 +47,7 @@ try_convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer("1").try_convert()
     1
     >>> print(Integer(1.1).try_convert())  # try_convert method will return None when conversion failed
@@ -57,7 +57,7 @@ force_convert
 ~~~~~~~~~~~~~~
 .. code:: pycon
 
-    >>> from pytypeutil.type import Integer
+    >>> from typepy.type import Integer
     >>> Integer("1").force_convert()  # force_convert will forcibly convert the value
     1
     >>> Integer(1.1).force_convert()

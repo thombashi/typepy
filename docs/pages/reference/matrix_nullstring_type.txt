@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.NullString`: :py:attr:`~pytypeutil.type.NullString.strict_level` = 0
+.. table:: :py:class:`typepy.type.NullString`: :py:attr:`~typepy.type.NullString.strict_level` = 0
 
     ==========================================  =========  ==========  ==========  ==========  =========
                       Method                    ``"abc"``    ``""``     ``"  "``    ``None``       1    
@@ -10,7 +10,7 @@
     :py:meth:`~.type.NullString.force_convert`  ``""``     ``""``      ``""``      ``""``      ``""``   
     ==========================================  =========  ==========  ==========  ==========  =========
 
-.. table:: :py:class:`pytypeutil.type.NullString`: :py:attr:`~pytypeutil.type.NullString.strict_level` = 1
+.. table:: :py:class:`typepy.type.NullString`: :py:attr:`~typepy.type.NullString.strict_level` = 1
 
     ==========================================  =========  ==========  ==========  =========  =========
                       Method                    ``"abc"``    ``""``     ``"  "``   ``None``       1    

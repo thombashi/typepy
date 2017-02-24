@@ -1,4 +1,4 @@
-.. table:: :py:class:`pytypeutil.type.Dictionary`: :py:attr:`~pytypeutil.type.Dictionary.strict_level` = 0
+.. table:: :py:class:`typepy.type.Dictionary`: :py:attr:`~typepy.type.Dictionary.strict_level` = 0
 
     ==========================================  ==========  ============  ================
                       Method                      ``{}``    ``{"a": 1}``  ``(("a", 1), )``
@@ -10,7 +10,7 @@
     :py:meth:`~.type.Dictionary.force_convert`  {}          {'a': 1}      {'a': 1}        
     ==========================================  ==========  ============  ================
 
-.. table:: :py:class:`pytypeutil.type.Dictionary`: :py:attr:`~pytypeutil.type.Dictionary.strict_level` = 1
+.. table:: :py:class:`typepy.type.Dictionary`: :py:attr:`~typepy.type.Dictionary.strict_level` = 1
 
     ==========================================  ==========  ============  ================
                       Method                      ``{}``    ``{"a": 1}``  ``(("a", 1), )``

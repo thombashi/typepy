@@ -1,17 +1,17 @@
-.. image:: https://badge.fury.io/py/pytypeutil.svg
-    :target: https://badge.fury.io/py/pytypeutil
+.. image:: https://badge.fury.io/py/typepy.svg
+    :target: https://badge.fury.io/py/typepy
 
-.. image:: https://img.shields.io/pypi/pyversions/pytypeutil.svg
-   :target: https://pypi.python.org/pypi/pytypeutil
+.. image:: https://img.shields.io/pypi/pyversions/typepy.svg
+   :target: https://pypi.python.org/pypi/typepy
 
-.. image:: https://img.shields.io/travis/thombashi/pytypeutil/master.svg?label=Linux
-    :target: https://travis-ci.org/thombashi/pytypeutil
+.. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux
+    :target: https://travis-ci.org/thombashi/typepy
 
-.. image:: https://img.shields.io/appveyor/ci/thombashi/pytypeutil/master.svg?label=Windows
-    :target: https://ci.appveyor.com/project/thombashi/pytypeutil
+.. image:: https://img.shields.io/appveyor/ci/thombashi/typepy/master.svg?label=Windows
+    :target: https://ci.appveyor.com/project/thombashi/typepy
 
-.. image:: https://coveralls.io/repos/github/thombashi/pytypeutil/badge.svg?branch=master
-    :target: https://coveralls.io/github/thombashi/pytypeutil?branch=master
+.. image:: https://coveralls.io/repos/github/thombashi/typepy/badge.svg?branch=master
+    :target: https://coveralls.io/github/thombashi/typepy?branch=master
 
-.. image:: https://img.shields.io/github/stars/thombashi/pytypeutil.svg?style=social&label=Star
-   :target: https://github.com/thombashi/pytypeutil
+.. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
+   :target: https://github.com/thombashi/typepy

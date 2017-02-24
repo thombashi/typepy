@@ -14,7 +14,7 @@ from path import Path
 import readmemaker
 
 
-PROJECT_NAME = "pytypeutil"
+PROJECT_NAME = "typepy"
 OUTPUT_DIR = ".."
 
 

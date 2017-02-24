@@ -6,7 +6,7 @@
 
 import pytest
 
-from pytypeutil import Typecode
+from typepy import Typecode
 
 
 class Test_Typecode_get_typename:

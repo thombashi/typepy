@@ -13,11 +13,11 @@ import itertools
 import pytest
 import six
 
-from pytypeutil import (
+from typepy import (
     Typecode,
     StrictLevel,
 )
-from pytypeutil.type import Nan
+from typepy.type import Nan
 
 
 nan = float("nan")

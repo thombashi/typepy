@@ -9,7 +9,7 @@ if "%SPHINXBUILD%" == "" (
 )
 set SOURCEDIR=.
 set BUILDDIR=_build
-set SPHINXPROJ=pytypeutil
+set SPHINXPROJ=typepy
 
 if "%1" == "" goto help
 

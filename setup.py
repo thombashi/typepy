@@ -35,7 +35,7 @@ pytest_runner = ["pytest-runner"] if needs_pytest else []
 
 author = "Tsuyoshi Hombashi"
 email = "gogogo.vm@gmail.com"
-project_name = "pytypeutil"
+project_name = "typepy"
 
 setuptools.setup(
     name=project_name,
