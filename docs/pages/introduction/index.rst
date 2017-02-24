@@ -13,6 +13,6 @@ Usage
 .. include:: usage.txt
 
 
-Features
-=============
+Supported Types
+=================
 .. include:: features.txt

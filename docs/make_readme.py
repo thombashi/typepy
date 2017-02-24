@@ -28,8 +28,10 @@ def write_examples(maker):
 
     maker.write_chapter("For more information")
     maker.write_line_list([
-        "More examples are available at ",
-        "http://{:s}.rtfd.io/en/latest/pages/reference/index.html".format(
+        "Type check/validate/convert results will be changed according to",
+        "``strict_level`` value which can be passed to constructors as an argument.",
+        "More information can be found in the ",
+        "`API reference <http://{:s}.rtfd.io/en/latest/pages/reference/index.html>`__.".format(
             PROJECT_NAME),
     ])
 

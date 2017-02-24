@@ -1,17 +1,16 @@
-Supported types are as follows:
+The association between Python types and pytypeutil classes is as follows:
 
-- `bool <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#bool-type-class>`__
-- `datetime <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#datetime-type-class>`__
-- `dict <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
-- `int <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
-- float
-    - `Real number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
-    - `Infinite <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
-    - `Not a number <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
-- `None <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
-- `str <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#string-type-class>`__
-    - `Null string <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
-
-Type check/validate/convert results will be decided according to ``strict_level``
-which can be passed to constructors. API reference can be found in the 
-`document <http://pytypeutil.rtfd.io/>`__.
+==================  =======================================================================================================
+Python Type         pytypeutil Class
+==================  =======================================================================================================
+``bool``            `Bool <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#bool-type-class>`__
+``datetime``        `DateTime <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#datetime-type-class>`__
+``dict``            `Dictionary <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
+``inf``             `Infinity <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
+``int``             `Integer <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
+``float``           `RealNumber <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
+``NaN``             `Nan <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
+``None``            `None <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
+``str`` (not null)  `String <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#string-type-class>`__
+``str`` (null)      `NullString <http://pytypeutil.rtfd.io/en/latest/pages/reference/type.html#null-string-type-class>`__
+==================  =======================================================================================================
