@@ -33,25 +33,21 @@ with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
 needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
 pytest_runner = ["pytest-runner"] if needs_pytest else []
 
-author = "Tsuyoshi Hombashi"
-email = "gogogo.vm@gmail.com"
-project_name = "typepy"
+PROJECT_NAME = "typepy"
 
 setuptools.setup(
-    name=project_name,
+    name=PROJECT_NAME,
     version="0.0.3",
-    url="https://github.com/thombashi/{:s}".format(project_name),
+    url="https://github.com/thombashi/{:s}".format(PROJECT_NAME),
 
-    author=author,
-    author_email=email,
+    author="Tsuyoshi Hombashi",
+    author_email="gogogo.vm@gmail.com",
     description=summary,
     include_package_data=True,
     install_requires=install_requires,
     keywords=["type", "validator", "converter"],
     license="MIT License",
     long_description=long_description,
-    maintainer=author,
-    maintainer_email=email,
     packages=setuptools.find_packages(exclude=["test*"]),
     setup_requires=[] + pytest_runner,
     tests_require=tests_require,
