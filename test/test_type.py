@@ -84,7 +84,7 @@ class Test_DateTime(object):
             datetime.datetime(2017, 1, 29, 19, 27, 3),
         ],
     ])
-    def test_smoke(self, value, timezone, expected):
+    def test_normal_timezone(self, value, timezone, expected):
         result = typepy.type.DateTime(
             value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
