@@ -39,7 +39,7 @@ project_name = "typepy"
 
 setuptools.setup(
     name=project_name,
-    version="0.0.2",
+    version="0.0.3",
     url="https://github.com/thombashi/{:s}".format(project_name),
 
     author=author,
