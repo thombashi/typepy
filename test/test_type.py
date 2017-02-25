@@ -26,3 +26,44 @@ class Test_TypeClass_repr(object):
         type_object = type_class(value, strict_level)
 
         assert str(type_object)
+
+
+class Test_DateTime(object):
+
+    @pytest.mark.parametrize(["value", "timezone", "expected"], [
+        [
+            datetime.datetime(2017, 1, 29, 10, 27, 3),
+            pytz.utc,
+            datetime.datetime(2017, 1, 29, 10, 27, 3)
+        ],
+        [
+            datetime.datetime(2017, 1, 29, 10, 27, 3),
+            pytz.timezone("Asia/Tokyo"),
+            datetime.datetime(2017, 1, 29, 10, 27, 3)
+        ],
+        [
+            "2017-01-29 19:27:03",
+            pytz.utc,
+            datetime.datetime(2017, 1, 29, 19, 27, 3)
+        ],
+        [
+            "2017-01-29 19:27:03",
+            pytz.timezone("Asia/Tokyo"),
+            datetime.datetime(2017, 1, 29, 19, 27, 3)
+        ],
+        [
+            1485685623,
+            pytz.utc,
+            datetime.datetime(2017, 1, 29, 10, 27, 3)
+        ],
+        [
+            1485685623,
+            pytz.timezone("Asia/Tokyo"),
+            datetime.datetime(2017, 1, 29, 19, 27, 3),
+        ],
+    ])
+    def test_smoke(self, value, timezone, expected):
+        result = typepy.type.DateTime(
+            value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
+
+        assert result == timezone.localize(expected)

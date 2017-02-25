@@ -33,10 +33,11 @@ class DateTimeConverter(AbstractValueConverter):
 
     __RE_VERSION_STR = re.compile("\d+\.\d+\.\d")
 
-    def __init__(self, value):
+    def __init__(self, value, timezone=None):
         super(DateTimeConverter, self).__init__(value)
 
         self.__datetime = None
+        self.__timezone = timezone
 
     def force_convert(self):
         import dateutil.parser
@@ -44,6 +45,9 @@ class DateTimeConverter(AbstractValueConverter):
 
         if isinstance(self._value, datetime):
             self.__datetime = self._value
+            if self.__timezone:
+                self.__datetime = self.__timezone.localize(self.__datetime)
+
             return self.__datetime
 
         self.__datetime = self.__from_timestamp()
@@ -59,13 +63,17 @@ class DateTimeConverter(AbstractValueConverter):
                 "failed to parse as a datetime: type={}".format(
                     type(self._value)))
 
-        try:
-            dst_timezone_name = self.__get_dst_timezone_name(
-                self.__get_timedelta_sec())
-        except (AttributeError, KeyError):
-            return self.__datetime
+        if self.__timezone:
+            pytz_timezone = self.__timezone
+        else:
+            try:
+                dst_timezone_name = self.__get_dst_timezone_name(
+                    self.__get_timedelta_sec())
+            except (AttributeError, KeyError):
+                return self.__datetime
 
-        pytz_timezone = pytz.timezone(dst_timezone_name)
+            pytz_timezone = pytz.timezone(dst_timezone_name)
+
         self.__datetime = self.__datetime.replace(tzinfo=None)
         self.__datetime = pytz_timezone.localize(self.__datetime)
 
@@ -79,7 +87,8 @@ class DateTimeConverter(AbstractValueConverter):
             return None
 
         try:
-            self.__datetime = datetime.fromtimestamp(timestamp)
+            self.__datetime = datetime.fromtimestamp(
+                timestamp, self.__timezone)
         except (ValueError, OSError, OverflowError):
             raise TypeConversionError(
                 "timestamp is out of the range of values supported by the platform")

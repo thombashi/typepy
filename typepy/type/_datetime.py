@@ -5,6 +5,7 @@
 """
 
 from __future__ import absolute_import
+from __future__ import unicode_literals
 
 from .._typecode import Typecode
 from ..checker import DateTimeTypeChecker
@@ -22,15 +23,19 @@ class DateTime(AbstractType):
         |strict_level|
     """
 
+    _TIMEZONE_KEY = "timezone"
+
     @property
     def typecode(self):
         return Typecode.DATETIME
 
-    def __init__(self, value, strict_level=2, params=None):
-        super(DateTime, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=2, timezone=None):
+        super(DateTime, self).__init__(
+            value, strict_level, params={self._TIMEZONE_KEY: timezone})
 
     def _create_type_checker(self):
         return DateTimeTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return DateTimeConverter(self._data)
+        return DateTimeConverter(
+            self._data, self._params.get(self._TIMEZONE_KEY))
