@@ -40,19 +40,45 @@ class DateTimeConverter(AbstractValueConverter):
         self.__timezone = timezone
 
     def force_convert(self):
-        import dateutil.parser
-        import pytz
-
-        if isinstance(self._value, datetime):
-            self.__datetime = self._value
-            if self.__timezone:
-                self.__datetime = self.__timezone.localize(self.__datetime)
-
+        self.__datetime = self.__from_datetime()
+        if self.__datetime:
             return self.__datetime
 
         self.__datetime = self.__from_timestamp()
         if self.__datetime:
             return self.__datetime
+
+        return self.__from_datetime_string()
+
+    def __from_datetime(self):
+        if not isinstance(self._value, datetime):
+            return None
+
+        self.__datetime = self._value
+        if self.__timezone:
+            self.__datetime = self.__timezone.localize(self.__datetime)
+
+        return self.__datetime
+
+    def __from_timestamp(self):
+        from ..type._integer import Integer
+
+        timestamp = Integer(self._value, strict_level=1).try_convert()
+        if timestamp is None:
+            return None
+
+        try:
+            self.__datetime = datetime.fromtimestamp(
+                timestamp, self.__timezone)
+        except (ValueError, OSError, OverflowError):
+            raise TypeConversionError(
+                "timestamp is out of the range of values supported by the platform")
+
+        return self.__datetime
+
+    def __from_datetime_string(self):
+        import dateutil.parser
+        import pytz
 
         self.__validate_datetime_string()
 
@@ -76,22 +102,6 @@ class DateTimeConverter(AbstractValueConverter):
 
         self.__datetime = self.__datetime.replace(tzinfo=None)
         self.__datetime = pytz_timezone.localize(self.__datetime)
-
-        return self.__datetime
-
-    def __from_timestamp(self):
-        from ..type._integer import Integer
-
-        timestamp = Integer(self._value, strict_level=1).try_convert()
-        if timestamp is None:
-            return None
-
-        try:
-            self.__datetime = datetime.fromtimestamp(
-                timestamp, self.__timezone)
-        except (ValueError, OSError, OverflowError):
-            raise TypeConversionError(
-                "timestamp is out of the range of values supported by the platform")
 
         return self.__datetime
 
