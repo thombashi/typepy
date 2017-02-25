@@ -29,9 +29,8 @@ class DateTime(AbstractType):
     def typecode(self):
         return Typecode.DATETIME
 
-    def __init__(self, value, strict_level=2, timezone=None):
-        super(DateTime, self).__init__(
-            value, strict_level, params={self._TIMEZONE_KEY: timezone})
+    def __init__(self, value, strict_level=2, **kwargs):
+        super(DateTime, self).__init__(value, strict_level, kwargs)
 
     def _create_type_checker(self):
         return DateTimeTypeChecker(self._data, self._strict_level)

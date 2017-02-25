@@ -26,8 +26,8 @@ class Infinity(AbstractType):
     def typecode(self):
         return Typecode.INFINITY
 
-    def __init__(self, value, strict_level=1, params=None):
-        super(Infinity, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=1, **kwargs):
+        super(Infinity, self).__init__(value, strict_level, kwargs)
 
     def _create_type_checker(self):
         return InfinityTypeChecker(self._data, self._strict_level)

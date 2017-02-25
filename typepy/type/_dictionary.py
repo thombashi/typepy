@@ -26,8 +26,8 @@ class Dictionary(AbstractType):
     def typecode(self):
         return Typecode.DICTIONARY
 
-    def __init__(self, value, strict_level=1, params=None):
-        super(Dictionary, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=1, **kwargs):
+        super(Dictionary, self).__init__(value, strict_level, kwargs)
 
     def _create_type_checker(self):
         return DictionaryTypeChecker(self._data, self._strict_level)

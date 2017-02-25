@@ -26,8 +26,8 @@ class NoneType(AbstractType):
     def typecode(self):
         return Typecode.NONE
 
-    def __init__(self, value, strict_level=0, params=None):
-        super(NoneType, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=0, **kwargs):
+        super(NoneType, self).__init__(value, strict_level, kwargs)
 
     def force_convert(self):
         return None

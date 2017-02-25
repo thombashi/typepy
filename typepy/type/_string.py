@@ -33,8 +33,8 @@ class String(AbstractType):
     def typecode(self):
         return Typecode.STRING
 
-    def __init__(self, value, strict_level=1, params=None):
-        super(String, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=1, **kwargs):
+        super(String, self).__init__(value, strict_level, kwargs)
 
     def _create_type_checker(self):
         return StringTypeChecker(self._data, self._strict_level)

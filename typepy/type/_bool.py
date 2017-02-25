@@ -27,8 +27,8 @@ class Bool(AbstractType):
     def typecode(self):
         return Typecode.BOOL
 
-    def __init__(self, value, strict_level=2, params=None):
-        super(Bool, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=2, **kwargs):
+        super(Bool, self).__init__(value, strict_level, kwargs)
 
     def _create_type_checker(self):
         return BoolTypeChecker(self._data, self._strict_level)
