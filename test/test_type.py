@@ -4,20 +4,25 @@
 .. codeauthor:: Tsuyoshi Hombashi <gogogo.vm@gmail.com>
 """
 
-import pytest
+import datetime
 
+import pytest
+import pytz
+import six
 from typepy import StrictLevel
-from typepy.type import Integer
+import typepy
 
 
 class Test_TypeClass_repr(object):
 
     @pytest.mark.parametrize(["type_class", "value", "strict_level"], [
-        [Integer, 0, StrictLevel.MIN],
-        [Integer, 0, StrictLevel.MIN + 1],
-        [Integer, 0, StrictLevel.MAX],
+        [typepy.type.Integer, -six.MAXSIZE, StrictLevel.MIN],
+        [typepy.type.Integer, six.MAXSIZE, StrictLevel.MAX],
+        [typepy.type.RealNumber, -0.1, StrictLevel.MIN],
+        [typepy.type.RealNumber, 0.1, StrictLevel.MAX],
+        [typepy.type.DateTime, 1485685623, StrictLevel.MIN],
     ])
-    def test_normal(self, type_class, value, strict_level):
+    def test_smoke(self, type_class, value, strict_level):
         type_object = type_class(value, strict_level)
 
         assert str(type_object)
