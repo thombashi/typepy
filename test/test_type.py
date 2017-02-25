@@ -5,6 +5,7 @@
 """
 
 import datetime
+from decimal import Decimal
 
 import pytest
 import pytz
@@ -26,6 +27,27 @@ class Test_TypeClass_repr(object):
         type_object = type_class(value, strict_level)
 
         assert str(type_object)
+
+
+class Test_RealNumber(object):
+
+    @pytest.mark.parametrize(["value", "float_type", "expected"], [
+        [
+            "0.1",
+            float,
+            0.1
+        ],
+        [
+            "0.1",
+            Decimal,
+            Decimal("0.1")
+        ],
+    ])
+    def test_normal_float_type(self, value, float_type, expected):
+        result = typepy.type.RealNumber(
+            value, strict_level=StrictLevel.MIN, float_type=float_type).convert()
+
+        assert result == expected
 
 
 class Test_DateTime(object):
