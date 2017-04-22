@@ -45,7 +45,8 @@ class Test_RealNumber(object):
     ])
     def test_normal_float_type(self, value, float_type, expected):
         result = typepy.type.RealNumber(
-            value, strict_level=StrictLevel.MIN, float_type=float_type).convert()
+            value, strict_level=StrictLevel.MIN, float_type=float_type
+        ).convert()
 
         assert result == expected
 
