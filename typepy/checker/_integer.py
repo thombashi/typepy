@@ -56,13 +56,8 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         return any([
             super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance(),
             isinstance(self._value, bool),
-            #isinstance(self._value, float) and not self._value.is_integer(),
-            # isinstance(self._value, Decimal) and not float(
-            #    self._value).is_integer(),
             RealNumber(self._value, strict_level=1).is_type(),
         ])
-
-    # def is_valid_after_convert(self, converted_value):
 
 
 class IntegerTypeCheckerStrictLevel2(IntegerTypeCheckerStrictLevel1):
