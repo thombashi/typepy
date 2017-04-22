@@ -13,8 +13,8 @@ import io
 import os
 import sys
 
-import typepy
 import six
+import typepy
 
 import dataproperty as dp
 import pytablewriter as ptw

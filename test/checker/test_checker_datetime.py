@@ -6,13 +6,13 @@
 """
 
 from __future__ import unicode_literals
+
 from datetime import datetime
 import itertools
 
 from dateutil.tz import tzoffset
 import pytest
 import six
-
 from typepy import (
     Typecode,
     StrictLevel,
