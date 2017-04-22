@@ -10,10 +10,7 @@ from __future__ import unicode_literals
 import pytest
 import typepy
 
-from ._common import (
-    EXCEPTION_RESULT,
-    convert_wrapper,
-)
+from ._common import convert_wrapper
 
 
 nan = float("nan")
