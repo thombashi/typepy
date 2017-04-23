@@ -184,7 +184,10 @@ rp_class = u"""
 
 rp_docstring = u"""
 .. |result_matrix_desc| replace:: 
-    Result matrix for each ``strict_level`` is as follows. X axis shows ``value``, Y axis shows member methods:
+    For each member methods, the result matrix for each ``strict_level`` is as follows.
+    Column headers (except ``Method`` column) indicate input data to ``value`` argument of
+    a method in the ``Method`` column.
+    For each cell shows the output of the method.
 
 .. |strict_level| replace:: 
     Represents how much strict to detect the value type. Higher strict_level means that more stricter type check.
