@@ -57,8 +57,8 @@ class NullString(AbstractType):
     def typecode(self):
         return Typecode.NULL_STRING
 
-    def __init__(self, value, strict_level=1, params=None):
-        super(NullString, self).__init__(value, strict_level, params)
+    def __init__(self, value, strict_level=1, **kwargs):
+        super(NullString, self).__init__(value, strict_level, kwargs)
 
     def force_convert(self):
         return ""
