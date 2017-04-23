@@ -12,7 +12,6 @@ from decimal import (
     InvalidOperation,
 )
 
-from .._const import StrictLevel
 from .._error import TypeConversionError
 from ._interface import AbstractValueConverter
 
