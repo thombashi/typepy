@@ -13,7 +13,7 @@ import typepy
 from ._common import convert_wrapper
 
 
-class Test_Integer(object):
+class Test_Bool(object):
 
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],

@@ -20,7 +20,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_Integer(object):
+class Test_String(object):
 
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
