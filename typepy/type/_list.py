@@ -16,6 +16,8 @@ class List(AbstractType):
     """
     |result_matrix_desc|
 
+    .. include:: matrix_list_type.txt
+
     :py:attr:`.strict_level`
         |strict_level|
     """
