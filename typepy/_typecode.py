@@ -21,7 +21,7 @@ class Typecode(object):
     BOOL = 1 << 7
     DICTIONARY = 1 << 8
 
-    LIST = [
+    TYPE_LIST = [
         NONE, INTEGER, FLOAT, NULL_STRING, STRING, DATETIME, INFINITY,
         NAN, BOOL, DICTIONARY,
     ]
