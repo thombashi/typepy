@@ -113,6 +113,7 @@ Python Type         typepy Class
 ``dict``            `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type-class>`__
 ``inf``             `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type-class>`__
 ``int``             `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type-class>`__
+``list``            `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
 ``float``           `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type-class>`__
 ``NaN``             `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type-class>`__
 ``None``            `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type-class>`__
