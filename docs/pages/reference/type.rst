@@ -26,6 +26,11 @@ Integer Type
 .. autoclass:: typepy.type.Integer
     :inherited-members:
 
+List Type
+-------------------------------
+.. autoclass:: typepy.type.List
+    :inherited-members:
+
 Nan Type
 -------------------------------
 .. autoclass:: typepy.type.Nan

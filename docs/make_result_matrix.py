@@ -15,8 +15,19 @@ import sys
 
 import six
 import typepy
-
-import dataproperty as dp
+from typepy.type import (
+    Bool,
+    DateTime,
+    Dictionary,
+    Infinity,
+    Integer,
+    List,
+    Nan,
+    NoneType,
+    RealNumber,
+    String,
+    NullString,
+)
 import pytablewriter as ptw
 
 
@@ -43,10 +54,10 @@ class ResultMatrixWriter(ExampleWriter):
 
         self.__table_writer = ptw.RstSimpleTableWriter()
         self.__table_writer._dp_extractor.type_value_mapping = {
-            dp.NullStringType(None).typecode: '``""``',
-            dp.NoneType(None).typecode: "``None``",
-            dp.InfinityType(None).typecode: '``Decimal("inf")``',
-            dp.NanType(None).typecode: '``Decimal("nan")``',
+            NullString(None).typecode: '``""``',
+            NoneType(None).typecode: "``None``",
+            Infinity(None).typecode: '``Decimal("inf")``',
+            Nan(None).typecode: '``Decimal("nan")``',
         }
         self.__table_writer._dp_extractor.const_value_mapping = {
             True: "``True``",
@@ -156,6 +167,20 @@ class ResultMatrixManager(object):
             "1485685623",
         ]
 
+    class ExampleList(object):
+        HEADER = [METHOD_HEADER] + [
+            '``[]``',
+            '``[]``',
+            '``{"a": 1}``',
+            '``"abc"``',
+        ]
+        VALUE = [
+            [],
+            ["a", "b"],
+            {"a": 1},
+            "abc",
+        ]
+
     class ExampleDictionary(object):
         HEADER = [METHOD_HEADER] + [
             '``{}``',
@@ -177,61 +202,67 @@ class ResultMatrixManager(object):
         self.__ewriter.set_stream(output_stream)
 
     def write_none(self):
-        self.__ewriter.typeclass = typepy.type.NoneType
+        self.__ewriter.typeclass = NoneType
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_bool(self):
-        self.__ewriter.typeclass = typepy.type.Bool
+        self.__ewriter.typeclass = Bool
         self.__ewriter.header_list = self.ExampleBool.HEADER
         self.__ewriter.value_list = self.ExampleBool.VALUE
         self.__write()
 
     def write_string(self):
-        self.__ewriter.typeclass = typepy.type.String
+        self.__ewriter.typeclass = String
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_null_string(self):
-        self.__ewriter.typeclass = typepy.type.NullString
+        self.__ewriter.typeclass = NullString
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_integer(self):
-        self.__ewriter.typeclass = typepy.type.Integer
+        self.__ewriter.typeclass = Integer
         self.__ewriter.header_list = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_realnumber(self):
-        self.__ewriter.typeclass = typepy.type.RealNumber
+        self.__ewriter.typeclass = RealNumber
         self.__ewriter.header_list = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_infinity(self):
-        self.__ewriter.typeclass = typepy.type.Infinity
+        self.__ewriter.typeclass = Infinity
         self.__ewriter.header_list = self.ExampleInfinity.HEADER
         self.__ewriter.value_list = self.ExampleInfinity.VALUE
         self.__write()
 
     def write_nan(self):
-        self.__ewriter.typeclass = typepy.type.Nan
+        self.__ewriter.typeclass = Nan
         self.__ewriter.header_list = self.ExampleNan.HEADER
         self.__ewriter.value_list = self.ExampleNan.VALUE
         self.__write()
 
     def write_datetime(self):
-        self.__ewriter.typeclass = typepy.type.DateTime
+        self.__ewriter.typeclass = DateTime
         self.__ewriter.header_list = self.ExampleDateTime.HEADER
         self.__ewriter.value_list = self.ExampleDateTime.VALUE
         self.__write()
 
+    def write_list(self):
+        self.__ewriter.typeclass = List
+        self.__ewriter.header_list = self.ExampleList.HEADER
+        self.__ewriter.value_list = self.ExampleList.VALUE
+        self.__write()
+
     def write_dictionary(self):
-        self.__ewriter.typeclass = typepy.type.Dictionary
+        self.__ewriter.typeclass = Dictionary
         self.__ewriter.header_list = self.ExampleDictionary.HEADER
         self.__ewriter.value_list = self.ExampleDictionary.VALUE
         self.__write()
@@ -296,6 +327,10 @@ def write_result_matrix(output_dir_path):
     with opener.open_write(make_filename("string")) as f:
         manager.set_stream(f)
         manager.write_string()
+
+    with opener.open_write(make_filename("list")) as f:
+        manager.set_stream(f)
+        manager.write_list()
 
     with opener.open_write(make_filename("dictionary")) as f:
         manager.set_stream(f)
