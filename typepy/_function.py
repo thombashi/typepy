@@ -7,6 +7,8 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
+import warnings
+
 from ._const import StrictLevel
 
 
@@ -50,12 +52,20 @@ def is_not_null_string(value):
 
 
 def is_empty_string(value):
-    # this function will be deleted in the future
+    warnings.warn(
+        "is_empty_string function will be deleted in the future, "
+        "use is_null_string instead."
+    )
+
     return is_null_string(value)
 
 
 def is_not_empty_string(value):
-    # this function will be deleted in the future
+    warnings.warn(
+        "is_not_empty_string function will be deleted in the future, "
+        "use is_not_null_string instead."
+    )
+
     return is_not_null_string(value)
 
 
