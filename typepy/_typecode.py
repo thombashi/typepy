@@ -6,6 +6,7 @@
 
 from __future__ import absolute_import
 from __future__ import unicode_literals
+
 import copy
 
 
@@ -20,10 +21,11 @@ class Typecode(object):
     NAN = 1 << 6
     BOOL = 1 << 7
     DICTIONARY = 1 << 8
+    LIST = 1 << 9
 
     TYPE_LIST = [
         NONE, INTEGER, FLOAT, NULL_STRING, STRING, DATETIME, INFINITY,
-        NAN, BOOL, DICTIONARY,
+        NAN, BOOL, DICTIONARY, LIST,
     ]
 
     DEFAULT_TYPENAME_TABLE = {
@@ -37,6 +39,7 @@ class Typecode(object):
         NAN: "NAN",
         BOOL: "BOOL",
         DICTIONARY: "DICTIONARY",
+        LIST: "LIST",
     }
 
     TYPENAME_TABLE = copy.deepcopy(DEFAULT_TYPENAME_TABLE)

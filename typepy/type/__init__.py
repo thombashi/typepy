@@ -11,6 +11,7 @@ from ._datetime import DateTime
 from ._dictionary import Dictionary
 from ._infinity import Infinity
 from ._integer import Integer
+from ._list import List
 from ._nan import Nan
 from ._none import NoneType
 from ._realnumber import RealNumber

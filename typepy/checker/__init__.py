@@ -12,6 +12,7 @@ from ._dictionary import DictionaryTypeChecker
 from ._infinity import InfinityTypeChecker
 from ._integer import IntegerTypeChecker
 from ._interface import TypeCheckerInterface
+from ._list import ListTypeChecker
 from ._nan import NanTypeChecker
 from ._none import NoneTypeChecker
 from ._realnumber import RealNumberTypeChecker
