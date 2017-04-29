@@ -170,7 +170,7 @@ class ResultMatrixManager(object):
     class ExampleList(object):
         HEADER = [METHOD_HEADER] + [
             '``[]``',
-            '``[]``',
+            '``["a", "b"]``',
             '``{"a": 1}``',
             '``"abc"``',
         ]
