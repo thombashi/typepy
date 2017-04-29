@@ -27,8 +27,6 @@ class Test_List_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [
-            ["a", StrictLevel.MIN, True],
-            ["a", StrictLevel.MAX, False],
             [("a", 1), StrictLevel.MIN, True],
             [("a", 1), StrictLevel.MAX, False],
             [{"a": 1, "b": 2}, StrictLevel.MIN, True],
@@ -38,7 +36,7 @@ class Test_List_is_type:
             [StrictLevel.MIN, StrictLevel.MAX],
             [True],
         )) + list(itertools.product(
-            [(), {}, "", 1, nan, True, None],
+            [(), {}, "", "abc", 1, nan, True, None],
             [StrictLevel.MIN, StrictLevel.MAX],
             [False],
         ))

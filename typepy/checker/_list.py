@@ -21,12 +21,15 @@ class ListTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
     def is_valid_after_convert(self, converted_value):
         return isinstance(converted_value, list) and converted_value
 
+    def is_exclude_instance(self):
+        return isstring(self._value)
+
 
 class ListTypeCheckerStrictLevel1(ListTypeCheckerStrictLevel0):
 
     def is_exclude_instance(self):
         return any([
-            isstring(self._value),
+            super(ListTypeCheckerStrictLevel1, self).is_exclude_instance(),
             not isinstance(self._value, list),
         ])
 
