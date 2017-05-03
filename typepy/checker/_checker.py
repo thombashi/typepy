@@ -17,16 +17,19 @@ class CheckerCreator(object):
 
     @property
     def min_strict_level(self):
-        return min(self.__checker_mapping)
+        return self.__min_strict_level
 
     @property
     def max_strict_level(self):
-        return max(self.__checker_mapping)
+        return self.__max_strict_level
 
     def __init__(self, type_object, value, checker_mapping):
         self.__type_object = type_object
         self.__value = value
         self.__checker_mapping = checker_mapping
+
+        self.__min_strict_level = min(checker_mapping)
+        self.__max_strict_level = max(checker_mapping)
 
     def create(self, strict_level=None):
         if strict_level is None:
