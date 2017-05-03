@@ -23,8 +23,7 @@ class CheckerCreator(object):
     def max_strict_level(self):
         return self.__max_strict_level
 
-    def __init__(self, type_object, value, checker_mapping):
-        self.__type_object = type_object
+    def __init__(self, value, checker_mapping):
         self.__value = value
         self.__checker_mapping = checker_mapping
 
@@ -39,15 +38,15 @@ class CheckerCreator(object):
         elif strict_level > self.max_strict_level:
             strict_level = self.max_strict_level
 
-        return self.__checker_mapping.get(strict_level)(
-            self.__type_object, self.__value)
+        return self.__checker_mapping.get(strict_level)(self.__value)
 
 
 class TypeCheckerStrictLevel(TypeCheckerInterface):
-    __slots__ = ("_value", )
+    __slots__ = (
+        "_value",
+    )
 
-    def __init__(self, type_object, value):
-        self.__type_object = type_object
+    def __init__(self, value):
         self._value = value
 
     @abc.abstractmethod
@@ -84,7 +83,6 @@ class TypeChecker(TypeCheckerInterface):
 
     def __init__(self, value, checker_mapping, strict_level):
         self.__checker = CheckerCreator(
-            self,
             value=value,
             checker_mapping=checker_mapping).create(strict_level)
 
