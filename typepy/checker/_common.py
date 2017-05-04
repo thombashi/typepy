@@ -12,11 +12,8 @@ import six
 
 
 def isstring(value):
-    return (
-        isinstance(value, six.string_types) or
-        isinstance(value, six.text_type) or
-        isinstance(value, six.binary_type)
-    )
+    return isinstance(
+        value, six.string_types + (six.text_type, six.binary_type))
 
 
 def isinf(value):

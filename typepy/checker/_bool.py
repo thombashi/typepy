@@ -33,10 +33,10 @@ class BoolTypeCheckerStrictLevel1(BoolTypeCheckerStrictLevel0):
 class BoolTypeCheckerStrictLevel2(BoolTypeCheckerStrictLevel1):
 
     def is_exclude_instance(self):
-        return any([
-            super(BoolTypeCheckerStrictLevel2, self).is_exclude_instance(),
-            isstring(self._value),
-        ])
+        return (
+            super(BoolTypeCheckerStrictLevel2, self).is_exclude_instance() or
+            isstring(self._value)
+        )
 
 
 class BoolTypeChecker(TypeChecker):

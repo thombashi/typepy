@@ -33,7 +33,7 @@ class IntegerTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
         return False
 
     def is_exclude_instance(self):
-        return isinf(self._value) or isnan(self._value)
+        return isnan(self._value) or isinf(self._value)
 
 
 class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
@@ -54,22 +54,18 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         return False
 
     def is_exclude_instance(self):
-        return any([
-            super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance(),
-            isinstance(self._value, bool),
-            RealNumber(self._value, strict_level=1).is_type(),
-        ])
+        return (
+            super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance() or
+            isinstance(self._value, bool) or
+            RealNumber(self._value, strict_level=1).is_type()
+        )
 
 
 class IntegerTypeCheckerStrictLevel2(IntegerTypeCheckerStrictLevel1):
 
     def is_exclude_instance(self):
-        return any([
-            isinstance(self._value, six.string_types),
-            isinstance(self._value, bool),
-            isinstance(self._value, float),
-            isinstance(self._value, Decimal),
-        ])
+        return isinstance(
+            self._value, six.string_types + (bool, float, Decimal))
 
 
 class IntegerTypeChecker(TypeChecker):

@@ -60,10 +60,10 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
         pass
 
     def is_type(self):
-        return all([
-            self.is_instance(),
+        return (
+            self.is_instance() and
             not self.is_exclude_instance()
-        ])
+        )
 
     def validate(self):
         """

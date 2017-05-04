@@ -24,23 +24,23 @@ from ._common import (
 class RealNumberTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
     def is_instance(self):
-        return any([
-            isinstance(self._value, float),
-            isinstance(self._value, Decimal),
-        ])
+        return (
+            isinstance(self._value, float) or
+            isinstance(self._value, Decimal)
+        )
 
     def is_exclude_instance(self):
-        return any([
-            isinstance(self._value, bool),
-            isinf(self._value),
-            isnan(self._value)
-        ])
+        return (
+            isinstance(self._value, bool) or
+            isnan(self._value) or
+            isinf(self._value)
+        )
 
     def is_valid_after_convert(self, converted_value):
-        return all([
-            not isinf(converted_value),
-            not isnan(converted_value),
-        ])
+        return (
+            not isinf(converted_value) and
+            not isnan(converted_value)
+        )
 
 
 class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
@@ -52,11 +52,11 @@ class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
         )
 
     def is_exclude_instance(self):
-        return any([
+        return (
+            isinstance(self._value, six.integer_types) or
             super(RealNumberTypeCheckerStrictLevel1,
-                  self).is_exclude_instance(),
-            isinstance(self._value, six.integer_types),
-        ])
+                  self).is_exclude_instance()
+        )
 
     def is_valid_after_convert(self, converted_value):
         return not float(converted_value).is_integer()
@@ -65,11 +65,10 @@ class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
 class RealNumberTypeCheckerStrictLevel2(RealNumberTypeCheckerStrictLevel1):
 
     def is_exclude_instance(self):
-        return any([
-            super(RealNumberTypeCheckerStrictLevel2,
-                  self).is_exclude_instance(),
-            isstring(self._value),
-        ])
+        return (
+            super(RealNumberTypeCheckerStrictLevel2, self).is_exclude_instance() or
+            isstring(self._value)
+        )
 
 
 class RealNumberTypeChecker(TypeChecker):

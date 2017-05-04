@@ -19,6 +19,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     __slots__ = (
         "_data", "_strict_level", "_params",
         "__checker", "__converter",
+        "__is_type_result",
     )
 
     @abc.abstractproperty
@@ -49,6 +50,8 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         self.__checker = self._create_type_checker()
         self.__converter = self._create_type_converter()
 
+        self.__is_type_result = None
+
     def __repr__(self):
         element_list = [
             "is_type={}".format(self.is_type()),
@@ -64,6 +67,14 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         :rtype: bool
         """
 
+        if self.__is_type_result is not None:
+            return self.__is_type_result
+
+        self.__is_type_result = self.__is_type()
+
+        return self.__is_type_result
+
+    def __is_type(self):
         if self.__checker.is_type():
             return True
 

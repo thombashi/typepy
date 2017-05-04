@@ -33,10 +33,10 @@ class StringTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 class StringTypeCheckerStrictLevel1(StringTypeCheckerStrictLevel0):
 
     def is_exclude_instance(self):
-        return any([
-            not isstring(self._value),
-            self._is_null_string(self._value),
-        ])
+        return (
+            not isstring(self._value) or
+            self._is_null_string(self._value)
+        )
 
 
 class StringTypeChecker(TypeChecker):
