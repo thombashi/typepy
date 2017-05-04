@@ -62,4 +62,4 @@ class Test_RealNumber_is_type:
         type_checker = RealNumber(value, strict_level)
 
         assert type_checker.is_type() == expected
-        assert type_checker.typecode == Typecode.FLOAT
+        assert type_checker.typecode == Typecode.REAL_NUMBER

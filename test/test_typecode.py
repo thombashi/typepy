@@ -14,7 +14,7 @@ class Test_Typecode_get_typename:
     @pytest.mark.parametrize(["value", "expected"], [
         [Typecode.NONE, "NONE"],
         [Typecode.INTEGER, "INTEGER"],
-        [Typecode.FLOAT, "FLOAT"],
+        [Typecode.REAL_NUMBER, "REAL_NUMBER"],
         [Typecode.STRING, "STRING"],
         [Typecode.DATETIME, "DATETIME"],
         [Typecode.INFINITY, "INFINITY"],
@@ -27,7 +27,7 @@ class Test_Typecode_get_typename:
     @pytest.mark.parametrize(["value", "expected"], [
         [Typecode.NONE, "none"],
         [Typecode.INTEGER, "integer"],
-        [Typecode.FLOAT, "float"],
+        [Typecode.REAL_NUMBER, "real_number"],
         [Typecode.STRING, "string"],
         [Typecode.DATETIME, "datetime"],
         [Typecode.INFINITY, "infinity"],
@@ -38,7 +38,7 @@ class Test_Typecode_get_typename:
         Typecode.TYPENAME_TABLE = {
             Typecode.NONE: "none",
             Typecode.INTEGER: "integer",
-            Typecode.FLOAT: "float",
+            Typecode.REAL_NUMBER: "real_number",
             Typecode.STRING: "string",
             Typecode.DATETIME: "datetime",
             Typecode.INFINITY: "infinity",

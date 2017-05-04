@@ -13,7 +13,8 @@ import copy
 class Typecode(object):
     NONE = 0
     INTEGER = 1 << 0
-    FLOAT = 1 << 1
+    FLOAT = 1 << 1  # mark as delete: replace to REAL_NUMBER
+    REAL_NUMBER = 1 << 1
     STRING = 1 << 2
     NULL_STRING = 1 << 3
     DATETIME = 1 << 4
@@ -24,14 +25,14 @@ class Typecode(object):
     LIST = 1 << 9
 
     TYPE_LIST = [
-        NONE, INTEGER, FLOAT, NULL_STRING, STRING, DATETIME, INFINITY,
+        NONE, INTEGER, REAL_NUMBER, NULL_STRING, STRING, DATETIME, INFINITY,
         NAN, BOOL, DICTIONARY, LIST,
     ]
 
     DEFAULT_TYPENAME_TABLE = {
         NONE: "NONE",
         INTEGER: "INTEGER",
-        FLOAT: "FLOAT",
+        REAL_NUMBER: "REAL_NUMBER",
         STRING: "STRING",
         NULL_STRING: "STRING",
         DATETIME: "DATETIME",

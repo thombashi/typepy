@@ -26,7 +26,7 @@ class RealNumber(AbstractType):
 
     @property
     def typecode(self):
-        return Typecode.FLOAT
+        return Typecode.REAL_NUMBER
 
     def __init__(self, value, strict_level=0, **kwargs):
         super(RealNumber, self).__init__(value, strict_level, kwargs)
