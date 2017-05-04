@@ -14,6 +14,12 @@ from ._interface import TypeCheckerInterface
 
 
 class CheckerCreator(object):
+    __slots__ = (
+        "__min_strict_level",
+        "__max_strict_level",
+        "__value",
+        "__checker_mapping",
+    )
 
     @property
     def min_strict_level(self):
@@ -80,6 +86,9 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
 
 
 class TypeChecker(TypeCheckerInterface):
+    __slots__ = (
+        "__checker",
+    )
 
     def __init__(self, value, checker_mapping, strict_level):
         self.__checker = CheckerCreator(
