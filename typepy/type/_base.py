@@ -16,12 +16,6 @@ from ..converter import ValueConverterInterface
 
 
 class AbstractType(TypeCheckerInterface, ValueConverterInterface):
-    """
-    .. py:attribute:: hogehoge
-
-        hogehogehogehogehogehoge
-    """
-
     __slots__ = (
         "_data", "_strict_level", "_params",
         "__checker", "__converter",
