@@ -10,6 +10,7 @@
     :py:meth:`~.type.Nan.force_convert`  ``Decimal("nan")``  ``Decimal("nan")``  0.1      
     ===================================  ==================  ==================  =========
 
+
 .. table:: :py:class:`typepy.type.Nan`: :py:attr:`~typepy.type.Nan.strict_level` = 1
 
     ===================================  ==================  ==================  =========
@@ -21,4 +22,5 @@
     :py:meth:`~.type.Nan.try_convert`    ``Decimal("nan")``  ``None``            ``None`` 
     :py:meth:`~.type.Nan.force_convert`  ``Decimal("nan")``  ``Decimal("nan")``  0.1      
     ===================================  ==================  ==================  =========
+
 

@@ -1,12 +1,12 @@
 Type Classes
 =====================
 
-Bool Type
+Boolean Type
 -------------------------------
 .. autoclass:: typepy.type.Bool
     :inherited-members:
 
-DateTime Type
+Date Time Type
 -------------------------------
 .. autoclass:: typepy.type.DateTime
     :inherited-members:
@@ -26,12 +26,17 @@ Integer Type
 .. autoclass:: typepy.type.Integer
     :inherited-members:
 
+IP address Type
+-------------------------------
+.. autoclass:: typepy.type.IpAddress
+    :inherited-members:
+
 List Type
 -------------------------------
 .. autoclass:: typepy.type.List
     :inherited-members:
 
-Nan Type
+NaN Type
 -------------------------------
 .. autoclass:: typepy.type.Nan
     :inherited-members:

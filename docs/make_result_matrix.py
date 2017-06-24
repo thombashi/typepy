@@ -13,6 +13,8 @@ import io
 import os
 import sys
 
+import ipaddress
+import logbook
 import six
 import typepy
 from typepy.type import (
@@ -21,6 +23,7 @@ from typepy.type import (
     Dictionary,
     Infinity,
     Integer,
+    IpAddress,
     List,
     Nan,
     NoneType,
@@ -28,8 +31,14 @@ from typepy.type import (
     String,
     NullString,
 )
+
 import pytablewriter as ptw
 
+
+logbook.StderrHandler(
+    level=logbook.DEBUG,
+    format_string="[{record.level_name}] {record.channel}: {record.message}"
+).push_application()
 
 METHOD_HEADER = "Method"
 
@@ -73,19 +82,26 @@ class ResultMatrixWriter(ExampleWriter):
                 self.typeclass.__name__, self.strict_level))
         self.__table_writer.header_list = self.header_list
         self.__table_writer.value_matrix = self.__get_result_matrix()
+        if self.typeclass.__name__ in ["Dictionary", "List"]:
+            self.__table_writer.type_hint_list = [
+                String for _ in self.header_list
+            ]
 
         self.__table_writer.write_table()
         self.__table_writer.write_null_line()
 
     def exeute(self, method, value):
+        str_convert_type = (
+            six.text_type, ipaddress.IPv4Address, ipaddress.IPv6Address)
+
         try:
             result = getattr(
                 self.typeclass(value, self.strict_level), method)()
 
             if method == "validate":
                 result = "NOP [#f1]_"
-            elif isinstance(result, six.text_type):
-                result = '``"{:s}"``'.format(result)
+            elif isinstance(result, str_convert_type):
+                result = '``"{}"``'.format(result)
         except TypeError:
             result = "E [#f2]_"
         except typepy.TypeConversionError:
@@ -167,6 +183,14 @@ class ResultMatrixManager(object):
             "1485685623",
         ]
 
+    class ExampleIpAddress(object):
+        HEADER = [METHOD_HEADER] + [
+            '``"127.0.0.1"``', '``"::1"``', '``"192.168.0.256"``', "``None``",
+        ]
+        VALUE = [
+            "127.0.0.1", "::1", "192.168.0.256", None,
+        ]
+
     class ExampleList(object):
         HEADER = [METHOD_HEADER] + [
             '``[]``',
@@ -205,6 +229,12 @@ class ResultMatrixManager(object):
         self.__ewriter.typeclass = NoneType
         self.__ewriter.header_list = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
+        self.__write()
+
+    def write_ipaddress(self):
+        self.__ewriter.typeclass = IpAddress
+        self.__ewriter.header_list = self.ExampleIpAddress.HEADER
+        self.__ewriter.value_list = self.ExampleIpAddress.VALUE
         self.__write()
 
     def write_bool(self):
@@ -315,6 +345,10 @@ def write_result_matrix(output_dir_path):
         manager.set_stream(f)
         manager.write_none()
 
+    with opener.open_write(make_filename("ipaddress")) as f:
+        manager.set_stream(f)
+        manager.write_ipaddress()
+
     manager.strict_level_list = (0, 1)
     with opener.open_write(make_filename("infinity")) as f:
         manager.set_stream(f)
@@ -364,6 +398,8 @@ def write_example(output_dir_path):
 
 def main():
     options = parse_option()
+
+    # ptw.set_log_level(logbook.DEBUG)
 
     write_result_matrix(options.output_dir)
     write_example(options.output_dir)

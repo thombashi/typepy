@@ -1,0 +1,13 @@
+.. table:: :py:class:`typepy.type.IpAddress`: :py:attr:`~typepy.type.IpAddress.strict_level` = 0
+
+    =========================================  ===============  ==========  ===================  =========
+                     Method                    ``"127.0.0.1"``  ``"::1"``   ``"192.168.0.256"``  ``None`` 
+    =========================================  ===============  ==========  ===================  =========
+    :py:meth:`~.type.IpAddress.is_type`        ``True``         ``True``    ``False``            ``False``
+    :py:meth:`~.type.IpAddress.validate`       NOP [#f1]_       NOP [#f1]_  E [#f2]_             E [#f2]_ 
+    :py:meth:`~.type.IpAddress.convert`        ``"127.0.0.1"``  ``"::1"``   E [#f3]_             E [#f3]_ 
+    :py:meth:`~.type.IpAddress.try_convert`    ``"127.0.0.1"``  ``"::1"``   ``None``             ``None`` 
+    :py:meth:`~.type.IpAddress.force_convert`  ``"127.0.0.1"``  ``"::1"``   E [#f3]_             E [#f3]_ 
+    =========================================  ===============  ==========  ===================  =========
+
+

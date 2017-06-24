@@ -17,7 +17,7 @@ class IpAddress(AbstractType):
     """
     |result_matrix_desc|
 
-    .. include:: matrix_string_type.txt
+    .. include:: matrix_ipaddress_type.txt
 
     :py:attr:`.strict_level`
         |strict_level|

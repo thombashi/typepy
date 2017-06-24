@@ -10,6 +10,7 @@
     :py:meth:`~.type.Dictionary.force_convert`  {}          {'a': 1}      {'a': 1}        
     ==========================================  ==========  ============  ================
 
+
 .. table:: :py:class:`typepy.type.Dictionary`: :py:attr:`~typepy.type.Dictionary.strict_level` = 1
 
     ==========================================  ==========  ============  ================
@@ -21,4 +22,5 @@
     :py:meth:`~.type.Dictionary.try_convert`    {}          {'a': 1}      ``None``        
     :py:meth:`~.type.Dictionary.force_convert`  {}          {'a': 1}      {'a': 1}        
     ==========================================  ==========  ============  ================
+
 

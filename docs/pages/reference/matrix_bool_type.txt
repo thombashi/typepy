@@ -10,6 +10,7 @@
     :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True``  
     ====================================  ==========  ==========  ==========
 
+
 .. table:: :py:class:`typepy.type.Bool`: :py:attr:`~typepy.type.Bool.strict_level` = 1
 
     ====================================  ==========  ==========  =========
@@ -22,6 +23,7 @@
     :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True`` 
     ====================================  ==========  ==========  =========
 
+
 .. table:: :py:class:`typepy.type.Bool`: :py:attr:`~typepy.type.Bool.strict_level` = 2
 
     ====================================  ==========  ==========  =========
@@ -33,4 +35,5 @@
     :py:meth:`~.type.Bool.try_convert`    ``True``    ``None``    ``None`` 
     :py:meth:`~.type.Bool.force_convert`  ``True``    ``True``    ``True`` 
     ====================================  ==========  ==========  =========
+
 
