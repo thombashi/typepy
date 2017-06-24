@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-.. codeauthor:: Tsuyoshi Hombashi <gogogo.vm@gmail.com>
+.. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
 from __future__ import unicode_literals
@@ -53,7 +53,7 @@ setuptools.setup(
     url="https://github.com/thombashi/{:s}".format(PROJECT_NAME),
 
     author="Tsuyoshi Hombashi",
-    author_email="gogogo.vm@gmail.com",
+    author_email="tsuyoshi.hombashi@gmail.com",
     description=summary,
     include_package_data=True,
     install_requires=install_requires,
