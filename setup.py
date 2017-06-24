@@ -28,7 +28,7 @@ with open(os.path.join(REQUIREMENT_DIR, "requirements.txt")) as f:
     install_requires = [line.strip() for line in f if line.strip()]
 
 if sys.version_info.major == 2:
-    install_requires.append("enum34")
+    install_requires.extend(["enum34", "ipaddress"])
 
 with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
     tests_require = [line.strip() for line in f if line.strip()]
