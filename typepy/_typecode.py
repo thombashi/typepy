@@ -5,15 +5,14 @@
 """
 
 from __future__ import absolute_import
-from __future__ import unicode_literals
 
-import copy
+import enum
 
 
-class Typecode(object):
+@enum.unique
+class Typecode(enum.Enum):
     NONE = 0
     INTEGER = 1 << 0
-    FLOAT = 1 << 1  # mark as delete: replace to REAL_NUMBER
     REAL_NUMBER = 1 << 1
     STRING = 1 << 2
     NULL_STRING = 1 << 3
@@ -24,33 +23,3 @@ class Typecode(object):
     DICTIONARY = 1 << 8
     LIST = 1 << 9
     IP_ADDRESS = 1 << 10
-
-    TYPE_LIST = [
-        NONE, INTEGER, REAL_NUMBER, NULL_STRING, STRING, DATETIME, INFINITY,
-        NAN, BOOL, DICTIONARY, LIST, IP_ADDRESS,
-    ]
-
-    DEFAULT_TYPENAME_TABLE = {
-        NONE: "NONE",
-        INTEGER: "INTEGER",
-        REAL_NUMBER: "REAL_NUMBER",
-        STRING: "STRING",
-        NULL_STRING: "STRING",
-        DATETIME: "DATETIME",
-        INFINITY: "INFINITY",
-        NAN: "NAN",
-        BOOL: "BOOL",
-        DICTIONARY: "DICTIONARY",
-        LIST: "LIST",
-        IP_ADDRESS: "IP_ADDRESS",
-    }
-
-    TYPENAME_TABLE = copy.deepcopy(DEFAULT_TYPENAME_TABLE)
-
-    @classmethod
-    def get_typename(cls, typecode):
-        type_name = cls.TYPENAME_TABLE.get(typecode)
-        if type_name is None:
-            raise ValueError("unknown typecode: {}".format(typecode))
-
-        return type_name

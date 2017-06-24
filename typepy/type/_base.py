@@ -36,7 +36,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
     @property
     def typename(self):
-        return Typecode.get_typename(self.typecode)
+        return self.typecode.name
 
     def __init__(self, value, strict_level, params):
         self._data = value
@@ -102,7 +102,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
         raise TypeError(
             "invalid value type: expected={}, actual={}".format(
-                Typecode.get_typename(self.typecode), type(self._data)))
+                self.typecode, type(self._data)))
 
     def force_convert(self):
         """
