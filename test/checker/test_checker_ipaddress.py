@@ -1,0 +1,47 @@
+# encoding: utf-8
+
+
+"""
+.. codeauthor:: Tsuyoshi Hombashi <gogogo.vm@gmail.com>
+"""
+
+from __future__ import unicode_literals
+
+import itertools
+
+from ipaddress import ip_address
+import pytest
+import six
+from typepy import (
+    Typecode,
+    StrictLevel,
+)
+from typepy.type import IpAddress
+
+
+nan = float("nan")
+inf = float("inf")
+
+
+class Test_IpAddress_is_type:
+
+    @pytest.mark.parametrize(
+        ["value", "strict_level", "expected"],
+        list(itertools.product(
+            ["",  " ", six.MAXSIZE, str(six.MAXSIZE), inf, nan, None],
+            [StrictLevel.MIN, StrictLevel.MAX],
+            [False]
+        )) + list(itertools.product(
+            [
+                "127.0.0.1", "::1",
+                ip_address("127.0.0.1"), ip_address("::1"),
+            ],
+            [StrictLevel.MIN, StrictLevel.MAX],
+            [True],
+        ))
+    )
+    def test_normal(self, value, strict_level, expected):
+        type_checker = IpAddress(value, strict_level=strict_level)
+
+        assert type_checker.is_type() == expected
+        assert type_checker.typecode == Typecode.IP_ADDRESS

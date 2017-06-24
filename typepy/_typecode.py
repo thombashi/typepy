@@ -23,10 +23,11 @@ class Typecode(object):
     BOOL = 1 << 7
     DICTIONARY = 1 << 8
     LIST = 1 << 9
+    IP_ADDRESS = 1 << 10
 
     TYPE_LIST = [
         NONE, INTEGER, REAL_NUMBER, NULL_STRING, STRING, DATETIME, INFINITY,
-        NAN, BOOL, DICTIONARY, LIST,
+        NAN, BOOL, DICTIONARY, LIST, IP_ADDRESS,
     ]
 
     DEFAULT_TYPENAME_TABLE = {
@@ -41,6 +42,7 @@ class Typecode(object):
         BOOL: "BOOL",
         DICTIONARY: "DICTIONARY",
         LIST: "LIST",
+        IP_ADDRESS: "IP_ADDRESS",
     }
 
     TYPENAME_TABLE = copy.deepcopy(DEFAULT_TYPENAME_TABLE)
