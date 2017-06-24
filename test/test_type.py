@@ -4,9 +4,12 @@
 .. codeauthor:: Tsuyoshi Hombashi <gogogo.vm@gmail.com>
 """
 
+from __future__ import unicode_literals
+
 import datetime
 from decimal import Decimal
 
+import ipaddress
 import pytest
 import pytz
 import six
@@ -27,6 +30,24 @@ class Test_TypeClass_repr(object):
         type_object = type_class(value, strict_level)
 
         assert str(type_object)
+
+
+class Test_type(object):
+
+    @pytest.mark.parametrize(["type_class", "value", "expected"], [
+        [
+            typepy.type.IpAddress,
+            "192.168.0.1",
+            ipaddress.IPv4Address("192.168.0.1"),
+        ],
+        [
+            typepy.type.IpAddress,
+            "::1",
+            ipaddress.IPv6Address("::1"),
+        ],
+    ])
+    def test_normal(self, type_class, value, expected):
+        assert type_class(value).convert() == expected
 
 
 class Test_RealNumber(object):
