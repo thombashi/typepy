@@ -6,8 +6,6 @@
 
 from __future__ import absolute_import
 
-import ipaddress
-
 from ._checker import (
     TypeChecker,
     TypeCheckerStrictLevel,
@@ -25,6 +23,8 @@ class IpAddressTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
     @staticmethod
     def _is_ipaddress(value):
+        import ipaddress
+
         return isinstance(
             value, (ipaddress.IPv4Address, ipaddress.IPv6Address))
 

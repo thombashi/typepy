@@ -7,7 +7,6 @@
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-import ipaddress
 import six
 
 from .._error import TypeConversionError
@@ -17,6 +16,8 @@ from ._interface import AbstractValueConverter
 class IpAddressConverter(AbstractValueConverter):
 
     def force_convert(self):
+        import ipaddress
+
         try:
             return ipaddress.ip_address(six.text_type(self._value))
         except ValueError:
