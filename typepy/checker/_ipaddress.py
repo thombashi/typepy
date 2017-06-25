@@ -7,7 +7,6 @@
 from __future__ import absolute_import
 
 import ipaddress
-import six
 
 from ._checker import (
     TypeChecker,
