@@ -1,4 +1,4 @@
-The association between Python types and typepy classes is as follows:
+The association between Python types and ``typepy`` classes is as follows:
 
 ====================  =======================================================================================================
 Python Type           typepy Class

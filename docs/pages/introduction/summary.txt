@@ -1,1 +1,1 @@
-A python library for variable type checker/validator/converter at run time.
+A python library for variable type checker/validator/converter at a run time.
