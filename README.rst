@@ -22,75 +22,78 @@ typepy
 Summary
 -------
 
-A python library for variable type checker/validator/converter at run time.
+A python library for variable type checker/validator/converter at a run time.
 
 Usage
 =====
 
 Type Check Method
 ----------------------
+:Examples:
+    .. code:: pycon
 
-.. code:: pycon
-
-    >>> from typepy.type import Integer
-    >>> Integer(1).is_type()
-    True
-    >>> Integer(1.1).is_type()
-    False
+        >>> from typepy.type import Integer
+        >>> Integer(1).is_type()
+        True
+        >>> Integer(1.1).is_type()
+        False
 
 
 Type Validation Method
 --------------------------------------------
+:Examples:
+    .. code:: pycon
 
-.. code:: pycon
-
-    >>> from typepy.type import Integer
-    >>> Integer(1).validate()
-    >>> try:
-    ...     Integer(1.1).validate()
-    ... except TypeError as e:
-    ...     print(e)
-    ...
-    invalid value type: expected=INTEGER, actual=<type 'float'>
+        >>> from typepy.type import Integer
+        >>> Integer(1).validate()
+        >>> try:
+        ...     Integer(1.1).validate()
+        ... except TypeError as e:
+        ...     print(e)
+        ...
+        invalid value type: expected=INTEGER, actual=<type 'float'>
 
 
 Type Conversion Methods
 --------------------------------------------
 
-convert
-~~~~~~~~~~~~~~
-.. code:: pycon
+convert method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Examples:
+    .. code:: pycon
 
-    >>> from typepy.type import Integer
-    >>> from typepy import TypeConversionError
-    >>> Integer("1").convert()
-    1
-    >>> try:
-    ...     Integer(1.1).convert()
-    ... except TypeConversionError as e:
-    ...     print(e)  # convert method will raise TypeConversionError when conversion failed
-    ...
-    failed to convert from float to INTEGER
+        >>> from typepy.type import Integer
+        >>> from typepy import TypeConversionError
+        >>> Integer("1").convert()
+        1
+        >>> try:
+        ...     Integer(1.1).convert()
+        ... except TypeConversionError as e:
+        ...     print(e)  # convert() raised TypeConversionError when conversion failed
+        ...
+        failed to convert from float to INTEGER
 
-try_convert
-~~~~~~~~~~~~~~
-.. code:: pycon
+try_convert method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Examples:
+    .. code:: pycon
 
-    >>> from typepy.type import Integer
-    >>> Integer("1").try_convert()
-    1
-    >>> print(Integer(1.1).try_convert())  # try_convert method will return None when conversion failed
-    None
+        >>> from typepy.type import Integer
+        >>> Integer("1").try_convert()
+        1
+        >>> print(Integer(1.1).try_convert())  # try_convert() returned None when conversion failed
+        None
 
 force_convert
-~~~~~~~~~~~~~~
-.. code:: pycon
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:Examples:
+    .. code:: pycon
 
-    >>> from typepy.type import Integer
-    >>> Integer("1").force_convert()  # force_convert will forcibly convert the value
-    1
-    >>> Integer(1.1).force_convert()
-    1
+        >>> from typepy.type import Integer
+        >>> Integer("1").force_convert()  # force_convert() forcibly convert the value
+        1
+        >>> Integer(1.1).force_convert()
+        1
 
 For more information
 ====================
@@ -103,7 +106,7 @@ More information can be found in the
 Features
 ========
 
-The association between Python types and typepy classes is as follows:
+The association between Python types and ``typepy`` classes is as follows:
 
 ====================  =======================================================================================================
 Python Type           typepy Class
