@@ -41,16 +41,14 @@ def main():
     intro_root = Path(os.path.join("pages", "introduction"))
 
     maker.write_file(intro_root.joinpath("badges.txt"))
+    maker.set_indent_level(0)
 
-    maker.inc_indent_level()
     maker.write_chapter("Summary")
     maker.write_file(intro_root.joinpath("summary.txt"))
 
-    write_examples(maker)
-
-    maker.set_indent_level(0)
-    maker.write_chapter("Features")
     maker.write_file(intro_root.joinpath("features.txt"))
+
+    write_examples(maker)
 
     maker.write_file(
         maker.doc_page_root_dir_path.joinpath("installation.rst"))

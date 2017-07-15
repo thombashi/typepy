@@ -1,18 +1,26 @@
-The association between Python types and ``typepy`` classes is as follows:
+Features
+=============
+- checking a value type
+- validate a value for a type
+- convert a value from a type to the other type
 
-====================  =======================================================================================================
-Python Type           typepy Class
-====================  =======================================================================================================
-``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
-``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
-``dict``              `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
-``inf``               `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
-``int``               `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
-``list``              `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
-``float``             `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
-``NaN``               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
-``None``              `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
-``str`` (not null)    `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
-``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
-``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
-====================  =======================================================================================================
+The correspondence between Python types and ``typepy`` classes are as follows:
+
+.. table:: Supported Types
+
+    ====================  =======================================================================================================
+    Python Type           typepy Class
+    ====================  =======================================================================================================
+    ``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
+    ``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
+    ``dict``              `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
+    ``inf``               `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
+    ``int``               `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
+    ``list``              `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
+    ``float``             `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
+    ``NaN``               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
+    ``None``              `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
+    ``str`` (not null)    `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
+    ``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
+    ``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
+    ====================  =======================================================================================================
