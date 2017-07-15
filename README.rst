@@ -20,9 +20,36 @@ typepy
    :target: https://github.com/thombashi/typepy
 
 Summary
--------
+=======
 
-A python library for variable type checker/validator/converter at a run time.
+A Python library for variable type checker/validator/converter at a run time.
+
+Features
+=============
+- checking a value type
+- validate a value for a type
+- convert a value from a type to the other type
+
+The correspondence between Python types and ``typepy`` classes are as follows:
+
+.. table:: Supported Types
+
+    ====================  =======================================================================================================
+    Python Type           typepy Class
+    ====================  =======================================================================================================
+    ``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
+    ``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
+    ``dict``              `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
+    ``inf``               `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
+    ``int``               `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
+    ``list``              `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
+    ``float``             `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
+    ``NaN``               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
+    ``None``              `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
+    ``str`` (not null)    `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
+    ``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
+    ``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
+    ====================  =======================================================================================================
 
 Usage
 =====
@@ -102,28 +129,6 @@ Type check/validate/convert results will be changed according to
 ``strict_level`` value which can be passed to constructors as an argument.
 More information can be found in the 
 `API reference <http://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
-
-Features
-========
-
-The association between Python types and ``typepy`` classes is as follows:
-
-====================  =======================================================================================================
-Python Type           typepy Class
-====================  =======================================================================================================
-``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
-``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
-``dict``              `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
-``inf``               `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
-``int``               `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
-``list``              `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
-``float``             `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
-``NaN``               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
-``None``              `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
-``str`` (not null)    `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
-``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
-``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
-====================  =======================================================================================================
 
 Installation
 ============
