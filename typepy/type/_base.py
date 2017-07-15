@@ -10,7 +10,6 @@ from __future__ import unicode_literals
 import abc
 
 from .._error import TypeConversionError
-from .._typecode import Typecode
 from ..checker._interface import TypeCheckerInterface
 from ..converter import ValueConverterInterface
 

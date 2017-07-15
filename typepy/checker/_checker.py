@@ -9,7 +9,6 @@ from __future__ import unicode_literals
 
 import abc
 
-from .._typecode import Typecode
 from ._interface import TypeCheckerInterface
 
 

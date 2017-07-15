@@ -10,7 +10,6 @@ from ._checker import (
     TypeChecker,
     TypeCheckerStrictLevel,
 )
-from ._common import isstring
 
 
 class IpAddressTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
