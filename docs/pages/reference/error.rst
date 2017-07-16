@@ -1,6 +1,6 @@
 Errors
 -------------------------------
 
-.. autoclass:: typepy.TypeConversionError
+.. autoexception:: typepy.TypeConversionError
     :undoc-members:
     :show-inheritance:
