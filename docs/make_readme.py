@@ -26,15 +26,6 @@ def write_examples(maker):
 
     maker.write_file(intro_root.joinpath("usage.txt"))
 
-    maker.write_chapter("For more information")
-    maker.write_line_list([
-        "Type check/validate/convert results will be changed according to",
-        "``strict_level`` value which can be passed to constructors as an argument.",
-        "More information can be found in the ",
-        "`API reference <http://{:s}.rtfd.io/en/latest/pages/reference/index.html>`__.".format(
-            PROJECT_NAME),
-    ])
-
 
 def main():
     maker = readmemaker.ReadmeMaker(PROJECT_NAME, OUTPUT_DIR)

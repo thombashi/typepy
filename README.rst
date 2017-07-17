@@ -35,7 +35,7 @@ The correspondence between Python types and ``typepy`` classes are as follows:
 .. table:: Supported Types
 
     ====================  =======================================================================================================
-    Python Type           typepy Class
+    Python Type           typepy: Type Class
     ====================  =======================================================================================================
     ``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
     ``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
@@ -122,12 +122,12 @@ force_convert
         >>> Integer(1.1).force_convert()
         1
 
-For more information
-====================
 
-Type check/validate/convert results will be changed according to
-``strict_level`` value which can be passed to constructors as an argument.
-More information can be found in the 
+For more information
+--------------------------------------------
+Type check/validate/convert results differed according to
+``strict_level`` value which can pass to typepy classes constructors as an argument.
+More information can be found in the
 `API reference <http://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
 
 Installation
