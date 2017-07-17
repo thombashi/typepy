@@ -24,10 +24,7 @@ from ._common import (
 class RealNumberTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
     def is_instance(self):
-        return (
-            isinstance(self._value, float) or
-            isinstance(self._value, Decimal)
-        )
+        return isinstance(self._value, (float, Decimal))
 
     def is_exclude_instance(self):
         return (

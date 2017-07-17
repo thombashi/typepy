@@ -55,8 +55,7 @@ def is_empty_string(value):
     warnings.warn(
         "is_empty_string() will be deleted in the future, "
         "use is_null_string instead.",
-        DeprecationWarning
-    )
+        DeprecationWarning)
 
     return is_null_string(value)
 
@@ -65,8 +64,7 @@ def is_not_empty_string(value):
     warnings.warn(
         "is_not_empty_string() will be deleted in the future, "
         "use is_not_null_string instead.",
-        DeprecationWarning
-    )
+        DeprecationWarning)
 
     return is_not_null_string(value)
 

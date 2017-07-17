@@ -27,7 +27,7 @@ class IntegerTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
         if isinstance(self._value, six.integer_types):
             return not isinstance(self._value, bool)
 
-        if isinstance(self._value, float) or isinstance(self._value, Decimal):
+        if isinstance(self._value, (float, Decimal)):
             return True
 
         return False
@@ -42,7 +42,7 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         if not super(IntegerTypeCheckerStrictLevel1, self).is_instance():
             return False
 
-        if isinstance(self._value, float) or isinstance(self._value, Decimal):
+        if isinstance(self._value, (float, Decimal)):
             if float(self._value).is_integer():
                 return True
 
