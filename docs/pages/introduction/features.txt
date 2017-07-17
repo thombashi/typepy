@@ -9,7 +9,7 @@ The correspondence between Python types and ``typepy`` classes are as follows:
 .. table:: Supported Types
 
     ====================  =======================================================================================================
-    Python Type           typepy Class
+    Python Type           typepy: Type Class
     ====================  =======================================================================================================
     ``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
     ``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
