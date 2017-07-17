@@ -74,8 +74,7 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
             return
 
         raise TypeError(
-            "invalid value type: expected={}, actual={}".format(
-                self.typecode, type(self._value)))
+            "invalid value type: actual={}".format(type(self._value)))
 
     def is_exclude_instance(self):
         return False
