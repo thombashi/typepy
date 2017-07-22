@@ -10,12 +10,12 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
+import six
 from typepy import (
     Typecode,
     StrictLevel,
 )
 from typepy.type import NoneType
-import six
 
 
 nan = float("nan")

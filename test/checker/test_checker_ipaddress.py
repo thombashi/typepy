@@ -7,9 +7,9 @@
 
 from __future__ import unicode_literals
 
+from ipaddress import ip_address
 import itertools
 
-from ipaddress import ip_address
 import pytest
 import six
 from typepy import (
