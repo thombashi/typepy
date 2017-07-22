@@ -45,8 +45,7 @@ class Test_String_is_type:
             ["",  " ", "\n", six.MAXSIZE, inf, nan, None],
             [StrictLevel.MAX],
             [False]
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_checker = String(value, strict_level=strict_level)
 

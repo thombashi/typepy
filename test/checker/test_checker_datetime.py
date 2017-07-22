@@ -44,8 +44,7 @@ class Test_DateTime_is_type:
             ["2017-03-22T10:00:00+0900",  "100-0004"],
             [StrictLevel.MAX],
             [False]
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_object = DateTime(value, strict_level)
 

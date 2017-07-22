@@ -38,8 +38,7 @@ class Test_IpAddress_is_type:
             ],
             [StrictLevel.MIN, StrictLevel.MAX],
             [True],
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_checker = IpAddress(value, strict_level=strict_level)
 

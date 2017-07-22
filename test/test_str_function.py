@@ -29,8 +29,7 @@ class Test_is_not_empty_string:
         )) + list(itertools.product(
             [None, "", "  ", "\t", "\r\n", "\n", [], 1, True, nan],
             [False]
-        ))
-    )
+        )))
     def test_normal(self, value, expected):
         assert is_not_null_string(value) == expected
 
@@ -45,7 +44,6 @@ class Test_is_empty_string:
         )) + list(itertools.product(
             ["nan", "テスト", [], 1, True, nan],
             [False]
-        ))
-    )
+        )))
     def test_normal(self, value, expected):
         assert is_null_string(value) == expected

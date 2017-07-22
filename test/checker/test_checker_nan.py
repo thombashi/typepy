@@ -43,8 +43,7 @@ class Test_Nan_is_type:
             ["-Nan", StrictLevel.MAX, False],
             ["NAN", StrictLevel.MIN, True],
             ["NAN", StrictLevel.MAX, False],
-        ]
-    )
+        ])
     def test_normal(self, value, strict_level, expected):
         type_checker = Nan(value, strict_level)
 

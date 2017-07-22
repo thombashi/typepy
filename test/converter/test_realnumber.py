@@ -136,16 +136,14 @@ class Test_RealNumber(object):
             ["force_convert", 2, "test", EXCEPTION_RESULT],
             ["force_convert", 2, "", EXCEPTION_RESULT],
 
-        ]
-    )
+        ])
     def test_normal(self, method, strict_level, value, expected):
         from typepy import StrictLevel
         from typepy.type import Nan
 
         actual = convert_wrapper(
             typepy.type.RealNumber(value, strict_level),
-            method
-        )
+            method)
         if Nan(expected, strict_level=StrictLevel.MIN).is_type():
             assert Nan(actual, strict_level=StrictLevel.MIN).is_type()
         else:

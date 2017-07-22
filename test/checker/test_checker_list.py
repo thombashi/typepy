@@ -38,8 +38,7 @@ class Test_List_is_type:
             [(), {}, "", "abc", 1, nan, True, None],
             [StrictLevel.MIN, StrictLevel.MAX],
             [False],
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_object = List(value, strict_level)
 

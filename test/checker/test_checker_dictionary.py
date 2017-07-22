@@ -39,8 +39,7 @@ class Test_Dictionary_is_type:
             [1, "a", nan, True, None],
             [StrictLevel.MIN, StrictLevel.MAX],
             [False],
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_object = Dictionary(value, strict_level)
 

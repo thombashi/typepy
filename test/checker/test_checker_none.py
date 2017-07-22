@@ -37,8 +37,7 @@ class Test_NoneTypeChecker_is_type:
             ],
             [StrictLevel.MIN, StrictLevel.MAX],
             [False]
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         expected_typecode = Typecode.NONE
 

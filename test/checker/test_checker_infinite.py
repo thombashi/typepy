@@ -43,8 +43,7 @@ class Test_Infinity_is_type:
             ["-infinity", StrictLevel.MAX, False],
             ["INF", StrictLevel.MIN, True],
             ["INF", StrictLevel.MAX, False],
-        ]
-    )
+        ])
     def test_normal(self, value, strict_level, expected):
         type_checker = Infinity(value, strict_level)
 

@@ -56,8 +56,7 @@ class Test_RealNumber_is_type:
             [0.1, -0.1, .5, Decimal("1.1")],
             [StrictLevel.MIN, StrictLevel.MIN + 1,  StrictLevel.MAX],
             [True],
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_checker = RealNumber(value, strict_level)
 

@@ -37,8 +37,7 @@ class Test_Bool_is_type:
             [0, 1, 0.1, "True", "False", "true", "false"],
             [StrictLevel.MAX],
             [False],
-        ))
-    )
+        )))
     def test_normal(self, value, strict_level, expected):
         type_checker = Bool(value, strict_level)
 
