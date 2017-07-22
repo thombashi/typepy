@@ -11,19 +11,19 @@ from decimal import Decimal
 import itertools
 
 import pytest
+import six
 from typepy import (
     Typecode,
     StrictLevel,
 )
 from typepy.type import Integer
-import six
 
 
 nan = float("nan")
 inf = float("inf")
 
 
-class Test_Integer_is_type:
+class Test_Integer_is_type(object):
 
     @pytest.mark.parametrize(["value", "strict_level", "expected"], [
         [str(six.MAXSIZE), StrictLevel.MIN, True],

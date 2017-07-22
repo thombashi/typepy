@@ -23,7 +23,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_is_hex:
+class Test_is_hex(object):
 
     @pytest.mark.parametrize(["value"], [
         ["0x00"], ["0xffffffff"], ["a"], ["f"],
@@ -41,7 +41,7 @@ class Test_is_hex:
         assert not is_hex(value)
 
 
-class Test_is_list_or_tuple:
+class Test_is_list_or_tuple(object):
 
     @pytest.mark.parametrize(["value", "expected"], [
         [[], True],
@@ -61,7 +61,7 @@ class Test_is_list_or_tuple:
         assert is_list_or_tuple(value) == expected
 
 
-class Test_is_empty_sequence:
+class Test_is_empty_sequence(object):
 
     @pytest.mark.parametrize(["value", "expected"], [
         [(), True],
@@ -87,7 +87,7 @@ class Test_is_empty_sequence:
         assert is_empty_sequence(value) == expected
 
 
-class Test_is_not_empty_sequence:
+class Test_is_not_empty_sequence(object):
 
     @pytest.mark.parametrize(["value", "expected"], [
         [[1], True],

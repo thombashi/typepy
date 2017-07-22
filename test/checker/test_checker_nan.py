@@ -24,7 +24,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_Nan_is_type:
+class Test_Nan_is_type(object):
 
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],

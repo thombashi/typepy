@@ -19,7 +19,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_is_not_empty_string:
+class Test_is_not_empty_string(object):
 
     @pytest.mark.parametrize(
         ["value", "expected"],
@@ -34,7 +34,7 @@ class Test_is_not_empty_string:
         assert is_not_null_string(value) == expected
 
 
-class Test_is_empty_string:
+class Test_is_empty_string(object):
 
     @pytest.mark.parametrize(
         ["value", "expected"],

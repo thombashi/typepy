@@ -25,7 +25,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_String_is_type:
+class Test_String_is_type(object):
 
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
@@ -53,7 +53,7 @@ class Test_String_is_type:
         assert type_checker.typecode == Typecode.STRING
 
 
-class Test_NullString_is_type:
+class Test_NullString_is_type(object):
 
     @pytest.mark.parametrize(["value", "strict_level", "expected"], [
         [None, StrictLevel.MIN, True]
