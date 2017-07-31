@@ -39,7 +39,7 @@ MODULE_NAME = "typepy"
 
 setuptools.setup(
     name=MODULE_NAME,
-    version="0.0.15",
+    version="0.0.16",
     url="https://github.com/thombashi/{:s}".format(MODULE_NAME),
 
     author="Tsuyoshi Hombashi",
