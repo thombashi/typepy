@@ -3,5 +3,4 @@ ipaddress;python_version<"3.3"
 mbstrdecoder>=0.2.2
 python-dateutil>=2.6.1
 pytz>=2017.2
-setuptools>=20.2.2
 six>=1.10

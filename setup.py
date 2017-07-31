@@ -33,9 +33,10 @@ with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
 with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
     docs_requires = [line.strip() for line in f if line.strip()]
 
-needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
-pytest_runner = ["pytest-runner"] if needs_pytest else []
 MODULE_NAME = "typepy"
+needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
+pytest_runner_require = ["pytest-runner"] if needs_pytest else []
+setuptools_require = ["setuptools>=20.2.2"]
 
 setuptools.setup(
     name=MODULE_NAME,
@@ -46,7 +47,6 @@ setuptools.setup(
     author_email="tsuyoshi.hombashi@gmail.com",
     description=summary,
     include_package_data=True,
-    install_requires=install_requires,
     keywords=[
         "library", "type-checking", "type-conversion", "validator",
     ],
@@ -54,7 +54,8 @@ setuptools.setup(
     long_description=long_description,
     packages=setuptools.find_packages(exclude=["test*"]),
 
-    setup_requires=["setuptools>=20.2.2"] + pytest_runner,
+    install_requires=setuptools_require + install_requires,
+    setup_requires=setuptools_require + pytest_runner_require,
     tests_require=tests_requires,
     extras_require={
         "test": tests_requires,
