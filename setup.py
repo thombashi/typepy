@@ -35,23 +35,25 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
 pytest_runner = ["pytest-runner"] if needs_pytest else []
-
-PROJECT_NAME = "typepy"
+MODULE_NAME = "typepy"
 
 setuptools.setup(
-    name=PROJECT_NAME,
+    name=MODULE_NAME,
     version="0.0.15",
-    url="https://github.com/thombashi/{:s}".format(PROJECT_NAME),
+    url="https://github.com/thombashi/{:s}".format(MODULE_NAME),
 
     author="Tsuyoshi Hombashi",
     author_email="tsuyoshi.hombashi@gmail.com",
     description=summary,
     include_package_data=True,
     install_requires=install_requires,
-    keywords=["type", "validator", "converter"],
+    keywords=[
+        "library", "type-checking", "type-conversion", "validator",
+    ],
     license="MIT License",
     long_description=long_description,
     packages=setuptools.find_packages(exclude=["test*"]),
+
     setup_requires=["setuptools>=20.2.2"] + pytest_runner,
     tests_require=tests_requires,
     extras_require={
@@ -74,5 +76,4 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
-    ],
-)
+    ])
