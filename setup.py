@@ -40,7 +40,7 @@ setuptools_require = ["setuptools>=20.2.2"]
 
 setuptools.setup(
     name=MODULE_NAME,
-    version="0.0.16",
+    version="0.0.17",
     url="https://github.com/thombashi/{:s}".format(MODULE_NAME),
 
     author="Tsuyoshi Hombashi",
