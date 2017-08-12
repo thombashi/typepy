@@ -52,15 +52,13 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         self.__is_type_result = None
 
     def __repr__(self):
-        element_list = [
-            "is_type={}".format(self.is_type()),
+        return ", ".join([
             "value={}".format(self._data),
             "typename={}".format(self.typename),
             "strict_level={}".format(self._strict_level),
+            "is_type={}".format(self.is_type()),
             "try_convert={}".format(self.try_convert()),
-        ]
-
-        return ", ".join(element_list)
+        ])
 
     def is_type(self):
         """
