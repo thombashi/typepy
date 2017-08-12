@@ -34,13 +34,13 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
     docs_requires = [line.strip() for line in f if line.strip()]
 
 MODULE_NAME = "typepy"
+setuptools_require = ["setuptools>=20.2.2"]
 needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
 pytest_runner_require = ["pytest-runner"] if needs_pytest else []
-setuptools_require = ["setuptools>=20.2.2"]
 
 setuptools.setup(
     name=MODULE_NAME,
-    version="0.0.17",
+    version="0.0.18",
     url="https://github.com/thombashi/{:s}".format(MODULE_NAME),
 
     author="Tsuyoshi Hombashi",
