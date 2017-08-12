@@ -16,9 +16,11 @@ typepy
 .. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
    :target: https://github.com/thombashi/typepy
 
+
 Summary
 =======
 A Python library for variable type checker/validator/converter at a run time.
+
 
 Features
 ========
@@ -46,6 +48,7 @@ The correspondence between Python types and ``typepy`` classes are as follows:
     ``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
     ``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
     ====================  =======================================================================================================
+
 
 Usage
 =====
@@ -124,6 +127,7 @@ Type check/validate/convert results differed according to
 ``strict_level`` value which can pass to typepy classes constructors as an argument.
 More information can be found in the
 `API reference <http://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
+
 Installation
 ============
 
@@ -145,6 +149,7 @@ Test dependencies
 - `pytest <http://pytest.org/latest/>`__
 - `pytest-runner <https://pypi.python.org/pypi/pytest-runner>`__
 - `tox <https://testrun.org/tox/latest/>`__
+
 
 Documentation
 =============
