@@ -46,10 +46,10 @@ class Test_is_list_or_tuple(object):
     @pytest.mark.parametrize(["value", "expected"], [
         [[], True],
         [[1], True],
-        [["a"] * 200000, True],
+        [["a"] * 20000, True],
         [(), True],
         [(1,), True],
-        [("a",) * 200000, True],
+        [("a",) * 20000, True],
 
         [None, False],
         [nan, False],
@@ -70,9 +70,9 @@ class Test_is_empty_sequence(object):
         [range(0), True],
 
         [[1], False],
-        [["a"] * 200000, False],
+        [["a"] * 20000, False],
         [(1,), False],
-        [("a",) * 200000, False],
+        [("a",) * 20000, False],
         ["aaa", False],
         [range(0, 10), False],
 
@@ -91,10 +91,10 @@ class Test_is_not_empty_sequence(object):
 
     @pytest.mark.parametrize(["value", "expected"], [
         [[1], True],
-        [["a"] * 200000, True],
+        [["a"] * 20000, True],
         [(1,), True],
-        [("a",) * 200000, True],
-        ["a" * 200000, True],
+        [("a",) * 20000, True],
+        ["a" * 20000, True],
         [range(0, 10), True],
 
         [(), False],
