@@ -53,7 +53,6 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
     def __repr__(self):
         return ", ".join([
-            "value={}".format(self._data),
             "typename={}".format(self.typename),
             "strict_level={}".format(self._strict_level),
             "is_type={}".format(self.is_type()),
