@@ -7,6 +7,8 @@ Summary
 =============
 .. include:: summary.txt
 
+Features
+=============
 .. include:: features.txt
 
 Usage

@@ -1,5 +1,3 @@
-Features
-=============
 - checking a value type
 - validate a value for a type
 - convert a value from a type to the other type

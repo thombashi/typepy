@@ -37,6 +37,7 @@ def main():
     maker.write_chapter("Summary")
     maker.write_file(intro_root.joinpath("summary.txt"))
 
+    maker.write_chapter("Features")
     maker.write_file(intro_root.joinpath("features.txt"))
 
     write_examples(maker)

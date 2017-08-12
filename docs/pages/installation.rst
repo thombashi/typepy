@@ -5,7 +5,6 @@ Installation
 
     pip install typepy
 
-
 Dependencies
 ============
 Python 2.7+ or 3.3+
@@ -14,7 +13,6 @@ Python 2.7+ or 3.3+
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
 - `pytz <https://pypi.python.org/pypi/pytz/>`__
 - `six <https://pypi.python.org/pypi/six/>`__
-
 
 Test dependencies
 -----------------
