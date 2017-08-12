@@ -103,15 +103,6 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
             "invalid value type: expected={}, actual={}".format(
                 self.typecode, type(self._data)))
 
-    def force_convert(self):
-        """
-        :return: Converted value.
-        :raises typepy.TypeConversionError:
-            If the value cannot convert.
-        """
-
-        return self.__converter.force_convert()
-
     def convert(self):
         """
         :return: Converted value.
@@ -125,6 +116,15 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         raise TypeConversionError(
             "failed to convert from {} to {}".format(
                 type(self._data).__name__, self.typename))
+
+    def force_convert(self):
+        """
+        :return: Converted value.
+        :raises typepy.TypeConversionError:
+            If the value cannot convert.
+        """
+
+        return self.__converter.force_convert()
 
     def try_convert(self):
         """
