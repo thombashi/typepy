@@ -52,7 +52,7 @@ Usage
 Type Check Method
 ----------------------
 :Examples:
-    .. code:: pycon
+    .. code-block:: pycon
 
         >>> from typepy.type import Integer
         >>> Integer(1).is_type()
@@ -64,7 +64,7 @@ Type Check Method
 Type Validation Method
 --------------------------------------------
 :Examples:
-    .. code:: pycon
+    .. code-block:: pycon
 
         >>> from typepy.type import Integer
         >>> Integer(1).validate()
@@ -82,7 +82,7 @@ Type Conversion Methods
 convert method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :Examples:
-    .. code:: pycon
+    .. code-block:: pycon
 
         >>> from typepy.type import Integer
         >>> from typepy import TypeConversionError
@@ -98,7 +98,7 @@ convert method
 try_convert method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :Examples:
-    .. code:: pycon
+    .. code-block:: pycon
 
         >>> from typepy.type import Integer
         >>> Integer("1").try_convert()
@@ -109,7 +109,7 @@ try_convert method
 force_convert
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :Examples:
-    .. code:: pycon
+    .. code-block:: pycon
 
         >>> from typepy.type import Integer
         >>> Integer("1").force_convert()  # force_convert() forcibly convert the value
