@@ -1,6 +1,6 @@
 
 typepy
-======
+========
 .. image:: https://badge.fury.io/py/typepy.svg
     :target: https://badge.fury.io/py/typepy
 
@@ -18,12 +18,12 @@ typepy
 
 
 Summary
-=======
+=========
 A Python library for variable type checker/validator/converter at a run time.
 
 
 Features
-========
+==========
 - checking a value type
 - validate a value for a type
 - convert a value from a type to the other type
@@ -51,7 +51,7 @@ The correspondence between Python types and ``typepy`` classes are as follows:
 
 
 Usage
-=====
+=======
 Type Check Method
 ----------------------
 :Examples:
@@ -152,5 +152,5 @@ Test dependencies
 
 
 Documentation
-=============
+===============
 http://typepy.rtfd.io/
