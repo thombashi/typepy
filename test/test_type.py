@@ -8,8 +8,9 @@ from __future__ import unicode_literals
 
 import datetime
 from decimal import Decimal
-
+from ipaddress import ip_address
 import ipaddress
+
 import pytest
 import pytz
 import six
@@ -34,20 +35,25 @@ class Test_TypeClass_repr(object):
 
 class Test_type(object):
 
-    @pytest.mark.parametrize(["type_class", "value", "expected"], [
+    @pytest.mark.parametrize(
+        ["type_class", "value", "strict_level", "expected"],
         [
-            typepy.type.IpAddress,
-            "192.168.0.1",
-            ipaddress.IPv4Address("192.168.0.1"),
-        ],
-        [
-            typepy.type.IpAddress,
-            "::1",
-            ipaddress.IPv6Address("::1"),
-        ],
-    ])
-    def test_normal(self, type_class, value, expected):
-        assert type_class(value).convert() == expected
+            [
+                typepy.type.IpAddress,
+                "192.168.0.1",
+                StrictLevel.MIN,
+                ipaddress.IPv4Address("192.168.0.1"),
+            ],
+            [
+                typepy.type.IpAddress,
+                "::1",
+                StrictLevel.MIN,
+                ipaddress.IPv6Address("::1"),
+            ],
+        ])
+    def test_normal(self, type_class, value, strict_level, expected):
+        assert type_class(
+            value, strict_level=strict_level).convert() == expected
 
 
 class Test_RealNumber(object):
@@ -111,3 +117,22 @@ class Test_DateTime(object):
             value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
         assert result == timezone.localize(expected)
+
+
+class Test_IpAddress(object):
+
+    @pytest.mark.parametrize(["value", "expected"], [
+        [
+            ip_address("127.0.0.1"),
+            ip_address("127.0.0.1"),
+        ],
+        [
+            "127.0.0.1",
+            ip_address("127.0.0.1"),
+        ],
+    ])
+    def test_normal(self, value, expected):
+        result = typepy.type.IpAddress(
+            value, strict_level=StrictLevel.MIN).convert()
+
+        assert result == expected

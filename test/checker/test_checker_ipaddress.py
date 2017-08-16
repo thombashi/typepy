@@ -32,13 +32,19 @@ class Test_IpAddress_is_type(object):
             [StrictLevel.MIN, StrictLevel.MAX],
             [False]
         )) + list(itertools.product(
-            [
-                "127.0.0.1", "::1",
-                ip_address("127.0.0.1"), ip_address("::1"),
-            ],
+            [ip_address("127.0.0.1"), ip_address("::1")],
             [StrictLevel.MIN, StrictLevel.MAX],
             [True],
-        )))
+        )) + list(itertools.product(
+            ["127.0.0.1", "::1", "800::800"],
+            [StrictLevel.MIN],
+            [True],
+        )) + list(itertools.product(
+            ["127.0.0.1", "::1", "800::800"],
+            [StrictLevel.MAX],
+            [False],
+        ))
+    )
     def test_normal(self, value, strict_level, expected):
         type_checker = IpAddress(value, strict_level=strict_level)
 
