@@ -5,9 +5,9 @@
     ======================================  ==========  ==========  ==========  ==========  ==========
     :py:meth:`~.type.String.is_type`        ``True``    ``True``    ``True``    ``True``    ``True``  
     :py:meth:`~.type.String.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_
-    :py:meth:`~.type.String.convert`        ``"abc"``   ``""``      ``" "``     ``"None"``  ``"1"``   
-    :py:meth:`~.type.String.try_convert`    ``"abc"``   ``""``      ``" "``     ``"None"``  ``"1"``   
-    :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``      ``" "``     ``"None"``  ``"1"``   
+    :py:meth:`~.type.String.convert`        ``"abc"``   ``""``      ``"  "``    ``"None"``  ``"1"``   
+    :py:meth:`~.type.String.try_convert`    ``"abc"``   ``""``      ``"  "``    ``"None"``  ``"1"``   
+    :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``      ``"  "``    ``"None"``  ``"1"``   
     ======================================  ==========  ==========  ==========  ==========  ==========
 
 
@@ -20,7 +20,7 @@
     :py:meth:`~.type.String.validate`       NOP [#f1]_  E [#f2]_   E [#f2]_   E [#f2]_    E [#f2]_ 
     :py:meth:`~.type.String.convert`        ``"abc"``   E [#f3]_   E [#f3]_   E [#f3]_    E [#f3]_ 
     :py:meth:`~.type.String.try_convert`    ``"abc"``   ``None``   ``None``   ``None``    ``None`` 
-    :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``     ``" "``    ``"None"``  ``"1"``  
+    :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``     ``"  "``   ``"None"``  ``"1"``  
     ======================================  ==========  =========  =========  ==========  =========
 
 

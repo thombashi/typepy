@@ -10,10 +10,10 @@ from __future__ import unicode_literals
 import argparse
 from datetime import datetime
 import io
+import ipaddress
 import os
 import sys
 
-import ipaddress
 import logbook
 import six
 import typepy
@@ -71,6 +71,7 @@ class ResultMatrixWriter(ExampleWriter):
         self.__table_writer._dp_extractor.const_value_mapping = {
             True: "``True``",
             False: "``False``",
+            '``"127.0.0.1"``': '``ip_address("127.0.0.1")``',
         }
 
     def set_stream(self, output_stream):
@@ -185,9 +186,11 @@ class ResultMatrixManager(object):
 
     class ExampleIpAddress(object):
         HEADER = [METHOD_HEADER] + [
-            '``"127.0.0.1"``', '``"::1"``', '``"192.168.0.256"``', "``None``",
+            "``ip_address('127.0.0.1')``",
+            "``'127.0.0.1'``", "``'::1'``", "``'192.168.0.256'``", "``None``",
         ]
         VALUE = [
+            ipaddress.ip_address("127.0.0.1"),
             "127.0.0.1", "::1", "192.168.0.256", None,
         ]
 
@@ -345,11 +348,11 @@ def write_result_matrix(output_dir_path):
         manager.set_stream(f)
         manager.write_none()
 
+    manager.strict_level_list = (0, 1)
     with opener.open_write(make_filename("ipaddress")) as f:
         manager.set_stream(f)
         manager.write_ipaddress()
 
-    manager.strict_level_list = (0, 1)
     with opener.open_write(make_filename("infinity")) as f:
         manager.set_stream(f)
         manager.write_infinity()
