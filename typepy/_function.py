@@ -21,14 +21,6 @@ def is_hex(value):
     return True
 
 
-def _is_list(value):
-    return isinstance(value, list)
-
-
-def _is_tuple(value):
-    return isinstance(value, tuple)
-
-
 def is_list_or_tuple(value):
     """
     .. warning::
@@ -36,7 +28,7 @@ def is_list_or_tuple(value):
         This function will be deleted in the future.
     """
 
-    return any([_is_list(value), _is_tuple(value)])
+    return isinstance(value, (tuple, list))
 
 
 def is_null_string(value):
