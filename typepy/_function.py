@@ -22,12 +22,6 @@ def is_hex(value):
 
 
 def is_list_or_tuple(value):
-    """
-    .. warning::
-
-        This function will be deleted in the future.
-    """
-
     return isinstance(value, (tuple, list))
 
 
