@@ -1,4 +1,3 @@
-
 typepy
 ========
 .. image:: https://badge.fury.io/py/typepy.svg
@@ -16,11 +15,9 @@ typepy
 .. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
    :target: https://github.com/thombashi/typepy
 
-
 Summary
 =========
 A Python library for variable type checker/validator/converter at a run time.
-
 
 Features
 ==========
@@ -48,7 +45,6 @@ The correspondence between Python types and ``typepy`` classes are as follows:
     ``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
     ``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
     ====================  =======================================================================================================
-
 
 Usage
 =======
@@ -137,7 +133,7 @@ Installation
 
 Dependencies
 ============
-Python 2.7+ or 3.3+
+Python 2.7+ or 3.4+
 
 - `mbstrdecoder <https://github.com/thombashi/mbstrdecoder>`__
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
@@ -150,7 +146,7 @@ Test dependencies
 - `pytest-runner <https://pypi.python.org/pypi/pytest-runner>`__
 - `tox <https://testrun.org/tox/latest/>`__
 
-
 Documentation
 ===============
 http://typepy.rtfd.io/
+
