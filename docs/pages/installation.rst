@@ -7,7 +7,7 @@ Installation
 
 Dependencies
 ============
-Python 2.7+ or 3.3+
+Python 2.7+ or 3.4+
 
 - `mbstrdecoder <https://github.com/thombashi/mbstrdecoder>`__
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
