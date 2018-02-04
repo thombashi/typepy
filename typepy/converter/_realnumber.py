@@ -9,6 +9,8 @@ from __future__ import unicode_literals
 
 import decimal
 
+import six
+
 from .._const import DefaultValue
 from .._error import TypeConversionError
 from ._interface import AbstractValueConverter
@@ -23,7 +25,7 @@ class FloatConverter(AbstractValueConverter):
 
     def force_convert(self):
         if isinstance(self._value, float):
-            return self.float_class(str(self._value))
+            return self.float_class(six.text_type(self._value))
 
         try:
             return self.float_class(self._value)

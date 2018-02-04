@@ -36,10 +36,10 @@ class BoolConverter(AbstractValueConverter):
         try:
             lower_text = value.lower()
         except AttributeError:
-            raise ValueError("invalid value '{}'".format(str(value)))
+            raise ValueError("invalid value '{}'".format(six.text_type(value)))
 
         binary_value = strtobool(lower_text)
         if lower_text not in ["true", "false"]:
-            raise ValueError("invalid value '{}'".format(str(value)))
+            raise ValueError("invalid value '{}'".format(six.text_type(value)))
 
         return bool(binary_value)
