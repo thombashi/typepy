@@ -7,15 +7,12 @@
 
 from __future__ import unicode_literals
 
-from ipaddress import ip_address
 import itertools
+from ipaddress import ip_address
 
 import pytest
 import six
-from typepy import (
-    Typecode,
-    StrictLevel,
-)
+from typepy import StrictLevel, Typecode
 from typepy.type import IpAddress
 
 

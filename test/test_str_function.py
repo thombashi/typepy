@@ -9,10 +9,7 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
-from typepy import (
-    is_null_string,
-    is_not_null_string,
-)
+from typepy import is_not_null_string, is_null_string
 
 
 nan = float("nan")

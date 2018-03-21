@@ -6,14 +6,8 @@
 
 from __future__ import absolute_import
 
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
-from ._common import (
-    isstring,
-    isnan,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._common import isnan, isstring
 
 
 class NanTypeCheckerStrictLevel0(TypeCheckerStrictLevel):

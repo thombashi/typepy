@@ -4,13 +4,9 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
-from decimal import (
-    Decimal,
-    InvalidOperation,
-)
+from decimal import Decimal, InvalidOperation
 
 from .._error import TypeConversionError
 from ._interface import AbstractValueConverter

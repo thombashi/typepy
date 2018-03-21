@@ -4,18 +4,11 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 from .._typecode import Typecode
-from ..checker import (
-    StringTypeChecker,
-    NullStringTypeChecker,
-)
-from ..converter import (
-    StringConverter,
-    NullStringConverter,
-)
+from ..checker import NullStringTypeChecker, StringTypeChecker
+from ..converter import NullStringConverter, StringConverter
 from ._base import AbstractType
 
 

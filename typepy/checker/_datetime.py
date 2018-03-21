@@ -9,10 +9,7 @@ from __future__ import absolute_import
 import datetime
 
 from ..type._integer import Integer
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 

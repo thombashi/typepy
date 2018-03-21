@@ -8,31 +8,18 @@
 from __future__ import unicode_literals
 
 import argparse
-from datetime import datetime
 import io
 import ipaddress
 import os
 import sys
+from datetime import datetime
 
 import logbook
+import pytablewriter as ptw
 import six
 import typepy
-from typepy.type import (
-    Bool,
-    DateTime,
-    Dictionary,
-    Infinity,
-    Integer,
-    IpAddress,
-    List,
-    Nan,
-    NoneType,
-    RealNumber,
-    String,
-    NullString,
-)
-
-import pytablewriter as ptw
+from typepy.type import (Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan,
+                         NoneType, NullString, RealNumber, String)
 
 
 logbook.StderrHandler(

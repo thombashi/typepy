@@ -11,14 +11,8 @@ from decimal import Decimal
 import six
 
 from ..type._realnumber import RealNumber
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
-from ._common import (
-    isnan,
-    isinf,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._common import isinf, isnan
 
 
 class IntegerTypeCheckerStrictLevel0(TypeCheckerStrictLevel):

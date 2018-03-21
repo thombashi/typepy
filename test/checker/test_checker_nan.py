@@ -7,16 +7,12 @@
 
 from __future__ import unicode_literals
 
-from decimal import Decimal
 import itertools
+from decimal import Decimal
 
 import pytest
 import six
-
-from typepy import (
-    Typecode,
-    StrictLevel,
-)
+from typepy import StrictLevel, Typecode
 from typepy.type import Nan
 
 

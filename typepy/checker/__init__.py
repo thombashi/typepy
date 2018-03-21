@@ -17,7 +17,4 @@ from ._list import ListTypeChecker
 from ._nan import NanTypeChecker
 from ._none import NoneTypeChecker
 from ._realnumber import RealNumberTypeChecker
-from ._string import (
-    StringTypeChecker,
-    NullStringTypeChecker,
-)
+from ._string import NullStringTypeChecker, StringTypeChecker

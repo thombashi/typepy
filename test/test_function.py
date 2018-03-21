@@ -9,14 +9,8 @@ from __future__ import unicode_literals
 
 import pytest
 import six
-
-from typepy import (
-    is_hex,
-    is_list_or_tuple,
-    is_empty_sequence,
-    is_not_empty_sequence,
-)
 from six.moves import range
+from typepy import is_empty_sequence, is_hex, is_list_or_tuple, is_not_empty_sequence
 
 
 nan = float("nan")

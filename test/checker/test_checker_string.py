@@ -11,14 +11,8 @@ import itertools
 
 import pytest
 import six
-from typepy import (
-    Typecode,
-    StrictLevel,
-)
-from typepy.type import (
-    String,
-    NullString,
-)
+from typepy import StrictLevel, Typecode
+from typepy.type import NullString, String
 
 
 nan = float("nan")

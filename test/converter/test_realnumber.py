@@ -4,18 +4,14 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
 from decimal import Decimal
 
 import pytest
 import typepy
 
-from ._common import (
-    EXCEPTION_RESULT,
-    convert_wrapper,
-)
+from ._common import EXCEPTION_RESULT, convert_wrapper
 
 
 nan = float("nan")

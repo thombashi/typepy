@@ -7,14 +7,11 @@
 
 from __future__ import unicode_literals
 
-from collections import OrderedDict
 import itertools
+from collections import OrderedDict
 
 import pytest
-from typepy import (
-    Typecode,
-    StrictLevel,
-)
+from typepy import StrictLevel, Typecode
 from typepy.type import Dictionary
 
 

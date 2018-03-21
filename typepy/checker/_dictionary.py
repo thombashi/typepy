@@ -6,10 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
 
 
 class DictionaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):

@@ -10,15 +10,8 @@ from decimal import Decimal
 
 import six
 
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
-from ._common import (
-    isstring,
-    isnan,
-    isinf,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._common import isinf, isnan, isstring
 
 
 class RealNumberTypeCheckerStrictLevel0(TypeCheckerStrictLevel):

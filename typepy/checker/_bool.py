@@ -8,10 +8,7 @@ from __future__ import absolute_import
 
 from .._const import StrictLevel
 from ..type._integer import Integer
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 

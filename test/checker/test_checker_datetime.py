@@ -7,16 +7,13 @@
 
 from __future__ import unicode_literals
 
-from datetime import datetime
 import itertools
+from datetime import datetime
 
-from dateutil.tz import tzoffset
 import pytest
 import six
-from typepy import (
-    Typecode,
-    StrictLevel,
-)
+from dateutil.tz import tzoffset
+from typepy import StrictLevel, Typecode
 from typepy.type import DateTime
 
 

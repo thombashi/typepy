@@ -6,8 +6,8 @@
 
 from __future__ import absolute_import
 
-from mbstrdecoder import MultiByteStrDecoder
 import six
+from mbstrdecoder import MultiByteStrDecoder
 
 from ._interface import AbstractValueConverter
 

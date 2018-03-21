@@ -7,15 +7,15 @@
 from __future__ import unicode_literals
 
 import datetime
+import ipaddress
 from decimal import Decimal
 from ipaddress import ip_address
-import ipaddress
 
 import pytest
 import pytz
 import six
-from typepy import StrictLevel
 import typepy
+from typepy import StrictLevel
 
 
 class Test_TypeClass_repr(object):

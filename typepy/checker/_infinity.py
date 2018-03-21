@@ -6,14 +6,8 @@
 
 from __future__ import absolute_import
 
-from ._checker import (
-    TypeChecker,
-    TypeCheckerStrictLevel,
-)
-from ._common import (
-    isstring,
-    isinf,
-)
+from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._common import isinf, isstring
 
 
 class InfinityCheckerStrictLevel0(TypeCheckerStrictLevel):

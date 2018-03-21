@@ -4,11 +4,10 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 
-from datetime import datetime
 import re
+from datetime import datetime
 
 from .._error import TypeConversionError
 from ._interface import AbstractValueConverter
