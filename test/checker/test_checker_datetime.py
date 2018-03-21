@@ -30,15 +30,15 @@ class Test_DateTime_is_type(object):
             [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
             [True]
         )) + list(itertools.product(
-            [None, "invalid time string", six.MAXSIZE],
+            [None, "invalid time string", six.MAXSIZE, "100-0004"],
             [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
             [False]
         )) + list(itertools.product(
-            ["2017-03-22T10:00:00+0900",  "100-0004"],
+            ["2017-03-22T10:00:00+0900"],
             [StrictLevel.MIN],
             [True]
         )) + list(itertools.product(
-            ["2017-03-22T10:00:00+0900",  "100-0004"],
+            ["2017-03-22T10:00:00+0900"],
             [StrictLevel.MAX],
             [False]
         )))
