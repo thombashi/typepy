@@ -5,9 +5,9 @@
     =======================================  ==========  ==========  ==========  ==========  ==========  ==========  ==========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``True``    ``True``    ``True``    ``True``    ``True``    ``True``  
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_
-    :py:meth:`~.type.Integer.convert`        1           1           1           1           1           1           1         
-    :py:meth:`~.type.Integer.try_convert`    1           1           1           1           1           1           1         
-    :py:meth:`~.type.Integer.force_convert`  1           1           1           1           1           1           1         
+    :py:meth:`~.type.Integer.convert`                 1           1           1           1           1           1           1
+    :py:meth:`~.type.Integer.try_convert`             1           1           1           1           1           1           1
+    :py:meth:`~.type.Integer.force_convert`           1           1           1           1           1           1           1
     =======================================  ==========  ==========  ==========  ==========  ==========  ==========  ==========
 
 
@@ -18,9 +18,9 @@
     =======================================  ==========  ==========  =========  ==========  ==========  =========  =========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``True``    ``False``  ``True``    ``True``    ``False``  ``False``
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  NOP [#f1]_  E [#f2]_   NOP [#f1]_  NOP [#f1]_  E [#f2]_   E [#f2]_ 
-    :py:meth:`~.type.Integer.convert`        1           1           E [#f3]_   1           1           E [#f3]_   E [#f3]_ 
-    :py:meth:`~.type.Integer.try_convert`    1           1           ``None``   1           1           ``None``   ``None`` 
-    :py:meth:`~.type.Integer.force_convert`  1           1           1          1           1           1          1        
+    :py:meth:`~.type.Integer.convert`                 1           1  E [#f3]_            1           1  E [#f3]_   E [#f3]_ 
+    :py:meth:`~.type.Integer.try_convert`             1           1  ``None``            1           1  ``None``   ``None`` 
+    :py:meth:`~.type.Integer.force_convert`           1           1          1           1           1          1          1
     =======================================  ==========  ==========  =========  ==========  ==========  =========  =========
 
 
@@ -31,9 +31,9 @@
     =======================================  ==========  =========  =========  =========  =========  =========  =========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``False``  ``False``  ``False``  ``False``  ``False``  ``False``
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_ 
-    :py:meth:`~.type.Integer.convert`        1           E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_ 
-    :py:meth:`~.type.Integer.try_convert`    1           ``None``   ``None``   ``None``   ``None``   ``None``   ``None`` 
-    :py:meth:`~.type.Integer.force_convert`  1           1          1          1          1          1          1        
+    :py:meth:`~.type.Integer.convert`                 1  E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_ 
+    :py:meth:`~.type.Integer.try_convert`             1  ``None``   ``None``   ``None``   ``None``   ``None``   ``None`` 
+    :py:meth:`~.type.Integer.force_convert`           1          1          1          1          1          1          1
     =======================================  ==========  =========  =========  =========  =========  =========  =========
 
 

@@ -7,7 +7,7 @@
     :py:meth:`~.type.Infinity.validate`       NOP [#f1]_          NOP [#f1]_          E [#f2]_ 
     :py:meth:`~.type.Infinity.convert`        ``Decimal("inf")``  ``Decimal("inf")``  E [#f3]_ 
     :py:meth:`~.type.Infinity.try_convert`    ``Decimal("inf")``  ``Decimal("inf")``  ``None`` 
-    :py:meth:`~.type.Infinity.force_convert`  ``Decimal("inf")``  ``Decimal("inf")``  0.1      
+    :py:meth:`~.type.Infinity.force_convert`  ``Decimal("inf")``  ``Decimal("inf")``        0.1
     ========================================  ==================  ==================  =========
 
 
@@ -20,7 +20,7 @@
     :py:meth:`~.type.Infinity.validate`       NOP [#f1]_          E [#f2]_            E [#f2]_ 
     :py:meth:`~.type.Infinity.convert`        ``Decimal("inf")``  E [#f3]_            E [#f3]_ 
     :py:meth:`~.type.Infinity.try_convert`    ``Decimal("inf")``  ``None``            ``None`` 
-    :py:meth:`~.type.Infinity.force_convert`  ``Decimal("inf")``  ``Decimal("inf")``  0.1      
+    :py:meth:`~.type.Infinity.force_convert`  ``Decimal("inf")``  ``Decimal("inf")``        0.1
     ========================================  ==================  ==================  =========
 
 
