@@ -8,6 +8,7 @@ from __future__ import absolute_import
 
 import typepy.type
 
+from .__version__ import __author__, __copyright__, __email__, __license__, __version__
 from ._const import StrictLevel
 from ._error import TypeConversionError
 from ._function import (
