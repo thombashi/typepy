@@ -18,8 +18,9 @@ import logbook
 import pytablewriter as ptw
 import six
 import typepy
-from typepy.type import (Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan,
-                         NoneType, NullString, RealNumber, String)
+from typepy.type import (
+    Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan, NoneType, NullString,
+    RealNumber, String)
 
 
 logbook.StderrHandler(
