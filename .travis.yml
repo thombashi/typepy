@@ -13,13 +13,14 @@ matrix:
 
 os:
   - linux
+  - osx
 
 install:
   - pip install setuptools --upgrade
   - pip install tox
   - pip install coveralls
 
-script: 
+script:
   - tox
   - python setup.py test --addopts "-v --cov typepy --cov-report term-missing"
 
