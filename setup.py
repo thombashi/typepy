@@ -46,6 +46,7 @@ class ReleaseCommand(setuptools.Command):
 
         os.system("git tag {}".format(tag))
         os.system("git push --tags")
+        os.system("twine upload dist/*")
 
 
 with open(os.path.join(MODULE_NAME, "__version__.py")) as f:
