@@ -21,7 +21,6 @@ pkg_info = {}
 
 
 class ReleaseCommand(setuptools.Command):
-    user_options = []
 
     def initialize_options(self):
         pass
