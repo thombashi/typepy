@@ -19,7 +19,7 @@ install:
   - pip install tox
   - pip install coveralls
 
-script: 
+script:
   - tox
   - python setup.py test --addopts "-v --cov typepy --cov-report term-missing"
 
@@ -29,15 +29,3 @@ after_success:
 notifications:
   slack:
     secure: KnfoxAQfeziKsZtDS0k0V/lQzHWYjD/IBRMl9igjgp2mTPFNR1fSQFTtuXe2bErc00J1EnzRtseiX/4DzsWUs39S+eNa9XzRzUdS6MnwoaHrpmr4femF8fAW6d5bwi1CyquuyCGHTgfuaIksirMwGwjrBgPGi7QmTHfHvT/Niq5+U1IiS6PkG398Ss6q3pPJeEstTq8eJlWGjbpk0D81fyr7S/fKIH0IAfrZahDU4Gr6V4TcT3ot3mNpTqbnAgXpwu7xEETyl8fnFri/MHq8JaLh+EcjUwMXU28cLUqDy738wNfIbFcfborq8E11T3NYp99I9q35JaxvuS1EhUddO0Z4lHDzAg7fV1DRLMmYHZV1r+DVJg+8kcmM7tLXXpDjwsgLk3a8TcNz+980Agkep9ZY8qyUxoqeAnJbIE4XgknFR8Qmj7HTsEtlXlbStBZ+zQNqTVyNdMr2ix2RpbJgesMSIijP06Py6j3i1cgNaqF77Zls/mG0WG0Ky1fGYmcpaThD4JIXYRpg1oMP2uVaiGxnx5wNMdn28eChW1EHUB7DeBKuy6YR3wiyktuucNZlAW7atJZJ9HBcr6XOrr3gIoRdAb9LsmF7GWSDPXMUF8rrKjDmKn7VIsDyVimgGVklodV2o0pMl4xGeu3twYX01egONzipwOiBxq/9ZYmZojo=
-
-deploy:
-  provider: pypi
-  user: vmmhypervisor
-  password:
-    secure: PiD0kZZVdWQKP+rlVNwuX74nfqdG0PceAwqFNzouBEs9vWF/ic6QT9tk15WEdxUfCYpDCZi5qgJMu++I5u/BvGqnuvy2OzjnFPOqpmd0XXe7bOpVw2tWl/hZPEmoaGGExJMpSSNe/OqRbOKsvHygIyHHkJ7r4D1SIMLLSKuNqiYEmTSKFF1RqY4A2AMBPnaoLtxANmW/q8/WqUmFfALofJD1WSjYhosbHGE4fAfpz6O72E7EOz+tLWPrh/Y8zFI998exOPFLlNgZ3LhjE97HhvLIpm/2qrfWmsXSrZ3hhtqpQLkkkVq9qUeH3mj+4GAcpI534AawuMDMH6xb/JOzmiUFamZmrH3a5YzSm4zD1OonU8geN1SY4UfHCedYMKl9sbsqItC3TVxZFw/pSxSbINfNdklt2reiLOFpeq7AX7o6xfim0SX9KUVvIYXqAJVfSO94U7aq6a5NpwR2PfyUUSbEFKq3RHL6MTunjDlvjHhWmFvcJBcZEWsvtWA5lg2+/z13j1YBYQyLg7xM4jnaPspEoC/L5eh69+yWJmtg3ea2EOhxkvjWGJZoxsuoaSQD4+IIVuAhNzBZz9EAsXOP3yX1mFW13kocnK7Z1PrzCK2JPFyDLnSJRjSoDpFNaPKeybKSdshFgqdUVjnscCLbYaE9KJrEW98xwk65nLnTgRQ=
-  on:
-    tags: true
-    repo: thombashi/typepy
-    branch: master
-    python: 3.6
-  distributions: "sdist bdist_wheel"
