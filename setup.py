@@ -15,6 +15,7 @@ import setuptools
 
 
 MODULE_NAME = "typepy"
+REPOSITORY_URL = "https://github.com/thombashi/{:s}".format(MODULE_NAME)
 REQUIREMENT_DIR = "requirements"
 ENCODING = "utf8"
 
@@ -78,7 +79,7 @@ pytest_runner_require = ["pytest-runner"] if needs_pytest else []
 setuptools.setup(
     name=MODULE_NAME,
     version=pkg_info["__version__"],
-    url="https://github.com/thombashi/{:s}".format(MODULE_NAME),
+    url=REPOSITORY_URL,
 
     author=pkg_info["__author__"],
     author_email=pkg_info["__email__"],
@@ -90,6 +91,11 @@ setuptools.setup(
     license=pkg_info["__license__"],
     long_description=long_description,
     packages=setuptools.find_packages(exclude=["test*"]),
+    project_urls={
+        "Documentation": "http://typepy.rtfd.io/",
+        "Source": REPOSITORY_URL,
+        "Tracker": "{:s}/issues".format(REPOSITORY_URL),
+    },
 
     install_requires=setuptools_require + install_requires,
     setup_requires=setuptools_require + pytest_runner_require,
