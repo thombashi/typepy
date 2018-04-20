@@ -6,6 +6,7 @@
 
 from __future__ import unicode_literals
 
+import errno
 import io
 import os.path
 import sys
@@ -29,7 +30,17 @@ class ReleaseCommand(setuptools.Command):
         pass
 
     def run(self):
-        tag = "v{}".format(pkg_info["__version__"])
+        import re
+        from pkg_resources import parse_version
+        from pkg_resources.extern.packaging.version import Version, LegacyVersion
+
+        pkg_version = pkg_info["__version__"]
+
+        if not isinstance(parse_version(pkg_version), Version):
+            sys.stderr.write("invalid version string: {}\n".format(pkg_version))
+            sys.exit(errno.EINVAL)
+
+        tag = "v{}".format(pkg_version)
 
         print("Pushing git tags: {}".format(tag))
 
