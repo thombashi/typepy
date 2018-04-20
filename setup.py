@@ -22,6 +22,8 @@ pkg_info = {}
 
 
 class ReleaseCommand(setuptools.Command):
+    # command class must provide 'user_options' attribute (a list of tuples)
+    user_options = []
 
     def initialize_options(self):
         pass
