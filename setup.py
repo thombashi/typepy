@@ -28,13 +28,13 @@ def need_pytest():
 def get_release_command_class():
     try:
         from releasecmd import ReleaseCommand
-    except ModuleNotFoundError:
+    except ImportError:
         return {}
 
     return {"release": ReleaseCommand}
 
 
-with io.open(os.path.join(MODULE_NAME, "__version__.py"), encoding=ENCODING) as f:
+with open(os.path.join(MODULE_NAME, "__version__.py")) as f:
     exec(f.read(), pkg_info)
 
 with io.open("README.rst", encoding=ENCODING) as f:
@@ -53,7 +53,7 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
     docs_requires = [line.strip() for line in f if line.strip()]
 
 
-SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2"]
+SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
 PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
 cmdclass = {}
 cmdclass.update(get_release_command_class())
@@ -82,6 +82,7 @@ setuptools.setup(
     setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
     tests_require=tests_requires,
     extras_require={
+        "build": "wheel",
         "docs": docs_requires,
         "release": "releasecmd>=0.0.3",
         "test": tests_requires,
