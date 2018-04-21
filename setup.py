@@ -70,9 +70,10 @@ with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
 with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
     docs_requires = [line.strip() for line in f if line.strip()]
 
-setuptools_require = ["setuptools>=20.2.2"]
-needs_pytest = set(["pytest", "test", "ptr"]).intersection(sys.argv)
-pytest_runner_require = ["pytest-runner"] if needs_pytest else []
+
+SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2"]
+NEEDS_PYTEST = set(["pytest", "test", "ptr"]).intersection(sys.argv)
+PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if NEEDS_PYTEST else []
 
 setuptools.setup(
     name=MODULE_NAME,
@@ -94,8 +95,8 @@ setuptools.setup(
         "Tracker": "{:s}/issues".format(REPOSITORY_URL),
     },
 
-    install_requires=setuptools_require + install_requires,
-    setup_requires=setuptools_require + pytest_runner_require,
+    install_requires=SETUPTOOLS_REQUIRES + install_requires,
+    setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
     tests_require=tests_requires,
     extras_require={
         "test": tests_requires,
