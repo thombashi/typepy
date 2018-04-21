@@ -6,11 +6,11 @@
 
 from __future__ import unicode_literals
 
-import errno
 import io
 import os.path
 import sys
 
+from releasecmd import ReleaseCommand
 import setuptools
 
 
@@ -20,36 +20,6 @@ REQUIREMENT_DIR = "requirements"
 ENCODING = "utf8"
 
 pkg_info = {}
-
-
-class ReleaseCommand(setuptools.Command):
-    # command class must provide 'user_options' attribute (a list of tuples)
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        import re
-        from pkg_resources import parse_version
-        from pkg_resources.extern.packaging.version import Version, LegacyVersion
-
-        pkg_version = pkg_info["__version__"]
-
-        if not isinstance(parse_version(pkg_version), Version):
-            sys.stderr.write("invalid version string: {}\n".format(pkg_version))
-            sys.exit(errno.EINVAL)
-
-        tag = "v{}".format(pkg_version)
-
-        print("Pushing git tags: {}".format(tag))
-
-        os.system("git tag {}".format(tag))
-        os.system("git push --tags")
-        os.system("twine upload dist/*")
 
 
 def need_pytest():
@@ -99,7 +69,7 @@ setuptools.setup(
     },
 
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
-    setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
+    setup_requires=SETUPTOOLS_REQUIRES + ["releasecmd"] + PYTEST_RUNNER_REQUIRES,
     tests_require=tests_requires,
     extras_require={
         "test": tests_requires,
