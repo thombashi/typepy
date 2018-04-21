@@ -52,6 +52,10 @@ class ReleaseCommand(setuptools.Command):
         os.system("twine upload dist/*")
 
 
+def need_pytest():
+    return set(["pytest", "test", "ptr"]).intersection(sys.argv)
+
+
 with io.open(os.path.join(MODULE_NAME, "__version__.py"), encoding=ENCODING) as f:
     exec(f.read(), pkg_info)
 
@@ -72,8 +76,7 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 
 SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2"]
-NEEDS_PYTEST = set(["pytest", "test", "ptr"]).intersection(sys.argv)
-PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if NEEDS_PYTEST else []
+PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
 
 setuptools.setup(
     name=MODULE_NAME,
