@@ -26,9 +26,12 @@ def need_pytest():
 
 
 def get_release_command_class():
-    from releasecmd import ReleaseCommand
+    try:
+        from releasecmd import ReleaseCommand
+    except ModuleNotFoundError:
+        return {}
 
-    return ReleaseCommand
+    return {"release": ReleaseCommand}
 
 
 with io.open(os.path.join(MODULE_NAME, "__version__.py"), encoding=ENCODING) as f:
@@ -52,6 +55,8 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2"]
 PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
+cmdclass = {}
+cmdclass.update(get_release_command_class())
 
 setuptools.setup(
     name=MODULE_NAME,
@@ -78,7 +83,7 @@ setuptools.setup(
     tests_require=tests_requires,
     extras_require={
         "docs": docs_requires,
-        "release": "releasecmd>=0.0.2",
+        "release": "releasecmd>=0.0.3",
         "test": tests_requires,
     },
 
@@ -97,6 +102,4 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    cmdclass={
-        "release": get_release_command_class(),
-    })
+    cmdclass=cmdclass)
