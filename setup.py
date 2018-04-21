@@ -84,7 +84,7 @@ setuptools.setup(
     extras_require={
         "build": "wheel",
         "docs": docs_requires,
-        "release": "releasecmd>=0.0.3",
+        "release": "releasecmd>=0.0.4",
         "test": tests_requires,
     },
 
