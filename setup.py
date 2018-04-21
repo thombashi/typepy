@@ -52,7 +52,7 @@ class ReleaseCommand(setuptools.Command):
         os.system("twine upload dist/*")
 
 
-with open(os.path.join(MODULE_NAME, "__version__.py")) as f:
+with io.open(os.path.join(MODULE_NAME, "__version__.py"), encoding=ENCODING) as f:
     exec(f.read(), pkg_info)
 
 with io.open("README.rst", encoding=ENCODING) as f:
