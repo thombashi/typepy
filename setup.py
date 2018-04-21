@@ -10,7 +10,6 @@ import io
 import os.path
 import sys
 
-from releasecmd import ReleaseCommand
 import setuptools
 
 
@@ -24,6 +23,12 @@ pkg_info = {}
 
 def need_pytest():
     return set(["pytest", "test", "ptr"]).intersection(sys.argv)
+
+
+def get_release_command_class():
+    from releasecmd import ReleaseCommand
+
+    return ReleaseCommand
 
 
 with io.open(os.path.join(MODULE_NAME, "__version__.py"), encoding=ENCODING) as f:
@@ -45,7 +50,7 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
     docs_requires = [line.strip() for line in f if line.strip()]
 
 
-SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2", "releasecmd"]
+SETUPTOOLS_REQUIRES = ["setuptools>=20.2.2"]
 PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
 
 setuptools.setup(
@@ -72,8 +77,9 @@ setuptools.setup(
     setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
     tests_require=tests_requires,
     extras_require={
-        "test": tests_requires,
         "docs": docs_requires,
+        "release": "releasecmd>=0.0.2",
+        "test": tests_requires,
     },
 
     classifiers=[
@@ -92,5 +98,5 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     cmdclass={
-        "release": ReleaseCommand,
+        "release": get_release_command_class(),
     })
