@@ -15,7 +15,4 @@ from ._ipaddress import IpAddressConverter
 from ._list import ListConverter
 from ._nop import NopConverter
 from ._realnumber import FloatConverter
-from ._string import (
-    StringConverter,
-    NullStringConverter,
-)
+from ._string import NullStringConverter, StringConverter

@@ -16,7 +16,4 @@ from ._list import List
 from ._nan import Nan
 from ._none import NoneType
 from ._realnumber import RealNumber
-from ._string import (
-    String,
-    NullString,
-)
+from ._string import NullString, String
