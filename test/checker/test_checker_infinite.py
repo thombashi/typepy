@@ -12,8 +12,7 @@ from decimal import Decimal
 
 import pytest
 import six
-from typepy import StrictLevel, Typecode
-from typepy import Infinity
+from typepy import Infinity, StrictLevel, Typecode
 
 
 nan = float("nan")

@@ -11,8 +11,7 @@ import itertools
 from collections import OrderedDict
 
 import pytest
-from typepy import StrictLevel, Typecode
-from typepy import Dictionary
+from typepy import Dictionary, StrictLevel, Typecode
 
 
 nan = float("nan")

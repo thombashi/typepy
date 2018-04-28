@@ -10,8 +10,7 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
-from typepy import StrictLevel, Typecode
-from typepy import Bool
+from typepy import Bool, StrictLevel, Typecode
 
 
 nan = float("nan")
