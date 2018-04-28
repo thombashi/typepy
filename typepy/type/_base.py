@@ -8,9 +8,9 @@ from __future__ import absolute_import, unicode_literals
 
 import abc
 
-from .._error import TypeConversionError
 from ..checker._interface import TypeCheckerInterface
 from ..converter import ValueConverterInterface
+from ..error import TypeConversionError
 
 
 class AbstractType(TypeCheckerInterface, ValueConverterInterface):

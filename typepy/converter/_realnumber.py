@@ -11,7 +11,7 @@ import decimal
 import six
 
 from .._const import DefaultValue
-from .._error import TypeConversionError
+from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
 

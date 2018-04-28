@@ -9,7 +9,7 @@ from __future__ import absolute_import, unicode_literals
 import re
 from datetime import datetime
 
-from .._error import TypeConversionError
+from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
 

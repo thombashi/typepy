@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import, unicode_literals
 
-from .._error import TypeConversionError
+from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
 
