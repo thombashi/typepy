@@ -3,62 +3,62 @@ Type Classes
 
 Boolean Type
 -------------------------------
-.. autoclass:: typepy.type.Bool
+.. autoclass:: typepy.Bool
     :inherited-members:
 
 Date Time Type
 -------------------------------
-.. autoclass:: typepy.type.DateTime
+.. autoclass:: typepy.DateTime
     :inherited-members:
 
 Dictionary Type
 -------------------------------
-.. autoclass:: typepy.type.Dictionary
+.. autoclass:: typepy.Dictionary
     :inherited-members:
 
 Infinity Type
 -------------------------------
-.. autoclass:: typepy.type.Infinity
+.. autoclass:: typepy.Infinity
     :inherited-members:
 
 Integer Type
 -------------------------------
-.. autoclass:: typepy.type.Integer
+.. autoclass:: typepy.Integer
     :inherited-members:
 
 IP address Type
 -------------------------------
-.. autoclass:: typepy.type.IpAddress
+.. autoclass:: typepy.IpAddress
     :inherited-members:
 
 List Type
 -------------------------------
-.. autoclass:: typepy.type.List
+.. autoclass:: typepy.List
     :inherited-members:
 
 NaN Type
 -------------------------------
-.. autoclass:: typepy.type.Nan
+.. autoclass:: typepy.Nan
     :inherited-members:
 
 None Type
 -------------------------------
-.. autoclass:: typepy.type.NoneType
+.. autoclass:: typepy.NoneType
     :inherited-members:
 
 Null String Type
 -------------------------------
-.. autoclass:: typepy.type.NullString
+.. autoclass:: typepy.NullString
     :inherited-members:
 
 Real Number Type
 -------------------------------
-.. autoclass:: typepy.type.RealNumber
+.. autoclass:: typepy.RealNumber
     :inherited-members:
 
 String Type
 -------------------------------
-.. autoclass:: typepy.type.String
+.. autoclass:: typepy.String
     :inherited-members:
 
 

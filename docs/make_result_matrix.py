@@ -18,10 +18,9 @@ import logbook
 import pytablewriter as ptw
 import six
 import typepy
-from typepy.type import (
+from typepy import (
     Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan, NoneType, NullString,
     RealNumber, String)
-
 
 logbook.StderrHandler(
     level=logbook.DEBUG,
@@ -67,25 +66,21 @@ class ResultMatrixWriter(ExampleWriter):
 
     def write_type_matrix(self):
         self.__table_writer.table_name = (
-            ":py:class:`typepy.type.{0:s}`: :py:attr:`~typepy.type.{0:s}.strict_level` = {1:d}".format(
+            ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}".format(
                 self.typeclass.__name__, self.strict_level))
         self.__table_writer.header_list = self.header_list
         self.__table_writer.value_matrix = self.__get_result_matrix()
         if self.typeclass.__name__ in ["Dictionary", "List"]:
-            self.__table_writer.type_hint_list = [
-                String for _ in self.header_list
-            ]
+            self.__table_writer.type_hint_list = [String for _ in self.header_list]
 
         self.__table_writer.write_table()
         self.__table_writer.write_null_line()
 
     def exeute(self, method, value):
-        str_convert_type = (
-            six.text_type, ipaddress.IPv4Address, ipaddress.IPv6Address)
+        str_convert_type = (six.text_type, ipaddress.IPv4Address, ipaddress.IPv6Address)
 
         try:
-            result = getattr(
-                self.typeclass(value, self.strict_level), method)()
+            result = getattr(self.typeclass(value, self.strict_level), method)()
 
             if method == "validate":
                 result = "NOP [#f1]_"
@@ -103,11 +98,9 @@ class ResultMatrixWriter(ExampleWriter):
         for method in self._METHOD_LIST:
             result_matrix.append(
                 [
-                    ":py:meth:`~.type.{:s}.{:s}`".format(
-                        self.typeclass.__name__, method)
+                    ":py:meth:`~.type.{:s}.{:s}`".format(self.typeclass.__name__, method)
                 ] + [
-                    self.exeute(method, value)
-                    for value in self.value_list
+                    self.exeute(method, value) for value in self.value_list
                 ]
             )
 
@@ -120,43 +113,30 @@ class ResultMatrixManager(object):
         HEADER = [METHOD_HEADER] + [
             '``True``', '``"true"``', 1,
         ]
-        VALUE = [
-            True, "true", 1,
-        ]
+        VALUE = [True, "true", 1]
 
     class ExampleString(object):
         HEADER = [METHOD_HEADER] + [
-            '``"abc"``', '``""``', '``"  "``', "``None``", 1,
+            '``"abc"``', '``""``', '``"  "``', "``None``", "``1``",
         ]
-        VALUE = [
-            "abc", "", "  ", None, 1,
-        ]
+        VALUE = ["abc", "", "  ", None, 1]
 
     class ExampleNumber(object):
         HEADER = [METHOD_HEADER] + [
-            1, 1.0, 1.1,
-            '``"1"``', '``"1.0"``', '``"1.1"``',
-            "``True``",
-        ]
-        VALUE = [
-            1, 1.0, 1.1, "1", "1.0", "1.1", True,
-        ]
+            "``1``", "``1.0``", "``1.1``", '``"1"``', '``"1.0"``', '``"1.1"``', "``True``"]
+        VALUE = [1, 1.0, 1.1, "1", "1.0", "1.1", True]
 
     class ExampleInfinity(object):
         HEADER = [METHOD_HEADER] + [
             '``float("inf")``', '``"Infinity"``', '``0.1``',
         ]
-        VALUE = [
-            float("inf"), "Infinity", 0.1,
-        ]
+        VALUE = [float("inf"), "Infinity", 0.1]
 
     class ExampleNan(object):
         HEADER = [METHOD_HEADER] + [
             '``float("nan")``', '``"NaN"``', '``0.1``',
         ]
-        VALUE = [
-            float("nan"), "NaN", 0.1,
-        ]
+        VALUE = [float("nan"), "NaN", 0.1]
 
     class ExampleDateTime(object):
         HEADER = [METHOD_HEADER] + [
@@ -177,10 +157,7 @@ class ResultMatrixManager(object):
             "``ip_address('127.0.0.1')``",
             "``'127.0.0.1'``", "``'::1'``", "``'192.168.0.256'``", "``None``",
         ]
-        VALUE = [
-            ipaddress.ip_address("127.0.0.1"),
-            "127.0.0.1", "::1", "192.168.0.256", None,
-        ]
+        VALUE = [ipaddress.ip_address("127.0.0.1"), "127.0.0.1", "::1", "192.168.0.256", None]
 
     class ExampleList(object):
         HEADER = [METHOD_HEADER] + [

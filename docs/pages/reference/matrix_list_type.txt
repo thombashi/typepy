@@ -1,24 +1,24 @@
-.. table:: :py:class:`typepy.type.List`: :py:attr:`~typepy.type.List.strict_level` = 0
+.. table:: :py:class:`typepy.List`: :py:attr:`~typepy.List.strict_level` = 0
 
     ====================================  ==========  ==============  ============  ===============
                    Method                   ``[]``    ``["a", "b"]``  ``{"a": 1}``     ``"abc"``   
     ====================================  ==========  ==============  ============  ===============
     :py:meth:`~.type.List.is_type`        ``True``    ``True``        ``True``      ``False``      
     :py:meth:`~.type.List.validate`       NOP [#f1]_  NOP [#f1]_      NOP [#f1]_    E [#f2]_       
-    :py:meth:`~.type.List.convert`        []          ['a', 'b']      ['a']         E [#f3]_       
+    :py:meth:`~.type.List.convert`        []          ['a', 'b']      ['a']         E [#f2]_       
     :py:meth:`~.type.List.try_convert`    []          ['a', 'b']      ['a']         ``None``       
     :py:meth:`~.type.List.force_convert`  []          ['a', 'b']      ['a']         ['a', 'b', 'c']
     ====================================  ==========  ==============  ============  ===============
 
 
-.. table:: :py:class:`typepy.type.List`: :py:attr:`~typepy.type.List.strict_level` = 1
+.. table:: :py:class:`typepy.List`: :py:attr:`~typepy.List.strict_level` = 1
 
     ====================================  ==========  ==============  ============  ===============
                    Method                   ``[]``    ``["a", "b"]``  ``{"a": 1}``     ``"abc"``   
     ====================================  ==========  ==============  ============  ===============
     :py:meth:`~.type.List.is_type`        ``True``    ``True``        ``False``     ``False``      
     :py:meth:`~.type.List.validate`       NOP [#f1]_  NOP [#f1]_      E [#f2]_      E [#f2]_       
-    :py:meth:`~.type.List.convert`        []          ['a', 'b']      E [#f3]_      E [#f3]_       
+    :py:meth:`~.type.List.convert`        []          ['a', 'b']      E [#f2]_      E [#f2]_       
     :py:meth:`~.type.List.try_convert`    []          ['a', 'b']      ``None``      ``None``       
     :py:meth:`~.type.List.force_convert`  []          ['a', 'b']      ['a']         ['a', 'b', 'c']
     ====================================  ==========  ==============  ============  ===============

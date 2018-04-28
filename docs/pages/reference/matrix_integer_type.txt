@@ -1,7 +1,7 @@
-.. table:: :py:class:`typepy.type.Integer`: :py:attr:`~typepy.type.Integer.strict_level` = 0
+.. table:: :py:class:`typepy.Integer`: :py:attr:`~typepy.Integer.strict_level` = 0
 
     =======================================  ==========  ==========  ==========  ==========  ==========  ==========  ==========
-                    Method                       1           1          1.1       ``"1"``    ``"1.0"``   ``"1.1"``    ``True`` 
+                    Method                     ``1``      ``1.0``     ``1.1``     ``"1"``    ``"1.0"``   ``"1.1"``    ``True`` 
     =======================================  ==========  ==========  ==========  ==========  ==========  ==========  ==========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``True``    ``True``    ``True``    ``True``    ``True``    ``True``  
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_
@@ -11,27 +11,27 @@
     =======================================  ==========  ==========  ==========  ==========  ==========  ==========  ==========
 
 
-.. table:: :py:class:`typepy.type.Integer`: :py:attr:`~typepy.type.Integer.strict_level` = 1
+.. table:: :py:class:`typepy.Integer`: :py:attr:`~typepy.Integer.strict_level` = 1
 
     =======================================  ==========  ==========  =========  ==========  ==========  =========  =========
-                    Method                       1           1          1.1      ``"1"``    ``"1.0"``   ``"1.1"``  ``True`` 
+                    Method                     ``1``      ``1.0``     ``1.1``    ``"1"``    ``"1.0"``   ``"1.1"``  ``True`` 
     =======================================  ==========  ==========  =========  ==========  ==========  =========  =========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``True``    ``False``  ``True``    ``True``    ``False``  ``False``
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  NOP [#f1]_  E [#f2]_   NOP [#f1]_  NOP [#f1]_  E [#f2]_   E [#f2]_ 
-    :py:meth:`~.type.Integer.convert`                 1           1  E [#f3]_            1           1  E [#f3]_   E [#f3]_ 
+    :py:meth:`~.type.Integer.convert`                 1           1  E [#f2]_            1           1  E [#f2]_   E [#f2]_ 
     :py:meth:`~.type.Integer.try_convert`             1           1  ``None``            1           1  ``None``   ``None`` 
     :py:meth:`~.type.Integer.force_convert`           1           1          1           1           1          1          1
     =======================================  ==========  ==========  =========  ==========  ==========  =========  =========
 
 
-.. table:: :py:class:`typepy.type.Integer`: :py:attr:`~typepy.type.Integer.strict_level` = 2
+.. table:: :py:class:`typepy.Integer`: :py:attr:`~typepy.Integer.strict_level` = 2
 
     =======================================  ==========  =========  =========  =========  =========  =========  =========
-                    Method                       1           1         1.1      ``"1"``   ``"1.0"``  ``"1.1"``  ``True`` 
+                    Method                     ``1``      ``1.0``    ``1.1``    ``"1"``   ``"1.0"``  ``"1.1"``  ``True`` 
     =======================================  ==========  =========  =========  =========  =========  =========  =========
     :py:meth:`~.type.Integer.is_type`        ``True``    ``False``  ``False``  ``False``  ``False``  ``False``  ``False``
     :py:meth:`~.type.Integer.validate`       NOP [#f1]_  E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_ 
-    :py:meth:`~.type.Integer.convert`                 1  E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_   E [#f3]_ 
+    :py:meth:`~.type.Integer.convert`                 1  E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_   E [#f2]_ 
     :py:meth:`~.type.Integer.try_convert`             1  ``None``   ``None``   ``None``   ``None``   ``None``   ``None`` 
     :py:meth:`~.type.Integer.force_convert`           1          1          1          1          1          1          1
     =======================================  ==========  =========  =========  =========  =========  =========  =========

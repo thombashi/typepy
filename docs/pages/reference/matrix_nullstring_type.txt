@@ -1,24 +1,24 @@
-.. table:: :py:class:`typepy.type.NullString`: :py:attr:`~typepy.type.NullString.strict_level` = 0
+.. table:: :py:class:`typepy.NullString`: :py:attr:`~typepy.NullString.strict_level` = 0
 
     ==========================================  =========  ==========  ==========  ==========  =========
-                      Method                    ``"abc"``    ``""``     ``"  "``    ``None``       1    
+                      Method                    ``"abc"``    ``""``     ``"  "``    ``None``     ``1``  
     ==========================================  =========  ==========  ==========  ==========  =========
     :py:meth:`~.type.NullString.is_type`        ``False``  ``True``    ``True``    ``True``    ``False``
     :py:meth:`~.type.NullString.validate`       E [#f2]_   NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  E [#f2]_ 
-    :py:meth:`~.type.NullString.convert`        E [#f3]_   ``""``      ``""``      ``""``      E [#f3]_ 
+    :py:meth:`~.type.NullString.convert`        E [#f2]_   ``""``      ``""``      ``""``      E [#f2]_ 
     :py:meth:`~.type.NullString.try_convert`    ``None``   ``""``      ``""``      ``""``      ``None`` 
     :py:meth:`~.type.NullString.force_convert`  ``""``     ``""``      ``""``      ``""``      ``""``   
     ==========================================  =========  ==========  ==========  ==========  =========
 
 
-.. table:: :py:class:`typepy.type.NullString`: :py:attr:`~typepy.type.NullString.strict_level` = 1
+.. table:: :py:class:`typepy.NullString`: :py:attr:`~typepy.NullString.strict_level` = 1
 
     ==========================================  =========  ==========  ==========  =========  =========
-                      Method                    ``"abc"``    ``""``     ``"  "``   ``None``       1    
+                      Method                    ``"abc"``    ``""``     ``"  "``   ``None``     ``1``  
     ==========================================  =========  ==========  ==========  =========  =========
     :py:meth:`~.type.NullString.is_type`        ``False``  ``True``    ``True``    ``False``  ``False``
     :py:meth:`~.type.NullString.validate`       E [#f2]_   NOP [#f1]_  NOP [#f1]_  E [#f2]_   E [#f2]_ 
-    :py:meth:`~.type.NullString.convert`        E [#f3]_   ``""``      ``""``      E [#f3]_   E [#f3]_ 
+    :py:meth:`~.type.NullString.convert`        E [#f2]_   ``""``      ``""``      E [#f2]_   E [#f2]_ 
     :py:meth:`~.type.NullString.try_convert`    ``None``   ``""``      ``""``      ``None``   ``None`` 
     :py:meth:`~.type.NullString.force_convert`  ``""``     ``""``      ``""``      ``""``     ``""``   
     ==========================================  =========  ==========  ==========  =========  =========

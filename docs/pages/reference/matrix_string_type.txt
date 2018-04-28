@@ -1,7 +1,7 @@
-.. table:: :py:class:`typepy.type.String`: :py:attr:`~typepy.type.String.strict_level` = 0
+.. table:: :py:class:`typepy.String`: :py:attr:`~typepy.String.strict_level` = 0
 
     ======================================  ==========  ==========  ==========  ==========  ==========
-                    Method                  ``"abc"``     ``""``     ``"  "``    ``None``       1     
+                    Method                  ``"abc"``     ``""``     ``"  "``    ``None``     ``1``   
     ======================================  ==========  ==========  ==========  ==========  ==========
     :py:meth:`~.type.String.is_type`        ``True``    ``True``    ``True``    ``True``    ``True``  
     :py:meth:`~.type.String.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  NOP [#f1]_
@@ -11,14 +11,14 @@
     ======================================  ==========  ==========  ==========  ==========  ==========
 
 
-.. table:: :py:class:`typepy.type.String`: :py:attr:`~typepy.type.String.strict_level` = 1
+.. table:: :py:class:`typepy.String`: :py:attr:`~typepy.String.strict_level` = 1
 
     ======================================  ==========  =========  =========  ==========  =========
-                    Method                  ``"abc"``    ``""``    ``"  "``    ``None``       1    
+                    Method                  ``"abc"``    ``""``    ``"  "``    ``None``     ``1``  
     ======================================  ==========  =========  =========  ==========  =========
     :py:meth:`~.type.String.is_type`        ``True``    ``False``  ``False``  ``False``   ``False``
     :py:meth:`~.type.String.validate`       NOP [#f1]_  E [#f2]_   E [#f2]_   E [#f2]_    E [#f2]_ 
-    :py:meth:`~.type.String.convert`        ``"abc"``   E [#f3]_   E [#f3]_   E [#f3]_    E [#f3]_ 
+    :py:meth:`~.type.String.convert`        ``"abc"``   E [#f2]_   E [#f2]_   E [#f2]_    E [#f2]_ 
     :py:meth:`~.type.String.try_convert`    ``"abc"``   ``None``   ``None``   ``None``    ``None`` 
     :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``     ``"  "``   ``"None"``  ``"1"``  
     ======================================  ==========  =========  =========  ==========  =========

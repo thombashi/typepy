@@ -171,25 +171,25 @@ rp_builtin = u"""
 
 rp_class = u"""
 .. |TypeConversionError| replace:: :py:class:`typepy.TypeConversionError`
-.. |DateTime| replace:: :py:class:`typepy.type.DateTime`
-.. |Dictionary| replace:: :py:class:`typepy.type.Dictionary`
-.. |Infinity| replace:: :py:class:`typepy.type.Infinity`
-.. |Integer| replace:: :py:class:`typepy.type.Integer`
-.. |Nan| replace:: :py:class:`typepy.type.Nan`
-.. |NoneType| replace:: :py:class:`typepy.type.NoneType`
-.. |NullString| replace:: :py:class:`typepy.type.NullString`
-.. |RealNumber| replace:: :py:class:`typepy.type.RealNumber`
-.. |String| replace:: :py:class:`typepy.type.String`
+.. |DateTime| replace:: :py:class:`typepy.DateTime`
+.. |Dictionary| replace:: :py:class:`typepy.Dictionary`
+.. |Infinity| replace:: :py:class:`typepy.Infinity`
+.. |Integer| replace:: :py:class:`typepy.Integer`
+.. |Nan| replace:: :py:class:`typepy.Nan`
+.. |NoneType| replace:: :py:class:`typepy.NoneType`
+.. |NullString| replace:: :py:class:`typepy.NullString`
+.. |RealNumber| replace:: :py:class:`typepy.RealNumber`
+.. |String| replace:: :py:class:`typepy.String`
 """
 
 rp_docstring = u"""
-.. |result_matrix_desc| replace:: 
+.. |result_matrix_desc| replace::
     For each member methods, the result matrix for each ``strict_level`` is as follows.
     Column headers (except ``Method`` column) indicate input data to ``value`` argument of
     a method in the ``Method`` column.
     For each cell shows the output of the method.
 
-.. |strict_level| replace:: 
+.. |strict_level| replace::
     Represents how much strict to detect the value type. Higher strict_level means that more stricter type check.
 """
 

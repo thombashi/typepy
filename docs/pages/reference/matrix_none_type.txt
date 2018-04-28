@@ -1,11 +1,11 @@
-.. table:: :py:class:`typepy.type.NoneType`: :py:attr:`~typepy.type.NoneType.strict_level` = 0
+.. table:: :py:class:`typepy.NoneType`: :py:attr:`~typepy.NoneType.strict_level` = 0
 
     ========================================  =========  =========  =========  ==========  =========
-                     Method                   ``"abc"``   ``""``    ``"  "``    ``None``       1    
+                     Method                   ``"abc"``   ``""``    ``"  "``    ``None``     ``1``  
     ========================================  =========  =========  =========  ==========  =========
     :py:meth:`~.type.NoneType.is_type`        ``False``  ``False``  ``False``  ``True``    ``False``
     :py:meth:`~.type.NoneType.validate`       E [#f2]_   E [#f2]_   E [#f2]_   NOP [#f1]_  E [#f2]_ 
-    :py:meth:`~.type.NoneType.convert`        E [#f3]_   E [#f3]_   E [#f3]_   ``None``    E [#f3]_ 
+    :py:meth:`~.type.NoneType.convert`        E [#f2]_   E [#f2]_   E [#f2]_   ``None``    E [#f2]_ 
     :py:meth:`~.type.NoneType.try_convert`    ``None``   ``None``   ``None``   ``None``    ``None`` 
     :py:meth:`~.type.NoneType.force_convert`  ``None``   ``None``   ``None``   ``None``    ``None`` 
     ========================================  =========  =========  =========  ==========  =========
