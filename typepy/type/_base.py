@@ -15,9 +15,7 @@ from ..error import TypeConversionError
 
 class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     __slots__ = (
-        "_data", "_strict_level", "_params",
-        "__checker", "__converter",
-        "__is_type_result",
+        "_data", "_strict_level", "_params", "__checker", "__converter", "__is_type_result",
     )
 
     @abc.abstractproperty
@@ -98,9 +96,8 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         if self.is_type():
             return
 
-        raise TypeError(
-            "invalid value type: expected={}, actual={}".format(
-                self.typecode, type(self._data)))
+        raise TypeError("invalid value type: expected={}, actual={}".format(
+            self.typecode, type(self._data)))
 
     def convert(self):
         """
@@ -112,9 +109,8 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         if self.is_type():
             return self.force_convert()
 
-        raise TypeConversionError(
-            "failed to convert from {} to {}".format(
-                type(self._data).__name__, self.typename))
+        raise TypeConversionError("failed to convert from {} to {}".format(
+            type(self._data).__name__, self.typename))
 
     def force_convert(self):
         """

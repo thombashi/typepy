@@ -85,15 +85,13 @@ class DateTimeConverter(AbstractValueConverter):
             self.__datetime = dateutil.parser.parse(self._value)
         except (AttributeError, ValueError, OverflowError):
             raise TypeConversionError(
-                "failed to parse as a datetime: type={}".format(
-                    type(self._value)))
+                "failed to parse as a datetime: type={}".format(type(self._value)))
 
         if self.__timezone:
             pytz_timezone = self.__timezone
         else:
             try:
-                dst_timezone_name = self.__get_dst_timezone_name(
-                    self.__get_timedelta_sec())
+                dst_timezone_name = self.__get_dst_timezone_name(self.__get_timedelta_sec())
             except (AttributeError, KeyError):
                 return self.__datetime
 
@@ -108,11 +106,7 @@ class DateTimeConverter(AbstractValueConverter):
         dt = self.__datetime.utcoffset()
 
         return int(
-            (
-                dt.days *
-                self.__DAYS_TO_SECONDS_COEF +
-                float(dt.seconds)
-            ) +
+            dt.days * self.__DAYS_TO_SECONDS_COEF + float(dt.seconds) +
             dt.microseconds / self.__MICROSECONDS_TO_SECONDS_COEF
         )
 
@@ -129,8 +123,7 @@ class DateTimeConverter(AbstractValueConverter):
         try:
             if self.__RE_VERSION_STR.search(self._value) is not None:
                 raise TypeConversionError(
-                    "invalid datetime string: version string found " +
-                    self._value)
+                    "invalid datetime string: version string found {}".format(self._value))
         except TypeError:
             raise TypeConversionError(
                 "invalid datetime string: type={}".format(type(self._value)))

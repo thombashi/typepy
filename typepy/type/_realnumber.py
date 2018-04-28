@@ -35,7 +35,6 @@ class RealNumber(AbstractType):
 
     def _create_type_converter(self):
         converter = FloatConverter(self._data)
-        converter.float_class = self._params.get(
-            "float_type", DefaultValue.FLOAT_TYPE)
+        converter.float_class = self._params.get("float_type", DefaultValue.FLOAT_TYPE)
 
         return converter

@@ -17,5 +17,4 @@ class DictionaryConverter(AbstractValueConverter):
             return dict(self._value)
         except (TypeError, ValueError):
             raise TypeConversionError(
-                "failed to force_convert to dictionary: type={}".format(
-                    type(self._value)))
+                "failed to force_convert to dictionary: type={}".format(type(self._value)))

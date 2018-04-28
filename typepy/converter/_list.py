@@ -17,5 +17,4 @@ class ListConverter(AbstractValueConverter):
             return list(self._value)
         except (TypeError, ValueError):
             raise TypeConversionError(
-                "failed to force_convert to list: type={}".format(
-                    type(self._value)))
+                "failed to force_convert to list: type={}".format(type(self._value)))

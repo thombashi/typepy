@@ -21,5 +21,4 @@ class IpAddressConverter(AbstractValueConverter):
             return ipaddress.ip_address(six.text_type(self._value))
         except ValueError:
             raise TypeConversionError(
-                "failed to force_convert to dictionary: type={}".format(
-                    type(self._value)))
+                "failed to force_convert to dictionary: type={}".format(type(self._value)))

@@ -35,5 +35,4 @@ class DateTime(AbstractType):
         return DateTimeTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return DateTimeConverter(
-            self._data, self._params.get(self._TIMEZONE_KEY))
+        return DateTimeConverter(self._data, self._params.get(self._TIMEZONE_KEY))
