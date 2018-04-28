@@ -21,6 +21,8 @@ def is_hex(value):
 
 
 def is_list_or_tuple(value):
+    warnings.warn("is_list_or_tuple() will be deleted in the future", DeprecationWarning)
+
     return isinstance(value, (tuple, list))
 
 
