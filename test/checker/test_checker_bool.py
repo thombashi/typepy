@@ -11,7 +11,7 @@ import itertools
 
 import pytest
 from typepy import StrictLevel, Typecode
-from typepy.type import Bool
+from typepy import Bool
 
 
 nan = float("nan")

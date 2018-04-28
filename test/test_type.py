@@ -21,11 +21,11 @@ from typepy import StrictLevel
 class Test_TypeClass_repr(object):
 
     @pytest.mark.parametrize(["type_class", "value", "strict_level"], [
-        [typepy.type.Integer, -six.MAXSIZE, StrictLevel.MIN],
-        [typepy.type.Integer, six.MAXSIZE, StrictLevel.MAX],
-        [typepy.type.RealNumber, -0.1, StrictLevel.MIN],
-        [typepy.type.RealNumber, 0.1, StrictLevel.MAX],
-        [typepy.type.DateTime, 1485685623, StrictLevel.MIN],
+        [typepy.Integer, -six.MAXSIZE, StrictLevel.MIN],
+        [typepy.Integer, six.MAXSIZE, StrictLevel.MAX],
+        [typepy.RealNumber, -0.1, StrictLevel.MIN],
+        [typepy.RealNumber, 0.1, StrictLevel.MAX],
+        [typepy.DateTime, 1485685623, StrictLevel.MIN],
     ])
     def test_smoke(self, type_class, value, strict_level):
         type_object = type_class(value, strict_level)
@@ -39,13 +39,13 @@ class Test_type(object):
         ["type_class", "value", "strict_level", "expected"],
         [
             [
-                typepy.type.IpAddress,
+                typepy.IpAddress,
                 "192.168.0.1",
                 StrictLevel.MIN,
                 ipaddress.IPv4Address("192.168.0.1"),
             ],
             [
-                typepy.type.IpAddress,
+                typepy.IpAddress,
                 "::1",
                 StrictLevel.MIN,
                 ipaddress.IPv6Address("::1"),
@@ -71,7 +71,7 @@ class Test_RealNumber(object):
         ],
     ])
     def test_normal_float_type(self, value, float_type, expected):
-        result = typepy.type.RealNumber(
+        result = typepy.RealNumber(
             value, strict_level=StrictLevel.MIN, float_type=float_type
         ).convert()
 
@@ -113,7 +113,7 @@ class Test_DateTime(object):
         ],
     ])
     def test_normal_timezone(self, value, timezone, expected):
-        result = typepy.type.DateTime(
+        result = typepy.DateTime(
             value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
         assert result == timezone.localize(expected)
@@ -132,7 +132,7 @@ class Test_IpAddress(object):
         ],
     ])
     def test_normal(self, value, expected):
-        result = typepy.type.IpAddress(
+        result = typepy.IpAddress(
             value, strict_level=StrictLevel.MIN).convert()
 
         assert result == expected

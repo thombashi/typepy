@@ -12,7 +12,7 @@ import itertools
 import pytest
 import six
 from typepy import StrictLevel, Typecode
-from typepy.type import NoneType
+from typepy import NoneType
 
 
 nan = float("nan")

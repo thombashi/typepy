@@ -12,7 +12,7 @@ from collections import OrderedDict
 
 import pytest
 from typepy import StrictLevel, Typecode
-from typepy.type import Dictionary
+from typepy import Dictionary
 
 
 nan = float("nan")

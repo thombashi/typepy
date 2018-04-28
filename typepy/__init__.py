@@ -15,3 +15,6 @@ from ._function import (
     is_not_empty_string, is_not_null_string, is_null_string)
 from ._typecode import Typecode
 from .error import TypeConversionError
+from .type import (
+    Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan, NoneType, NullString,
+    RealNumber, String)

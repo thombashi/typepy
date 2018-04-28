@@ -65,4 +65,4 @@ class Test_Bool(object):
         ])
     def test_normal(self, method, strict_level, value, expected):
         assert convert_wrapper(
-            typepy.type.Bool(value, strict_level), method) == expected
+            typepy.Bool(value, strict_level), method) == expected

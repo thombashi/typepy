@@ -13,7 +13,7 @@ from ipaddress import ip_address
 import pytest
 import six
 from typepy import StrictLevel, Typecode
-from typepy.type import IpAddress
+from typepy import IpAddress
 
 
 nan = float("nan")

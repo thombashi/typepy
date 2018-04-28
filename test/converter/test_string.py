@@ -72,4 +72,4 @@ class Test_String(object):
         ])
     def test_normal(self, method, strict_level, value, expected):
         assert convert_wrapper(
-            typepy.type.String(value, strict_level), method) == expected
+            typepy.String(value, strict_level), method) == expected

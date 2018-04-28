@@ -141,4 +141,4 @@ class Test_Integer(object):
         ])
     def test_normal(self, method, strict_level, value, expected):
         assert convert_wrapper(
-            typepy.type.Integer(value, strict_level), method) == expected
+            typepy.Integer(value, strict_level), method) == expected
