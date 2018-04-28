@@ -27,8 +27,7 @@ class ListTypeCheckerStrictLevel1(ListTypeCheckerStrictLevel0):
     def is_exclude_instance(self):
         return (
             super(ListTypeCheckerStrictLevel1, self).is_exclude_instance() or
-            not isinstance(self._value, list)
-        )
+            not isinstance(self._value, list))
 
 
 class ListTypeChecker(TypeChecker):

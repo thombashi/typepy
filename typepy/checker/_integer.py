@@ -51,8 +51,7 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         return (
             super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance() or
             isinstance(self._value, bool) or
-            RealNumber(self._value, strict_level=1).is_type()
-        )
+            RealNumber(self._value, strict_level=1).is_type())
 
 
 class IntegerTypeCheckerStrictLevel2(IntegerTypeCheckerStrictLevel1):

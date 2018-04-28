@@ -31,8 +31,7 @@ class DateTimeTypeCheckerStrictLevel2(DateTimeTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
         return (
             isstring(self._value) or
-            super(DateTimeTypeCheckerStrictLevel2, self).is_exclude_instance()
-        )
+            super(DateTimeTypeCheckerStrictLevel2, self).is_exclude_instance())
 
 
 class DateTimeTypeChecker(TypeChecker):

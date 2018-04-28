@@ -23,14 +23,10 @@ class RealNumberTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
         return (
             isinstance(self._value, bool) or
             isnan(self._value) or
-            isinf(self._value)
-        )
+            isinf(self._value))
 
     def is_valid_after_convert(self, converted_value):
-        return (
-            not isinf(converted_value) and
-            not isnan(converted_value)
-        )
+        return not isinf(converted_value) and not isnan(converted_value)
 
 
 class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
@@ -38,15 +34,12 @@ class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
     def is_instance(self):
         return (
             super(RealNumberTypeCheckerStrictLevel1, self).is_instance() and
-            not float(self._value).is_integer()
-        )
+            not float(self._value).is_integer())
 
     def is_exclude_instance(self):
         return (
             isinstance(self._value, six.integer_types) or
-            super(RealNumberTypeCheckerStrictLevel1,
-                  self).is_exclude_instance()
-        )
+            super(RealNumberTypeCheckerStrictLevel1, self).is_exclude_instance())
 
     def is_valid_after_convert(self, converted_value):
         return not float(converted_value).is_integer()
@@ -57,8 +50,7 @@ class RealNumberTypeCheckerStrictLevel2(RealNumberTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
         return (
             super(RealNumberTypeCheckerStrictLevel2, self).is_exclude_instance() or
-            isstring(self._value)
-        )
+            isstring(self._value))
 
 
 class RealNumberTypeChecker(TypeChecker):

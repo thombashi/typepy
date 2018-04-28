@@ -31,8 +31,7 @@ class IpAddressTypeCheckerStrictLevel1(IpAddressTypeCheckerStrictLevel0):
     def is_exclude_instance(self):
         return (
             isstring(self._value) or
-            super(IpAddressTypeCheckerStrictLevel1, self).is_exclude_instance()
-        )
+            super(IpAddressTypeCheckerStrictLevel1, self).is_exclude_instance())
 
 
 class IpAddressTypeChecker(TypeChecker):
