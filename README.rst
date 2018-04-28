@@ -29,22 +29,22 @@ The correspondence between Python types and ``typepy`` classes are as follows:
 
 .. table:: Supported Types
 
-    ====================  =======================================================================================================
-    Python Type           typepy: Type Class
-    ====================  =======================================================================================================
-    ``bool``              `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
-    ``datetime``          `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
-    ``dict``              `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
-    ``inf``               `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
-    ``int``               `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
-    ``list``              `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
-    ``float``             `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
-    ``NaN``               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
-    ``None``              `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
-    ``str`` (not null)    `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
-    ``str`` (null)        `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
-    ``str`` (IP address)  `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
-    ====================  =======================================================================================================
+    ================================================  =======================================================================================================
+    Python Type                                       typepy: Type Class
+    ================================================  =======================================================================================================
+    ``bool``                                          `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
+    ``datetime``                                      `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
+    ``dict``                                          `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
+    ``float``/``decimal.Decimal`` (not infinity/NaN)  `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
+    ``float``/``decimal.Decimal`` (infinity)          `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
+    ``float``/``decimal.Decimal`` (NaN)               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
+    ``int``                                           `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
+    ``list``                                          `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
+    ``None``                                          `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
+    ``str`` (not null)                                `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
+    ``str`` (null)                                    `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
+    ``str`` (IP address)                              `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
+    ================================================  =======================================================================================================
 
 Usage
 =======
@@ -53,7 +53,7 @@ Type Check Method
 :Examples:
     .. code-block:: pycon
 
-        >>> from typepy.type import Integer
+        >>> from typepy import Integer
         >>> Integer(1).is_type()
         True
         >>> Integer(1.1).is_type()
@@ -65,11 +65,12 @@ Type Validation Method
 :Examples:
     .. code-block:: pycon
 
-        >>> from typepy.type import Integer
+        >>> from typepy import Integer
         >>> Integer(1).validate()
         >>> try:
         ...     Integer(1.1).validate()
         ... except TypeError as e:
+        ...     # validate() raised TypeError when the value unmatched the type class
         ...     print(e)
         ...
         invalid value type: expected=INTEGER, actual=<type 'float'>
@@ -83,14 +84,14 @@ convert method
 :Examples:
     .. code-block:: pycon
 
-        >>> from typepy.type import Integer
-        >>> from typepy import TypeConversionError
+        >>> from typepy import Integer, TypeConversionError
         >>> Integer("1").convert()
         1
         >>> try:
         ...     Integer(1.1).convert()
         ... except TypeConversionError as e:
-        ...     print(e)  # convert() raised TypeConversionError when conversion failed
+        ...     # convert() raised TypeConversionError when conversion failed
+        ...     print(e)
         ...
         failed to convert from float to INTEGER
 
@@ -99,7 +100,7 @@ try_convert method
 :Examples:
     .. code-block:: pycon
 
-        >>> from typepy.type import Integer
+        >>> from typepy import Integer
         >>> Integer("1").try_convert()
         1
         >>> print(Integer(1.1).try_convert())  # try_convert() returned None when conversion failed
@@ -110,11 +111,18 @@ force_convert
 :Examples:
     .. code-block:: pycon
 
-        >>> from typepy.type import Integer
+        >>> from typepy import Integer, TypeConversionError
         >>> Integer("1").force_convert()  # force_convert() forcibly convert the value
         1
         >>> Integer(1.1).force_convert()
         1
+        >>> try:
+        ...     Integer("abc").force_convert()
+        ... except TypeConversionError as e:
+        ...     # force_convert() raised TypeConversionError when the value not convertible
+        ...     print(e)
+        ...
+        failed to force_convert to int: type=<class 'str'>
 
 
 For more information
