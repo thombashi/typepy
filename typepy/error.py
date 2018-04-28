@@ -7,7 +7,7 @@
 from __future__ import absolute_import
 
 
-class TypeConversionError(Exception):
+class TypeConversionError(TypeError):
     """
     Exception raised when failed to convert data.
     """
