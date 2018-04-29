@@ -21,24 +21,18 @@ OUTPUT_DIR = ".."
 def write_examples(maker):
     maker.set_indent_level(0)
     maker.write_chapter("Usage")
-
-    intro_root = Path(os.path.join("pages", "introduction"))
-
-    maker.write_file(intro_root.joinpath("usage.txt"))
+    maker.write_introduction_file("usage.txt")
 
 
 def main():
-    maker = readmemaker.ReadmeMaker(PROJECT_NAME, OUTPUT_DIR)
-    intro_root = Path(os.path.join("pages", "introduction"))
-
-    maker.write_file(intro_root.joinpath("badges.txt"))
-    maker.set_indent_level(0)
+    maker = readmemaker.ReadmeMaker(PROJECT_NAME, OUTPUT_DIR, is_make_toc=True)
 
     maker.write_chapter("Summary")
-    maker.write_file(intro_root.joinpath("summary.txt"))
+    maker.write_introduction_file("summary.txt")
+    maker.write_introduction_file("badges.txt")
 
     maker.write_chapter("Features")
-    maker.write_file(intro_root.joinpath("features.txt"))
+    maker.write_introduction_file("features.txt")
 
     write_examples(maker)
 

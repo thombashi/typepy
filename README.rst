@@ -1,5 +1,12 @@
-typepy
-========
+**typepy**
+
+.. contents:: Table of Contents
+   :depth: 2
+
+Summary
+=========
+A Python library for variable type checker/validator/converter at a run time.
+
 .. image:: https://badge.fury.io/py/typepy.svg
     :target: https://badge.fury.io/py/typepy
 
@@ -14,10 +21,6 @@ typepy
 
 .. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
    :target: https://github.com/thombashi/typepy
-
-Summary
-=========
-A Python library for variable type checker/validator/converter at a run time.
 
 Features
 ==========
