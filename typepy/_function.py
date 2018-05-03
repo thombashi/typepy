@@ -20,12 +20,6 @@ def is_hex(value):
     return True
 
 
-def is_list_or_tuple(value):
-    warnings.warn("is_list_or_tuple() will be deleted in the future", DeprecationWarning)
-
-    return isinstance(value, (tuple, list))
-
-
 def is_null_string(value):
     from .type import NullString
 

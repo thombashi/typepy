@@ -10,7 +10,7 @@ from __future__ import unicode_literals
 import pytest
 import six
 from six.moves import range
-from typepy import is_empty_sequence, is_hex, is_list_or_tuple, is_not_empty_sequence
+from typepy import is_empty_sequence, is_hex, is_not_empty_sequence
 
 
 nan = float("nan")
@@ -33,26 +33,6 @@ class Test_is_hex(object):
     ])
     def test_abnormal(self, value):
         assert not is_hex(value)
-
-
-class Test_is_list_or_tuple(object):
-
-    @pytest.mark.parametrize(["value", "expected"], [
-        [[], True],
-        [[1], True],
-        [["a"] * 20000, True],
-        [(), True],
-        [(1,), True],
-        [("a",) * 20000, True],
-
-        [None, False],
-        [nan, False],
-        [0, False],
-        ["aaa", False],
-        [True, False],
-    ])
-    def test_normal(self, value, expected):
-        assert is_list_or_tuple(value) == expected
 
 
 class Test_is_empty_sequence(object):
