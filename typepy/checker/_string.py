@@ -30,7 +30,16 @@ class StringTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 class StringTypeCheckerStrictLevel1(StringTypeCheckerStrictLevel0):
 
     def is_exclude_instance(self):
-        return not isstring(self._value) or self._is_null_string(self._value)
+        return not isstring(self._value)
+
+
+class StringTypeCheckerStrictLevel2(StringTypeCheckerStrictLevel1):
+
+    def is_exclude_instance(self):
+        if super(StringTypeCheckerStrictLevel2, self).is_exclude_instance():
+            return True
+
+        return self._is_null_string(self._value)
 
 
 class StringTypeChecker(TypeChecker):
@@ -41,6 +50,7 @@ class StringTypeChecker(TypeChecker):
             checker_mapping={
                 0: StringTypeCheckerStrictLevel0,
                 1: StringTypeCheckerStrictLevel1,
+                2: StringTypeCheckerStrictLevel2,
             },
             strict_level=strict_level)
 

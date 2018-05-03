@@ -53,21 +53,23 @@ class Params(object):
         if NullString(result, StrictLevel.MAX).is_type():
             return '""'
 
-        typeobj = Integer(result, 1)
+        strict_level = StrictLevel.MAX
+
+        typeobj = Integer(result, strict_level)
         if typeobj.is_type():
             return typeobj.convert()
 
-        typeobj = RealNumber(result, 1)
+        typeobj = RealNumber(result, strict_level)
         if typeobj.is_type():
             return typeobj.convert()
 
-        if String(result, 1).is_type():
+        if String(result, strict_level).is_type():
             return '"{}"'.format(result)
 
-        if Infinity(result, 1).is_type():
+        if Infinity(result, strict_level).is_type():
             return '"inf"'
 
-        if Nan(result, 1).is_type():
+        if Nan(result, strict_level).is_type():
             return '"nan"'
 
         return result
@@ -110,7 +112,7 @@ class TestParamWriter(object):
         self.__writer.typeclass = typepy.String
 
         for method in self.METHOD_LIST:
-            for strict_level in (0, 1):
+            for strict_level in (0, 1, 2):
                 self.__writer.strict_level = strict_level
                 for value in self.String.VALUE_LIST:
                     self.__writer.write_test_params(method, value)
