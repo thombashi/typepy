@@ -190,7 +190,7 @@ rp_docstring = u"""
     For each cell shows the output of the method.
 
 .. |strict_level| replace::
-    Represents how much strict to detect the value type. Higher strict_level means that more stricter type check.
+    Represents how much strict to detect the value type. Higher ``strict_level`` means that stricter type check.
 """
 
 rst_prolog = (

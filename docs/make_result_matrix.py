@@ -326,10 +326,6 @@ def write_result_matrix(output_dir_path):
         manager.set_stream(f)
         manager.write_nan()
 
-    with opener.open_write(make_filename("string")) as f:
-        manager.set_stream(f)
-        manager.write_string()
-
     with opener.open_write(make_filename("list")) as f:
         manager.set_stream(f)
         manager.write_list()
@@ -358,6 +354,10 @@ def write_result_matrix(output_dir_path):
     with opener.open_write(make_filename("realnumber")) as f:
         manager.set_stream(f)
         manager.write_realnumber()
+
+    with opener.open_write(make_filename("string")) as f:
+        manager.set_stream(f)
+        manager.write_string()
 
 
 def write_example(output_dir_path):

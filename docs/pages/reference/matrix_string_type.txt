@@ -13,6 +13,19 @@
 
 .. table:: :py:class:`typepy.String`: :py:attr:`~typepy.String.strict_level` = 1
 
+    ======================================  ==========  ==========  ==========  ==========  =========
+                    Method                  ``"abc"``     ``""``     ``"  "``    ``None``     ``1``  
+    ======================================  ==========  ==========  ==========  ==========  =========
+    :py:meth:`~.type.String.is_type`        ``True``    ``True``    ``True``    ``False``   ``False``
+    :py:meth:`~.type.String.validate`       NOP [#f1]_  NOP [#f1]_  NOP [#f1]_  E [#f2]_    E [#f2]_ 
+    :py:meth:`~.type.String.convert`        ``"abc"``   ``""``      ``"  "``    E [#f2]_    E [#f2]_ 
+    :py:meth:`~.type.String.try_convert`    ``"abc"``   ``""``      ``"  "``    ``None``    ``None`` 
+    :py:meth:`~.type.String.force_convert`  ``"abc"``   ``""``      ``"  "``    ``"None"``  ``"1"``  
+    ======================================  ==========  ==========  ==========  ==========  =========
+
+
+.. table:: :py:class:`typepy.String`: :py:attr:`~typepy.String.strict_level` = 2
+
     ======================================  ==========  =========  =========  ==========  =========
                     Method                  ``"abc"``    ``""``    ``"  "``    ``None``     ``1``  
     ======================================  ==========  =========  =========  ==========  =========

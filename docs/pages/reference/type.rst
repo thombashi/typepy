@@ -63,5 +63,5 @@ String Type
 
 
 .. [#f1] No Operation
-.. [#f2] Error (raise :py::`TypeError`)
+.. [#f2] Error (raise :py:class:`TypeError`)
 .. [#f3] Error (raise |TypeConversionError|)
