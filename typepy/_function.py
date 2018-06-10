@@ -9,6 +9,7 @@ from __future__ import absolute_import, unicode_literals
 import warnings
 
 from ._const import StrictLevel
+from .type import NullString, String
 
 
 def is_hex(value):
@@ -21,14 +22,10 @@ def is_hex(value):
 
 
 def is_null_string(value):
-    from .type import NullString
-
     return NullString(value, strict_level=StrictLevel.MIN).is_type()
 
 
 def is_not_null_string(value):
-    from .type import String
-
     return String(value, strict_level=StrictLevel.MAX).is_type()
 
 
