@@ -1,6 +1,9 @@
 .. image:: https://badge.fury.io/py/typepy.svg
     :target: https://badge.fury.io/py/typepy
 
+.. image:: https://img.shields.io/pypi/pyversions/typepy.svg
+   :target: https://pypi.python.org/pypi/typepy
+
 .. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux
     :target: https://travis-ci.org/thombashi/typepy
 

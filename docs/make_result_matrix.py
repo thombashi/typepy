@@ -22,6 +22,7 @@ from typepy import (
     Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan, NoneType, NullString,
     RealNumber, String)
 
+
 logbook.StderrHandler(
     level=logbook.DEBUG,
     format_string="[{record.level_name}] {record.channel}: {record.message}"
