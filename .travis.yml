@@ -38,8 +38,7 @@ install:
   - bash -x .travis/install.sh
 
 script:
-  - tox
-  - python setup.py test --addopts "-v --cov typepy --cov-report term-missing"
+  - bash -x .travis/run_test.sh
 
 after_success:
   - coveralls
