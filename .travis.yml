@@ -35,7 +35,7 @@ os:
   - linux
 
 install:
-  - bash .travis/install.sh
+  - bash -x .travis/install.sh
 
 script:
   - tox
