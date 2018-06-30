@@ -31,9 +31,6 @@ matrix:
       language: generic
       env: TOXENV=python3.6
 
-os:
-  - linux
-
 install:
   - bash -x .travis/install.sh
 
