@@ -13,9 +13,8 @@ from ipaddress import ip_address
 
 import pytest
 import pytz
-import six
 import typepy
-from six import text_type
+from six import MAXSIZE, text_type
 from typepy import StrictLevel
 
 
@@ -23,8 +22,8 @@ class Test_TypeClass_repr(object):
     @pytest.mark.parametrize(
         ["type_class", "value", "strict_level"],
         [
-            [typepy.Integer, -six.MAXSIZE, StrictLevel.MIN],
-            [typepy.Integer, six.MAXSIZE, StrictLevel.MAX],
+            [typepy.Integer, -MAXSIZE, StrictLevel.MIN],
+            [typepy.Integer, MAXSIZE, StrictLevel.MAX],
             [typepy.RealNumber, -0.1, StrictLevel.MIN],
             [typepy.RealNumber, 0.1, StrictLevel.MAX],
             [typepy.DateTime, 1485685623, StrictLevel.MIN],

@@ -11,8 +11,7 @@ import itertools
 from ipaddress import ip_address
 
 import pytest
-import six
-from six import text_type
+from six import MAXSIZE, text_type
 from typepy import IpAddress, StrictLevel, Typecode
 
 
@@ -25,7 +24,7 @@ class Test_IpAddress_is_type(object):
         ["value", "strict_level", "expected"],
         list(
             itertools.product(
-                ["", " ", six.MAXSIZE, text_type(six.MAXSIZE), inf, nan, None],
+                ["", " ", MAXSIZE, text_type(MAXSIZE), inf, nan, None],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

@@ -10,7 +10,7 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
-import six
+from six import MAXSIZE
 from typepy import NullString, StrictLevel, String, Typecode
 
 
@@ -28,14 +28,10 @@ class Test_String_is_type(object):
             )
         )
         + list(
-            itertools.product(
-                ["", " ", "\n", six.MAXSIZE, inf, nan, None], [StrictLevel.MIN], [True]
-            )
+            itertools.product(["", " ", "\n", MAXSIZE, inf, nan, None], [StrictLevel.MIN], [True])
         )
         + list(
-            itertools.product(
-                ["", " ", "\n", six.MAXSIZE, inf, nan, None], [StrictLevel.MAX], [False]
-            )
+            itertools.product(["", " ", "\n", MAXSIZE, inf, nan, None], [StrictLevel.MAX], [False])
         ),
     )
     def test_normal(self, value, strict_level, expected):
@@ -56,7 +52,7 @@ class Test_NullString_is_type(object):
         )
         + list(
             itertools.product(
-                [six.MAXSIZE, "None", inf, "いろは", "いろは".encode("utf_8")],
+                [MAXSIZE, "None", inf, "いろは", "いろは".encode("utf_8")],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

@@ -11,8 +11,7 @@ import itertools
 from decimal import Decimal
 
 import pytest
-import six
-from six import text_type
+from six import MAXSIZE, text_type
 from typepy import Integer, StrictLevel, Typecode
 
 
@@ -24,18 +23,16 @@ class Test_Integer_is_type(object):
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [
-            [text_type(six.MAXSIZE), StrictLevel.MIN, True],
-            [text_type(six.MAXSIZE), StrictLevel.MIN + 1, True],
-            [text_type(six.MAXSIZE), StrictLevel.MAX, False],
+            [text_type(MAXSIZE), StrictLevel.MIN, True],
+            [text_type(MAXSIZE), StrictLevel.MIN + 1, True],
+            [text_type(MAXSIZE), StrictLevel.MAX, False],
             [" 1 ", StrictLevel.MIN + 1, True],
             [True, StrictLevel.MIN + 1, False],
             [False, StrictLevel.MAX, False],
         ]
         + list(
             itertools.product(
-                [0, six.MAXSIZE, -six.MAXSIZE, Decimal("1")],
-                [StrictLevel.MIN, StrictLevel.MIN + 1],
-                [True],
+                [0, MAXSIZE, -MAXSIZE, Decimal("1")], [StrictLevel.MIN, StrictLevel.MIN + 1], [True]
             )
         )
         + list(
