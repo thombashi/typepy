@@ -11,7 +11,6 @@ from ._common import isnan, isstring
 
 
 class NanTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return isnan(self._value)
 
@@ -20,18 +19,14 @@ class NanTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
 
 class NanTypeCheckerStrictLevel1(NanTypeCheckerStrictLevel0):
-
     def is_exclude_instance(self):
         return isstring(self._value)
 
 
 class NanTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(NanTypeChecker, self).__init__(
             value=value,
-            checker_mapping={
-                0: NanTypeCheckerStrictLevel0,
-                1: NanTypeCheckerStrictLevel1,
-            },
-            strict_level=strict_level)
+            checker_mapping={0: NanTypeCheckerStrictLevel0, 1: NanTypeCheckerStrictLevel1},
+            strict_level=strict_level,
+        )

@@ -19,7 +19,6 @@ inf = float("inf")
 
 
 class Test_RealNumber(object):
-
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [
@@ -131,15 +130,13 @@ class Test_RealNumber(object):
             ["force_convert", 2, nan, Decimal("nan")],
             ["force_convert", 2, "test", EXCEPTION_RESULT],
             ["force_convert", 2, "", EXCEPTION_RESULT],
-
-        ])
+        ],
+    )
     def test_normal(self, method, strict_level, value, expected):
         from typepy import StrictLevel
         from typepy import Nan
 
-        actual = convert_wrapper(
-            typepy.RealNumber(value, strict_level),
-            method)
+        actual = convert_wrapper(typepy.RealNumber(value, strict_level), method)
         if Nan(expected, strict_level=StrictLevel.MIN).is_type():
             assert Nan(actual, strict_level=StrictLevel.MIN).is_type()
         else:

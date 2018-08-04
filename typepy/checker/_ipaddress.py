@@ -11,7 +11,6 @@ from ._common import isstring
 
 
 class IpAddressTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return self._is_ipaddress(self._value)
 
@@ -22,20 +21,18 @@ class IpAddressTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
     def _is_ipaddress(value):
         import ipaddress
 
-        return isinstance(
-            value, (ipaddress.IPv4Address, ipaddress.IPv6Address))
+        return isinstance(value, (ipaddress.IPv4Address, ipaddress.IPv6Address))
 
 
 class IpAddressTypeCheckerStrictLevel1(IpAddressTypeCheckerStrictLevel0):
-
     def is_exclude_instance(self):
         return (
-            isstring(self._value) or
-            super(IpAddressTypeCheckerStrictLevel1, self).is_exclude_instance())
+            isstring(self._value)
+            or super(IpAddressTypeCheckerStrictLevel1, self).is_exclude_instance()
+        )
 
 
 class IpAddressTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(IpAddressTypeChecker, self).__init__(
             value=value,
@@ -43,4 +40,5 @@ class IpAddressTypeChecker(TypeChecker):
                 0: IpAddressTypeCheckerStrictLevel0,
                 1: IpAddressTypeCheckerStrictLevel1,
             },
-            strict_level=strict_level)
+            strict_level=strict_level,
+        )

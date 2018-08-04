@@ -10,7 +10,6 @@ from ._checker import TypeChecker, TypeCheckerStrictLevel
 
 
 class NoneTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return self._value is None
 
@@ -19,11 +18,7 @@ class NoneTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
 
 class NoneTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(NoneTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: NoneTypeCheckerStrictLevel0,
-            },
-            strict_level=strict_level)
+            value=value, checker_mapping={0: NoneTypeCheckerStrictLevel0}, strict_level=strict_level
+        )

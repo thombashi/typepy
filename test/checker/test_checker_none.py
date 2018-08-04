@@ -19,21 +19,17 @@ inf = float("inf")
 
 
 class Test_NoneTypeChecker_is_type(object):
-
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        list(itertools.product(
-            [None],
-            [StrictLevel.MIN, StrictLevel.MAX],
-            [True]
-        )) + list(itertools.product(
-            [
-                "None",
-                True, False, 0, six.MAXSIZE, inf, nan,
-            ],
-            [StrictLevel.MIN, StrictLevel.MAX],
-            [False]
-        )))
+        list(itertools.product([None], [StrictLevel.MIN, StrictLevel.MAX], [True]))
+        + list(
+            itertools.product(
+                ["None", True, False, 0, six.MAXSIZE, inf, nan],
+                [StrictLevel.MIN, StrictLevel.MAX],
+                [False],
+            )
+        ),
+    )
     def test_normal(self, value, strict_level, expected):
         expected_typecode = Typecode.NONE
 

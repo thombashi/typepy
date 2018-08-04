@@ -17,7 +17,6 @@ inf = float("inf")
 
 
 class Test_Integer(object):
-
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [
@@ -138,7 +137,7 @@ class Test_Integer(object):
             ["force_convert", 2, nan, "E"],
             ["force_convert", 2, "test", "E"],
             ["force_convert", 2, "", "E"],
-        ])
+        ],
+    )
     def test_normal(self, method, strict_level, value, expected):
-        assert convert_wrapper(
-            typepy.Integer(value, strict_level), method) == expected
+        assert convert_wrapper(typepy.Integer(value, strict_level), method) == expected

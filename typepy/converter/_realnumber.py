@@ -16,7 +16,6 @@ from ._interface import AbstractValueConverter
 
 
 class FloatConverter(AbstractValueConverter):
-
     def __init__(self, value):
         super(FloatConverter, self).__init__(value)
 
@@ -30,4 +29,5 @@ class FloatConverter(AbstractValueConverter):
             return self.float_class(self._value)
         except (TypeError, ValueError, decimal.InvalidOperation):
             raise TypeConversionError(
-                "failed to force_convert to float: type={}".format(type(self._value)))
+                "failed to force_convert to float: type={}".format(type(self._value))
+            )

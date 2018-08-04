@@ -13,10 +13,10 @@ from ._interface import AbstractValueConverter
 
 
 class IntegerConverter(AbstractValueConverter):
-
     def force_convert(self):
         try:
             return int(Decimal(self._value))
         except (TypeError, OverflowError, ValueError, InvalidOperation):
             raise TypeConversionError(
-                "failed to force_convert to int: type={}".format(type(self._value)))
+                "failed to force_convert to int: type={}".format(type(self._value))
+            )

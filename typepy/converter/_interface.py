@@ -15,14 +15,13 @@ from ..error import TypeConversionError
 
 @six.add_metaclass(abc.ABCMeta)
 class ValueConverterInterface(object):
-
     @abc.abstractmethod
     def force_convert(self):  # pragma: no cover
         pass
 
 
 class AbstractValueConverter(ValueConverterInterface):
-    __slots__ = ("_value")
+    __slots__ = "_value"
 
     def __init__(self, value):
         self._value = value

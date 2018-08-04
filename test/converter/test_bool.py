@@ -13,7 +13,6 @@ from ._common import convert_wrapper
 
 
 class Test_Bool(object):
-
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [
@@ -62,7 +61,7 @@ class Test_Bool(object):
             ["force_convert", 2, 1, True],
             ["force_convert", 2, 1.1, "E"],
             ["force_convert", 2, None, "E"],
-        ])
+        ],
+    )
     def test_normal(self, method, strict_level, value, expected):
-        assert convert_wrapper(
-            typepy.Bool(value, strict_level), method) == expected
+        assert convert_wrapper(typepy.Bool(value, strict_level), method) == expected

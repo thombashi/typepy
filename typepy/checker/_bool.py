@@ -13,7 +13,6 @@ from ._common import isstring
 
 
 class BoolTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return isinstance(self._value, bool)
 
@@ -22,20 +21,18 @@ class BoolTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
 
 class BoolTypeCheckerStrictLevel1(BoolTypeCheckerStrictLevel0):
-
     def is_exclude_instance(self):
         return Integer(self._value, strict_level=StrictLevel.MAX).is_type()
 
 
 class BoolTypeCheckerStrictLevel2(BoolTypeCheckerStrictLevel1):
-
     def is_exclude_instance(self):
-        return (super(BoolTypeCheckerStrictLevel2, self).is_exclude_instance() or
-                isstring(self._value))
+        return super(BoolTypeCheckerStrictLevel2, self).is_exclude_instance() or isstring(
+            self._value
+        )
 
 
 class BoolTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(BoolTypeChecker, self).__init__(
             value=value,
@@ -44,4 +41,5 @@ class BoolTypeChecker(TypeChecker):
                 1: BoolTypeCheckerStrictLevel1,
                 2: BoolTypeCheckerStrictLevel2,
             },
-            strict_level=strict_level)
+            strict_level=strict_level,
+        )

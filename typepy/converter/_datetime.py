@@ -67,11 +67,11 @@ class DateTimeConverter(AbstractValueConverter):
             return None
 
         try:
-            self.__datetime = datetime.fromtimestamp(
-                timestamp, self.__timezone)
+            self.__datetime = datetime.fromtimestamp(timestamp, self.__timezone)
         except (ValueError, OSError, OverflowError):
             raise TypeConversionError(
-                "timestamp is out of the range of values supported by the platform")
+                "timestamp is out of the range of values supported by the platform"
+            )
 
         return self.__datetime
 
@@ -85,7 +85,8 @@ class DateTimeConverter(AbstractValueConverter):
             self.__datetime = dateutil.parser.parse(self._value)
         except (AttributeError, ValueError, OverflowError):
             raise TypeConversionError(
-                "failed to parse as a datetime: type={}".format(type(self._value)))
+                "failed to parse as a datetime: type={}".format(type(self._value))
+            )
 
         if self.__timezone:
             pytz_timezone = self.__timezone
@@ -106,8 +107,9 @@ class DateTimeConverter(AbstractValueConverter):
         dt = self.__datetime.utcoffset()
 
         return int(
-            dt.days * self.__DAYS_TO_SECONDS_COEF + float(dt.seconds) +
-            dt.microseconds / self.__MICROSECONDS_TO_SECONDS_COEF
+            dt.days * self.__DAYS_TO_SECONDS_COEF
+            + float(dt.seconds)
+            + dt.microseconds / self.__MICROSECONDS_TO_SECONDS_COEF
         )
 
     def __get_dst_timezone_name(self, offset):
@@ -123,7 +125,7 @@ class DateTimeConverter(AbstractValueConverter):
         try:
             if self.__RE_VERSION_STR.search(self._value) is not None:
                 raise TypeConversionError(
-                    "invalid datetime string: version string found {}".format(self._value))
+                    "invalid datetime string: version string found {}".format(self._value)
+                )
         except TypeError:
-            raise TypeConversionError(
-                "invalid datetime string: type={}".format(type(self._value)))
+            raise TypeConversionError("invalid datetime string: type={}".format(type(self._value)))

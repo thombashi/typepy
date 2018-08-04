@@ -19,30 +19,33 @@ import pytablewriter as ptw
 import six
 import typepy
 from typepy import (
-    Bool, DateTime, Dictionary, Infinity, Integer, IpAddress, List, Nan, NoneType, NullString,
-    RealNumber, String)
+    Bool,
+    DateTime,
+    Dictionary,
+    Infinity,
+    Integer,
+    IpAddress,
+    List,
+    Nan,
+    NoneType,
+    NullString,
+    RealNumber,
+    String,
+)
 
 
 logbook.StderrHandler(
-    level=logbook.DEBUG,
-    format_string="[{record.level_name}] {record.channel}: {record.message}"
+    level=logbook.DEBUG, format_string="[{record.level_name}] {record.channel}: {record.message}"
 ).push_application()
 
 METHOD_HEADER = "Method"
 
 
 class ExampleWriter(object):
-    _METHOD_LIST = (
-        "is_type",
-        "validate",
-        "convert",
-        "try_convert",
-        "force_convert",
-    )
+    _METHOD_LIST = ("is_type", "validate", "convert", "try_convert", "force_convert")
 
 
 class ResultMatrixWriter(ExampleWriter):
-
     def __init__(self):
         self.typeclass = None
         self.strict_level = None
@@ -66,9 +69,9 @@ class ResultMatrixWriter(ExampleWriter):
         self.__table_writer.stream = output_stream
 
     def write_type_matrix(self):
-        self.__table_writer.table_name = (
-            ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}".format(
-                self.typeclass.__name__, self.strict_level))
+        self.__table_writer.table_name = ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}".format(
+            self.typeclass.__name__, self.strict_level
+        )
         self.__table_writer.header_list = self.header_list
         self.__table_writer.value_matrix = self.__get_result_matrix()
         if self.typeclass.__name__ in ["Dictionary", "List"]:
@@ -98,93 +101,68 @@ class ResultMatrixWriter(ExampleWriter):
         result_matrix = []
         for method in self._METHOD_LIST:
             result_matrix.append(
-                [
-                    ":py:meth:`~.type.{:s}.{:s}`".format(self.typeclass.__name__, method)
-                ] + [
-                    self.exeute(method, value) for value in self.value_list
-                ]
+                [":py:meth:`~.type.{:s}.{:s}`".format(self.typeclass.__name__, method)]
+                + [self.exeute(method, value) for value in self.value_list]
             )
 
         return result_matrix
 
 
 class ResultMatrixManager(object):
-
     class ExampleBool(object):
-        HEADER = [METHOD_HEADER] + [
-            '``True``', '``"true"``', 1,
-        ]
+        HEADER = [METHOD_HEADER] + ["``True``", '``"true"``', 1]
         VALUE = [True, "true", 1]
 
     class ExampleString(object):
-        HEADER = [METHOD_HEADER] + [
-            '``"abc"``', '``""``', '``"  "``', "``None``", "``1``",
-        ]
+        HEADER = [METHOD_HEADER] + ['``"abc"``', '``""``', '``"  "``', "``None``", "``1``"]
         VALUE = ["abc", "", "  ", None, 1]
 
     class ExampleNumber(object):
         HEADER = [METHOD_HEADER] + [
-            "``1``", "``1.0``", "``1.1``", '``"1"``', '``"1.0"``', '``"1.1"``', "``True``"]
+            "``1``",
+            "``1.0``",
+            "``1.1``",
+            '``"1"``',
+            '``"1.0"``',
+            '``"1.1"``',
+            "``True``",
+        ]
         VALUE = [1, 1.0, 1.1, "1", "1.0", "1.1", True]
 
     class ExampleInfinity(object):
-        HEADER = [METHOD_HEADER] + [
-            '``float("inf")``', '``"Infinity"``', '``0.1``',
-        ]
+        HEADER = [METHOD_HEADER] + ['``float("inf")``', '``"Infinity"``', "``0.1``"]
         VALUE = [float("inf"), "Infinity", 0.1]
 
     class ExampleNan(object):
-        HEADER = [METHOD_HEADER] + [
-            '``float("nan")``', '``"NaN"``', '``0.1``',
-        ]
+        HEADER = [METHOD_HEADER] + ['``float("nan")``', '``"NaN"``', "``0.1``"]
         VALUE = [float("nan"), "NaN", 0.1]
 
     class ExampleDateTime(object):
         HEADER = [METHOD_HEADER] + [
-            '``datetime(2017, 1, 23, 4, 56)``',
+            "``datetime(2017, 1, 23, 4, 56)``",
             '``"2017-01-22T04:56:00+0900"``',
             "``1485685623``",
             '``"1485685623"``',
         ]
-        VALUE = [
-            datetime(2017, 1, 23, 4, 56),
-            "2017-01-22T04:56:00+0900",
-            1485685623,
-            "1485685623",
-        ]
+        VALUE = [datetime(2017, 1, 23, 4, 56), "2017-01-22T04:56:00+0900", 1485685623, "1485685623"]
 
     class ExampleIpAddress(object):
         HEADER = [METHOD_HEADER] + [
             "``ip_address('127.0.0.1')``",
-            "``'127.0.0.1'``", "``'::1'``", "``'192.168.0.256'``", "``None``",
+            "``'127.0.0.1'``",
+            "``'::1'``",
+            "``'192.168.0.256'``",
+            "``None``",
         ]
         VALUE = [ipaddress.ip_address("127.0.0.1"), "127.0.0.1", "::1", "192.168.0.256", None]
 
     class ExampleList(object):
-        HEADER = [METHOD_HEADER] + [
-            '``[]``',
-            '``["a", "b"]``',
-            '``{"a": 1}``',
-            '``"abc"``',
-        ]
-        VALUE = [
-            [],
-            ["a", "b"],
-            {"a": 1},
-            "abc",
-        ]
+        HEADER = [METHOD_HEADER] + ["``[]``", '``["a", "b"]``', '``{"a": 1}``', '``"abc"``']
+        VALUE = [[], ["a", "b"], {"a": 1}, "abc"]
 
     class ExampleDictionary(object):
-        HEADER = [METHOD_HEADER] + [
-            '``{}``',
-            '``{"a": 1}``',
-            '``(("a", 1), )``',
-        ]
-        VALUE = [
-            {},
-            {"a": 1},
-            (("a", 1), ),
-        ]
+        HEADER = [METHOD_HEADER] + ["``{}``", '``{"a": 1}``', '``(("a", 1), )``']
+        VALUE = [{}, {"a": 1}, (("a", 1),)]
 
     def __init__(self):
         self.strict_level_list = None
@@ -273,7 +251,6 @@ class ResultMatrixManager(object):
 
 
 class PathMaker(object):
-
     def __init__(self, output_dir, encoding="utf8"):
         self.__output_dir = output_dir
         self.__encoding = encoding
@@ -291,12 +268,11 @@ class PathMaker(object):
 def parse_option():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
-        "--type", choices=["reference", "example"])
+    parser.add_argument("--type", choices=["reference", "example"])
 
     parser.add_argument(
-        "-o", "--output-dir", default=".", required=True,
-        help="default=%(default)s")
+        "-o", "--output-dir", default=".", required=True, help="default=%(default)s"
+    )
 
     return parser.parse_args()
 

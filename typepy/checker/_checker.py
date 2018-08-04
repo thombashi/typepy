@@ -12,12 +12,7 @@ from ._interface import TypeCheckerInterface
 
 
 class CheckerCreator(object):
-    __slots__ = (
-        "__min_strict_level",
-        "__max_strict_level",
-        "__value",
-        "__checker_mapping",
-    )
+    __slots__ = ("__min_strict_level", "__max_strict_level", "__value", "__checker_mapping")
 
     @property
     def min_strict_level(self):
@@ -46,9 +41,7 @@ class CheckerCreator(object):
 
 
 class TypeCheckerStrictLevel(TypeCheckerInterface):
-    __slots__ = (
-        "_value",
-    )
+    __slots__ = ("_value",)
 
     def __init__(self, value):
         self._value = value
@@ -69,8 +62,7 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
         if self.is_type():
             return
 
-        raise TypeError(
-            "invalid value type: actual={}".format(type(self._value)))
+        raise TypeError("invalid value type: actual={}".format(type(self._value)))
 
     def is_exclude_instance(self):
         return False
@@ -80,14 +72,12 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
 
 
 class TypeChecker(TypeCheckerInterface):
-    __slots__ = (
-        "__checker",
-    )
+    __slots__ = ("__checker",)
 
     def __init__(self, value, checker_mapping, strict_level):
-        self.__checker = CheckerCreator(
-            value=value,
-            checker_mapping=checker_mapping).create(strict_level)
+        self.__checker = CheckerCreator(value=value, checker_mapping=checker_mapping).create(
+            strict_level
+        )
 
     def is_type(self):
         return self.__checker.is_type()

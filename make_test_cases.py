@@ -19,7 +19,6 @@ inf = float("inf")
 
 
 class Params(object):
-
     def __init__(self, stream):
         self.__stream = stream
         self.strict_level = None
@@ -36,10 +35,11 @@ class Params(object):
         else:
             write_value = value
 
-        self.__stream.write('["{:s}", {:d}, {}, {}],\n'.format(
-            method, self.strict_level,
-            write_value,
-            self.__exeute_method(method, value)))
+        self.__stream.write(
+            '["{:s}", {:d}, {}, {}],\n'.format(
+                method, self.strict_level, write_value, self.__exeute_method(method, value)
+            )
+        )
 
     def __exeute_method(self, method, value):
         try:
@@ -91,9 +91,7 @@ class TestParamWriter(object):
         VALUE_LIST = ["abc", "", 1, "-1", None, True, inf, nan]
 
     class Number(object):
-        VALUE_LIST = [
-            1, 1.0, 1.1, "0", "1.0", "1.1", six.MAXSIZE, True, None, inf, nan, "test", "",
-        ]
+        VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", six.MAXSIZE, True, None, inf, nan, "test", ""]
 
     def __init__(self, file_path):
         os.makedirs(os.path.dirname(file_path), exist_ok=True)

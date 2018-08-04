@@ -11,7 +11,6 @@ from ._common import isinf, isstring
 
 
 class InfinityCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return isinf(self._value)
 
@@ -23,18 +22,14 @@ class InfinityCheckerStrictLevel0(TypeCheckerStrictLevel):
 
 
 class InfinityCheckerStrictLevel1(InfinityCheckerStrictLevel0):
-
     def is_exclude_instance(self):
         return isstring(self._value)
 
 
 class InfinityTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(InfinityTypeChecker, self).__init__(
             value=value,
-            checker_mapping={
-                0: InfinityCheckerStrictLevel0,
-                1: InfinityCheckerStrictLevel1,
-            },
-            strict_level=strict_level)
+            checker_mapping={0: InfinityCheckerStrictLevel0, 1: InfinityCheckerStrictLevel1},
+            strict_level=strict_level,
+        )

@@ -13,7 +13,6 @@ from ._interface import AbstractValueConverter
 
 
 class BoolConverter(AbstractValueConverter):
-
     def force_convert(self):
         if isinstance(self._value, six.integer_types):
             return bool(self._value)
@@ -22,7 +21,8 @@ class BoolConverter(AbstractValueConverter):
             return self.__strict_strtobool(self._value)
         except ValueError:
             raise TypeConversionError(
-                "failed to force_convert to bool: type={}".format(type(self._value)))
+                "failed to force_convert to bool: type={}".format(type(self._value))
+            )
 
     @staticmethod
     def __strict_strtobool(value):

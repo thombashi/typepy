@@ -13,7 +13,6 @@ from ._interface import AbstractValueConverter
 
 
 class StringConverter(AbstractValueConverter):
-
     def force_convert(self):
         try:
             return MultiByteStrDecoder(self._value).unicode_str
@@ -22,6 +21,5 @@ class StringConverter(AbstractValueConverter):
 
 
 class NullStringConverter(StringConverter):
-
     def force_convert(self):
         return super(NullStringConverter, self).force_convert().strip()

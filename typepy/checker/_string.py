@@ -11,7 +11,6 @@ from ._common import isstring
 
 
 class StringTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
-
     def is_instance(self):
         return isstring(self._value)
 
@@ -28,13 +27,11 @@ class StringTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 
 
 class StringTypeCheckerStrictLevel1(StringTypeCheckerStrictLevel0):
-
     def is_exclude_instance(self):
         return not isstring(self._value)
 
 
 class StringTypeCheckerStrictLevel2(StringTypeCheckerStrictLevel1):
-
     def is_exclude_instance(self):
         if super(StringTypeCheckerStrictLevel2, self).is_exclude_instance():
             return True
@@ -43,7 +40,6 @@ class StringTypeCheckerStrictLevel2(StringTypeCheckerStrictLevel1):
 
 
 class StringTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(StringTypeChecker, self).__init__(
             value=value,
@@ -52,11 +48,11 @@ class StringTypeChecker(TypeChecker):
                 1: StringTypeCheckerStrictLevel1,
                 2: StringTypeCheckerStrictLevel2,
             },
-            strict_level=strict_level)
+            strict_level=strict_level,
+        )
 
 
 class NullStringTypeCheckerStrictLevel0(StringTypeCheckerStrictLevel0):
-
     def is_instance(self):
         return self._value is None
 
@@ -65,13 +61,11 @@ class NullStringTypeCheckerStrictLevel0(StringTypeCheckerStrictLevel0):
 
 
 class NullStringTypeCheckerStrictLevel1(NullStringTypeCheckerStrictLevel0):
-
     def is_instance(self):
         return False
 
 
 class NullStringTypeChecker(TypeChecker):
-
     def __init__(self, value, strict_level):
         super(NullStringTypeChecker, self).__init__(
             value=value,
@@ -79,4 +73,5 @@ class NullStringTypeChecker(TypeChecker):
                 0: NullStringTypeCheckerStrictLevel0,
                 1: NullStringTypeCheckerStrictLevel1,
             },
-            strict_level=strict_level)
+            strict_level=strict_level,
+        )

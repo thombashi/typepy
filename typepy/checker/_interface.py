@@ -13,7 +13,6 @@ import six
 
 @six.add_metaclass(abc.ABCMeta)
 class TypeCheckerInterface(object):
-
     @abc.abstractmethod
     def is_type(self):  # pragma: no cover
         pass
