@@ -7,9 +7,8 @@
 from __future__ import unicode_literals
 
 import datetime
-import ipaddress
 from decimal import Decimal
-from ipaddress import ip_address
+from ipaddress import IPv4Address, IPv6Address
 
 import pytest
 import pytz
@@ -33,23 +32,6 @@ class Test_TypeClass_repr(object):
         type_object = type_class(value, strict_level)
 
         assert text_type(type_object)
-
-
-class Test_type(object):
-    @pytest.mark.parametrize(
-        ["type_class", "value", "strict_level", "expected"],
-        [
-            [
-                typepy.IpAddress,
-                "192.168.0.1",
-                StrictLevel.MIN,
-                ipaddress.IPv4Address("192.168.0.1"),
-            ],
-            [typepy.IpAddress, "::1", StrictLevel.MIN, ipaddress.IPv6Address("::1")],
-        ],
-    )
-    def test_normal(self, type_class, value, strict_level, expected):
-        assert type_class(value, strict_level=strict_level).convert() == expected
 
 
 class Test_RealNumber(object):
@@ -98,8 +80,9 @@ class Test_IpAddress(object):
     @pytest.mark.parametrize(
         ["value", "expected"],
         [
-            [ip_address("127.0.0.1"), ip_address("127.0.0.1")],
-            ["127.0.0.1", ip_address("127.0.0.1")],
+            [IPv4Address("127.0.0.1"), IPv4Address("127.0.0.1")],
+            ["127.0.0.1", IPv4Address("127.0.0.1")],
+            ["::1", IPv6Address("::1")],
         ],
     )
     def test_normal(self, value, expected):
