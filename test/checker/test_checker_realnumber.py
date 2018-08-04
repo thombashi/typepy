@@ -12,6 +12,7 @@ from decimal import Decimal
 
 import pytest
 import six
+from six import text_type
 from typepy import RealNumber, StrictLevel, Typecode
 
 
@@ -30,8 +31,8 @@ class Test_RealNumber_is_type(object):
                     0.,
                     six.MAXSIZE,
                     -six.MAXSIZE,
-                    str(six.MAXSIZE),
-                    str(-six.MAXSIZE),
+                    text_type(six.MAXSIZE),
+                    text_type(-six.MAXSIZE),
                     "0.1",
                     "-0.1",
                     "1e-05",
@@ -55,8 +56,8 @@ class Test_RealNumber_is_type(object):
                     six.MAXSIZE,
                     -six.MAXSIZE,
                     "1.0",
-                    str(six.MAXSIZE),
-                    str(-six.MAXSIZE),
+                    text_type(six.MAXSIZE),
+                    text_type(-six.MAXSIZE),
                     "0.1",
                     "-0.1",
                     "1e-05",

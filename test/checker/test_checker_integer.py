@@ -12,6 +12,7 @@ from decimal import Decimal
 
 import pytest
 import six
+from six import text_type
 from typepy import Integer, StrictLevel, Typecode
 
 
@@ -23,9 +24,9 @@ class Test_Integer_is_type(object):
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [
-            [str(six.MAXSIZE), StrictLevel.MIN, True],
-            [str(six.MAXSIZE), StrictLevel.MIN + 1, True],
-            [str(six.MAXSIZE), StrictLevel.MAX, False],
+            [text_type(six.MAXSIZE), StrictLevel.MIN, True],
+            [text_type(six.MAXSIZE), StrictLevel.MIN + 1, True],
+            [text_type(six.MAXSIZE), StrictLevel.MAX, False],
             [" 1 ", StrictLevel.MIN + 1, True],
             [True, StrictLevel.MIN + 1, False],
             [False, StrictLevel.MAX, False],

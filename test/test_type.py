@@ -15,6 +15,7 @@ import pytest
 import pytz
 import six
 import typepy
+from six import text_type
 from typepy import StrictLevel
 
 
@@ -32,7 +33,7 @@ class Test_TypeClass_repr(object):
     def test_smoke(self, type_class, value, strict_level):
         type_object = type_class(value, strict_level)
 
-        assert str(type_object)
+        assert text_type(type_object)
 
 
 class Test_type(object):
