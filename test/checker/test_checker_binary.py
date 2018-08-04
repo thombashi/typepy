@@ -10,7 +10,6 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
-import six
 from six import MAXSIZE
 from typepy import Binary, StrictLevel, Typecode
 
@@ -25,10 +24,16 @@ class Test_Binary_is_type(object):
         list(itertools.product([], [StrictLevel.MIN, StrictLevel.MAX], [False]))
         + list(
             itertools.product(
-                [six.b("abc"), "いろは".encode("utf_8")], [StrictLevel.MIN, StrictLevel.MAX], [True]
+                ["abc".encode("utf_8"), "いろは".encode("utf_8")],
+                [StrictLevel.MIN, StrictLevel.MAX],
+                [True],
             )
         )
-        + list(itertools.product([six.b(""), six.b(" "), six.b("\n")], [StrictLevel.MIN], [True]))
+        + list(
+            itertools.product(
+                [" ".encode("utf_8"), "\n".encode("utf_8")], [StrictLevel.MIN], [True]
+            )
+        )
         + list(
             itertools.product(["", " ", "\n", MAXSIZE, inf, nan, None], [StrictLevel.MAX], [False])
         ),
