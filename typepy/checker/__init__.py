@@ -6,6 +6,7 @@
 
 from __future__ import absolute_import
 
+from ._binary import BinaryTypeChecker
 from ._bool import BoolTypeChecker
 from ._datetime import DateTimeTypeChecker
 from ._dictionary import DictionaryTypeChecker

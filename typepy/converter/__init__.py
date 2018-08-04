@@ -6,6 +6,7 @@
 
 from __future__ import absolute_import
 
+from ._binary import BinaryConverter
 from ._bool import BoolConverter
 from ._datetime import DateTimeConverter
 from ._dictionary import DictionaryConverter

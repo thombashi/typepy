@@ -22,6 +22,7 @@ from ._function import (
 from ._typecode import Typecode
 from .error import TypeConversionError
 from .type import (
+    Binary,
     Bool,
     DateTime,
     Dictionary,
