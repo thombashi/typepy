@@ -157,8 +157,8 @@ class ResultMatrixManager(object):
         VALUE = [ipaddress.ip_address("127.0.0.1"), "127.0.0.1", "::1", "192.168.0.256", None]
 
     class ExampleList(object):
-        HEADER = [METHOD_HEADER] + ["``[]``", '``["a", "b"]``', '``{"a": 1}``', '``"abc"``']
-        VALUE = [[], ["a", "b"], {"a": 1}, "abc"]
+        HEADER = [METHOD_HEADER] + ["``[]``", '``["a", "b"]``', '``("a", "b")``', '``{"a": 1}``', '``"abc"``']
+        VALUE = [[], ["a", "b"], ("a", "b"), {"a": 1}, "abc"]
 
     class ExampleDictionary(object):
         HEADER = [METHOD_HEADER] + ["``{}``", '``{"a": 1}``', '``(("a", 1), )``']
