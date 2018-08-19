@@ -38,18 +38,18 @@ The correspondence between Python types and ``typepy`` classes are as follows:
     ================================================  =======================================================================================================
     Python Type                                       typepy: Type Class
     ================================================  =======================================================================================================
-    ``bool``                                          `Bool <http://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
-    ``datetime``                                      `DateTime <http://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
-    ``dict``                                          `Dictionary <http://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
-    ``float``/``decimal.Decimal`` (not infinity/NaN)  `RealNumber <http://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
-    ``float``/``decimal.Decimal`` (infinity)          `Infinity <http://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
-    ``float``/``decimal.Decimal`` (NaN)               `Nan <http://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
-    ``int``                                           `Integer <http://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
-    ``list``                                          `List <http://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
-    ``None``                                          `None <http://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
-    ``str`` (not null)                                `String <http://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
-    ``str`` (null)                                    `NullString <http://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
-    ``str`` (IP address)                              `IpAddress <http://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
+    ``bool``                                          `Bool <https://typepy.rtfd.io/en/latest/pages/reference/type.html#bool-type>`__
+    ``datetime``                                      `DateTime <https://typepy.rtfd.io/en/latest/pages/reference/type.html#datetime-type>`__
+    ``dict``                                          `Dictionary <https://typepy.rtfd.io/en/latest/pages/reference/type.html#dictionary-type>`__
+    ``float``/``decimal.Decimal`` (not infinity/NaN)  `RealNumber <https://typepy.rtfd.io/en/latest/pages/reference/type.html#real-number-type>`__
+    ``float``/``decimal.Decimal`` (infinity)          `Infinity <https://typepy.rtfd.io/en/latest/pages/reference/type.html#infinity-type>`__
+    ``float``/``decimal.Decimal`` (NaN)               `Nan <https://typepy.rtfd.io/en/latest/pages/reference/type.html#nan-type>`__
+    ``int``                                           `Integer <https://typepy.rtfd.io/en/latest/pages/reference/type.html#integer-type>`__
+    ``list``                                          `List <https://typepy.rtfd.io/en/latest/pages/reference/type.html#list-type>`__
+    ``None``                                          `None <https://typepy.rtfd.io/en/latest/pages/reference/type.html#none-type>`__
+    ``str`` (not null)                                `String <https://typepy.rtfd.io/en/latest/pages/reference/type.html#string-type>`__
+    ``str`` (null)                                    `NullString <https://typepy.rtfd.io/en/latest/pages/reference/type.html#null-string-type>`__
+    ``str`` (IP address)                              `IpAddress <https://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
     ================================================  =======================================================================================================
 
 Usage
@@ -162,5 +162,5 @@ Test dependencies
 
 Documentation
 ===============
-http://typepy.rtfd.io/
+https://typepy.rtfd.io/
 
