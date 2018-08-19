@@ -136,7 +136,7 @@ For more information
 Type check/validate/convert results differed according to
 ``strict_level`` value which can pass to typepy classes constructors as an argument.
 More information can be found in the
-`API reference <http://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
+`API reference <https://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
 
 Installation
 ============
