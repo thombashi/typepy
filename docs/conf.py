@@ -4,7 +4,7 @@ import os
 import sys
 
 import sphinx_rtd_theme
-from pytablewriter import __author__, __copyright__, __name__, __version__
+from typepy import __author__, __copyright__, __name__, __version__
 
 
 sys.path.insert(0, os.path.abspath('../typepy'))
