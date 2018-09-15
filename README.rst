@@ -11,7 +11,7 @@ A Python library for variable type checker/validator/converter at a run time.
     :target: https://badge.fury.io/py/typepy
 
 .. image:: https://img.shields.io/pypi/pyversions/typepy.svg
-   :target: https://pypi.python.org/pypi/typepy
+   :target: https://pypi.org/project/typepy
 
 .. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux/macOS
     :target: https://travis-ci.org/thombashi/typepy
@@ -151,13 +151,13 @@ Python 2.7+ or 3.4+
 
 - `mbstrdecoder <https://github.com/thombashi/mbstrdecoder>`__
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
-- `pytz <https://pypi.python.org/pypi/pytz/>`__
-- `six <https://pypi.python.org/pypi/six/>`__
+- `pytz <https://pypi.org/project/pytz/>`__
+- `six <https://pypi.org/project/six/>`__
 
 Test dependencies
 -----------------
 - `pytest <https://docs.pytest.org/en/latest/>`__
-- `pytest-runner <https://pypi.python.org/pypi/pytest-runner>`__
+- `pytest-runner <https://github.com/pytest-dev/pytest-runner>`__
 - `tox <https://testrun.org/tox/latest/>`__
 
 Documentation
