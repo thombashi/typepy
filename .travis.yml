@@ -1,45 +1,45 @@
 language: python
 
 matrix:
-  include:
-    - os: linux
-      python: 2.7
-      sudo: required
-      env: TOXENV=python2.7
+    include:
+        - os: linux
+          python: 2.7
+          sudo: required
+          env: TOXENV=python2.7
 
-    - os: linux
-      python: 3.4
-      sudo: required
-      env: TOXENV=python3.4
+        - os: linux
+          python: 3.4
+          sudo: required
+          env: TOXENV=python3.4
 
-    - os: linux
-      python: 3.5
-      sudo: required
-      env: TOXENV=python3.5
+        - os: linux
+          python: 3.5
+          sudo: required
+          env: TOXENV=python3.5
 
-    - os: linux
-      python: 3.6
-      sudo: required
-      env: TOXENV=python3.6
+        - os: linux
+          python: 3.6
+          sudo: required
+          env: TOXENV=python3.6
 
-    - os: linux
-      python: 3.7-dev
-      sudo: required
-      env: TOXENV=python3.7
+        - os: linux
+          python: 3.7-dev
+          sudo: required
+          env: TOXENV=python3.7
 
-    - os: osx
-      language: generic
-      env: TOXENV=python3.6
+        - os: osx
+          language: generic
+          env: TOXENV=python3.6
 
 install:
-  - bash -x .travis/install.sh
+    - bash -x .travis/install.sh
 
 script:
-  - bash -x .travis/run_test.sh
+    - bash -x .travis/run_test.sh
 
 after_success:
-  - coveralls
+    - coveralls
 
 notifications:
-  slack:
-    secure: KnfoxAQfeziKsZtDS0k0V/lQzHWYjD/IBRMl9igjgp2mTPFNR1fSQFTtuXe2bErc00J1EnzRtseiX/4DzsWUs39S+eNa9XzRzUdS6MnwoaHrpmr4femF8fAW6d5bwi1CyquuyCGHTgfuaIksirMwGwjrBgPGi7QmTHfHvT/Niq5+U1IiS6PkG398Ss6q3pPJeEstTq8eJlWGjbpk0D81fyr7S/fKIH0IAfrZahDU4Gr6V4TcT3ot3mNpTqbnAgXpwu7xEETyl8fnFri/MHq8JaLh+EcjUwMXU28cLUqDy738wNfIbFcfborq8E11T3NYp99I9q35JaxvuS1EhUddO0Z4lHDzAg7fV1DRLMmYHZV1r+DVJg+8kcmM7tLXXpDjwsgLk3a8TcNz+980Agkep9ZY8qyUxoqeAnJbIE4XgknFR8Qmj7HTsEtlXlbStBZ+zQNqTVyNdMr2ix2RpbJgesMSIijP06Py6j3i1cgNaqF77Zls/mG0WG0Ky1fGYmcpaThD4JIXYRpg1oMP2uVaiGxnx5wNMdn28eChW1EHUB7DeBKuy6YR3wiyktuucNZlAW7atJZJ9HBcr6XOrr3gIoRdAb9LsmF7GWSDPXMUF8rrKjDmKn7VIsDyVimgGVklodV2o0pMl4xGeu3twYX01egONzipwOiBxq/9ZYmZojo=
+    slack:
+        secure: KnfoxAQfeziKsZtDS0k0V/lQzHWYjD/IBRMl9igjgp2mTPFNR1fSQFTtuXe2bErc00J1EnzRtseiX/4DzsWUs39S+eNa9XzRzUdS6MnwoaHrpmr4femF8fAW6d5bwi1CyquuyCGHTgfuaIksirMwGwjrBgPGi7QmTHfHvT/Niq5+U1IiS6PkG398Ss6q3pPJeEstTq8eJlWGjbpk0D81fyr7S/fKIH0IAfrZahDU4Gr6V4TcT3ot3mNpTqbnAgXpwu7xEETyl8fnFri/MHq8JaLh+EcjUwMXU28cLUqDy738wNfIbFcfborq8E11T3NYp99I9q35JaxvuS1EhUddO0Z4lHDzAg7fV1DRLMmYHZV1r+DVJg+8kcmM7tLXXpDjwsgLk3a8TcNz+980Agkep9ZY8qyUxoqeAnJbIE4XgknFR8Qmj7HTsEtlXlbStBZ+zQNqTVyNdMr2ix2RpbJgesMSIijP06Py6j3i1cgNaqF77Zls/mG0WG0Ky1fGYmcpaThD4JIXYRpg1oMP2uVaiGxnx5wNMdn28eChW1EHUB7DeBKuy6YR3wiyktuucNZlAW7atJZJ9HBcr6XOrr3gIoRdAb9LsmF7GWSDPXMUF8rrKjDmKn7VIsDyVimgGVklodV2o0pMl4xGeu3twYX01egONzipwOiBxq/9ZYmZojo=
