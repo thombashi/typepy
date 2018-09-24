@@ -30,7 +30,7 @@ class DateTimeConverter(AbstractValueConverter):
         7200: "Africa/Tripoli",  # 0200
     }
 
-    __RE_VERSION_STR = re.compile("\d+\.\d+\.\d")
+    __RE_VERSION_STR = re.compile(r"\d+\.\d+\.\d")
 
     def __init__(self, value, timezone=None):
         super(DateTimeConverter, self).__init__(value)
