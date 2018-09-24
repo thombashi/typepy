@@ -1,6 +1,6 @@
 enum34;python_version<"3.4"
 ipaddress;python_version<"3.3"
-mbstrdecoder>=0.4.2
+mbstrdecoder>=0.5.0
 python-dateutil>=2.7.3
 pytz>=2018.5
 six>=1.11.0
