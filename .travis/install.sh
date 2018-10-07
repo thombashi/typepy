@@ -10,5 +10,6 @@ if [ "$TRAVIS_OS_NAME" = "osx" ]; then
     pip3 install .[test]
 else
     pip install setuptools --upgrade
+    pip install .[datetime]
     pip install .[test]
 fi

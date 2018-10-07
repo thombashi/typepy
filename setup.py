@@ -82,6 +82,10 @@ setuptools.setup(
     tests_require=tests_requires,
     extras_require={
         "build": "wheel",
+        "datetime": [
+            "python-dateutil>=2.7.3",
+            "pytz>=2018.5",
+        ],
         "docs": docs_requires,
         "release": "releasecmd>=0.0.12",
         "test": tests_requires,
