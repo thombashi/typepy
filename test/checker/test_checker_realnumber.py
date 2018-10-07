@@ -28,7 +28,7 @@ class Test_RealNumber_is_type(object):
                 [
                     0,
                     0.0,
-                    0.,
+                    0.0,
                     six.MAXSIZE,
                     -six.MAXSIZE,
                     text_type(six.MAXSIZE),
@@ -44,7 +44,7 @@ class Test_RealNumber_is_type(object):
         + list(itertools.product([True, inf, nan, "", "0xf"], [StrictLevel.MIN], [False]))
         + list(
             itertools.product(
-                [0, 0.0, 0., six.MAXSIZE, -six.MAXSIZE], [StrictLevel.MIN + 1], [False]
+                [0, 0.0, 0.0, six.MAXSIZE, -six.MAXSIZE], [StrictLevel.MIN + 1], [False]
             )
         )
         + list(
@@ -52,7 +52,7 @@ class Test_RealNumber_is_type(object):
                 [
                     0,
                     0.0,
-                    0.,
+                    0.0,
                     six.MAXSIZE,
                     -six.MAXSIZE,
                     "1.0",
@@ -68,7 +68,7 @@ class Test_RealNumber_is_type(object):
         )
         + list(
             itertools.product(
-                [0.1, -0.1, .5, Decimal("1.1")],
+                [0.1, -0.1, 0.5, Decimal("1.1")],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [True],
             )

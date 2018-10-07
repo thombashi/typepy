@@ -39,7 +39,7 @@ class Test_Integer_is_type(object):
             itertools.product(
                 [
                     0.5,
-                    .999,
+                    0.999,
                     Decimal("1.1"),
                     1e-05,
                     -1e-05,
