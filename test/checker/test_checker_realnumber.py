@@ -52,7 +52,7 @@ class Test_RealNumber_is_type(object):
                 [
                     0,
                     0.0,
-                    0.0,
+                    Decimal("1"),
                     six.MAXSIZE,
                     -six.MAXSIZE,
                     "1.0",
