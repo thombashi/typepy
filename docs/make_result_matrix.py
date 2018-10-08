@@ -53,13 +53,13 @@ class ResultMatrixWriter(ExampleWriter):
         self.value_list = None
 
         self.__table_writer = ptw.RstSimpleTableWriter()
-        self.__table_writer._dp_extractor.type_value_mapping = {
+        self.__table_writer._dp_extractor.type_value_map = {
             NullString(None).typecode: '``""``',
             NoneType(None).typecode: "``None``",
             Infinity(None).typecode: '``Decimal("inf")``',
             Nan(None).typecode: '``Decimal("nan")``',
         }
-        self.__table_writer._dp_extractor.const_value_mapping = {
+        self.__table_writer._dp_extractor.const_value_map = {
             True: "``True``",
             False: "``False``",
             '``"127.0.0.1"``': '``ip_address("127.0.0.1")``',
