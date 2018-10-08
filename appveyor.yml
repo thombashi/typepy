@@ -15,8 +15,7 @@ install:
     - "%PYTHON%/python.exe C:/get-pip.py"
     - "%PYTHON%/Scripts/pip.exe --version"
     - "%PYTHON%/Scripts/pip.exe install setuptools --upgrade"
-    - "%PYTHON%/Scripts/pip.exe install typepy[datetime]"
-    - "%PYTHON%/Scripts/pip.exe install typepy[test]"
+    - "%PYTHON%/Scripts/pip.exe install typepy[datetime,test]"
 
 test_script:
     - "%PYTHON%/python.exe setup.py test"
