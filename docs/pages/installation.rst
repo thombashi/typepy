@@ -4,7 +4,7 @@ Installation
 
     pip install typepy
 
-Install with the following command if using ``typepy.DateTime`` class
+Install additional dependency packages with the following command if using ``typepy.DateTime`` class
 
 ::
 
