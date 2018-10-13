@@ -35,6 +35,7 @@ matrix:
           env: TOXENV=cov
           after_success:
               - pip install pytest-cov --upgrade
+              - python setup.py test --addopts "-v --cov typepy --cov-report term-missing"
               - coveralls
 
         - os: osx
