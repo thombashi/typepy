@@ -55,6 +55,10 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
 PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
+DATETIME_REQUIRES = [
+    "python-dateutil>=2.7.3",
+    "pytz>=2018.5",
+]
 
 setuptools.setup(
     name=MODULE_NAME,
@@ -79,13 +83,10 @@ setuptools.setup(
     python_requires='>=2.7,!=3.0.*,!=3.1.*,!=3.2.*',
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
     setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
-    tests_require=tests_requires,
+    tests_require=tests_requires + DATETIME_REQUIRES,
     extras_require={
         "build": ["wheel"],
-        "datetime": [
-            "python-dateutil>=2.7.3",
-            "pytz>=2018.5",
-        ],
+        "datetime": DATETIME_REQUIRES,
         "docs": docs_requires,
         "release": ["releasecmd>=0.0.12"],
         "test": tests_requires,
