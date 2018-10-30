@@ -6,13 +6,13 @@
 
 from __future__ import unicode_literals
 
-import datetime
+from datetime import datetime
 from decimal import Decimal
 from ipaddress import IPv4Address, IPv6Address
 
 import pytest
-import pytz
 import typepy
+from pytz import timezone, utc
 from six import MAXSIZE, text_type
 from typepy import StrictLevel
 
@@ -50,27 +50,19 @@ class Test_DateTime(object):
     @pytest.mark.parametrize(
         ["value", "timezone", "expected"],
         [
+            [datetime(2017, 1, 29, 10, 27, 3), utc, datetime(2017, 1, 29, 10, 27, 3)],
             [
-                datetime.datetime(2017, 1, 29, 10, 27, 3),
-                pytz.utc,
-                datetime.datetime(2017, 1, 29, 10, 27, 3),
+                datetime(2017, 1, 29, 10, 27, 3),
+                timezone("Asia/Tokyo"),
+                datetime(2017, 1, 29, 10, 27, 3),
             ],
-            [
-                datetime.datetime(2017, 1, 29, 10, 27, 3),
-                pytz.timezone("Asia/Tokyo"),
-                datetime.datetime(2017, 1, 29, 10, 27, 3),
-            ],
-            ["2017-01-29 19:27:03", pytz.utc, datetime.datetime(2017, 1, 29, 19, 27, 3)],
-            [
-                "2017-01-29 19:27:03",
-                pytz.timezone("Asia/Tokyo"),
-                datetime.datetime(2017, 1, 29, 19, 27, 3),
-            ],
-            [1485685623, pytz.utc, datetime.datetime(2017, 1, 29, 10, 27, 3)],
-            [1485685623, pytz.timezone("Asia/Tokyo"), datetime.datetime(2017, 1, 29, 19, 27, 3)],
+            ["2017-01-29 19:27:03", utc, datetime(2017, 1, 29, 19, 27, 3)],
+            ["2017-01-29 19:27:03", timezone("Asia/Tokyo"), datetime(2017, 1, 29, 19, 27, 3)],
+            [1485685623, utc, datetime(2017, 1, 29, 10, 27, 3)],
+            [1485685623, timezone("Asia/Tokyo"), datetime(2017, 1, 29, 19, 27, 3)],
         ],
     )
-    def test_normal_timezone(self, value, timezone, expected):
+    def test_normal_datetime_timezone(self, value, timezone, expected):
         result = typepy.DateTime(value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
         assert result == timezone.localize(expected)
