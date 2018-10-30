@@ -8,7 +8,7 @@
 from __future__ import unicode_literals
 
 import itertools
-from datetime import datetime
+from datetime import date, datetime
 
 import pytest
 import six
@@ -25,7 +25,7 @@ class Test_DateTime_is_type(object):
         ["value", "strict_level", "expected"],
         list(
             itertools.product(
-                [datetime(2017, 3, 22, 10, 0, tzinfo=tzoffset(None, 32400))],
+                [datetime(2017, 3, 22, 10, 0, tzinfo=tzoffset(None, 32400)), date(2017, 3, 22)],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [True],
             )

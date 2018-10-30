@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-import datetime
+from datetime import date, datetime
 
 from ..type._integer import Integer
 from ._checker import TypeChecker, TypeCheckerStrictLevel
@@ -15,7 +15,7 @@ from ._common import isstring
 
 class DateTimeTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
     def is_instance(self):
-        return isinstance(self._value, datetime.datetime)
+        return isinstance(self._value, (date, datetime))
 
 
 class DateTimeTypeCheckerStrictLevel1(DateTimeTypeCheckerStrictLevel0):

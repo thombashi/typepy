@@ -6,7 +6,7 @@
 
 from __future__ import unicode_literals
 
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal
 from ipaddress import IPv4Address, IPv6Address
 
@@ -66,6 +66,18 @@ class Test_DateTime(object):
         result = typepy.DateTime(value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
         assert result == timezone.localize(expected)
+
+    @pytest.mark.parametrize(
+        ["value", "expected"],
+        [
+            [date(2017, 1, 29), datetime(2017, 1, 29, 0, 0, 0)],
+            ["2017-01-29", datetime(2017, 1, 29, 0, 0, 0)],
+        ],
+    )
+    def test_normal_date(self, value, expected):
+        result = typepy.DateTime(value, strict_level=StrictLevel.MIN).convert()
+
+        assert result == expected
 
 
 class Test_IpAddress(object):

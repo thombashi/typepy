@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import, unicode_literals
 
-from datetime import datetime
+from datetime import date, datetime
 from distutils.version import StrictVersion
 
 from ..error import TypeConversionError
@@ -48,10 +48,16 @@ class DateTimeConverter(AbstractValueConverter):
         return self.__from_datetime_string()
 
     def __from_datetime(self):
-        if not isinstance(self._value, datetime):
+        if not isinstance(self._value, (date, datetime)):
             return None
 
-        self.__datetime = self._value
+        if isinstance(self._value, datetime):
+            self.__datetime = self._value
+        elif isinstance(self._value, date):
+            self.__datetime = datetime(
+                year=self._value.year, month=self._value.month, day=self._value.day
+            )
+
         if self.__timezone:
             self.__datetime = self.__timezone.localize(self.__datetime)
 
