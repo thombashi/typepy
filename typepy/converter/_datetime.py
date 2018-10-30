@@ -6,8 +6,8 @@
 
 from __future__ import absolute_import, unicode_literals
 
-import re
 from datetime import datetime
+from distutils.version import StrictVersion
 
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
@@ -29,8 +29,6 @@ class DateTimeConverter(AbstractValueConverter):
         -10800: "America/Miquelon",  # -0300
         7200: "Africa/Tripoli",  # 0200
     }
-
-    __RE_VERSION_STR = re.compile(r"\d+\.\d+\.\d")
 
     def __init__(self, value, timezone=None):
         super(DateTimeConverter, self).__init__(value)
@@ -123,9 +121,12 @@ class DateTimeConverter(AbstractValueConverter):
         """
 
         try:
-            if self.__RE_VERSION_STR.search(self._value) is not None:
+            try:
+                StrictVersion(self._value)
                 raise TypeConversionError(
                     "invalid datetime string: version string found {}".format(self._value)
                 )
+            except ValueError:
+                pass
         except TypeError:
             raise TypeConversionError("invalid datetime string: type={}".format(type(self._value)))
