@@ -27,10 +27,10 @@ class Infinity(AbstractType):
         return Typecode.INFINITY
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Infinity, self).__init__(value, strict_level, kwargs)
+        super(Infinity, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return InfinityTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return FloatConverter(self._data)
+        return FloatConverter(self._data, self._params)

@@ -27,10 +27,10 @@ class IpAddress(AbstractType):
         return Typecode.IP_ADDRESS
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(IpAddress, self).__init__(value, strict_level, kwargs)
+        super(IpAddress, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return IpAddressTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return IpAddressConverter(self._data)
+        return IpAddressConverter(self._data, self._params)

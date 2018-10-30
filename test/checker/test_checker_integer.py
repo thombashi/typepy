@@ -16,6 +16,7 @@ from termcolor import colored
 from typepy import Integer, StrictLevel, Typecode
 
 
+class_under_test = Integer
 nan = float("nan")
 inf = float("inf")
 
@@ -30,7 +31,6 @@ class Test_Integer_is_type(object):
             [" 1 ", StrictLevel.MIN + 1, True],
             [True, StrictLevel.MIN + 1, False],
             [False, StrictLevel.MAX, False],
-            [colored("1", "red"), StrictLevel.MIN, True],
         ]
         + list(
             itertools.product(
@@ -65,7 +65,17 @@ class Test_Integer_is_type(object):
         ),
     )
     def test_normal(self, value, strict_level, expected):
-        type_checker = Integer(value, strict_level)
+        type_checker = class_under_test(value, strict_level)
+
+        assert type_checker.is_type() == expected
+        assert type_checker.typecode == Typecode.INTEGER
+
+    @pytest.mark.parametrize(
+        ["value", "strip_ansi_escape", "expected"],
+        [[colored("1", "red"), False, False], [colored("1", "red"), True, True]],
+    )
+    def test_normal_ansi(self, value, strip_ansi_escape, expected):
+        type_checker = class_under_test(value, StrictLevel.MIN, strip_ansi_escape=strip_ansi_escape)
 
         assert type_checker.is_type() == expected
         assert type_checker.typecode == Typecode.INTEGER

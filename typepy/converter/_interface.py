@@ -23,8 +23,9 @@ class ValueConverterInterface(object):
 class AbstractValueConverter(ValueConverterInterface):
     __slots__ = "_value"
 
-    def __init__(self, value):
+    def __init__(self, value, params):
         self._value = value
+        self._params = params
 
     def __repr__(self):
         try:

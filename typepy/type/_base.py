@@ -39,14 +39,10 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     def typename(self):
         return self.typecode.name
 
-    def __init__(self, value, strict_level, params):
+    def __init__(self, value, strict_level, **kwargs):
         self._data = value
         self._strict_level = strict_level
-
-        if not params:
-            self._params = {}
-        else:
-            self._params = params
+        self._params = kwargs
 
         self.__checker = self._create_type_checker()
         self.__converter = self._create_type_converter()

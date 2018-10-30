@@ -27,10 +27,10 @@ class Integer(AbstractType):
         return Typecode.INTEGER
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Integer, self).__init__(value, strict_level, kwargs)
+        super(Integer, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return IntegerTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return IntegerConverter(self._data)
+        return IntegerConverter(self._data, self._params)

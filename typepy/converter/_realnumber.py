@@ -11,14 +11,14 @@ import decimal
 import six
 
 from .._common import strip_ansi_escape
-from .._const import DefaultValue
+from .._const import DefaultValue, ParamKey
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
 
 class FloatConverter(AbstractValueConverter):
-    def __init__(self, value):
-        super(FloatConverter, self).__init__(value)
+    def __init__(self, value, params):
+        super(FloatConverter, self).__init__(value, params)
 
         self.float_class = DefaultValue.FLOAT_TYPE
 
@@ -34,9 +34,12 @@ class FloatConverter(AbstractValueConverter):
         except (TypeError, ValueError, decimal.InvalidOperation):
             pass
 
-        try:
-            return self.float_class(strip_ansi_escape(self._value))
-        except (TypeError, ValueError, decimal.InvalidOperation):
-            raise TypeConversionError(
-                "failed to force_convert to float: type={}".format(type(self._value))
-            )
+        if self._params.get(ParamKey.STRIP_ANSI_ESCAPE, DefaultValue.STRIP_ANSI_ESCAPE):
+            try:
+                return self.float_class(strip_ansi_escape(self._value))
+            except (TypeError, ValueError, decimal.InvalidOperation):
+                pass
+
+        raise TypeConversionError(
+            "failed to force_convert to float: type={}".format(type(self._value))
+        )

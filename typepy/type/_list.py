@@ -27,10 +27,10 @@ class List(AbstractType):
         return Typecode.LIST
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(List, self).__init__(value, strict_level, kwargs)
+        super(List, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return ListTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return ListConverter(self._data)
+        return ListConverter(self._data, self._params)

@@ -27,7 +27,7 @@ class NoneType(AbstractType):
         return Typecode.NONE
 
     def __init__(self, value, strict_level=0, **kwargs):
-        super(NoneType, self).__init__(value, strict_level, kwargs)
+        super(NoneType, self).__init__(value, strict_level, **kwargs)
 
     def force_convert(self):
         return None
@@ -36,4 +36,4 @@ class NoneType(AbstractType):
         return NoneTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return NopConverter(self._data)
+        return NopConverter(self._data, self._params)

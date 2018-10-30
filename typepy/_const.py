@@ -11,8 +11,14 @@ from decimal import Decimal
 
 class DefaultValue(object):
     FLOAT_TYPE = Decimal
+    STRIP_ANSI_ESCAPE = True
 
 
 class StrictLevel(object):
     MIN = 0
     MAX = 100
+
+
+class ParamKey(object):
+    STRIP_ANSI_ESCAPE = "strip_ansi_escape"
+    TIMEZONE = "timezone"

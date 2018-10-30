@@ -28,10 +28,10 @@ class Bool(AbstractType):
         return Typecode.BOOL
 
     def __init__(self, value, strict_level=2, **kwargs):
-        super(Bool, self).__init__(value, strict_level, kwargs)
+        super(Bool, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return BoolTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return BoolConverter(self._data)
+        return BoolConverter(self._data, self._params)

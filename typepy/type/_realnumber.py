@@ -28,13 +28,13 @@ class RealNumber(AbstractType):
         return Typecode.REAL_NUMBER
 
     def __init__(self, value, strict_level=0, **kwargs):
-        super(RealNumber, self).__init__(value, strict_level, kwargs)
+        super(RealNumber, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return RealNumberTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        converter = FloatConverter(self._data)
+        converter = FloatConverter(self._data, self._params)
         converter.float_class = self._params.get("float_type", DefaultValue.FLOAT_TYPE)
 
         return converter

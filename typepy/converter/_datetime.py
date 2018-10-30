@@ -10,6 +10,7 @@ from datetime import date, datetime
 from distutils.version import StrictVersion
 
 from .._common import strip_ansi_escape
+from .._const import DefaultValue, ParamKey
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
@@ -31,11 +32,11 @@ class DateTimeConverter(AbstractValueConverter):
         7200: "Africa/Tripoli",  # 0200
     }
 
-    def __init__(self, value, timezone=None):
-        super(DateTimeConverter, self).__init__(value)
+    def __init__(self, value, params):
+        super(DateTimeConverter, self).__init__(value, params)
 
         self.__datetime = None
-        self.__timezone = timezone
+        self.__timezone = self._params.get(ParamKey.TIMEZONE)
 
     def force_convert(self):
         self.__datetime = self.__from_datetime()
@@ -89,12 +90,16 @@ class DateTimeConverter(AbstractValueConverter):
         try:
             self.__datetime = dateutil.parser.parse(self._value)
         except (AttributeError, ValueError, OverflowError):
-            try:
-                self.__datetime = dateutil.parser.parse(strip_ansi_escape(self._value))
-            except (AttributeError, ValueError, OverflowError):
-                raise TypeConversionError(
-                    "failed to parse as a datetime: type={}".format(type(self._value))
-                )
+            if self._params.get(ParamKey.STRIP_ANSI_ESCAPE, DefaultValue.STRIP_ANSI_ESCAPE):
+                try:
+                    self.__datetime = dateutil.parser.parse(strip_ansi_escape(self._value))
+                except (AttributeError, ValueError, OverflowError):
+                    pass
+
+        if self.__datetime is None:
+            raise TypeConversionError(
+                "failed to parse as a datetime: type={}".format(type(self._value))
+            )
 
         if self.__timezone:
             pytz_timezone = self.__timezone

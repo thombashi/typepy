@@ -27,10 +27,10 @@ class Dictionary(AbstractType):
         return Typecode.DICTIONARY
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Dictionary, self).__init__(value, strict_level, kwargs)
+        super(Dictionary, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return DictionaryTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return DictionaryConverter(self._data)
+        return DictionaryConverter(self._data, self._params)

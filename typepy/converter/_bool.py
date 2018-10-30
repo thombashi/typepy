@@ -9,6 +9,7 @@ from __future__ import absolute_import, unicode_literals
 import six
 
 from .._common import strip_ansi_escape
+from .._const import DefaultValue, ParamKey
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
@@ -23,12 +24,15 @@ class BoolConverter(AbstractValueConverter):
         except ValueError:
             pass
 
-        try:
-            return self.__strict_strtobool(strip_ansi_escape(self._value))
-        except (TypeError, ValueError):
-            raise TypeConversionError(
-                "failed to force_convert to bool: type={}".format(type(self._value))
-            )
+        if self._params.get(ParamKey.STRIP_ANSI_ESCAPE, DefaultValue.STRIP_ANSI_ESCAPE):
+            try:
+                return self.__strict_strtobool(strip_ansi_escape(self._value))
+            except (TypeError, ValueError):
+                pass
+
+        raise TypeConversionError(
+            "failed to force_convert to bool: type={}".format(type(self._value))
+        )
 
     @staticmethod
     def __strict_strtobool(value):

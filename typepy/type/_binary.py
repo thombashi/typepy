@@ -25,10 +25,10 @@ class Binary(AbstractType):
         return Typecode.STRING
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Binary, self).__init__(value, strict_level, kwargs)
+        super(Binary, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return BinaryTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return BinaryConverter(self._data)
+        return BinaryConverter(self._data, self._params)

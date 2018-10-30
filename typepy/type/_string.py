@@ -27,13 +27,13 @@ class String(AbstractType):
         return Typecode.STRING
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(String, self).__init__(value, strict_level, kwargs)
+        super(String, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return StringTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return StringConverter(self._data)
+        return StringConverter(self._data, self._params)
 
 
 class NullString(AbstractType):
@@ -51,7 +51,7 @@ class NullString(AbstractType):
         return Typecode.NULL_STRING
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(NullString, self).__init__(value, strict_level, kwargs)
+        super(NullString, self).__init__(value, strict_level, **kwargs)
 
     def force_convert(self):
         return ""
@@ -60,4 +60,4 @@ class NullString(AbstractType):
         return NullStringTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
-        return NullStringConverter(self._data)
+        return NullStringConverter(self._data, self._params)
