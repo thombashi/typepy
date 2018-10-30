@@ -8,6 +8,7 @@ from __future__ import absolute_import, unicode_literals
 
 import six
 
+from .._common import strip_ansi_escape
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
@@ -20,6 +21,11 @@ class BoolConverter(AbstractValueConverter):
         try:
             return self.__strict_strtobool(self._value)
         except ValueError:
+            pass
+
+        try:
+            return self.__strict_strtobool(strip_ansi_escape(self._value))
+        except (TypeError, ValueError):
             raise TypeConversionError(
                 "failed to force_convert to bool: type={}".format(type(self._value))
             )

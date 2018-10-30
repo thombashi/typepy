@@ -10,6 +10,7 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
+from termcolor import colored
 from typepy import Bool, StrictLevel, Typecode
 
 
@@ -20,7 +21,7 @@ inf = float("inf")
 class Test_Bool_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        []
+        [[colored("True", "red"), StrictLevel.MIN, True]]
         + list(itertools.product([True, False], [StrictLevel.MIN, StrictLevel.MAX], [True]))
         + list(
             itertools.product([0, 1, "True", "False", "true", "false"], [StrictLevel.MIN], [True])

@@ -13,6 +13,7 @@ from decimal import Decimal
 import pytest
 import six
 from six import text_type
+from termcolor import colored
 from typepy import RealNumber, StrictLevel, Typecode
 
 
@@ -23,7 +24,8 @@ inf = float("inf")
 class Test_RealNumber_is_type(object):
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        list(
+        [[colored("1.1", "red"), StrictLevel.MIN, True]]
+        + list(
             itertools.product(
                 [
                     0,

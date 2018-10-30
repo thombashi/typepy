@@ -9,6 +9,7 @@ from __future__ import absolute_import, unicode_literals
 from datetime import date, datetime
 from distutils.version import StrictVersion
 
+from .._common import strip_ansi_escape
 from ..error import TypeConversionError
 from ._interface import AbstractValueConverter
 
@@ -88,9 +89,12 @@ class DateTimeConverter(AbstractValueConverter):
         try:
             self.__datetime = dateutil.parser.parse(self._value)
         except (AttributeError, ValueError, OverflowError):
-            raise TypeConversionError(
-                "failed to parse as a datetime: type={}".format(type(self._value))
-            )
+            try:
+                self.__datetime = dateutil.parser.parse(strip_ansi_escape(self._value))
+            except (AttributeError, ValueError, OverflowError):
+                raise TypeConversionError(
+                    "failed to parse as a datetime: type={}".format(type(self._value))
+                )
 
         if self.__timezone:
             pytz_timezone = self.__timezone

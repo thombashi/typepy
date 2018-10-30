@@ -13,6 +13,7 @@ from datetime import date, datetime
 import pytest
 import six
 from dateutil.tz import tzoffset
+from termcolor import colored
 from typepy import DateTime, StrictLevel, Typecode
 
 
@@ -23,7 +24,8 @@ inf = float("inf")
 class Test_DateTime_is_type(object):
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        list(
+        [[colored("2017-03-22T10:00:00", "red"), StrictLevel.MIN, True]]
+        + list(
             itertools.product(
                 [datetime(2017, 3, 22, 10, 0, tzinfo=tzoffset(None, 32400)), date(2017, 3, 22)],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],

@@ -12,6 +12,7 @@ from ipaddress import ip_address
 
 import pytest
 from six import MAXSIZE, text_type
+from termcolor import colored
 from typepy import IpAddress, StrictLevel, Typecode
 
 
@@ -22,7 +23,8 @@ inf = float("inf")
 class Test_IpAddress_is_type(object):
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        list(
+        [[colored("127.0.0.1", "red"), StrictLevel.MIN, True]]
+        + list(
             itertools.product(
                 ["", " ", MAXSIZE, text_type(MAXSIZE), inf, nan, None],
                 [StrictLevel.MIN, StrictLevel.MAX],
