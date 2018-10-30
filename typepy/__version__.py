@@ -6,6 +6,6 @@ from datetime import datetime
 __author__ = "Tsuyoshi Hombashi"
 __copyright__ = "Copyright 2017-{}, {}".format(datetime.now().year, __author__)
 __license__ = "MIT License"
-__version__ = "0.2.5"
+__version__ = "0.3.0"
 __maintainer__ = __author__
 __email__ = "tsuyoshi.hombashi@gmail.com"
