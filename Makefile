@@ -1,7 +1,8 @@
 PACKAGE := typepy
 BUILD_DIR := build
 DOCS_DIR := docs
-DOCS_BUILD_DIR := _build
+DOCS_BUILD_DIR := $(DOCS_DIR)/_build
+
 
 .PHONY: build
 build:
@@ -11,11 +12,11 @@ build:
 
 .PHONY: clean
 clean:
-	@rm -rf $(PACKAGE)-*.*.*/ $(BUILD_DIR)/ dist/ .eggs/ .pytest_cache/ .tox/ **/*/__pycache__/ *.egg-info/
+	@rm -rf $(PACKAGE)-*.*.*/ $(BUILD_DIR)/ $(DOCS_BUILD_DIR)/ dist/ .eggs/ .pytest_cache/ .tox/ **/*/__pycache__/ *.egg-info/
 
 .PHONY: docs
 docs:
-	@python setup.py build_sphinx --source-dir=$(DOCS_DIR)/ --build-dir=$(DOCS_DIR)/$(DOCS_BUILD_DIR) --all-files
+	@python setup.py build_sphinx --source-dir=$(DOCS_DIR)/ --build-dir=$(DOCS_BUILD_DIR) --all-files
 
 .PHONY: fmt
 fmt:
