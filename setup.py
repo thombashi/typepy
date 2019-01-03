@@ -56,7 +56,7 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
 PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
 DATETIME_REQUIRES = [
-    "python-dateutil>=2.7.5",
+    "python-dateutil>=2.7.5,<3.0.0",
     "pytz>=2018.7",
 ]
 
