@@ -88,7 +88,7 @@ setuptools.setup(
         "build": ["wheel"],
         "datetime": DATETIME_REQUIRES,
         "docs": docs_requires,
-        "release": ["releasecmd>=0.0.12"],
+        "release": ["releasecmd>=0.0.12,<0.1.0"],
         "test": tests_requires,
     },
 
