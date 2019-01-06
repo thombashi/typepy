@@ -1,14 +1,18 @@
 .. image:: https://badge.fury.io/py/typepy.svg
     :target: https://badge.fury.io/py/typepy
+    :alt: PyPI package version
 
 .. image:: https://img.shields.io/pypi/pyversions/typepy.svg
-   :target: https://pypi.org/project/typepy
+    :target: https://pypi.org/project/typepy
+    :alt: Supported Python versions
 
-.. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux/macOS
+.. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux/macOS-CI
     :target: https://travis-ci.org/thombashi/typepy
+    :alt: Linux/macOS CI status
 
-.. image:: https://img.shields.io/appveyor/ci/thombashi/typepy/master.svg?label=Windows
+.. image:: https://img.shields.io/appveyor/ci/thombashi/typepy/master.svg?label=Windows-CI
     :target: https://ci.appveyor.com/project/thombashi/typepy
+    :alt: Windows CI status
 
 .. image:: https://coveralls.io/repos/github/thombashi/typepy/badge.svg?branch=master
     :target: https://coveralls.io/github/thombashi/typepy?branch=master
