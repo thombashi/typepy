@@ -9,7 +9,7 @@ from __future__ import unicode_literals
 
 import sys
 
-import readmemaker
+from readmemaker import ReadmeMaker
 
 
 PROJECT_NAME = "typepy"
@@ -23,7 +23,12 @@ def write_examples(maker):
 
 
 def main():
-    maker = readmemaker.ReadmeMaker(PROJECT_NAME, OUTPUT_DIR, is_make_toc=True)
+    maker = ReadmeMaker(
+        PROJECT_NAME,
+        OUTPUT_DIR,
+        is_make_toc=True,
+        project_url="https://github.com/thombashi/{}".format(PROJECT_NAME),
+    )
 
     maker.write_chapter("Summary")
     maker.write_introduction_file("summary.txt")
@@ -38,7 +43,7 @@ def main():
 
     maker.set_indent_level(0)
     maker.write_chapter("Documentation")
-    maker.write_line_list(["https://{:s}.rtfd.io/".format(PROJECT_NAME)])
+    maker.write_lines(["https://{:s}.rtfd.io/".format(PROJECT_NAME)])
 
     return 0
 

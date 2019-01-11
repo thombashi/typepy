@@ -1,6 +1,5 @@
-**typepy**
-
-.. contents:: Table of Contents
+.. contents:: **typepy**
+   :backlinks: top
    :depth: 2
 
 Summary
