@@ -4,7 +4,7 @@
 
 Summary
 =========
-A Python library for variable type checker/validator/converter at a run time.
+`typepy <https://github.com/thombashi/typepy>`__ is a Python library for variable type checker/validator/converter at a run time.
 
 .. image:: https://badge.fury.io/py/typepy.svg
     :target: https://badge.fury.io/py/typepy
