@@ -30,6 +30,7 @@ docs:
 .PHONY: fmt
 fmt:
 	@black $(CURDIR)
+	@autoflake --recursive --remove-all-unused-imports --exclude "__init__.py" .
 	@isort --apply --recursive
 
 .PHONY: readme
