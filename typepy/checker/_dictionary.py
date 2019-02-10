@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 
 
 class DictionaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
@@ -27,7 +27,7 @@ _factory = CheckerFactory(
 )
 
 
-class DictionaryTypeChecker(TypeChecker):
+class DictionaryTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(DictionaryTypeChecker, self).__init__(
             value=value, checker_factory=_factory, strict_level=strict_level

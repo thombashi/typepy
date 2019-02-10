@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 from ._common import isinf, isstring
 
 
@@ -31,7 +31,7 @@ _factory = CheckerFactory(
 )
 
 
-class InfinityTypeChecker(TypeChecker):
+class InfinityTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(InfinityTypeChecker, self).__init__(
             value=value, checker_factory=_factory, strict_level=strict_level

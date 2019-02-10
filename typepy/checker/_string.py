@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -48,7 +48,7 @@ _string_factory = CheckerFactory(
 )
 
 
-class StringTypeChecker(TypeChecker):
+class StringTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(StringTypeChecker, self).__init__(
             value=value, checker_factory=_string_factory, strict_level=strict_level
@@ -73,7 +73,7 @@ _null_string_factory = CheckerFactory(
 )
 
 
-class NullStringTypeChecker(TypeChecker):
+class NullStringTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(NullStringTypeChecker, self).__init__(
             value=value, checker_factory=_null_string_factory, strict_level=strict_level

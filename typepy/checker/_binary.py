@@ -8,7 +8,7 @@ from __future__ import absolute_import
 
 import six
 
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 
 
 class BinaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
@@ -22,7 +22,7 @@ class BinaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
 _factory = CheckerFactory(checker_mapping={0: BinaryTypeCheckerStrictLevel0})
 
 
-class BinaryTypeChecker(TypeChecker):
+class BinaryTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(BinaryTypeChecker, self).__init__(
             value=value, checker_factory=_factory, strict_level=strict_level

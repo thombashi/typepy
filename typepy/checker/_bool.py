@@ -8,7 +8,7 @@ from __future__ import absolute_import
 
 from .._const import StrictLevel
 from ..type._integer import Integer
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -41,7 +41,7 @@ _factory = CheckerFactory(
 )
 
 
-class BoolTypeChecker(TypeChecker):
+class BoolTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(BoolTypeChecker, self).__init__(
             value=value, checker_factory=_factory, strict_level=strict_level

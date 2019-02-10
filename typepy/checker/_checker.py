@@ -102,7 +102,7 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
         return True
 
 
-class TypeChecker(TypeCheckerInterface):
+class TypeCheckerDelegator(TypeCheckerInterface):
     __slots__ = ("__checker",)
 
     def __init__(self, value, checker_factory, strict_level):

@@ -11,7 +11,7 @@ from decimal import Decimal
 import six
 
 from ..type._realnumber import RealNumber
-from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
 from ._common import isinf, isnan
 
 
@@ -67,7 +67,7 @@ _factory = CheckerFactory(
 )
 
 
-class IntegerTypeChecker(TypeChecker):
+class IntegerTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super(IntegerTypeChecker, self).__init__(
             value=value, checker_factory=_factory, strict_level=strict_level
