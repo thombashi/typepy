@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 
 
 class DictionaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
@@ -22,13 +22,13 @@ class DictionaryTypeCheckerStrictLevel1(DictionaryTypeCheckerStrictLevel0):
         return not isinstance(self._value, dict)
 
 
+_factory = CheckerFactory(
+    checker_mapping={0: DictionaryTypeCheckerStrictLevel0, 1: DictionaryTypeCheckerStrictLevel1}
+)
+
+
 class DictionaryTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(DictionaryTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: DictionaryTypeCheckerStrictLevel0,
-                1: DictionaryTypeCheckerStrictLevel1,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

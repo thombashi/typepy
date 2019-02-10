@@ -8,7 +8,7 @@ from __future__ import absolute_import
 
 from .._const import StrictLevel
 from ..type._integer import Integer
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -32,14 +32,17 @@ class BoolTypeCheckerStrictLevel2(BoolTypeCheckerStrictLevel1):
         )
 
 
+_factory = CheckerFactory(
+    checker_mapping={
+        0: BoolTypeCheckerStrictLevel0,
+        1: BoolTypeCheckerStrictLevel1,
+        2: BoolTypeCheckerStrictLevel2,
+    }
+)
+
+
 class BoolTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(BoolTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: BoolTypeCheckerStrictLevel0,
-                1: BoolTypeCheckerStrictLevel1,
-                2: BoolTypeCheckerStrictLevel2,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

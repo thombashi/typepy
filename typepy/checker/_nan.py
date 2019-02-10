@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isnan, isstring
 
 
@@ -23,10 +23,13 @@ class NanTypeCheckerStrictLevel1(NanTypeCheckerStrictLevel0):
         return isstring(self._value)
 
 
+_factory = CheckerFactory(
+    checker_mapping={0: NanTypeCheckerStrictLevel0, 1: NanTypeCheckerStrictLevel1}
+)
+
+
 class NanTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(NanTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={0: NanTypeCheckerStrictLevel0, 1: NanTypeCheckerStrictLevel1},
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

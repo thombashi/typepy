@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -32,13 +32,13 @@ class IpAddressTypeCheckerStrictLevel1(IpAddressTypeCheckerStrictLevel0):
         )
 
 
+_factory = CheckerFactory(
+    checker_mapping={0: IpAddressTypeCheckerStrictLevel0, 1: IpAddressTypeCheckerStrictLevel1}
+)
+
+
 class IpAddressTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(IpAddressTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: IpAddressTypeCheckerStrictLevel0,
-                1: IpAddressTypeCheckerStrictLevel1,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

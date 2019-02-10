@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -39,16 +39,19 @@ class StringTypeCheckerStrictLevel2(StringTypeCheckerStrictLevel1):
         return self._is_null_string(self._value)
 
 
+_string_factory = CheckerFactory(
+    checker_mapping={
+        0: StringTypeCheckerStrictLevel0,
+        1: StringTypeCheckerStrictLevel1,
+        2: StringTypeCheckerStrictLevel2,
+    }
+)
+
+
 class StringTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(StringTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: StringTypeCheckerStrictLevel0,
-                1: StringTypeCheckerStrictLevel1,
-                2: StringTypeCheckerStrictLevel2,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_string_factory, strict_level=strict_level
         )
 
 
@@ -65,13 +68,13 @@ class NullStringTypeCheckerStrictLevel1(NullStringTypeCheckerStrictLevel0):
         return False
 
 
+_null_string_factory = CheckerFactory(
+    checker_mapping={0: NullStringTypeCheckerStrictLevel0, 1: NullStringTypeCheckerStrictLevel1}
+)
+
+
 class NullStringTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(NullStringTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: NullStringTypeCheckerStrictLevel0,
-                1: NullStringTypeCheckerStrictLevel1,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_null_string_factory, strict_level=strict_level
         )

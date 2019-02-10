@@ -10,7 +10,7 @@ from decimal import Decimal
 
 import six
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isinf, isnan, isstring
 
 
@@ -49,14 +49,17 @@ class RealNumberTypeCheckerStrictLevel2(RealNumberTypeCheckerStrictLevel1):
         )
 
 
+_factory = CheckerFactory(
+    checker_mapping={
+        0: RealNumberTypeCheckerStrictLevel0,
+        1: RealNumberTypeCheckerStrictLevel1,
+        2: RealNumberTypeCheckerStrictLevel2,
+    }
+)
+
+
 class RealNumberTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(RealNumberTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: RealNumberTypeCheckerStrictLevel0,
-                1: RealNumberTypeCheckerStrictLevel1,
-                2: RealNumberTypeCheckerStrictLevel2,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

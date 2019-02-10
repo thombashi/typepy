@@ -8,7 +8,7 @@ from __future__ import absolute_import
 
 import six
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 
 
 class BinaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
@@ -19,10 +19,11 @@ class BinaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
         return isinstance(converted_value, six.binary_type)
 
 
+_factory = CheckerFactory(checker_mapping={0: BinaryTypeCheckerStrictLevel0})
+
+
 class BinaryTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(BinaryTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={0: BinaryTypeCheckerStrictLevel0},
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

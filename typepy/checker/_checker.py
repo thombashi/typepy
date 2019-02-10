@@ -41,6 +41,36 @@ class CheckerCreator(object):
         return checker_class(self.__value)
 
 
+class CheckerFactory(object):
+    __slots__ = ("__min_strict_level", "__max_strict_level", "__checker_mapping")
+
+    @property
+    def min_strict_level(self):
+        return self.__min_strict_level
+
+    @property
+    def max_strict_level(self):
+        return self.__max_strict_level
+
+    def __init__(self, checker_mapping):
+        self.__checker_mapping = checker_mapping
+
+        self.__min_strict_level = min(checker_mapping)
+        self.__max_strict_level = max(checker_mapping)
+        self.__checker_mapping[None] = self.__max_strict_level
+
+    def get_checker_class(self, strict_level=None):
+        checker_class = self.__checker_mapping.get(strict_level)
+        if checker_class:
+            return checker_class
+        if strict_level < self.min_strict_level:
+            return self.__checker_mapping[self.min_strict_level]
+        if strict_level > self.max_strict_level:
+            return self.__checker_mapping[self.max_strict_level]
+
+        raise ValueError("unexpected strict level: {}".format(strict_level))
+
+
 class TypeCheckerStrictLevel(TypeCheckerInterface):
     __slots__ = ("_value",)
 
@@ -75,10 +105,8 @@ class TypeCheckerStrictLevel(TypeCheckerInterface):
 class TypeChecker(TypeCheckerInterface):
     __slots__ = ("__checker",)
 
-    def __init__(self, value, checker_mapping, strict_level):
-        self.__checker = CheckerCreator(value=value, checker_mapping=checker_mapping).create(
-            strict_level
-        )
+    def __init__(self, value, checker_factory, strict_level):
+        self.__checker = checker_factory.get_checker_class(strict_level)(value)
 
     def is_type(self):
         return self.__checker.is_type()

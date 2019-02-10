@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -28,10 +28,13 @@ class ListTypeCheckerStrictLevel1(ListTypeCheckerStrictLevel0):
         )
 
 
+_factory = CheckerFactory(
+    checker_mapping={0: ListTypeCheckerStrictLevel0, 1: ListTypeCheckerStrictLevel1}
+)
+
+
 class ListTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(ListTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={0: ListTypeCheckerStrictLevel0, 1: ListTypeCheckerStrictLevel1},
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

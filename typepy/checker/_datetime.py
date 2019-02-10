@@ -9,7 +9,7 @@ from __future__ import absolute_import
 from datetime import date, datetime
 
 from ..type._integer import Integer
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isstring
 
 
@@ -32,14 +32,17 @@ class DateTimeTypeCheckerStrictLevel2(DateTimeTypeCheckerStrictLevel1):
         )
 
 
+_factory = CheckerFactory(
+    checker_mapping={
+        0: DateTimeTypeCheckerStrictLevel0,
+        1: DateTimeTypeCheckerStrictLevel1,
+        2: DateTimeTypeCheckerStrictLevel2,
+    }
+)
+
+
 class DateTimeTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(DateTimeTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={
-                0: DateTimeTypeCheckerStrictLevel0,
-                1: DateTimeTypeCheckerStrictLevel1,
-                2: DateTimeTypeCheckerStrictLevel2,
-            },
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

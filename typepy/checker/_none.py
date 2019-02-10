@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 
 
 class NoneTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
@@ -17,8 +17,11 @@ class NoneTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
         return self._value is None
 
 
+_factory = CheckerFactory(checker_mapping={0: NoneTypeCheckerStrictLevel0})
+
+
 class NoneTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(NoneTypeChecker, self).__init__(
-            value=value, checker_mapping={0: NoneTypeCheckerStrictLevel0}, strict_level=strict_level
+            value=value, checker_factory=_factory, strict_level=strict_level
         )

@@ -6,7 +6,7 @@
 
 from __future__ import absolute_import
 
-from ._checker import TypeChecker, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeChecker, TypeCheckerStrictLevel
 from ._common import isinf, isstring
 
 
@@ -26,10 +26,13 @@ class InfinityCheckerStrictLevel1(InfinityCheckerStrictLevel0):
         return isstring(self._value)
 
 
+_factory = CheckerFactory(
+    checker_mapping={0: InfinityCheckerStrictLevel0, 1: InfinityCheckerStrictLevel1}
+)
+
+
 class InfinityTypeChecker(TypeChecker):
     def __init__(self, value, strict_level):
         super(InfinityTypeChecker, self).__init__(
-            value=value,
-            checker_mapping={0: InfinityCheckerStrictLevel0, 1: InfinityCheckerStrictLevel1},
-            strict_level=strict_level,
+            value=value, checker_factory=_factory, strict_level=strict_level
         )
