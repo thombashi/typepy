@@ -100,7 +100,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
             return
 
         raise TypeError(
-            "invalid value type: expected={}, actual={}".format(self.typecode, type(self._data))
+            "invalid value type: expected={}, actual={}".format(self.typename, type(self._data))
         )
 
     def convert(self):
