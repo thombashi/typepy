@@ -28,16 +28,17 @@ class CheckerCreator(object):
 
         self.__min_strict_level = min(checker_mapping)
         self.__max_strict_level = max(checker_mapping)
+        self.__checker_mapping[None] = self.__max_strict_level
 
     def create(self, strict_level=None):
-        if strict_level is None:
-            strict_level = self.max_strict_level
-        elif strict_level < self.min_strict_level:
-            strict_level = self.min_strict_level
-        elif strict_level > self.max_strict_level:
-            strict_level = self.max_strict_level
+        checker_class = self.__checker_mapping.get(strict_level)
+        if not checker_class:
+            if strict_level < self.min_strict_level:
+                checker_class = self.__checker_mapping[self.min_strict_level]
+            if strict_level > self.max_strict_level:
+                checker_class = self.__checker_mapping[self.max_strict_level]
 
-        return self.__checker_mapping.get(strict_level)(self.__value)
+        return checker_class(self.__value)
 
 
 class TypeCheckerStrictLevel(TypeCheckerInterface):
