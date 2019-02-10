@@ -11,36 +11,6 @@ import abc
 from ._interface import TypeCheckerInterface
 
 
-class CheckerCreator(object):
-    __slots__ = ("__min_strict_level", "__max_strict_level", "__value", "__checker_mapping")
-
-    @property
-    def min_strict_level(self):
-        return self.__min_strict_level
-
-    @property
-    def max_strict_level(self):
-        return self.__max_strict_level
-
-    def __init__(self, value, checker_mapping):
-        self.__value = value
-        self.__checker_mapping = checker_mapping
-
-        self.__min_strict_level = min(checker_mapping)
-        self.__max_strict_level = max(checker_mapping)
-        self.__checker_mapping[None] = self.__max_strict_level
-
-    def create(self, strict_level=None):
-        checker_class = self.__checker_mapping.get(strict_level)
-        if not checker_class:
-            if strict_level < self.min_strict_level:
-                checker_class = self.__checker_mapping[self.min_strict_level]
-            if strict_level > self.max_strict_level:
-                checker_class = self.__checker_mapping[self.max_strict_level]
-
-        return checker_class(self.__value)
-
-
 class CheckerFactory(object):
     __slots__ = ("__min_strict_level", "__max_strict_level", "__checker_mapping")
 
