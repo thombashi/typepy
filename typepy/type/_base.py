@@ -90,7 +90,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
         return True
 
-    def validate(self):
+    def validate(self, error_message=None):
         """
         :raises TypeError:
             If the value is not matched the type that the class represented.
@@ -99,8 +99,11 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         if self.is_type():
             return
 
+        if not error_message:
+            error_message = "invalid value type"
+
         raise TypeError(
-            "invalid value type: expected={}, actual={}".format(self.typename, type(self._data))
+            "{}: expected={}, actual={}".format(error_message, self.typename, type(self._data))
         )
 
     def convert(self):
