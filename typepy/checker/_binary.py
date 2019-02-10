@@ -8,10 +8,10 @@ from __future__ import absolute_import
 
 import six
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 
 
-class BinaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class BinaryTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, six.binary_type)
 

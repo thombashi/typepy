@@ -6,10 +6,10 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 
 
-class NoneTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class NoneTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return self._value is None
 

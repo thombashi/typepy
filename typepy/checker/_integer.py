@@ -11,11 +11,11 @@ from decimal import Decimal
 import six
 
 from ..type._realnumber import RealNumber
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan
 
 
-class IntegerTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class IntegerTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         if isinstance(self._value, six.integer_types):
             return not isinstance(self._value, bool)

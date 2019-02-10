@@ -6,11 +6,11 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
 
 
-class IpAddressTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class IpAddressTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return self._is_ipaddress(self._value)
 

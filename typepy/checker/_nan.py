@@ -6,11 +6,11 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isnan, isstring
 
 
-class NanTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class NanTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isnan(self._value)
 

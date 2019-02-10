@@ -9,11 +9,11 @@ from __future__ import absolute_import
 from datetime import date, datetime
 
 from ..type._integer import Integer
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
 
 
-class DateTimeTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class DateTimeTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, (date, datetime))
 

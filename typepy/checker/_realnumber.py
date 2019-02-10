@@ -10,11 +10,11 @@ from decimal import Decimal
 
 import six
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan, isstring
 
 
-class RealNumberTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class RealNumberTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, (float, Decimal))
 

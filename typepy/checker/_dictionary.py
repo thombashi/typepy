@@ -6,10 +6,10 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 
 
-class DictionaryTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class DictionaryTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, dict)
 

@@ -6,11 +6,11 @@
 
 from __future__ import absolute_import
 
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isstring
 
 
-class InfinityCheckerStrictLevel0(TypeCheckerStrictLevel):
+class InfinityCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinf(self._value)
 

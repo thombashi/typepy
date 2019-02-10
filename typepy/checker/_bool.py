@@ -8,11 +8,11 @@ from __future__ import absolute_import
 
 from .._const import StrictLevel
 from ..type._integer import Integer
-from ._checker import CheckerFactory, TypeCheckerDelegator, TypeCheckerStrictLevel
+from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
 
 
-class BoolTypeCheckerStrictLevel0(TypeCheckerStrictLevel):
+class BoolTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, bool)
 

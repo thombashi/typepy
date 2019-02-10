@@ -71,7 +71,7 @@ class CheckerFactory(object):
         raise ValueError("unexpected strict level: {}".format(strict_level))
 
 
-class TypeCheckerStrictLevel(TypeCheckerInterface):
+class TypeCheckerBase(TypeCheckerInterface):
     __slots__ = ("_value",)
 
     def __init__(self, value):
