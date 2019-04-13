@@ -15,6 +15,7 @@ build:
 	@python setup.py build
 	@twine check dist/*
 	@python setup.py clean --all
+	ls -lh dist/*
 
 .PHONY: clean
 clean:
@@ -22,6 +23,7 @@ clean:
 		$(BUILD_WORK_DIR) \
 		$(DOCS_BUILD_DIR) \
 		dist/ \
+		pip-wheel-metadata/ \
 		.eggs/ \
 		.pytest_cache/ \
 		.tox/ \
@@ -47,4 +49,4 @@ readme:
 .PHONY: release
 release:
 	@python setup.py release --sign
-	@rm -rf dist/
+	@make clean
