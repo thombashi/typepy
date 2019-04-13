@@ -49,7 +49,7 @@ class ResultMatrixWriter(ExampleWriter):
     def __init__(self):
         self.typeclass = None
         self.strict_level = None
-        self.header_list = None
+        self.headers = None
         self.value_list = None
 
         self.__table_writer = ptw.RstSimpleTableWriter()
@@ -72,10 +72,10 @@ class ResultMatrixWriter(ExampleWriter):
         self.__table_writer.table_name = ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}".format(
             self.typeclass.__name__, self.strict_level
         )
-        self.__table_writer.header_list = self.header_list
+        self.__table_writer.headers = self.headers
         self.__table_writer.value_matrix = self.__get_result_matrix()
         if self.typeclass.__name__ in ["Dictionary", "List"]:
-            self.__table_writer.type_hint_list = [String for _ in self.header_list]
+            self.__table_writer.type_hints = [String for _ in self.headers]
 
         self.__table_writer.write_table()
         self.__table_writer.write_null_line()
@@ -180,73 +180,73 @@ class ResultMatrixManager(object):
 
     def write_none(self):
         self.__ewriter.typeclass = NoneType
-        self.__ewriter.header_list = self.ExampleString.HEADER
+        self.__ewriter.headers = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_ipaddress(self):
         self.__ewriter.typeclass = IpAddress
-        self.__ewriter.header_list = self.ExampleIpAddress.HEADER
+        self.__ewriter.headers = self.ExampleIpAddress.HEADER
         self.__ewriter.value_list = self.ExampleIpAddress.VALUE
         self.__write()
 
     def write_bool(self):
         self.__ewriter.typeclass = Bool
-        self.__ewriter.header_list = self.ExampleBool.HEADER
+        self.__ewriter.headers = self.ExampleBool.HEADER
         self.__ewriter.value_list = self.ExampleBool.VALUE
         self.__write()
 
     def write_string(self):
         self.__ewriter.typeclass = String
-        self.__ewriter.header_list = self.ExampleString.HEADER
+        self.__ewriter.headers = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_null_string(self):
         self.__ewriter.typeclass = NullString
-        self.__ewriter.header_list = self.ExampleString.HEADER
+        self.__ewriter.headers = self.ExampleString.HEADER
         self.__ewriter.value_list = self.ExampleString.VALUE
         self.__write()
 
     def write_integer(self):
         self.__ewriter.typeclass = Integer
-        self.__ewriter.header_list = self.ExampleNumber.HEADER
+        self.__ewriter.headers = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_realnumber(self):
         self.__ewriter.typeclass = RealNumber
-        self.__ewriter.header_list = self.ExampleNumber.HEADER
+        self.__ewriter.headers = self.ExampleNumber.HEADER
         self.__ewriter.value_list = self.ExampleNumber.VALUE
         self.__write()
 
     def write_infinity(self):
         self.__ewriter.typeclass = Infinity
-        self.__ewriter.header_list = self.ExampleInfinity.HEADER
+        self.__ewriter.headers = self.ExampleInfinity.HEADER
         self.__ewriter.value_list = self.ExampleInfinity.VALUE
         self.__write()
 
     def write_nan(self):
         self.__ewriter.typeclass = Nan
-        self.__ewriter.header_list = self.ExampleNan.HEADER
+        self.__ewriter.headers = self.ExampleNan.HEADER
         self.__ewriter.value_list = self.ExampleNan.VALUE
         self.__write()
 
     def write_datetime(self):
         self.__ewriter.typeclass = DateTime
-        self.__ewriter.header_list = self.ExampleDateTime.HEADER
+        self.__ewriter.headers = self.ExampleDateTime.HEADER
         self.__ewriter.value_list = self.ExampleDateTime.VALUE
         self.__write()
 
     def write_list(self):
         self.__ewriter.typeclass = List
-        self.__ewriter.header_list = self.ExampleList.HEADER
+        self.__ewriter.headers = self.ExampleList.HEADER
         self.__ewriter.value_list = self.ExampleList.VALUE
         self.__write()
 
     def write_dictionary(self):
         self.__ewriter.typeclass = Dictionary
-        self.__ewriter.header_list = self.ExampleDictionary.HEADER
+        self.__ewriter.headers = self.ExampleDictionary.HEADER
         self.__ewriter.value_list = self.ExampleDictionary.VALUE
         self.__write()
 
