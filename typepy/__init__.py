@@ -9,7 +9,7 @@ from __future__ import absolute_import
 import typepy.type
 
 from .__version__ import __author__, __copyright__, __email__, __license__, __version__
-from ._const import StrictLevel, ParamKey
+from ._const import ParamKey, StrictLevel
 from ._function import (
     is_empty_sequence,
     is_empty_string,
