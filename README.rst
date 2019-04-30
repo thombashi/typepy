@@ -145,6 +145,9 @@ More information can be found in the
 
 Installation
 ============
+
+Install from PyPI
+------------------------------
 ::
 
     pip install typepy
@@ -154,6 +157,14 @@ Install additional dependency packages with the following command if using ``typ
 ::
 
     pip install typepy[datetime]
+
+Install from PPA (for Ubuntu)
+------------------------------
+::
+
+    sudo add-apt-repository ppa:thombashi/ppa
+    sudo apt update
+    sudo apt install python3-typepy
 
 
 Dependencies
