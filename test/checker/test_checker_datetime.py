@@ -17,6 +17,8 @@ from termcolor import colored
 from typepy import DateTime, StrictLevel, Typecode
 
 
+dateutil = pytest.importorskip("dateutil", minversion="2.7")
+
 class_under_test = DateTime
 nan = float("nan")
 inf = float("inf")
