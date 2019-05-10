@@ -41,8 +41,18 @@ class Test_DateTime_is_type(object):
                 [False],
             )
         )
-        + list(itertools.product(["2017-03-22T10:00:00+0900"], [StrictLevel.MIN], [True]))
-        + list(itertools.product(["2017-03-22T10:00:00+0900"], [StrictLevel.MAX], [False])),
+        + list(
+            itertools.product(
+                ["2017-03-22T10:00:00+0900", 1485685623, "1485685623", "1524930937.003555"],
+                [StrictLevel.MIN],
+                [True],
+            )
+        )
+        + list(
+            itertools.product(
+                ["2017-03-22T10:00:00+0900", 1485685623, "1485685623"], [StrictLevel.MAX], [False]
+            )
+        ),
     )
     def test_normal(self, value, strict_level, expected):
         type_object = class_under_test(value, strict_level)

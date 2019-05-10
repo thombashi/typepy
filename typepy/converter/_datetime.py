@@ -67,19 +67,34 @@ class DateTimeConverter(AbstractValueConverter):
 
     def __from_timestamp(self):
         from ..type._integer import Integer
+        from ..type._realnumber import RealNumber
+
+        conv_error = TypeConversionError(
+            "timestamp is out of the range of values supported by the platform"
+        )
 
         timestamp = Integer(self._value, strict_level=1).try_convert()
-        if timestamp is None:
-            return None
+        if timestamp:
+            try:
+                self.__datetime = datetime.fromtimestamp(timestamp, self.__timezone)
+            except (ValueError, OSError, OverflowError):
+                raise conv_error
 
-        try:
-            self.__datetime = datetime.fromtimestamp(timestamp, self.__timezone)
-        except (ValueError, OSError, OverflowError):
-            raise TypeConversionError(
-                "timestamp is out of the range of values supported by the platform"
-            )
+            return self.__datetime
 
-        return self.__datetime
+        timestamp = RealNumber(self._value, strict_level=1).try_convert()
+        if timestamp:
+            us = (timestamp - int(timestamp)) * 1000000
+            try:
+                self.__datetime = datetime.fromtimestamp(timestamp, self.__timezone).replace(
+                    microsecond=us
+                )
+            except (ValueError, OSError, OverflowError):
+                raise conv_error
+
+            return self.__datetime
+
+        return None
 
     def __from_datetime_string(self):
         import dateutil.parser
