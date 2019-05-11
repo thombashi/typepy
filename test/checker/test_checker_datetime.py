@@ -36,7 +36,7 @@ class Test_DateTime_is_type(object):
         )
         + list(
             itertools.product(
-                [None, "invalid time string", six.MAXSIZE, "100-0004"],
+                [None, "invalid time string", 9223372036854775807, "100-0004"],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [False],
             )
