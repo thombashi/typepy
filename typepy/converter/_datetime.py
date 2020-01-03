@@ -84,10 +84,9 @@ class DateTimeConverter(AbstractValueConverter):
 
         timestamp = RealNumber(self._value, strict_level=1).try_convert()
         if timestamp:
-            us = (timestamp - int(timestamp)) * 1000000
             try:
-                self.__datetime = datetime.fromtimestamp(timestamp, self.__timezone).replace(
-                    microsecond=us
+                self.__datetime = datetime.fromtimestamp(int(timestamp), self.__timezone).replace(
+                    microsecond=int((timestamp - int(timestamp)) * 1000000)
                 )
             except (ValueError, OSError, OverflowError):
                 raise conv_error
