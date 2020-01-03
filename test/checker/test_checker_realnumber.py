@@ -39,17 +39,20 @@ class Test_RealNumber_is_type(object):
                     "0.1",
                     "-0.1",
                     "1e-05",
+                    "4.5e-4",
+                    "45e76",
+                    int(Decimal("45e765")),
                 ],
                 [StrictLevel.MIN],
                 [True],
             )
         )
-        + list(itertools.product([True, inf, nan, "", "0xf"], [StrictLevel.MIN], [False]))
         + list(
             itertools.product(
                 [0, 0.0, 0.0, six.MAXSIZE, -six.MAXSIZE], [StrictLevel.MIN + 1], [False]
             )
         )
+        + list(itertools.product(["1.1", "4.5e-4"], [StrictLevel.MIN + 1], [True]))
         + list(
             itertools.product(
                 [
@@ -66,6 +69,13 @@ class Test_RealNumber_is_type(object):
                     "1e-05",
                 ],
                 [StrictLevel.MAX],
+                [False],
+            )
+        )
+        + list(
+            itertools.product(
+                [True, inf, nan, "", "0xf", "テスト".encode("utf_8")],
+                [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [False],
             )
         )

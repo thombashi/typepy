@@ -36,7 +36,13 @@ class Test_DateTime_is_type(object):
         )
         + list(
             itertools.product(
-                [None, "invalid time string", 9223372036854775807, "100-0004"],
+                [
+                    None,
+                    "invalid time string",
+                    9223372036854775807,
+                    "100-0004",
+                    "テスト".encode("utf_8"),
+                ],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [False],
             )
@@ -50,7 +56,7 @@ class Test_DateTime_is_type(object):
         )
         + list(
             itertools.product(
-                ["2017-03-22T10:00:00+0900", 1485685623, "1485685623"], [StrictLevel.MAX], [False]
+                ["2017-03-22T10:00:00+0900", 1485685623, "1485685623"], [StrictLevel.MAX], [False],
             )
         ),
     )

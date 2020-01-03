@@ -6,12 +6,17 @@
 
 from __future__ import absolute_import
 
+import re
 from decimal import Decimal
 
 import six
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan, isstring
+
+
+RE_E = re.compile("[eE]")
+RE_SCIENTIFIC_NOTATION = re.compile(r"^-?\d+(?:\.\d*)?[eE][+\-]?\d{,2}$")
 
 
 class RealNumberTypeCheckerStrictLevel0(TypeCheckerBase):
@@ -33,6 +38,13 @@ class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
         )
 
     def is_exclude_instance(self):
+        if (
+            isinstance(self._value, six.string_types)
+            and RE_E.search(self._value)
+            and RE_SCIENTIFIC_NOTATION.search(self._value) is None
+        ):
+            return True
+
         return (
             isinstance(self._value, six.integer_types)
             or super(RealNumberTypeCheckerStrictLevel1, self).is_exclude_instance()

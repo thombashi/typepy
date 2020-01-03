@@ -29,13 +29,21 @@ class Test_Integer_is_type(object):
             [text_type(MAXSIZE), StrictLevel.MIN, True],
             [text_type(MAXSIZE), StrictLevel.MIN + 1, True],
             [text_type(MAXSIZE), StrictLevel.MAX, False],
+            ["45e76582", StrictLevel.MIN, True],
+            ["45e76582", StrictLevel.MIN + 1, True],
+            ["45e76582", StrictLevel.MAX, False],
+            ["4.5e-4", StrictLevel.MIN, True],
+            ["4.5e-4", StrictLevel.MIN + 1, False],
+            ["4.5e-4", StrictLevel.MAX, False],
             [" 1 ", StrictLevel.MIN + 1, True],
             [True, StrictLevel.MIN + 1, False],
             [False, StrictLevel.MAX, False],
         ]
         + list(
             itertools.product(
-                [0, MAXSIZE, -MAXSIZE, Decimal("1")], [StrictLevel.MIN, StrictLevel.MIN + 1], [True]
+                [0, MAXSIZE, -MAXSIZE, Decimal("1"), int(Decimal("45e765"))],
+                [StrictLevel.MIN, StrictLevel.MIN + 1],
+                [True],
             )
         )
         + list(
@@ -59,7 +67,7 @@ class Test_Integer_is_type(object):
         )
         + list(
             itertools.product(
-                [None, nan, inf, "", "0xff", "test", "1a1", "11a", "a11"],
+                [None, nan, inf, "", "0xff", "test", "1a1", "11a", "a11", "テスト".encode("utf_8")],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )
