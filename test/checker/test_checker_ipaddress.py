@@ -13,6 +13,7 @@ from ipaddress import ip_address
 import pytest
 from six import MAXSIZE, text_type
 from termcolor import colored
+
 from typepy import IpAddress, StrictLevel, Typecode
 
 

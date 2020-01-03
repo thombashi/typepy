@@ -10,6 +10,7 @@ from __future__ import unicode_literals
 import pytest
 import six
 from six.moves import range
+
 from typepy import is_empty_sequence, is_hex, is_not_empty_sequence
 
 

@@ -11,6 +11,7 @@ import itertools
 
 import pytest
 from termcolor import colored
+
 from typepy import Bool, StrictLevel, Typecode
 
 

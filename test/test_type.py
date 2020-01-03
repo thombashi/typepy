@@ -11,9 +11,10 @@ from decimal import Decimal
 from ipaddress import IPv4Address, IPv6Address
 
 import pytest
-import typepy
 from pytz import timezone, utc
 from six import MAXSIZE, text_type
+
+import typepy
 from typepy import StrictLevel
 
 

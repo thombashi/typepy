@@ -11,9 +11,9 @@ import itertools
 from datetime import date, datetime
 
 import pytest
-import six
 from dateutil.tz import tzoffset
 from termcolor import colored
+
 from typepy import DateTime, StrictLevel, Typecode
 
 

@@ -14,6 +14,7 @@ import pytest
 import six
 from six import text_type
 from termcolor import colored
+
 from typepy import RealNumber, StrictLevel, Typecode
 
 

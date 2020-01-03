@@ -12,6 +12,7 @@ from decimal import Decimal
 
 import pytest
 import six
+
 from typepy import Nan, StrictLevel, Typecode
 
 

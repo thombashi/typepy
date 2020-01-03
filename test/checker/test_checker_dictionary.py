@@ -11,6 +11,7 @@ import itertools
 from collections import OrderedDict
 
 import pytest
+
 from typepy import Dictionary, StrictLevel, Typecode
 
 

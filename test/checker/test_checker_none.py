@@ -11,6 +11,7 @@ import itertools
 
 import pytest
 import six
+
 from typepy import NoneType, StrictLevel, Typecode
 
 

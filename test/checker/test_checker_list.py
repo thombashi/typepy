@@ -10,6 +10,7 @@ from __future__ import unicode_literals
 import itertools
 
 import pytest
+
 from typepy import List, StrictLevel, Typecode
 
 

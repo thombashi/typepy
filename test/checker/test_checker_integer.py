@@ -13,6 +13,7 @@ from decimal import Decimal
 import pytest
 from six import MAXSIZE, text_type
 from termcolor import colored
+
 from typepy import Integer, StrictLevel, Typecode
 
 

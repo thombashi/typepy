@@ -7,6 +7,7 @@
 from __future__ import absolute_import, unicode_literals
 
 import pytest
+
 import typepy
 
 from ._common import convert_wrapper

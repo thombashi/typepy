@@ -9,6 +9,7 @@ from __future__ import absolute_import, unicode_literals
 from decimal import Decimal
 
 import pytest
+
 import typepy
 
 from ._common import EXCEPTION_RESULT, convert_wrapper

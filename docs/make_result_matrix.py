@@ -17,6 +17,7 @@ from datetime import datetime
 import logbook
 import pytablewriter as ptw
 import six
+
 import typepy
 from typepy import (
     Bool,

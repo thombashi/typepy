@@ -11,6 +11,7 @@ import itertools
 
 import pytest
 from six import MAXSIZE
+
 from typepy import NullString, StrictLevel, String, Typecode
 
 
