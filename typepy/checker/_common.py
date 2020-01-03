@@ -6,6 +6,7 @@
 
 from __future__ import absolute_import
 
+import decimal
 import math
 
 import six
@@ -17,13 +18,17 @@ def isstring(value):
 
 def isinf(value):
     try:
-        return math.isinf(value)
+        return decimal.Decimal(value).is_infinite()
+    except OverflowError:
+        return True
     except TypeError:
+        return False
+    except (ValueError, decimal.InvalidOperation):
         return False
 
 
 def isnan(value):
     try:
         return math.isnan(value)
-    except TypeError:
+    except (TypeError, OverflowError):
         return False
