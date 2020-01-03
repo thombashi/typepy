@@ -1,11 +1,8 @@
-#!/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/env python3
 
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import unicode_literals
 
 import argparse
 import io
@@ -42,7 +39,7 @@ logbook.StderrHandler(
 METHOD_HEADER = "Method"
 
 
-class ExampleWriter(object):
+class ExampleWriter:
     _METHOD_LIST = ("is_type", "validate", "convert", "try_convert", "force_convert")
 
 
@@ -109,16 +106,16 @@ class ResultMatrixWriter(ExampleWriter):
         return result_matrix
 
 
-class ResultMatrixManager(object):
-    class ExampleBool(object):
+class ResultMatrixManager:
+    class ExampleBool:
         HEADER = [METHOD_HEADER] + ["``True``", '``"true"``', 1]
         VALUE = [True, "true", 1]
 
-    class ExampleString(object):
+    class ExampleString:
         HEADER = [METHOD_HEADER] + ['``"abc"``', '``""``', '``"  "``', "``None``", "``1``"]
         VALUE = ["abc", "", "  ", None, 1]
 
-    class ExampleNumber(object):
+    class ExampleNumber:
         HEADER = [METHOD_HEADER] + [
             "``1``",
             "``1.0``",
@@ -130,15 +127,15 @@ class ResultMatrixManager(object):
         ]
         VALUE = [1, 1.0, 1.1, "1", "1.0", "1.1", True]
 
-    class ExampleInfinity(object):
+    class ExampleInfinity:
         HEADER = [METHOD_HEADER] + ['``float("inf")``', '``"Infinity"``', "``0.1``"]
         VALUE = [float("inf"), "Infinity", 0.1]
 
-    class ExampleNan(object):
+    class ExampleNan:
         HEADER = [METHOD_HEADER] + ['``float("nan")``', '``"NaN"``', "``0.1``"]
         VALUE = [float("nan"), "NaN", 0.1]
 
-    class ExampleDateTime(object):
+    class ExampleDateTime:
         HEADER = [METHOD_HEADER] + [
             "``datetime(2017, 1, 23, 4, 56)``",
             '``"2017-01-22T04:56:00+0900"``',
@@ -147,7 +144,7 @@ class ResultMatrixManager(object):
         ]
         VALUE = [datetime(2017, 1, 23, 4, 56), "2017-01-22T04:56:00+0900", 1485685623, "1485685623"]
 
-    class ExampleIpAddress(object):
+    class ExampleIpAddress:
         HEADER = [METHOD_HEADER] + [
             "``ip_address('127.0.0.1')``",
             "``'127.0.0.1'``",
@@ -157,7 +154,7 @@ class ResultMatrixManager(object):
         ]
         VALUE = [ipaddress.ip_address("127.0.0.1"), "127.0.0.1", "::1", "192.168.0.256", None]
 
-    class ExampleList(object):
+    class ExampleList:
         HEADER = [METHOD_HEADER] + [
             "``[]``",
             '``["a", "b"]``',
@@ -167,7 +164,7 @@ class ResultMatrixManager(object):
         ]
         VALUE = [[], ["a", "b"], ("a", "b"), {"a": 1}, "abc"]
 
-    class ExampleDictionary(object):
+    class ExampleDictionary:
         HEADER = [METHOD_HEADER] + ["``{}``", '``{"a": 1}``', '``(("a", 1), )``']
         VALUE = [{}, {"a": 1}, (("a", 1),)]
 
@@ -257,7 +254,7 @@ class ResultMatrixManager(object):
             self.__ewriter.write_type_matrix()
 
 
-class PathMaker(object):
+class PathMaker:
     def __init__(self, output_dir, encoding="utf8"):
         self.__output_dir = output_dir
         self.__encoding = encoding
