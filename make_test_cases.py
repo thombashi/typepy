@@ -1,15 +1,13 @@
-#!/usr/bin/env python
-# encoding: utf-8
+#!/usr/bin/env python3
 
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import print_function, unicode_literals
-
 import os
 
 import six
+
 import typepy
 from typepy import Infinity, Integer, Nan, NullString, RealNumber, StrictLevel, String
 
@@ -18,7 +16,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Params(object):
+class Params:
     def __init__(self, stream):
         self.__stream = stream
         self.strict_level = None
@@ -75,7 +73,7 @@ class Params(object):
         return result
 
 
-class TestParamWriter(object):
+class TestParamWriter:
     METHOD_LIST = (
         # "is_type",
         # "validate",
@@ -84,13 +82,13 @@ class TestParamWriter(object):
         "force_convert",
     )
 
-    class Bool(object):
+    class Bool:
         VALUE_LIST = [True, "true", 1, 1.1, None]
 
-    class String(object):
+    class String:
         VALUE_LIST = ["abc", "", 1, "-1", None, True, inf, nan]
 
-    class Number(object):
+    class Number:
         VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", six.MAXSIZE, True, None, inf, nan, "test", ""]
 
     def __init__(self, file_path):
