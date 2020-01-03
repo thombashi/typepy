@@ -17,6 +17,12 @@ build:
 	@python setup.py clean --all
 	ls -lh dist/*
 
+.PHONY: check
+check:
+	python setup.py check
+	codespell -q2 typepy docs test
+	pylama
+
 .PHONY: clean
 clean:
 	@rm -rf $(PACKAGE)-*.*.*/ \
