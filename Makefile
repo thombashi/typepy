@@ -20,7 +20,7 @@ build:
 .PHONY: check
 check:
 	python setup.py check
-	codespell -q2 typepy docs test
+	codespell -q2 $(PACKAGE) docs test
 	pylama
 
 .PHONY: clean
@@ -44,9 +44,9 @@ docs:
 
 .PHONY: fmt
 fmt:
-	@black $(CURDIR)
-	@autoflake --in-place --recursive --remove-all-unused-imports --exclude "__init__.py" .
-	@isort --apply --recursive
+	black $(CURDIR)
+	autoflake --in-place --recursive --remove-all-unused-imports --exclude "__init__.py" .
+	isort --apply --recursive
 
 .PHONY: readme
 readme:
