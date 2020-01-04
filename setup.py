@@ -64,14 +64,11 @@ setuptools.setup(
     name=MODULE_NAME,
     version=pkg_info["__version__"],
     url=REPOSITORY_URL,
-
     author=pkg_info["__author__"],
     author_email=pkg_info["__email__"],
     description=summary,
     include_package_data=True,
-    keywords=[
-        "library", "type-checking", "type-conversion", "validator",
-    ],
+    keywords=["library", "type-checking", "type-conversion", "validator",],
     license=pkg_info["__license__"],
     long_description=long_description,
     packages=setuptools.find_packages(exclude=["test*"]),
@@ -80,7 +77,6 @@ setuptools.setup(
         "Source": REPOSITORY_URL,
         "Tracker": "{:s}/issues".format(REPOSITORY_URL),
     },
-
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
     setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
@@ -90,10 +86,10 @@ setuptools.setup(
         "dev": ["releasecmd>=0.1.0,<1", "twine", "wheel"]
         + ["autoflake", "black", "isort"]
         + ["codespell", "pylama"]
-         + docs_requires + tests_requires,
+        + docs_requires
+        + tests_requires,
         "test": tests_requires,
     },
-
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -110,4 +106,5 @@ setuptools.setup(
         "Topic :: Software Development :: Libraries",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
-    cmdclass=get_release_command_class())
+    cmdclass=get_release_command_class(),
+)
