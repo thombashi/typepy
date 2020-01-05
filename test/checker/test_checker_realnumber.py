@@ -49,7 +49,7 @@ class Test_RealNumber_is_type(object):
         )
         + list(
             itertools.product(
-                [0, 0.0, 0.0, six.MAXSIZE, -six.MAXSIZE], [StrictLevel.MIN + 1], [False]
+                [0, 0.0, 0.0, six.MAXSIZE, -six.MAXSIZE, "4.5e444"], [StrictLevel.MIN + 1], [False]
             )
         )
         + list(itertools.product(["1.1", "4.5e-4"], [StrictLevel.MIN + 1], [True]))

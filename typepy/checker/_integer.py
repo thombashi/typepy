@@ -16,7 +16,7 @@ from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan
 
 
-RE_SCIENTIFIC_NOTATION = re.compile(r"^-?\d+(?:\.\d*)?[eE][+\-]?\d{,2}$")
+RE_SCIENTIFIC_NOTATION = re.compile(r"^-?\d+(?:\.\d*)?[eE][+\-]?\d{3,}$")
 
 
 class IntegerTypeCheckerStrictLevel0(TypeCheckerBase):

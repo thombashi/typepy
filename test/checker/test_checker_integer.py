@@ -30,7 +30,7 @@ class Test_Integer_is_type(object):
             [text_type(MAXSIZE), StrictLevel.MIN + 1, True],
             [text_type(MAXSIZE), StrictLevel.MAX, False],
             ["45e76582", StrictLevel.MIN, True],
-            ["45e76582", StrictLevel.MIN + 1, True],
+            ["45e76582", StrictLevel.MIN + 1, False],
             ["45e76582", StrictLevel.MAX, False],
             ["4.5e-4", StrictLevel.MIN, True],
             ["4.5e-4", StrictLevel.MIN + 1, False],
