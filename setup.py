@@ -68,7 +68,7 @@ setuptools.setup(
     author_email=pkg_info["__email__"],
     description=summary,
     include_package_data=True,
-    keywords=["library", "type-checking", "type-conversion", "validator",],
+    keywords=["library", "type-checking", "type-conversion", "validator"],
     license=pkg_info["__license__"],
     long_description=long_description,
     packages=setuptools.find_packages(exclude=["test*"]),
