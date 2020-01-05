@@ -21,6 +21,7 @@ build:
 check:
 	python setup.py check
 	codespell -q2 $(PACKAGE) docs test
+	travis lint
 	pylama
 
 .PHONY: clean
