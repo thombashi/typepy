@@ -14,6 +14,10 @@ Summary
     :target: https://pypi.org/project/typepy
     :alt: Supported Python versions
 
+.. image:: https://img.shields.io/pypi/implementation/typepy.svg
+    :target: https://pypi.org/project/typepy
+    :alt: Supported Python implementations
+
 .. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux/macOS%20CI
     :target: https://travis-ci.org/thombashi/typepy
     :alt: Linux/macOS CI status
