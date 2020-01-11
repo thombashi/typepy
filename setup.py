@@ -86,7 +86,6 @@ setuptools.setup(
         "datetime": DATETIME_REQUIRES,
         "dev": ["releasecmd>=0.1.0,<1", "twine", "wheel"]
         + ["autoflake", "black", "isort"]
-        + ["codespell", "pylama"]
         + docs_requires
         + tests_requires,
         "test": tests_requires,

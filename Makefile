@@ -19,10 +19,8 @@ build:
 
 .PHONY: check
 check:
-	python setup.py check
-	codespell -q2 $(PACKAGE) docs test
+	tox -e lint
 	travis lint
-	pylama
 
 .PHONY: clean
 clean:
