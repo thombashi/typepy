@@ -18,6 +18,7 @@ exclude = '''
 [tool.isort]
 dont_skip = "*/**/__init__.py"
 known_third_party = [
+    'logbook',
 ]
 include_trailing_comma = true
 line_length = 100
