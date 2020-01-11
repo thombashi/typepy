@@ -67,7 +67,8 @@ class ResultMatrixWriter(ExampleWriter):
         self.__table_writer.stream = output_stream
 
     def write_type_matrix(self):
-        self.__table_writer.table_name = ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}".format(
+        tbl_template = ":py:class:`typepy.{0:s}`: :py:attr:`~typepy.{0:s}.strict_level` = {1:d}"
+        self.__table_writer.table_name = tbl_template.format(
             self.typeclass.__name__, self.strict_level
         )
         self.__table_writer.headers = self.headers
@@ -342,7 +343,7 @@ def write_result_matrix(output_dir_path):
 
 
 def write_example(output_dir_path):
-    opener = PathMaker(output_dir_path)
+    opener = PathMaker(output_dir_path)  # noqa
 
 
 def main():
