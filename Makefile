@@ -43,9 +43,7 @@ docs:
 
 .PHONY: fmt
 fmt:
-	black $(CURDIR)
-	autoflake --in-place --recursive --remove-all-unused-imports --ignore-init-module-imports .
-	isort --apply --recursive
+	tox -e fmt
 
 .PHONY: readme
 readme:
