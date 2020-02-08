@@ -21,10 +21,6 @@ ENCODING = "utf8"
 pkg_info = {}
 
 
-def need_pytest():
-    return set(["pytest", "test", "ptr"]).intersection(sys.argv)
-
-
 def get_release_command_class():
     try:
         from releasecmd import ReleaseCommand
@@ -54,7 +50,6 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 
 SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
-PYTEST_RUNNER_REQUIRES = ["pytest-runner"] if need_pytest() else []
 DATETIME_REQUIRES = [
     "python-dateutil>=2.8.0,<3.0.0",
     "pytz>=2018.9",
@@ -80,8 +75,7 @@ setuptools.setup(
     },
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
-    setup_requires=SETUPTOOLS_REQUIRES + PYTEST_RUNNER_REQUIRES,
-    tests_require=tests_requires + DATETIME_REQUIRES,
+    setup_requires=SETUPTOOLS_REQUIRES,
     extras_require={
         "datetime": DATETIME_REQUIRES,
         "dev": ["releasecmd>=0.2.0,<1", "twine", "wheel"] + docs_requires + tests_requires,
