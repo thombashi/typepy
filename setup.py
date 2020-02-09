@@ -72,7 +72,7 @@ setuptools.setup(
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
     setup_requires=SETUPTOOLS_REQUIRES,
-    extras_require={"datetime": DATETIME_REQUIRES, "test": tests_requires},
+    extras_require={"datetime": DATETIME_REQUIRES, "test": tests_requires + DATETIME_REQUIRES},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
