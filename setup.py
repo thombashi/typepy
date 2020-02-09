@@ -44,9 +44,6 @@ with open(os.path.join(REQUIREMENT_DIR, "requirements.txt")) as f:
 with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
     tests_requires = [line.strip() for line in f if line.strip()]
 
-with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
-    docs_requires = [line.strip() for line in f if line.strip()]
-
 
 SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
 DATETIME_REQUIRES = [
@@ -75,11 +72,7 @@ setuptools.setup(
     python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*",
     install_requires=SETUPTOOLS_REQUIRES + install_requires,
     setup_requires=SETUPTOOLS_REQUIRES,
-    extras_require={
-        "datetime": DATETIME_REQUIRES,
-        "dev": docs_requires + tests_requires,
-        "test": tests_requires,
-    },
+    extras_require={"datetime": DATETIME_REQUIRES, "test": tests_requires},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
