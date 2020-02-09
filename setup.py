@@ -78,7 +78,7 @@ setuptools.setup(
     setup_requires=SETUPTOOLS_REQUIRES,
     extras_require={
         "datetime": DATETIME_REQUIRES,
-        "dev": ["releasecmd>=0.2.0,<1", "twine", "wheel"] + docs_requires + tests_requires,
+        "dev": ["releasecmd>=0.2.0,<1"] + docs_requires + tests_requires,
         "test": tests_requires,
     },
     classifiers=[
