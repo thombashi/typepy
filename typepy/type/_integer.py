@@ -7,8 +7,6 @@
 from __future__ import absolute_import
 
 from .._typecode import Typecode
-from ..checker._integer import IntegerTypeChecker
-from ..converter._integer import IntegerConverter
 from ._base import AbstractType
 
 
@@ -30,7 +28,11 @@ class Integer(AbstractType):
         super(Integer, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
+        from ..checker._integer import IntegerTypeChecker
+
         return IntegerTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
+        from ..converter._integer import IntegerConverter
+
         return IntegerConverter(self._data, self._params)

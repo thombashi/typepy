@@ -11,7 +11,6 @@ from decimal import Decimal
 
 import six
 
-from ..type._realnumber import RealNumber
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan
 
@@ -50,6 +49,8 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         return False
 
     def is_exclude_instance(self):
+        from ..type._realnumber import RealNumber
+
         return (
             super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance()
             or isinstance(self._value, bool)

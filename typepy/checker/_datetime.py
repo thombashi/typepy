@@ -8,7 +8,6 @@ from __future__ import absolute_import
 
 from datetime import date, datetime
 
-from ..type._integer import Integer
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
 
@@ -20,6 +19,8 @@ class DateTimeTypeCheckerStrictLevel0(TypeCheckerBase):
 
 class DateTimeTypeCheckerStrictLevel1(DateTimeTypeCheckerStrictLevel0):
     def is_exclude_instance(self):
+        from ..type._integer import Integer
+
         # exclude timestamp
         return Integer(self._value, strict_level=1).is_type()
 

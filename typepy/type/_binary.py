@@ -7,8 +7,6 @@
 from __future__ import absolute_import, unicode_literals
 
 from .._typecode import Typecode
-from ..checker import BinaryTypeChecker
-from ..converter import BinaryConverter
 from ._base import AbstractType
 
 
@@ -28,7 +26,11 @@ class Binary(AbstractType):
         super(Binary, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
+        from ..checker import BinaryTypeChecker
+
         return BinaryTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
+        from ..converter import BinaryConverter
+
         return BinaryConverter(self._data, self._params)

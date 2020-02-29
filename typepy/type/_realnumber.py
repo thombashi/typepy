@@ -8,8 +8,6 @@ from __future__ import absolute_import, unicode_literals
 
 from .._const import DefaultValue
 from .._typecode import Typecode
-from ..checker._realnumber import RealNumberTypeChecker
-from ..converter._realnumber import FloatConverter
 from ._base import AbstractType
 
 
@@ -31,9 +29,13 @@ class RealNumber(AbstractType):
         super(RealNumber, self).__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
+        from ..checker._realnumber import RealNumberTypeChecker
+
         return RealNumberTypeChecker(self._data, self._strict_level)
 
     def _create_type_converter(self):
+        from ..converter._realnumber import FloatConverter
+
         converter = FloatConverter(self._data, self._params)
         converter.float_class = self._params.get("float_type", DefaultValue.FLOAT_TYPE)
 
