@@ -5,9 +5,7 @@ DOCS_BUILD_DIR := $(DOCS_DIR)/_build
 
 .PHONY: setup
 setup:
-	@pip install --upgrade --upgrade-strategy eager \
-		.[build,docs,release,test] \
-		autoflake black isort
+	@pip install --upgrade -e .[test]
 
 .PHONY: build
 build:
