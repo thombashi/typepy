@@ -1,19 +1,13 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-
 import decimal
 import math
 
-import six
-
 
 def isstring(value):
-    return isinstance(value, six.string_types + (six.text_type, six.binary_type))
+    return isinstance(value, (str,) + (str, bytes))
 
 
 def isinf(value):

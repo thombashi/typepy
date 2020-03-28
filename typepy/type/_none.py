@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from .._typecode import Typecode
 from ..checker import NoneTypeChecker
@@ -27,7 +23,7 @@ class NoneType(AbstractType):
         return Typecode.NONE
 
     def __init__(self, value, strict_level=0, **kwargs):
-        super(NoneType, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def force_convert(self):
         return None

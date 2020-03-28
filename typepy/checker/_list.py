@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
@@ -23,9 +19,7 @@ class ListTypeCheckerStrictLevel0(TypeCheckerBase):
 
 class ListTypeCheckerStrictLevel1(ListTypeCheckerStrictLevel0):
     def is_exclude_instance(self):
-        return super(ListTypeCheckerStrictLevel1, self).is_exclude_instance() or not isinstance(
-            self._value, list
-        )
+        return super().is_exclude_instance() or not isinstance(self._value, list)
 
 
 _factory = CheckerFactory(
@@ -35,6 +29,4 @@ _factory = CheckerFactory(
 
 class ListTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(ListTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

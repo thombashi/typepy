@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 import pytest
 
@@ -17,7 +13,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_Integer(object):
+class Test_Integer:
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [

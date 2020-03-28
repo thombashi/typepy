@@ -1,16 +1,11 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
 import itertools
+import sys
 
 import pytest
-import six
 
 from typepy import NoneType, StrictLevel, Typecode
 
@@ -19,13 +14,13 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_NoneTypeChecker_is_type(object):
+class Test_NoneTypeChecker_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         list(itertools.product([None], [StrictLevel.MIN, StrictLevel.MAX], [True]))
         + list(
             itertools.product(
-                ["None", True, False, 0, six.MAXSIZE, inf, nan],
+                ["None", True, False, 0, sys.maxsize, inf, nan],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

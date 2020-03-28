@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
@@ -33,7 +29,7 @@ class StringTypeCheckerStrictLevel1(StringTypeCheckerStrictLevel0):
 
 class StringTypeCheckerStrictLevel2(StringTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
-        if super(StringTypeCheckerStrictLevel2, self).is_exclude_instance():
+        if super().is_exclude_instance():
             return True
 
         return self._is_null_string(self._value)
@@ -50,9 +46,7 @@ _string_factory = CheckerFactory(
 
 class StringTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(StringTypeChecker, self).__init__(
-            value=value, checker_factory=_string_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_string_factory, strict_level=strict_level)
 
 
 class NullStringTypeCheckerStrictLevel0(StringTypeCheckerStrictLevel0):
@@ -75,6 +69,6 @@ _null_string_factory = CheckerFactory(
 
 class NullStringTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(NullStringTypeChecker, self).__init__(
+        super().__init__(
             value=value, checker_factory=_null_string_factory, strict_level=strict_level
         )

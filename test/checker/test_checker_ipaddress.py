@@ -1,17 +1,12 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
 import itertools
+import sys
 from ipaddress import ip_address
 
 import pytest
-from six import MAXSIZE, text_type
 from termcolor import colored
 
 from typepy import IpAddress, StrictLevel, Typecode
@@ -22,13 +17,13 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_IpAddress_is_type(object):
+class Test_IpAddress_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [[colored("127.0.0.1", "red"), StrictLevel.MIN, True]]
         + list(
             itertools.product(
-                ["", " ", MAXSIZE, text_type(MAXSIZE), inf, nan, None],
+                ["", " ", sys.maxsize, str(sys.maxsize), inf, nan, None],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

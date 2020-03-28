@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 from datetime import date, datetime
 from distutils.version import StrictVersion
@@ -33,7 +29,7 @@ class DateTimeConverter(AbstractValueConverter):
     }
 
     def __init__(self, value, params):
-        super(DateTimeConverter, self).__init__(value, params)
+        super().__init__(value, params)
 
         self.__datetime = None
         self.__timezone = self._params.get(ParamKey.TIMEZONE)

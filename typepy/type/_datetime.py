@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 from .._typecode import Typecode
 from ..checker import DateTimeTypeChecker
@@ -27,7 +23,7 @@ class DateTime(AbstractType):
         return Typecode.DATETIME
 
     def __init__(self, value, strict_level=2, **kwargs):
-        super(DateTime, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return DateTimeTypeChecker(self._data, self._strict_level)

@@ -5,7 +5,6 @@
 """
 
 import argparse
-import io
 import ipaddress
 import os
 import sys
@@ -13,7 +12,6 @@ from datetime import datetime
 
 import logbook
 import pytablewriter as ptw
-import six
 
 import typepy
 from typepy import (
@@ -80,7 +78,7 @@ class ResultMatrixWriter(ExampleWriter):
         self.__table_writer.write_null_line()
 
     def exeute(self, method, value):
-        str_convert_type = (six.text_type, ipaddress.IPv4Address, ipaddress.IPv6Address)
+        str_convert_type = (str, ipaddress.IPv4Address, ipaddress.IPv6Address)
 
         try:
             result = getattr(self.typeclass(value, self.strict_level), method)()
@@ -267,7 +265,7 @@ class PathMaker:
         file_path = os.path.join(self.__output_dir, filename)
         print(file_path)
 
-        return io.open(file_path, "w", encoding=self.__encoding)
+        return open(file_path, "w", encoding=self.__encoding)
 
 
 def parse_option():

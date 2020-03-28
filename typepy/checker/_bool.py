@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from .._const import StrictLevel
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
@@ -28,9 +24,7 @@ class BoolTypeCheckerStrictLevel1(BoolTypeCheckerStrictLevel0):
 
 class BoolTypeCheckerStrictLevel2(BoolTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
-        return super(BoolTypeCheckerStrictLevel2, self).is_exclude_instance() or isstring(
-            self._value
-        )
+        return super().is_exclude_instance() or isstring(self._value)
 
 
 _factory = CheckerFactory(
@@ -44,6 +38,4 @@ _factory = CheckerFactory(
 
 class BoolTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(BoolTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

@@ -1,17 +1,12 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
 import itertools
+import sys
 from decimal import Decimal
 
 import pytest
-from six import MAXSIZE, text_type
 from termcolor import colored
 
 from typepy import Integer, StrictLevel, Typecode
@@ -22,13 +17,13 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_Integer_is_type(object):
+class Test_Integer_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [
-            [text_type(MAXSIZE), StrictLevel.MIN, True],
-            [text_type(MAXSIZE), StrictLevel.MIN + 1, True],
-            [text_type(MAXSIZE), StrictLevel.MAX, False],
+            [str(sys.maxsize), StrictLevel.MIN, True],
+            [str(sys.maxsize), StrictLevel.MIN + 1, True],
+            [str(sys.maxsize), StrictLevel.MAX, False],
             ["45e76582", StrictLevel.MIN, True],
             ["45e76582", StrictLevel.MIN + 1, False],
             ["45e76582", StrictLevel.MAX, False],
@@ -41,7 +36,7 @@ class Test_Integer_is_type(object):
         ]
         + list(
             itertools.product(
-                [0, MAXSIZE, -MAXSIZE, Decimal("1"), int(Decimal("45e765"))],
+                [0, sys.maxsize, -sys.maxsize, Decimal("1"), int(Decimal("45e765"))],
                 [StrictLevel.MIN, StrictLevel.MIN + 1],
                 [True],
             )
@@ -67,7 +62,7 @@ class Test_Integer_is_type(object):
         )
         + list(
             itertools.product(
-                [None, nan, inf, "", "0xff", "test", "1a1", "11a", "a11", "テスト".encode("utf_8")],
+                [None, nan, inf, "", "0xff", "test", "1a1", "11a", "a11", "テスト".encode()],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

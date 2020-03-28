@@ -1,15 +1,9 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-
 import re
 from decimal import Decimal
-
-import six
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan
@@ -20,7 +14,7 @@ RE_SCIENTIFIC_NOTATION = re.compile(r"^-?\d+(?:\.\d*)?[eE][+\-]?\d{3,}$")
 
 class IntegerTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
-        if isinstance(self._value, six.integer_types):
+        if isinstance(self._value, int):
             return not isinstance(self._value, bool)
 
         if isinstance(self._value, (float, Decimal)):
@@ -34,7 +28,7 @@ class IntegerTypeCheckerStrictLevel0(TypeCheckerBase):
 
 class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
     def is_instance(self):
-        if not super(IntegerTypeCheckerStrictLevel1, self).is_instance():
+        if not super().is_instance():
             return False
 
         if isinstance(self._value, (float, Decimal)):
@@ -52,19 +46,16 @@ class IntegerTypeCheckerStrictLevel1(IntegerTypeCheckerStrictLevel0):
         from ..type._realnumber import RealNumber
 
         return (
-            super(IntegerTypeCheckerStrictLevel1, self).is_exclude_instance()
+            super().is_exclude_instance()
             or isinstance(self._value, bool)
             or RealNumber(self._value, strict_level=1).is_type()
-            or (
-                isinstance(self._value, six.string_types)
-                and RE_SCIENTIFIC_NOTATION.search(self._value)
-            )
+            or (isinstance(self._value, str) and RE_SCIENTIFIC_NOTATION.search(self._value))
         )
 
 
 class IntegerTypeCheckerStrictLevel2(IntegerTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
-        return isinstance(self._value, six.string_types + (bool, float, Decimal))
+        return isinstance(self._value, (str,) + (bool, float, Decimal))
 
 
 _factory = CheckerFactory(
@@ -78,6 +69,4 @@ _factory = CheckerFactory(
 
 class IntegerTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(IntegerTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

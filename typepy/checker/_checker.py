@@ -1,17 +1,13 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 import abc
 
 from ._interface import TypeCheckerInterface
 
 
-class CheckerFactory(object):
+class CheckerFactory:
     __slots__ = ("__min_strict_level", "__max_strict_level", "__checker_mapping")
 
     @property

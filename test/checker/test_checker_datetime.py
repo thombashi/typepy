@@ -1,11 +1,6 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import unicode_literals
 
 import itertools
 from datetime import date, datetime
@@ -24,7 +19,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_DateTime_is_type(object):
+class Test_DateTime_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         list(
@@ -36,13 +31,7 @@ class Test_DateTime_is_type(object):
         )
         + list(
             itertools.product(
-                [
-                    None,
-                    "invalid time string",
-                    9223372036854775807,
-                    "100-0004",
-                    "テスト".encode("utf_8"),
-                ],
+                [None, "invalid time string", 9223372036854775807, "100-0004", "テスト".encode(),],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [False],
             )

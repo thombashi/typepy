@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import os
 import sys
 
@@ -123,8 +121,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'typepy.tex', u'typepy Documentation',
-     u'Tsuyoshi Hombashi', 'manual'),
+    (master_doc, 'typepy.tex', 'typepy Documentation',
+     'Tsuyoshi Hombashi', 'manual'),
 ]
 
 
@@ -133,7 +131,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'typepy', u'typepy Documentation',
+    (master_doc, 'typepy', 'typepy Documentation',
      [author], 1)
 ]
 
@@ -144,18 +142,18 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'typepy', u'typepy Documentation',
+    (master_doc, 'typepy', 'typepy Documentation',
      author, 'typepy', 'One line description of project.',
      'Miscellaneous'),
 ]
 
 
 # -- rst_prolog -------------------------------------------
-rp_common = u"""
+rp_common = """
 .. |TM| replace:: :superscript:`TM`
 """
 
-rp_builtin = u"""
+rp_builtin = """
 .. |False| replace:: :py:obj:`False`
 .. |True| replace:: :py:obj:`True`
 .. |None| replace:: :py:obj:`None`
@@ -171,7 +169,7 @@ rp_builtin = u"""
 .. |tuple| replace:: :py:obj:`tuple`
 """
 
-rp_class = u"""
+rp_class = """
 .. |TypeConversionError| replace:: :py:class:`typepy.TypeConversionError`
 .. |DateTime| replace:: :py:class:`typepy.DateTime`
 .. |Dictionary| replace:: :py:class:`typepy.Dictionary`
@@ -184,7 +182,7 @@ rp_class = u"""
 .. |String| replace:: :py:class:`typepy.String`
 """
 
-rp_docstring = u"""
+rp_docstring = """
 .. |result_matrix_desc| replace::
     For each member methods, the result matrix for each ``strict_level`` is as follows.
     Column headers (except ``Method`` column) indicate input data to ``value`` argument of

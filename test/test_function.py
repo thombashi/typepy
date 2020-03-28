@@ -1,15 +1,10 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
+import sys
 
 import pytest
-import six
-from six.moves import range
 
 from typepy import is_empty_sequence, is_hex, is_not_empty_sequence
 
@@ -18,7 +13,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_is_hex(object):
+class Test_is_hex:
     @pytest.mark.parametrize(["value"], [["0x00"], ["0xffffffff"], ["a"], ["f"]])
     def test_normal(self, value):
         assert is_hex(value)
@@ -30,7 +25,7 @@ class Test_is_hex(object):
         assert not is_hex(value)
 
 
-class Test_is_empty_sequence(object):
+class Test_is_empty_sequence:
     @pytest.mark.parametrize(
         ["value", "expected"],
         [
@@ -46,7 +41,7 @@ class Test_is_empty_sequence(object):
             [range(0, 10), False],
             [True, False],
             [False, False],
-            [six.MAXSIZE, False],
+            [sys.maxsize, False],
             [0.1, False],
             [nan, False],
             [inf, False],
@@ -56,7 +51,7 @@ class Test_is_empty_sequence(object):
         assert is_empty_sequence(value) == expected
 
 
-class Test_is_not_empty_sequence(object):
+class Test_is_not_empty_sequence:
     @pytest.mark.parametrize(
         ["value", "expected"],
         [
@@ -72,7 +67,7 @@ class Test_is_not_empty_sequence(object):
             [range(0), False],
             [True, False],
             [False, False],
-            [six.MAXSIZE, False],
+            [sys.maxsize, False],
             [0.1, False],
             [nan, False],
             [inf, False],

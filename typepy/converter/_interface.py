@@ -1,20 +1,13 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import, unicode_literals
-
 import abc
-
-import six
 
 from ..error import TypeConversionError
 
 
-@six.add_metaclass(abc.ABCMeta)
-class ValueConverterInterface(object):
+class ValueConverterInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def force_convert(self):  # pragma: no cover
         pass
@@ -29,7 +22,7 @@ class AbstractValueConverter(ValueConverterInterface):
 
     def __repr__(self):
         try:
-            string = six.text_type(self.force_convert())
+            string = str(self.force_convert())
         except TypeConversionError:
             string = "[ValueConverter ERROR] failed to force_convert"
 

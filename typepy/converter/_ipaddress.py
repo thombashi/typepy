@@ -1,12 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
-
-import six
 
 from .._common import strip_ansi_escape
 from .._const import DefaultValue, ParamKey
@@ -18,7 +12,7 @@ class IpAddressConverter(AbstractValueConverter):
     def force_convert(self):
         import ipaddress
 
-        value = six.text_type(self._value)
+        value = str(self._value)
 
         try:
             return ipaddress.ip_address(value)

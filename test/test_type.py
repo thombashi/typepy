@@ -1,29 +1,25 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
+import sys
 from datetime import date, datetime
 from decimal import Decimal
 from ipaddress import IPv4Address, IPv6Address
 
 import pytest
 from pytz import timezone, utc
-from six import MAXSIZE, text_type
 
 import typepy
 from typepy import StrictLevel
 
 
-class Test_TypeClass_repr(object):
+class Test_TypeClass_repr:
     @pytest.mark.parametrize(
         ["type_class", "value", "strict_level"],
         [
-            [typepy.Integer, -MAXSIZE, StrictLevel.MIN],
-            [typepy.Integer, MAXSIZE, StrictLevel.MAX],
+            [typepy.Integer, -sys.maxsize, StrictLevel.MIN],
+            [typepy.Integer, sys.maxsize, StrictLevel.MAX],
             [typepy.RealNumber, -0.1, StrictLevel.MIN],
             [typepy.RealNumber, 0.1, StrictLevel.MAX],
             [typepy.DateTime, 1485685623, StrictLevel.MIN],
@@ -32,10 +28,10 @@ class Test_TypeClass_repr(object):
     def test_smoke(self, type_class, value, strict_level):
         type_object = type_class(value, strict_level)
 
-        assert text_type(type_object)
+        assert str(type_object)
 
 
-class Test_RealNumber(object):
+class Test_RealNumber:
     @pytest.mark.parametrize(
         ["value", "float_type", "expected"], [["0.1", float, 0.1], ["0.1", Decimal, Decimal("0.1")]]
     )
@@ -47,7 +43,7 @@ class Test_RealNumber(object):
         assert result == expected
 
 
-class Test_DateTime(object):
+class Test_DateTime:
     @pytest.mark.parametrize(
         ["value", "timezone", "expected"],
         [
@@ -81,7 +77,7 @@ class Test_DateTime(object):
         assert result == expected
 
 
-class Test_IpAddress(object):
+class Test_IpAddress:
     @pytest.mark.parametrize(
         ["value", "expected"],
         [

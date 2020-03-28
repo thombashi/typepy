@@ -1,17 +1,12 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
 import itertools
+import sys
 from decimal import Decimal
 
 import pytest
-import six
 
 from typepy import Infinity, StrictLevel, Typecode
 
@@ -20,12 +15,12 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_Infinity_is_type(object):
+class Test_Infinity_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         list(
             itertools.product(
-                [0.0, six.MAXSIZE, "0", nan, None], [StrictLevel.MIN, StrictLevel.MAX], [False]
+                [0.0, sys.maxsize, "0", nan, None], [StrictLevel.MIN, StrictLevel.MAX], [False]
             )
         )
         + list(

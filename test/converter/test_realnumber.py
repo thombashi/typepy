@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 from decimal import Decimal
 
@@ -19,7 +15,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_RealNumber(object):
+class Test_RealNumber:
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [

@@ -5,8 +5,7 @@
 """
 
 import os
-
-import six
+import sys
 
 import typepy
 from typepy import Infinity, Integer, Nan, NullString, RealNumber, StrictLevel, String
@@ -28,7 +27,7 @@ class Params:
             self.__stream = None
 
     def write_test_params(self, method, value):
-        if isinstance(value, six.string_types):
+        if isinstance(value, str):
             write_value = '"{:s}"'.format(value)
         else:
             write_value = value
@@ -89,7 +88,7 @@ class TestParamWriter:
         VALUE_LIST = ["abc", "", 1, "-1", None, True, inf, nan]
 
     class Number:
-        VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", six.MAXSIZE, True, None, inf, nan, "test", ""]
+        VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", sys.maxsize, True, None, inf, nan, "test", ""]
 
     def __init__(self, file_path):
         os.makedirs(os.path.dirname(file_path), exist_ok=True)

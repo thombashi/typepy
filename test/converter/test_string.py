@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 import pytest
 
@@ -17,7 +13,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_String(object):
+class Test_String:
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [
@@ -99,7 +95,7 @@ class Test_String(object):
         assert convert_wrapper(typepy.String(value, strict_level), method) == expected
 
 
-class Test_NullString(object):
+class Test_NullString:
     @pytest.mark.parametrize(
         ["method", "strict_level", "value", "expected"],
         [

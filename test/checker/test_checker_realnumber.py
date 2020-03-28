@@ -1,18 +1,12 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import unicode_literals
-
 import itertools
+import sys
 from decimal import Decimal
 
 import pytest
-import six
-from six import text_type
 from termcolor import colored
 
 from typepy import RealNumber, StrictLevel, Typecode
@@ -23,7 +17,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_RealNumber_is_type(object):
+class Test_RealNumber_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         list(
@@ -32,10 +26,10 @@ class Test_RealNumber_is_type(object):
                     0,
                     0.0,
                     0.0,
-                    six.MAXSIZE,
-                    -six.MAXSIZE,
-                    text_type(six.MAXSIZE),
-                    text_type(-six.MAXSIZE),
+                    sys.maxsize,
+                    -sys.maxsize,
+                    str(sys.maxsize),
+                    str(-sys.maxsize),
                     "0.1",
                     "-0.1",
                     "1e-05",
@@ -49,7 +43,7 @@ class Test_RealNumber_is_type(object):
         )
         + list(
             itertools.product(
-                [0, 0.0, 0.0, six.MAXSIZE, -six.MAXSIZE, "4.5e444"], [StrictLevel.MIN + 1], [False]
+                [0, 0.0, 0.0, sys.maxsize, -sys.maxsize, "4.5e444"], [StrictLevel.MIN + 1], [False]
             )
         )
         + list(itertools.product(["1.1", "4.5e-4"], [StrictLevel.MIN + 1], [True]))
@@ -59,11 +53,11 @@ class Test_RealNumber_is_type(object):
                     0,
                     0.0,
                     Decimal("1"),
-                    six.MAXSIZE,
-                    -six.MAXSIZE,
+                    sys.maxsize,
+                    -sys.maxsize,
                     "1.0",
-                    text_type(six.MAXSIZE),
-                    text_type(-six.MAXSIZE),
+                    str(sys.maxsize),
+                    str(-sys.maxsize),
                     "0.1",
                     "-0.1",
                     "1e-05",
@@ -74,7 +68,7 @@ class Test_RealNumber_is_type(object):
         )
         + list(
             itertools.product(
-                [True, inf, nan, "", "0xf", "テスト".encode("utf_8")],
+                [True, inf, nan, "", "0xf", "テスト".encode()],
                 [StrictLevel.MIN, StrictLevel.MIN + 1, StrictLevel.MAX],
                 [False],
             )

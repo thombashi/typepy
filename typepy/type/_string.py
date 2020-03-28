@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
 
 from .._typecode import Typecode
 from ..checker import NullStringTypeChecker, StringTypeChecker
@@ -27,7 +23,7 @@ class String(AbstractType):
         return Typecode.STRING
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(String, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return StringTypeChecker(self._data, self._strict_level)
@@ -51,7 +47,7 @@ class NullString(AbstractType):
         return Typecode.NULL_STRING
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(NullString, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return NullStringTypeChecker(self._data, self._strict_level)

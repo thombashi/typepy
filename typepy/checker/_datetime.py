@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from datetime import date, datetime
 
@@ -27,10 +23,7 @@ class DateTimeTypeCheckerStrictLevel1(DateTimeTypeCheckerStrictLevel0):
 
 class DateTimeTypeCheckerStrictLevel2(DateTimeTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
-        return (
-            isstring(self._value)
-            or super(DateTimeTypeCheckerStrictLevel2, self).is_exclude_instance()
-        )
+        return isstring(self._value) or super().is_exclude_instance()
 
 
 _factory = CheckerFactory(
@@ -44,6 +37,4 @@ _factory = CheckerFactory(
 
 class DateTimeTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(DateTimeTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

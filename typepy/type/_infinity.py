@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from .._typecode import Typecode
 from ..checker import InfinityTypeChecker
@@ -27,7 +23,7 @@ class Infinity(AbstractType):
         return Typecode.INFINITY
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Infinity, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         return InfinityTypeChecker(self._data, self._strict_level)

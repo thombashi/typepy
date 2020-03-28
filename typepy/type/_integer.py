@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from .._typecode import Typecode
 from ._base import AbstractType
@@ -25,7 +21,7 @@ class Integer(AbstractType):
         return Typecode.INTEGER
 
     def __init__(self, value, strict_level=1, **kwargs):
-        super(Integer, self).__init__(value, strict_level, **kwargs)
+        super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):
         from ..checker._integer import IntegerTypeChecker

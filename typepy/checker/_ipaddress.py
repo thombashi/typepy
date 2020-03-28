@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isstring
@@ -26,10 +22,7 @@ class IpAddressTypeCheckerStrictLevel0(TypeCheckerBase):
 
 class IpAddressTypeCheckerStrictLevel1(IpAddressTypeCheckerStrictLevel0):
     def is_exclude_instance(self):
-        return (
-            isstring(self._value)
-            or super(IpAddressTypeCheckerStrictLevel1, self).is_exclude_instance()
-        )
+        return isstring(self._value) or super().is_exclude_instance()
 
 
 _factory = CheckerFactory(
@@ -39,6 +32,4 @@ _factory = CheckerFactory(
 
 class IpAddressTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(IpAddressTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

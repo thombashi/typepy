@@ -1,11 +1,6 @@
-# encoding: utf-8
-
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import unicode_literals
 
 import itertools
 
@@ -18,7 +13,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_List_is_type(object):
+class Test_List_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
         [

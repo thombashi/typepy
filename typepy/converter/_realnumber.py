@@ -1,14 +1,8 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import, unicode_literals
-
 import decimal
-
-import six
 
 from .._common import strip_ansi_escape
 from .._const import DefaultValue, ParamKey
@@ -18,7 +12,7 @@ from ._interface import AbstractValueConverter
 
 class FloatConverter(AbstractValueConverter):
     def __init__(self, value, params):
-        super(FloatConverter, self).__init__(value, params)
+        super().__init__(value, params)
 
         self.float_class = DefaultValue.FLOAT_TYPE
 
@@ -27,7 +21,7 @@ class FloatConverter(AbstractValueConverter):
             return self._value
 
         if isinstance(self._value, float):
-            return self.float_class(six.text_type(self._value))
+            return self.float_class(str(self._value))
 
         try:
             return self.float_class(self._value)

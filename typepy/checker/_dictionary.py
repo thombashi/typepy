@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 
@@ -29,6 +25,4 @@ _factory = CheckerFactory(
 
 class DictionaryTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(DictionaryTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

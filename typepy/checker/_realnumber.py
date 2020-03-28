@@ -1,15 +1,9 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from __future__ import absolute_import
-
 import re
 from decimal import Decimal
-
-import six
 
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 from ._common import isinf, isnan, isstring
@@ -32,23 +26,17 @@ class RealNumberTypeCheckerStrictLevel0(TypeCheckerBase):
 
 class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
     def is_instance(self):
-        return (
-            super(RealNumberTypeCheckerStrictLevel1, self).is_instance()
-            and not float(self._value).is_integer()
-        )
+        return super().is_instance() and not float(self._value).is_integer()
 
     def is_exclude_instance(self):
         if (
-            isinstance(self._value, six.string_types)
+            isinstance(self._value, str)
             and RE_E.search(self._value)
             and RE_SCIENTIFIC_NOTATION.search(self._value) is None
         ):
             return True
 
-        return (
-            isinstance(self._value, six.integer_types)
-            or super(RealNumberTypeCheckerStrictLevel1, self).is_exclude_instance()
-        )
+        return isinstance(self._value, int) or super().is_exclude_instance()
 
     def is_valid_after_convert(self, converted_value):
         return not float(converted_value).is_integer()
@@ -56,9 +44,7 @@ class RealNumberTypeCheckerStrictLevel1(RealNumberTypeCheckerStrictLevel0):
 
 class RealNumberTypeCheckerStrictLevel2(RealNumberTypeCheckerStrictLevel1):
     def is_exclude_instance(self):
-        return super(RealNumberTypeCheckerStrictLevel2, self).is_exclude_instance() or isstring(
-            self._value
-        )
+        return super().is_exclude_instance() or isstring(self._value)
 
 
 _factory = CheckerFactory(
@@ -72,6 +58,4 @@ _factory = CheckerFactory(
 
 class RealNumberTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
-        super(RealNumberTypeChecker, self).__init__(
-            value=value, checker_factory=_factory, strict_level=strict_level
-        )
+        super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

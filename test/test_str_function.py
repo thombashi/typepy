@@ -1,10 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import unicode_literals
 
 import itertools
 
@@ -17,7 +13,7 @@ nan = float("nan")
 inf = float("inf")
 
 
-class Test_is_not_null_string(object):
+class Test_is_not_null_string:
     @pytest.mark.parametrize(
         ["value", "expected"],
         list(itertools.product(["nan", "テスト"], [True]))
@@ -27,7 +23,7 @@ class Test_is_not_null_string(object):
         assert is_not_null_string(value) == expected
 
 
-class Test_is_null_string(object):
+class Test_is_null_string:
     @pytest.mark.parametrize(
         ["value", "expected"],
         list(itertools.product([None, "", "  ", "\t", "\r\n", "\n"], [True]))

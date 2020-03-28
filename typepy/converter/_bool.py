@@ -1,12 +1,6 @@
-# encoding: utf-8
-
 """
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
-
-from __future__ import absolute_import, unicode_literals
-
-import six
 
 from .._common import strip_ansi_escape
 from .._const import DefaultValue, ParamKey
@@ -16,7 +10,7 @@ from ._interface import AbstractValueConverter
 
 class BoolConverter(AbstractValueConverter):
     def force_convert(self):
-        if isinstance(self._value, six.integer_types):
+        if isinstance(self._value, int):
             return bool(self._value)
 
         try:
@@ -44,10 +38,10 @@ class BoolConverter(AbstractValueConverter):
         try:
             lower_text = value.lower()
         except AttributeError:
-            raise ValueError("invalid value '{}'".format(six.text_type(value)))
+            raise ValueError("invalid value '{}'".format(str(value)))
 
         binary_value = strtobool(lower_text)
         if lower_text not in ["true", "false"]:
-            raise ValueError("invalid value '{}'".format(six.text_type(value)))
+            raise ValueError("invalid value '{}'".format(str(value)))
 
         return bool(binary_value)
