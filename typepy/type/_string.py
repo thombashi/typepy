@@ -53,9 +53,6 @@ class NullString(AbstractType):
     def __init__(self, value, strict_level=1, **kwargs):
         super(NullString, self).__init__(value, strict_level, **kwargs)
 
-    def force_convert(self):
-        return ""
-
     def _create_type_checker(self):
         return NullStringTypeChecker(self._data, self._strict_level)
 

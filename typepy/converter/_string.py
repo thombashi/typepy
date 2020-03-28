@@ -22,4 +22,4 @@ class StringConverter(AbstractValueConverter):
 
 class NullStringConverter(StringConverter):
     def force_convert(self):
-        return super(NullStringConverter, self).force_convert().strip()
+        return super(NullStringConverter, self).force_convert()

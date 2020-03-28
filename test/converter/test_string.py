@@ -97,3 +97,31 @@ class Test_String(object):
     )
     def test_normal(self, method, strict_level, value, expected):
         assert convert_wrapper(typepy.String(value, strict_level), method) == expected
+
+
+class Test_NullString(object):
+    @pytest.mark.parametrize(
+        ["method", "strict_level", "value", "expected"],
+        [
+            ["convert", 0, "", ""],
+            ["convert", 0, " ", " "],
+            ["convert", 1, "", ""],
+            ["convert", 1, " ", " "],
+            ["convert", 2, "", ""],
+            ["convert", 2, " ", " "],
+            ["try_convert", 0, "", ""],
+            ["try_convert", 0, " ", " "],
+            ["try_convert", 1, "", ""],
+            ["try_convert", 1, " ", " "],
+            ["try_convert", 2, "", ""],
+            ["try_convert", 2, " ", " "],
+            ["force_convert", 0, "", ""],
+            ["force_convert", 0, " ", " "],
+            ["force_convert", 1, "", ""],
+            ["force_convert", 1, " ", " "],
+            ["force_convert", 2, "", ""],
+            ["force_convert", 2, " ", " "],
+        ],
+    )
+    def test_normal(self, method, strict_level, value, expected):
+        assert convert_wrapper(typepy.NullString(value, strict_level), method) == expected
