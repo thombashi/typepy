@@ -3,6 +3,7 @@
 """
 
 import abc
+from typing import Any
 
 from ..checker._interface import TypeCheckerInterface
 from ..converter import ValueConverterInterface
@@ -32,10 +33,10 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         pass
 
     @property
-    def typename(self):
+    def typename(self) -> str:
         return self.typecode.name
 
-    def __init__(self, value, strict_level, **kwargs):
+    def __init__(self, value: Any, strict_level: int, **kwargs) -> None:
         self._data = value
         self._strict_level = strict_level
         self._params = kwargs
@@ -45,7 +46,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
         self.__is_type_result = None
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return ", ".join(
             [
                 "value={}".format(self._data),
@@ -56,7 +57,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
             ]
         )
 
-    def is_type(self):
+    def is_type(self) -> bool:
         """
         :return:
         :rtype: bool

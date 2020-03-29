@@ -9,7 +9,7 @@ from ._const import StrictLevel
 from .type import AbstractType, Integer, NullString, RealNumber, String
 
 
-def is_hex(value):
+def is_hex(value: Any) -> bool:
     try:
         int(value, 16)
     except (TypeError, ValueError):
@@ -18,22 +18,22 @@ def is_hex(value):
     return True
 
 
-def is_null_string(value):
+def is_null_string(value: Any) -> bool:
     return NullString(value, strict_level=StrictLevel.MIN).is_type()
 
 
-def is_not_null_string(value):
+def is_not_null_string(value: Any) -> bool:
     return String(value, strict_level=StrictLevel.MAX).is_type()
 
 
-def is_empty_sequence(value):
+def is_empty_sequence(value: Any) -> bool:
     try:
         return value is None or len(value) == 0
     except TypeError:
         return False
 
 
-def is_not_empty_sequence(value):
+def is_not_empty_sequence(value: Any) -> bool:
     try:
         return len(value) > 0
     except TypeError:

@@ -2,6 +2,8 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
+from typing import Any
+
 from .._const import DefaultValue
 from .._typecode import Typecode
 from ._base import AbstractType
@@ -18,10 +20,10 @@ class RealNumber(AbstractType):
     """
 
     @property
-    def typecode(self):
+    def typecode(self) -> Typecode:
         return Typecode.REAL_NUMBER
 
-    def __init__(self, value, strict_level=0, **kwargs):
+    def __init__(self, value: Any, strict_level: int = 0, **kwargs) -> None:
         super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):

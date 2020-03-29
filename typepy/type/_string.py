@@ -2,6 +2,8 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
+from typing import Any
+
 from .._typecode import Typecode
 from ..checker import NullStringTypeChecker, StringTypeChecker
 from ..converter import NullStringConverter, StringConverter
@@ -19,16 +21,16 @@ class String(AbstractType):
     """
 
     @property
-    def typecode(self):
+    def typecode(self) -> Typecode:
         return Typecode.STRING
 
-    def __init__(self, value, strict_level=1, **kwargs):
+    def __init__(self, value: Any, strict_level: int = 1, **kwargs) -> None:
         super().__init__(value, strict_level, **kwargs)
 
-    def _create_type_checker(self):
+    def _create_type_checker(self) -> StringTypeChecker:
         return StringTypeChecker(self._data, self._strict_level)
 
-    def _create_type_converter(self):
+    def _create_type_converter(self) -> StringConverter:
         return StringConverter(self._data, self._params)
 
 
@@ -43,10 +45,10 @@ class NullString(AbstractType):
     """
 
     @property
-    def typecode(self):
+    def typecode(self) -> Typecode:
         return Typecode.NULL_STRING
 
-    def __init__(self, value, strict_level=1, **kwargs):
+    def __init__(self, value: Any, strict_level: int = 1, **kwargs) -> None:
         super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):

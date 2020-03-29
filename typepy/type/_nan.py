@@ -2,6 +2,8 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
+from typing import Any
+
 from .._typecode import Typecode
 from ..checker import NanTypeChecker
 from ..converter import FloatConverter
@@ -19,10 +21,10 @@ class Nan(AbstractType):
     """
 
     @property
-    def typecode(self):
+    def typecode(self) -> Typecode:
         return Typecode.NAN
 
-    def __init__(self, value, strict_level=1, **kwargs):
+    def __init__(self, value: Any, strict_level: int = 1, **kwargs) -> None:
         super().__init__(value, strict_level, **kwargs)
 
     def _create_type_checker(self):

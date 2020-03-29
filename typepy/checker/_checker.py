@@ -47,10 +47,10 @@ class TypeCheckerBase(TypeCheckerInterface):
     def is_instance(self):
         pass
 
-    def is_type(self):
+    def is_type(self) -> bool:
         return self.is_instance() and not self.is_exclude_instance()
 
-    def validate(self):
+    def validate(self) -> None:
         """
         :raises TypeError:
             If the value is not matched the type to be expected.
@@ -74,7 +74,7 @@ class TypeCheckerDelegator(TypeCheckerInterface):
     def __init__(self, value, checker_factory, strict_level):
         self.__checker = checker_factory.get_checker_class(strict_level)(value)
 
-    def is_type(self):
+    def is_type(self) -> bool:
         return self.__checker.is_type()
 
     def is_valid_after_convert(self, value):
@@ -86,5 +86,5 @@ class TypeCheckerDelegator(TypeCheckerInterface):
     def is_exclude_instance(self):
         return self.__checker.is_exclude_instance()
 
-    def validate(self):
+    def validate(self) -> None:
         self.__checker.validate()

@@ -7,9 +7,9 @@ import abc
 
 class TypeCheckerInterface(metaclass=abc.ABCMeta):
     @abc.abstractmethod
-    def is_type(self):  # pragma: no cover
+    def is_type(self) -> bool:  # pragma: no cover
         pass
 
     @abc.abstractmethod
-    def validate(self):  # pragma: no cover
+    def validate(self) -> None:  # pragma: no cover
         pass
