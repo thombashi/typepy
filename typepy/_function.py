@@ -2,8 +2,11 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
+import re
+from typing import Any, Optional, Type
+
 from ._const import StrictLevel
-from .type import NullString, String
+from .type import AbstractType, Integer, NullString, RealNumber, String
 
 
 def is_hex(value):
@@ -35,3 +38,15 @@ def is_not_empty_sequence(value):
         return len(value) > 0
     except TypeError:
         return False
+
+
+def extract_typepy_from_dtype(dtype) -> Optional[Type[AbstractType]]:
+    dtype = str(dtype)
+
+    if re.search("^float", dtype):
+        return RealNumber
+
+    if re.search("^int", dtype):
+        return Integer
+
+    return None
