@@ -8,10 +8,8 @@ from .__version__ import __author__, __copyright__, __email__, __license__, __ve
 from ._const import ParamKey, StrictLevel
 from ._function import (
     is_empty_sequence,
-    is_empty_string,
     is_hex,
     is_not_empty_sequence,
-    is_not_empty_string,
     is_not_null_string,
     is_null_string,
 )
