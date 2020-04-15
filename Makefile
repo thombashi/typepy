@@ -17,6 +17,7 @@ build:
 check:
 	@tox -e lint
 	travis lint
+	pip check
 
 .PHONY: clean
 clean:
@@ -36,5 +37,6 @@ readme:
 
 .PHONY: release
 release:
-	@tox -e release
+	@python setup.py release --sign
 	@make clean
+	pip check
