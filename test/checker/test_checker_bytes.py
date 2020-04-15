@@ -19,7 +19,9 @@ class Test_Binary_is_type:
         ["value", "strict_level", "expected"],
         list(itertools.product([], [StrictLevel.MIN, StrictLevel.MAX], [False]))
         + list(
-            itertools.product([b"abc", "いろは".encode()], [StrictLevel.MIN, StrictLevel.MAX], [True],)
+            itertools.product(
+                [b"abc", "いろは".encode("utf8")], [StrictLevel.MIN, StrictLevel.MAX], [True]
+            )
         )
         + list(itertools.product([b" ", b"\n"], [StrictLevel.MIN], [True]))
         + list(
@@ -32,4 +34,4 @@ class Test_Binary_is_type:
         type_checker = Bytes(value, strict_level=strict_level)
 
         assert type_checker.is_type() == expected
-        assert type_checker.typecode == Typecode.STRING
+        assert type_checker.typecode == Typecode.BYTES

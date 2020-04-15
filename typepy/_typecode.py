@@ -19,3 +19,4 @@ class Typecode(enum.Enum):
     DICTIONARY = 1 << 8
     LIST = 1 << 9
     IP_ADDRESS = 1 << 10
+    BYTES = 1 << 11

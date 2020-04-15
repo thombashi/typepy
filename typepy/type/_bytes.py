@@ -18,7 +18,7 @@ class Bytes(AbstractType):
 
     @property
     def typecode(self) -> Typecode:
-        return Typecode.STRING
+        return Typecode.BYTES
 
     def __init__(self, value: Any, strict_level: int = 1, **kwargs) -> None:
         super().__init__(value, strict_level, **kwargs)
