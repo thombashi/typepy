@@ -5,7 +5,7 @@
 from ._checker import CheckerFactory, TypeCheckerBase, TypeCheckerDelegator
 
 
-class BinaryTypeCheckerStrictLevel0(TypeCheckerBase):
+class BytesTypeCheckerStrictLevel0(TypeCheckerBase):
     def is_instance(self):
         return isinstance(self._value, bytes)
 
@@ -13,9 +13,9 @@ class BinaryTypeCheckerStrictLevel0(TypeCheckerBase):
         return isinstance(converted_value, bytes)
 
 
-_factory = CheckerFactory(checker_mapping={0: BinaryTypeCheckerStrictLevel0})
+_factory = CheckerFactory(checker_mapping={0: BytesTypeCheckerStrictLevel0})
 
 
-class BinaryTypeChecker(TypeCheckerDelegator):
+class BytesTypeChecker(TypeCheckerDelegator):
     def __init__(self, value, strict_level):
         super().__init__(value=value, checker_factory=_factory, strict_level=strict_level)

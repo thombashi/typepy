@@ -7,7 +7,7 @@ import sys
 
 import pytest
 
-from typepy import Binary, StrictLevel, Typecode
+from typepy import Bytes, StrictLevel, Typecode
 
 
 nan = float("nan")
@@ -29,7 +29,7 @@ class Test_Binary_is_type:
         ),
     )
     def test_normal(self, value, strict_level, expected):
-        type_checker = Binary(value, strict_level=strict_level)
+        type_checker = Bytes(value, strict_level=strict_level)
 
         assert type_checker.is_type() == expected
         assert type_checker.typecode == Typecode.STRING

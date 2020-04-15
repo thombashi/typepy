@@ -2,8 +2,8 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from ._binary import BinaryConverter
 from ._bool import BoolConverter
+from ._bytes import BytesConverter
 from ._datetime import DateTimeConverter
 from ._dictionary import DictionaryConverter
 from ._integer import IntegerConverter

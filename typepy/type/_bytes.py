@@ -8,7 +8,7 @@ from .._typecode import Typecode
 from ._base import AbstractType
 
 
-class Binary(AbstractType):
+class Bytes(AbstractType):
     """
     |result_matrix_desc|
 

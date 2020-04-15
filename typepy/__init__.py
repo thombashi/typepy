@@ -19,6 +19,7 @@ from .error import TypeConversionError
 from .type import (
     Binary,
     Bool,
+    Bytes,
     DateTime,
     Dictionary,
     Infinity,

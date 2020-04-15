@@ -2,8 +2,8 @@
 .. codeauthor:: Tsuyoshi Hombashi <tsuyoshi.hombashi@gmail.com>
 """
 
-from ._binary import BinaryTypeChecker
 from ._bool import BoolTypeChecker
+from ._bytes import BytesTypeChecker
 from ._datetime import DateTimeTypeChecker
 from ._dictionary import DictionaryTypeChecker
 from ._infinity import InfinityTypeChecker
