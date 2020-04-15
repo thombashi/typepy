@@ -40,3 +40,8 @@ release:
 	@python setup.py release --sign
 	@make clean
 	pip check
+
+.PHONY: setup
+setup:
+	@pip install --upgrade -e .[test] releasecmd tox
+	pip check
