@@ -3,8 +3,9 @@
 """
 
 import abc
-from typing import Any
+from typing import Any, Optional
 
+from .._typecode import Typecode
 from ..checker._interface import TypeCheckerInterface
 from ..converter import ValueConverterInterface
 from ..error import TypeConversionError
@@ -21,7 +22,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
     )
 
     @abc.abstractproperty
-    def typecode(self):  # pragma: no cover
+    def typecode(self) -> Typecode:  # pragma: no cover
         pass
 
     @abc.abstractmethod
@@ -44,7 +45,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         self.__checker = self._create_type_checker()
         self.__converter = self._create_type_converter()
 
-        self.__is_type_result = None
+        self.__is_type_result = None  # type: Optional[bool]
 
     def __repr__(self) -> str:
         return ", ".join(
@@ -70,7 +71,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
         return self.__is_type_result
 
-    def __is_type(self):
+    def __is_type(self) -> bool:
         if self.__checker.is_type():
             return True
 
@@ -87,7 +88,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
 
         return True
 
-    def validate(self, error_message=None):
+    def validate(self, error_message: Optional[str] = None) -> None:
         """
         :raises TypeError:
             If the value is not matched the type that the class represented.
