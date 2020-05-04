@@ -14,7 +14,9 @@ class FloatConverter(AbstractValueConverter):
     def __init__(self, value, params):
         super().__init__(value, params)
 
-        self.float_class = DefaultValue.FLOAT_TYPE
+        self.float_class = self._params.get("float_type")
+        if self.float_class is None:
+            self.float_class = DefaultValue.FLOAT_TYPE
 
     def force_convert(self):
         if isinstance(self._value, self.float_class):

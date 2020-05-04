@@ -4,7 +4,6 @@
 
 from typing import Any
 
-from .._const import DefaultValue
 from .._typecode import Typecode
 from ._base import AbstractType
 
@@ -35,6 +34,5 @@ class RealNumber(AbstractType):
         from ..converter._realnumber import FloatConverter
 
         converter = FloatConverter(self._data, self._params)
-        converter.float_class = self._params.get("float_type", DefaultValue.FLOAT_TYPE)
 
         return converter
