@@ -24,9 +24,8 @@ Install from PPA (for Ubuntu)
 
 Dependencies
 ============
-Python 3.5+
-
-- `mbstrdecoder <https://github.com/thombashi/mbstrdecoder>`__
+- Python 3.5+
+- `Python package dependencies (automatically installed) <https://github.com/thombashi/typepy/network/dependencies>`__
 
 Optioal dependencies
 ----------------------------------
@@ -34,8 +33,3 @@ These packages can be installed via ``pip install typepy[datetime]``:
 
 - `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
 - `pytz <https://pypi.org/project/pytz/>`__
-
-Test dependencies
-----------------------------------
-- `pytest <https://docs.pytest.org/en/latest/>`__
-- `tox <https://testrun.org/tox/latest/>`__

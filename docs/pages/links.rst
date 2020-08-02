@@ -3,6 +3,9 @@ Changelog
 https://github.com/thombashi/typepy/releases
 
 
+.. include:: genindex.rst
+
+
 Links
 =====
 - `GitHub repository <https://github.com/thombashi/typepy>`__
