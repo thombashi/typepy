@@ -130,8 +130,7 @@ class Test_RealNumber:
         ],
     )
     def test_normal(self, method, strict_level, value, expected):
-        from typepy import StrictLevel
-        from typepy import Nan
+        from typepy import Nan, StrictLevel
 
         actual = convert_wrapper(typepy.RealNumber(value, strict_level), method)
         if Nan(expected, strict_level=StrictLevel.MIN).is_type():
