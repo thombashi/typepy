@@ -61,6 +61,42 @@ The correspondence between Python types and ``typepy`` classes are as follows:
     ``str`` (IP address)                              `IpAddress <https://typepy.rtfd.io/en/latest/pages/reference/type.html#ip-address-type>`__
     ================================================  =======================================================================================================
 
+Installation
+============
+
+Install from PyPI
+------------------------------
+::
+
+    pip install typepy
+
+Install additional dependency packages with the following command if using ``typepy.DateTime`` class
+
+::
+
+    pip install typepy[datetime]
+
+Install from PPA (for Ubuntu)
+------------------------------
+::
+
+    sudo add-apt-repository ppa:thombashi/ppa
+    sudo apt update
+    sudo apt install python3-typepy
+
+
+Dependencies
+============
+- Python 3.5+
+- `Python package dependencies (automatically installed) <https://github.com/thombashi/typepy/network/dependencies>`__
+
+Optioal dependencies
+----------------------------------
+These packages can be installed via ``pip install typepy[datetime]``:
+
+- `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
+- `pytz <https://pypi.org/project/pytz/>`__
+
 Usage
 =======
 Type Check Method
@@ -146,48 +182,6 @@ Type check/validate/convert results differed according to
 ``strict_level`` value which can pass to typepy classes constructors as an argument.
 More information can be found in the
 `API reference <https://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
-
-Installation
-============
-
-Install from PyPI
-------------------------------
-::
-
-    pip install typepy
-
-Install additional dependency packages with the following command if using ``typepy.DateTime`` class
-
-::
-
-    pip install typepy[datetime]
-
-Install from PPA (for Ubuntu)
-------------------------------
-::
-
-    sudo add-apt-repository ppa:thombashi/ppa
-    sudo apt update
-    sudo apt install python3-typepy
-
-
-Dependencies
-============
-Python 3.5+
-
-- `mbstrdecoder <https://github.com/thombashi/mbstrdecoder>`__
-
-Optioal dependencies
-----------------------------------
-These packages can be installed via ``pip install typepy[datetime]``:
-
-- `python-dateutil <https://dateutil.readthedocs.io/en/stable/>`__
-- `pytz <https://pypi.org/project/pytz/>`__
-
-Test dependencies
-----------------------------------
-- `pytest <https://docs.pytest.org/en/latest/>`__
-- `tox <https://testrun.org/tox/latest/>`__
 
 Documentation
 ===============

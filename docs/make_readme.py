@@ -34,9 +34,9 @@ def main():
     maker.write_chapter("Features")
     maker.write_introduction_file("features.txt")
 
-    write_examples(maker)
+    maker.write_introduction_file("installation.rst")
 
-    maker.write_file(maker.doc_page_root_dir_path.joinpath("installation.rst"))
+    write_examples(maker)
 
     maker.set_indent_level(0)
     maker.write_chapter("Documentation")
