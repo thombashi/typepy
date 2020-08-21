@@ -10,6 +10,10 @@ Summary
     :target: https://badge.fury.io/py/typepy
     :alt: PyPI package version
 
+.. image:: https://anaconda.org/conda-forge/typepy/badges/version.svg
+    :target: https://anaconda.org/conda-forge/typepy
+    :alt: conda-forge package version
+
 .. image:: https://img.shields.io/pypi/pyversions/typepy.svg
     :target: https://pypi.org/project/typepy
     :alt: Supported Python versions
@@ -64,7 +68,7 @@ The correspondence between Python types and ``typepy`` classes are as follows:
 Installation
 ============
 
-Install from PyPI
+Installation: pip
 ------------------------------
 ::
 
@@ -76,7 +80,13 @@ Install additional dependency packages with the following command if using ``typ
 
     pip install typepy[datetime]
 
-Install from PPA (for Ubuntu)
+Installation: conda
+------------------------------
+::
+
+    conda install -c conda-forge typepy
+
+Installation: apt
 ------------------------------
 ::
 
