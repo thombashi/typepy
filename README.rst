@@ -34,10 +34,6 @@ Summary
     :target: https://coveralls.io/github/thombashi/typepy?branch=master
     :alt: Test coverage
 
-.. image:: https://img.shields.io/github/stars/thombashi/typepy.svg?style=social&label=Star
-    :target: https://github.com/thombashi/typepy
-    :alt: GitHub stars
-
 Features
 ==========
 - checking a value type
