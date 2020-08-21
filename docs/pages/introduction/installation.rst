@@ -1,7 +1,7 @@
 Installation
 ============
 
-Install from PyPI
+Installation: pip
 ------------------------------
 ::
 
@@ -13,7 +13,13 @@ Install additional dependency packages with the following command if using ``typ
 
     pip install typepy[datetime]
 
-Install from PPA (for Ubuntu)
+Installation: conda
+------------------------------
+::
+
+    conda install -c conda-forge typepy
+
+Installation: apt
 ------------------------------
 ::
 
