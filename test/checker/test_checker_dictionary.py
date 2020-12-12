@@ -30,7 +30,10 @@ class Test_Dictionary_is_type:
                 [True],
             )
         )
-        + [['{"foo": 10}', StrictLevel.MIN, True], ['{"foo": 10}', StrictLevel.MAX, False],]
+        + [
+            ['{"foo": 10}', StrictLevel.MIN, True],
+            ['{"foo": 10}', StrictLevel.MAX, False],
+        ]
         + list(
             itertools.product(
                 [1, "a", "あ".encode("utf8"), nan, True, None],
