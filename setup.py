@@ -41,7 +41,6 @@ with open(os.path.join(REQUIREMENT_DIR, "test_requirements.txt")) as f:
     tests_requires = [line.strip() for line in f if line.strip()]
 
 
-SETUPTOOLS_REQUIRES = ["setuptools>=38.3.0"]
 DATETIME_REQUIRES = [
     "python-dateutil>=2.8.0,<3.0.0",
     "pytz>=2018.9",
@@ -67,8 +66,7 @@ setuptools.setup(
         "Tracker": "{:s}/issues".format(REPOSITORY_URL),
     },
     python_requires=">=3.5",
-    install_requires=SETUPTOOLS_REQUIRES + install_requires,
-    setup_requires=SETUPTOOLS_REQUIRES,
+    install_requires=install_requires,
     extras_require={"datetime": DATETIME_REQUIRES, "test": tests_requires + DATETIME_REQUIRES},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
