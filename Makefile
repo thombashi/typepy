@@ -3,10 +3,6 @@ DOCS_DIR := docs
 DOCS_BUILD_DIR := $(DOCS_DIR)/_build
 
 
-.PHONY: setup
-setup:
-	@pip install --upgrade -e .[test]
-
 .PHONY: build
 build:
 	@make clean
