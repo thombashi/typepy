@@ -22,13 +22,9 @@ Summary
     :target: https://pypi.org/project/typepy
     :alt: Supported Python implementations
 
-.. image:: https://img.shields.io/travis/thombashi/typepy/master.svg?label=Linux/macOS%20CI
-    :target: https://travis-ci.org/thombashi/typepy
-    :alt: Linux/macOS CI status
-
-.. image:: https://img.shields.io/appveyor/ci/thombashi/typepy/master.svg?label=Windows%20CI
-    :target: https://ci.appveyor.com/project/thombashi/typepy
-    :alt: Windows CI status
+.. image:: https://github.com/thombashi/typepy/workflows/Tests/badge.svg
+    :target: https://github.com/thombashi/typepy/actions?query=workflow%3ATests
+    :alt: Linux/macOS/Windows CI status
 
 .. image:: https://coveralls.io/repos/github/thombashi/typepy/badge.svg?branch=master
     :target: https://coveralls.io/github/thombashi/typepy?branch=master
