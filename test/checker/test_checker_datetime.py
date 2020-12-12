@@ -7,7 +7,7 @@ from datetime import date, datetime
 
 import pytest
 from dateutil.tz import tzoffset
-from termcolor import colored
+from tcolorpy import tcolor
 
 from typepy import DateTime, StrictLevel, Typecode
 
@@ -66,8 +66,8 @@ class Test_DateTime_is_type:
     @pytest.mark.parametrize(
         ["value", "strip_ansi_escape", "expected"],
         [
-            [colored("2017-03-22T10:00:00", "red"), False, False],
-            [colored("2017-03-22T10:00:00", "red"), True, True],
+            [tcolor("2017-03-22T10:00:00", "red"), False, False],
+            [tcolor("2017-03-22T10:00:00", "red"), True, True],
         ],
     )
     def test_normal_ansi(self, value, strip_ansi_escape, expected):

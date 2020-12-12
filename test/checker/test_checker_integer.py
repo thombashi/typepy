@@ -7,7 +7,7 @@ import sys
 from decimal import Decimal
 
 import pytest
-from termcolor import colored
+from tcolorpy import tcolor
 
 from typepy import Integer, StrictLevel, Typecode
 
@@ -76,7 +76,7 @@ class Test_Integer_is_type:
 
     @pytest.mark.parametrize(
         ["value", "strip_ansi_escape", "expected"],
-        [[colored("1", "red"), False, False], [colored("1", "red"), True, True]],
+        [[tcolor("1", "red"), False, False], [tcolor("1", "red"), True, True]],
     )
     def test_normal_ansi(self, value, strip_ansi_escape, expected):
         type_checker = class_under_test(value, StrictLevel.MIN, strip_ansi_escape=strip_ansi_escape)

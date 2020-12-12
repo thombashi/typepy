@@ -7,7 +7,7 @@ import sys
 from ipaddress import ip_address
 
 import pytest
-from termcolor import colored
+from tcolorpy import tcolor
 
 from typepy import IpAddress, StrictLevel, Typecode
 
@@ -20,7 +20,7 @@ inf = float("inf")
 class Test_IpAddress_is_type:
     @pytest.mark.parametrize(
         ["value", "strict_level", "expected"],
-        [[colored("127.0.0.1", "red"), StrictLevel.MIN, True]]
+        [[tcolor("127.0.0.1", "red"), StrictLevel.MIN, True]]
         + list(
             itertools.product(
                 ["", " ", sys.maxsize, str(sys.maxsize), inf, nan, None],
@@ -46,7 +46,7 @@ class Test_IpAddress_is_type:
 
     @pytest.mark.parametrize(
         ["value", "strip_ansi_escape", "expected"],
-        [[colored("127.0.0.1", "red"), False, False], [colored("127.0.0.1", "red"), True, True]],
+        [[tcolor("127.0.0.1", "red"), False, False], [tcolor("127.0.0.1", "red"), True, True]],
     )
     def test_normal_ansi(self, value, strip_ansi_escape, expected):
         type_checker = class_under_test(value, StrictLevel.MIN, strip_ansi_escape=strip_ansi_escape)

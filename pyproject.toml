@@ -24,7 +24,7 @@ known_third_party = [
     'pytest',
     'pytz',
     'sphinx_rtd_theme',
-    'termcolor',
+    'tcolorpy',
 ]
 include_trailing_comma = true
 line_length = 100
