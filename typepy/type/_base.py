@@ -115,7 +115,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
             return self.force_convert()
 
         raise TypeConversionError(
-            "failed to convert from {} to {}".format(type(self._data).__name__, self.typename)
+            "failed to convert {} from {} to {}".format(self._data, type(self._data).__name__, self.typename)
         )
 
     def force_convert(self):
