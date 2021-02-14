@@ -3,7 +3,8 @@
 """
 
 from datetime import date, datetime
-from distutils.version import StrictVersion
+
+from packaging.version import InvalidVersion, Version
 
 from .._common import strip_ansi_escape
 from .._const import DefaultValue, ParamKey
@@ -147,11 +148,11 @@ class DateTimeConverter(AbstractValueConverter):
 
         try:
             try:
-                StrictVersion(self._value)
+                Version(self._value)
                 raise TypeConversionError(
                     "invalid datetime string: version string found {}".format(self._value)
                 )
-            except ValueError:
+            except InvalidVersion:
                 pass
         except TypeError:
             raise TypeConversionError("invalid datetime string: type={}".format(type(self._value)))

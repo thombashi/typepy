@@ -30,8 +30,6 @@ class BoolConverter(AbstractValueConverter):
 
     @staticmethod
     def __strict_strtobool(value):
-        from distutils.util import strtobool
-
         if isinstance(value, bool):
             return value
 
@@ -40,8 +38,7 @@ class BoolConverter(AbstractValueConverter):
         except AttributeError:
             raise ValueError("invalid value '{}'".format(str(value)))
 
-        binary_value = strtobool(lower_text)
         if lower_text not in ["true", "false"]:
             raise ValueError("invalid value '{}'".format(str(value)))
 
-        return bool(binary_value)
+        return bool(lower_text)
