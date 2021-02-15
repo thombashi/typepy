@@ -38,7 +38,9 @@ class BoolConverter(AbstractValueConverter):
         except AttributeError:
             raise ValueError("invalid value '{}'".format(str(value)))
 
-        if lower_text not in ["true", "false"]:
-            raise ValueError("invalid value '{}'".format(str(value)))
+        if lower_text in ["true"]:
+            return True
+        elif lower_text in ["false"]:
+            return False
 
-        return bool(lower_text)
+        raise ValueError("invalid value '{}'".format(str(value)))
