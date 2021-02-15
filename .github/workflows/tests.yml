@@ -39,7 +39,7 @@ jobs:
 
       - name: Run tox
         run: |
-          tox -e cov -- --discord-verbose=0
+          tox -e cov
         env:
           PYTEST_DISCORD_WEBHOOK: ${{ secrets.PYTEST_DISCORD_WEBHOOK }}
 
