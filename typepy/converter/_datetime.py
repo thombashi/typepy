@@ -4,8 +4,6 @@
 
 from datetime import date, datetime
 
-from packaging.version import InvalidVersion, Version
-
 from .._common import strip_ansi_escape
 from .._const import DefaultValue, ParamKey
 from ..error import TypeConversionError
@@ -145,6 +143,8 @@ class DateTimeConverter(AbstractValueConverter):
         A version string could be converted to a datetime value if this
         validation is not executed.
         """
+
+        from packaging.version import InvalidVersion, Version
 
         try:
             try:
