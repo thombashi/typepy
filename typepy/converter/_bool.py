@@ -34,7 +34,7 @@ class BoolConverter(AbstractValueConverter):
             return value
 
         try:
-            lower_text = value.lower()
+            lower_text = value.casefold()
         except AttributeError:
             raise ValueError("invalid value '{}'".format(str(value)))
 
