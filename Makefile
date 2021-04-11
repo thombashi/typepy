@@ -33,9 +33,9 @@ readme:
 release:
 	@python setup.py release --sign
 	@make clean
-	pip check
+	python3 -m pip check
 
 .PHONY: setup
 setup:
-	@pip install --upgrade -e .[test] releasecmd tox
-	pip check
+	@python3 -m pip install --upgrade -e .[test] releasecmd tox
+	python3 -m pip check
