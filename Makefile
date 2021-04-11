@@ -1,7 +1,20 @@
+AUTHOR := thombashi
 PACKAGE := typepy
 DOCS_DIR := docs
 DOCS_BUILD_DIR := $(DOCS_DIR)/_build
+BUILD_WORK_DIR := _work
+PKG_BUILD_DIR := $(BUILD_WORK_DIR)/$(PACKAGE)
 
+
+.PHONY: build-remote
+build-remote:
+	@rm -rf $(BUILD_WORK_DIR)
+	@mkdir -p $(BUILD_WORK_DIR)
+	@cd $(BUILD_WORK_DIR) && \
+		git clone https://github.com/$(AUTHOR)/$(PACKAGE).git --depth 1 && \
+		cd $(PACKAGE) && \
+		tox -e build
+	ls -lh $(PKG_BUILD_DIR)/dist/*
 
 .PHONY: build
 build:
@@ -15,6 +28,7 @@ check:
 
 .PHONY: clean
 clean:
+	@rm -rf $(BUILD_WORK_DIR)
 	@tox -e clean
 
 .PHONY: docs
@@ -31,9 +45,8 @@ readme:
 
 .PHONY: release
 release:
-	@python setup.py release --sign
+	@cd $(PKG_BUILD_DIR) && python3 setup.py release --sign
 	@make clean
-	python3 -m pip check
 
 .PHONY: setup
 setup:
