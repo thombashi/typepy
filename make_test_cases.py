@@ -88,7 +88,7 @@ class TestParamWriter:
         VALUE_LIST = ["abc", "", 1, "-1", None, True, inf, nan]
 
     class Number:
-        VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", sys.maxsize, True, None, inf, nan, "test", ""]
+        VALUE_LIST = [1, 1.0, 1.1, "0", "1.0", "1.1", sys.maxsize,  "1,000,000,000,000", True, None, inf, nan, "test", ""]
 
     def __init__(self, file_path):
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
