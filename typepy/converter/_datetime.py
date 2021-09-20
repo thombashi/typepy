@@ -106,9 +106,7 @@ class DateTimeConverter(AbstractValueConverter):
                     pass
 
         if self.__datetime is None:
-            raise TypeConversionError(
-                "failed to parse as a datetime: type={}".format(type(self._value))
-            )
+            raise TypeConversionError(f"failed to parse as a datetime: type={type(self._value)}")
 
         if self.__timezone:
             pytz_timezone = self.__timezone
@@ -150,9 +148,9 @@ class DateTimeConverter(AbstractValueConverter):
             try:
                 Version(self._value)
                 raise TypeConversionError(
-                    "invalid datetime string: version string found {}".format(self._value)
+                    f"invalid datetime string: version string found {self._value}"
                 )
             except InvalidVersion:
                 pass
         except TypeError:
-            raise TypeConversionError("invalid datetime string: type={}".format(type(self._value)))
+            raise TypeConversionError(f"invalid datetime string: type={type(self._value)}")

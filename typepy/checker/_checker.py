@@ -34,7 +34,7 @@ class CheckerFactory:
         if strict_level > self.max_strict_level:
             return self.__checker_mapping[self.max_strict_level]
 
-        raise ValueError("unexpected strict level: {}".format(strict_level))
+        raise ValueError(f"unexpected strict level: {strict_level}")
 
 
 class TypeCheckerBase(TypeCheckerInterface):
@@ -59,7 +59,7 @@ class TypeCheckerBase(TypeCheckerInterface):
         if self.is_type():
             return
 
-        raise TypeError("invalid value type: actual={}".format(type(self._value)))
+        raise TypeError(f"invalid value type: actual={type(self._value)}")
 
     def is_exclude_instance(self):
         return False

@@ -22,5 +22,5 @@ class DictionaryConverter(AbstractValueConverter):
                 pass
 
         raise TypeConversionError(
-            "failed to force_convert to dictionary: type={}".format(type(self._value))
+            f"failed to force_convert to dictionary: type={type(self._value)}"
         )

@@ -28,4 +28,4 @@ class IntegerConverter(AbstractValueConverter):
             except (TypeError, OverflowError, ValueError, InvalidOperation):
                 pass
 
-        raise TypeConversionError("failed to force_convert to int: type={}".format(type(value)))
+        raise TypeConversionError(f"failed to force_convert to int: type={type(value)}")

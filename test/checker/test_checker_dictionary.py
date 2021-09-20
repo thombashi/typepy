@@ -36,7 +36,7 @@ class Test_Dictionary_is_type:
         ]
         + list(
             itertools.product(
-                [1, "a", "あ".encode("utf8"), nan, True, None],
+                [1, "a", "あ".encode(), nan, True, None],
                 [StrictLevel.MIN, StrictLevel.MAX],
                 [False],
             )

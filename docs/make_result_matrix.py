@@ -86,7 +86,7 @@ class ResultMatrixWriter(ExampleWriter):
             if method == "validate":
                 result = "NOP [#f1]_"
             elif isinstance(result, str_convert_type):
-                result = '``"{}"``'.format(result)
+                result = f'``"{result}"``'
         except TypeError:
             result = "E [#f2]_"
         except typepy.TypeConversionError:
@@ -98,7 +98,7 @@ class ResultMatrixWriter(ExampleWriter):
         result_matrix = []
         for method in self._METHOD_LIST:
             result_matrix.append(
-                [":py:meth:`~.type.{:s}.{:s}`".format(self.typeclass.__name__, method)]
+                [f":py:meth:`~.type.{self.typeclass.__name__:s}.{method:s}`"]
                 + [self.exeute(method, value) for value in self.value_list]
             )
 
@@ -281,7 +281,7 @@ def parse_option():
 
 
 def make_filename(name, prefix="matrix_", suffix="_type", extension=".txt"):
-    return "{:s}{:s}{:s}{:s}".format(prefix, name, suffix, extension)
+    return f"{prefix:s}{name:s}{suffix:s}{extension:s}"
 
 
 def write_result_matrix(output_dir_path):

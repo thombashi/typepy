@@ -1,5 +1,5 @@
 __author__ = "Tsuyoshi Hombashi"
-__copyright__ = "Copyright 2017, {}".format(__author__)
+__copyright__ = f"Copyright 2017, {__author__}"
 __license__ = "MIT License"
 __version__ = "1.2.0"
 __maintainer__ = __author__

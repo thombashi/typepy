@@ -28,7 +28,7 @@ class Params:
 
     def write_test_params(self, method, value):
         if isinstance(value, str):
-            write_value = '"{:s}"'.format(value)
+            write_value = f'"{value:s}"'
         else:
             write_value = value
 
@@ -61,7 +61,7 @@ class Params:
             return typeobj.convert()
 
         if String(result, strict_level).is_type():
-            return '"{}"'.format(result)
+            return f'"{result}"'
 
         if Infinity(result, strict_level).is_type():
             return '"inf"'

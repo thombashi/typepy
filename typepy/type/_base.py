@@ -45,16 +45,16 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         self.__checker = self._create_type_checker()
         self.__converter = self._create_type_converter()
 
-        self.__is_type_result = None  # type: Optional[bool]
+        self.__is_type_result: Optional[bool] = None
 
     def __repr__(self) -> str:
         return ", ".join(
             [
-                "value={}".format(self._data),
-                "typename={}".format(self.typename),
-                "strict_level={}".format(self._strict_level),
-                "is_type={}".format(self.is_type()),
-                "try_convert={}".format(self.try_convert()),
+                f"value={self._data}",
+                f"typename={self.typename}",
+                f"strict_level={self._strict_level}",
+                f"is_type={self.is_type()}",
+                f"try_convert={self.try_convert()}",
             ]
         )
 
@@ -100,9 +100,7 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         if not error_message:
             error_message = "invalid value type"
 
-        raise TypeError(
-            "{}: expected={}, actual={}".format(error_message, self.typename, type(self._data))
-        )
+        raise TypeError(f"{error_message}: expected={self.typename}, actual={type(self._data)}")
 
     def convert(self):
         """

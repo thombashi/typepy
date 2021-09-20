@@ -36,6 +36,4 @@ class FloatConverter(AbstractValueConverter):
             except (TypeError, ValueError, decimal.InvalidOperation):
                 pass
 
-        raise TypeConversionError(
-            "failed to force_convert to float: type={}".format(type(self._value))
-        )
+        raise TypeConversionError(f"failed to force_convert to float: type={type(self._value)}")

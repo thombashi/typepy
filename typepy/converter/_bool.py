@@ -24,9 +24,7 @@ class BoolConverter(AbstractValueConverter):
             except (TypeError, ValueError):
                 pass
 
-        raise TypeConversionError(
-            "failed to force_convert to bool: type={}".format(type(self._value))
-        )
+        raise TypeConversionError(f"failed to force_convert to bool: type={type(self._value)}")
 
     @staticmethod
     def __strict_strtobool(value):
@@ -36,11 +34,11 @@ class BoolConverter(AbstractValueConverter):
         try:
             lower_text = value.casefold()
         except AttributeError:
-            raise ValueError("invalid value '{}'".format(str(value)))
+            raise ValueError(f"invalid value '{str(value)}'")
 
         if lower_text in ["true"]:
             return True
         elif lower_text in ["false"]:
             return False
 
-        raise ValueError("invalid value '{}'".format(str(value)))
+        raise ValueError(f"invalid value '{str(value)}'")
