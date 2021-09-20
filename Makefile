@@ -18,29 +18,29 @@ build-remote: clean
 
 .PHONY: build
 build: clean
-	@tox -e build
+	@$(PYTHON) -m tox -e build
 	ls -lh dist/*
 
 .PHONY: check
 check:
-	@tox -e lint
+	@$(PYTHON) -m tox -e lint
 
 .PHONY: clean
 clean:
 	@rm -rf $(BUILD_WORK_DIR)
-	@tox -e clean
+	@$(PYTHON) -m tox -e clean
 
 .PHONY: docs
 docs:
-	@tox -e docs
+	@$(PYTHON) -m tox -e docs
 
 .PHONY: fmt
 fmt:
-	@tox -e fmt
+	@$(PYTHON) -m tox -e fmt
 
 .PHONY: readme
 readme:
-	tox -e readme
+	@$(PYTHON) -m tox -e readme
 
 .PHONY: release
 release:
