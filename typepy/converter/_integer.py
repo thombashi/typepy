@@ -25,7 +25,7 @@ class IntegerConverter(AbstractValueConverter):
         if self._params.get(ParamKey.STRIP_ANSI_ESCAPE, DefaultValue.STRIP_ANSI_ESCAPE):
             try:
                 return int(Decimal(strip_ansi_escape(value)))
-            except (TypeError, OverflowError, ValueError, InvalidOperation) as e:
+            except (TypeError, OverflowError, ValueError, InvalidOperation):
                 pass
 
         raise TypeConversionError("failed to force_convert to int: type={}".format(type(value)))
