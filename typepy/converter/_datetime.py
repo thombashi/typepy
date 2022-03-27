@@ -12,8 +12,8 @@ from ._interface import AbstractValueConverter
 
 class DateTimeConverter(AbstractValueConverter):
 
-    __DAYS_TO_SECONDS_COEF = 60 ** 2 * 24
-    __MICROSECONDS_TO_SECONDS_COEF = 1000 ** 2
+    __DAYS_TO_SECONDS_COEF = 60**2 * 24
+    __MICROSECONDS_TO_SECONDS_COEF = 1000**2
     __COMMON_DST_TIMEZONE_TABLE = {
         -36000: "America/Adak",  # -1000
         -32400: "US/Alaska",  # -0900
