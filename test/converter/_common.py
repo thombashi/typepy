@@ -11,5 +11,5 @@ EXCEPTION_RESULT = "E"
 def convert_wrapper(typeobj, method):
     try:
         return getattr(typeobj, method)()
-    except (typepy.TypeConversionError):
+    except typepy.TypeConversionError:
         return EXCEPTION_RESULT
