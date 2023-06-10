@@ -30,15 +30,15 @@ Summary
     :target: https://coveralls.io/github/thombashi/typepy?branch=master
     :alt: Test coverage
 
-.. image:: https://github.com/thombashi/typepy/actions/workflows/codeql-analysis.yml/badge.svg
-    :target: https://github.com/thombashi/typepy/actions/workflows/codeql-analysis.yml
+.. image:: https://github.com/thombashi/typepy/actions/workflows/github-code-scanning/codeql/badge.svg
+    :target: https://github.com/thombashi/typepy/actions/workflows/github-code-scanning/codeql
     :alt: CodeQL
 
 Features
 ==========
 - checking a value type
 - validate a value for a type
-- convert a value from a type to the other type
+- convert a value from one type to the other type
 
 The correspondence between Python types and ``typepy`` classes are as follows:
 
@@ -93,10 +93,10 @@ Installation: apt
 
 Dependencies
 ============
-- Python 3.6+
+- Python 3.7+
 - `Python package dependencies (automatically installed) <https://github.com/thombashi/typepy/network/dependencies>`__
 
-Optioal dependencies
+Optional dependencies
 ----------------------------------
 These packages can be installed via ``pip install typepy[datetime]``:
 
@@ -176,7 +176,7 @@ force_convert
         >>> try:
         ...     Integer("abc").force_convert()
         ... except TypeConversionError as e:
-        ...     # force_convert() raised TypeConversionError when the value not convertible
+        ...     # force_convert() raised TypeConversionError when the value was not convertible
         ...     print(e)
         ...
         failed to force_convert to int: type=<class 'str'>
@@ -185,7 +185,7 @@ force_convert
 For more information
 --------------------------------------------
 Type check/validate/convert results differed according to
-``strict_level`` value which can pass to typepy classes constructors as an argument.
+``strict_level`` value which can pass to typepy class constructors as an argument.
 More information can be found in the
 `API reference <https://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.
 
