@@ -30,10 +30,10 @@ Installation: apt
 
 Dependencies
 ============
-- Python 3.6+
+- Python 3.7+
 - `Python package dependencies (automatically installed) <https://github.com/thombashi/typepy/network/dependencies>`__
 
-Optioal dependencies
+Optional dependencies
 ----------------------------------
 These packages can be installed via ``pip install typepy[datetime]``:
 

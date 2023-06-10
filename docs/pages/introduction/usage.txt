@@ -69,7 +69,7 @@ force_convert
         >>> try:
         ...     Integer("abc").force_convert()
         ... except TypeConversionError as e:
-        ...     # force_convert() raised TypeConversionError when the value not convertible
+        ...     # force_convert() raised TypeConversionError when the value was not convertible
         ...     print(e)
         ...
         failed to force_convert to int: type=<class 'str'>
@@ -78,6 +78,6 @@ force_convert
 For more information
 --------------------------------------------
 Type check/validate/convert results differed according to
-``strict_level`` value which can pass to typepy classes constructors as an argument.
+``strict_level`` value which can pass to typepy class constructors as an argument.
 More information can be found in the
 `API reference <https://typepy.rtfd.io/en/latest/pages/reference/index.html>`__.

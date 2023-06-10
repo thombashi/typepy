@@ -1,6 +1,6 @@
 - checking a value type
 - validate a value for a type
-- convert a value from a type to the other type
+- convert a value from one type to the other type
 
 The correspondence between Python types and ``typepy`` classes are as follows:
 

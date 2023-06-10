@@ -13,13 +13,13 @@ PROJECT_NAME = "typepy"
 OUTPUT_DIR = ".."
 
 
-def write_examples(maker):
+def write_examples(maker: ReadmeMaker) -> None:
     maker.set_indent_level(0)
     maker.write_chapter("Usage")
     maker.write_introduction_file("usage.txt")
 
 
-def main():
+def main() -> int:
     maker = ReadmeMaker(
         PROJECT_NAME,
         OUTPUT_DIR,
