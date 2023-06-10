@@ -55,7 +55,12 @@ setuptools.setup(
     author_email=pkg_info["__email__"],
     description=summary,
     include_package_data=True,
-    keywords=["library", "type-checking", "type-conversion", "validator"],
+    keywords=[
+        "library",
+        "type-checking",
+        "type-conversion",
+        "validator",
+    ],
     license=pkg_info["__license__"],
     long_description=long_description,
     long_description_content_type="text/x-rst",
