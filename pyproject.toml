@@ -1,9 +1,8 @@
 [build-system]
-requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+requires = ["setuptools>=61.0"]
 
 [tool.black]
-line-length = 100
 exclude = '''
 /(
       \.eggs
@@ -19,45 +18,46 @@ exclude = '''
 )/
 | docs/conf.py
 '''
+line-length = 100
 target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
 
 [tool.isort]
-known_third_party = [
-    'dateutil',
-    'logbook',
-    'pytablewriter',
-    'pytest',
-    'pytz',
-    'sphinx_rtd_theme',
-    'tcolorpy',
-]
 include_trailing_comma = true
+known_third_party = [
+  'dateutil',
+  'logbook',
+  'pytablewriter',
+  'pytest',
+  'pytz',
+  'sphinx_rtd_theme',
+  'tcolorpy',
+]
 line_length = 100
 lines_after_imports = 2
 multi_line_output = 3
 skip_glob = [
-    '*/.eggs/*',
-    '*/.pytype/*',
-    '*/.tox/*',
+  '*/.eggs/*',
+  '*/.pytype/*',
+  '*/.tox/*',
 ]
 
 [tool.coverage.run]
-source = ["typepy"]
 branch = true
+source = ["typepy"]
 
 [tool.coverage.report]
-show_missing = true
-precision = 1
 exclude_lines = [
-    'except ImportError',
-    'raise NotImplementedError',
-    'pass',
-    'ABCmeta',
-    'abstractmethod',
-    'abstractproperty',
-    'abstractclassmethod',
-    'warnings.warn',
+  'except ImportError',
+  'raise NotImplementedError',
+  'pass',
+  'ABCmeta',
+  'abstractmethod',
+  'abstractproperty',
+  'abstractclassmethod',
+  'warnings.warn',
 ]
+precision = 1
+show_missing = true
 
 [tool.mypy]
 ignore_missing_imports = true
