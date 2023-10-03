@@ -55,7 +55,12 @@ class DateTimeConverter(AbstractValueConverter):
             )
 
         if self.__timezone:
-            self.__datetime = self.__timezone.localize(self.__datetime)
+            if self.__datetime.tzinfo is None:
+                self.__datetime = self.__timezone.localize(self.__datetime)
+            else:
+                self.__datetime = datetime.fromtimestamp(
+                    self.__datetime.timestamp(), tz=self.__timezone
+                )
 
         return self.__datetime
 

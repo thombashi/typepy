@@ -3,7 +3,7 @@
 """
 
 import sys
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from decimal import Decimal
 from ipaddress import IPv4Address, IPv6Address
 
@@ -63,6 +63,21 @@ class Test_DateTime:
         result = typepy.DateTime(value, strict_level=StrictLevel.MIN, timezone=timezone).convert()
 
         assert result == timezone.localize(expected)
+
+    def test_normal_datetime_tz_aware(self):
+        utc_dt = datetime(2017, 1, 29, 10, 27, 3, tzinfo=utc)
+        got = typepy.DateTime(
+            utc_dt, strict_level=StrictLevel.MIN, timezone=timezone("Asia/Tokyo")
+        ).convert()
+        assert got.tzinfo.tzname(got) == "JST"
+
+        jst_dt = typepy.DateTime(
+            "2017-01-29 19:27:03+0900",
+            strict_level=StrictLevel.MIN,
+        ).convert()
+        assert jst_dt.tzinfo.utcoffset(jst_dt) == timedelta(seconds=32400)
+        got = typepy.DateTime(jst_dt, strict_level=StrictLevel.MIN, timezone=utc).convert()
+        assert got.tzinfo.utcoffset(got) == timedelta(0)
 
     @pytest.mark.parametrize(
         ["value", "expected"],
