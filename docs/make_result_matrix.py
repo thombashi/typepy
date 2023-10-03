@@ -347,8 +347,6 @@ def write_example(output_dir_path):
 def main():
     options = parse_option()
 
-    # ptw.set_log_level(logbook.DEBUG)
-
     write_result_matrix(options.output_dir)
     write_example(options.output_dir)
 
