@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     container:
-      image: ghcr.io/thombashi/python-ci:3.10
+      image: ghcr.io/thombashi/python-ci:3.11
 
     steps:
       - uses: actions/checkout@v4
