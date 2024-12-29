@@ -3,7 +3,7 @@
 """
 
 import re
-from typing import Any, Optional, Type
+from typing import Any, Optional
 
 from ._const import StrictLevel
 from .type import AbstractType, Integer, NullString, RealNumber, String
@@ -40,7 +40,7 @@ def is_not_empty_sequence(value: Any) -> bool:
         return False
 
 
-def extract_typepy_from_dtype(dtype) -> Optional[Type[AbstractType]]:
+def extract_typepy_from_dtype(dtype) -> Optional[type[AbstractType]]:
     dtype = str(dtype)
 
     if re.search("^float", dtype):
