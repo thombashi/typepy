@@ -19,7 +19,9 @@ class Test_Binary_is_type:
         ["value", "strict_level", "expected"],
         list(itertools.product([], [StrictLevel.MIN, StrictLevel.MAX], [False]))
         + list(
-            itertools.product([b"abc", "いろは".encode()], [StrictLevel.MIN, StrictLevel.MAX], [True])
+            itertools.product(
+                [b"abc", "いろは".encode()], [StrictLevel.MIN, StrictLevel.MAX], [True]
+            )
         )
         + list(itertools.product([b" ", b"\n"], [StrictLevel.MIN], [True]))
         + list(
