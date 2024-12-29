@@ -21,7 +21,8 @@ class AbstractType(TypeCheckerInterface, ValueConverterInterface):
         "__is_type_result",
     )
 
-    @abc.abstractproperty
+    @property
+    @abc.abstractmethod
     def typecode(self) -> Typecode:  # pragma: no cover
         pass
 
