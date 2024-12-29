@@ -1,4 +1,3 @@
-AUTHOR := thombashi
 PACKAGE := typepy
 DOCS_DIR := docs
 DOCS_BUILD_DIR := $(DOCS_DIR)/_build
@@ -6,12 +5,16 @@ BUILD_WORK_DIR := _work
 PKG_BUILD_DIR := $(BUILD_WORK_DIR)/$(PACKAGE)
 PYTHON := python3
 
+AUTHOR := Tsuyoshi Hombashi
+FIRST_RELEASE_YEAR := 2017
+LAST_UPDATE_YEAR := $(shell git log -1 --format=%cd --date=format:%Y)
+
 
 .PHONY: build-remote
 build-remote: clean
 	@mkdir -p $(BUILD_WORK_DIR)
 	@cd $(BUILD_WORK_DIR) && \
-		git clone https://github.com/$(AUTHOR)/$(PACKAGE).git --depth 1 && \
+		git clone https://github.com/thombashi/$(PACKAGE).git --depth 1 && \
 		cd $(PACKAGE) && \
 		tox -e build
 	ls -lh $(PKG_BUILD_DIR)/dist/*
@@ -60,3 +63,8 @@ setup-dev: setup-ci
 .PHONY: test
 test:
 	$(PYTHON) -m tox -e py
+
+.PHONY: update-copyright
+update-copyright:
+	sed -i "s/^__copyright__ = .*/__copyright__ = f\"Copyright $(FIRST_RELEASE_YEAR)-$(LAST_UPDATE_YEAR), {__author__}\"/" $(PACKAGE)/__version__.py
+	sed -i "s/^Copyright (c) .* $(AUTHOR)/Copyright (c) $(FIRST_RELEASE_YEAR)-$(LAST_UPDATE_YEAR) $(AUTHOR)/" LICENSE
