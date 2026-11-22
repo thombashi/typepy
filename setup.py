@@ -44,7 +44,7 @@ with open(os.path.join(REQUIREMENT_DIR, "docs_requirements.txt")) as f:
 
 
 DATETIME_REQUIRES = [
-    "python-dateutil>=2.8.0,<3.0.0",
+    "python-dateutil>=2.8.0,<5.0.0",
     "packaging",
     'tzdata; sys_platform == "win32"',
 ]
