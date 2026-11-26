@@ -82,11 +82,11 @@ class Test_DateTime:
         assert got.tzinfo.utcoffset(got) == timedelta(0)
 
     def test_normal_datetime_dst_ambiguous_default_fold(self):
-        # 2024-11-03 01:30 in US/Eastern is ambiguous (fall-back).
+        # 2024-11-03 01:30 in America/New_York is ambiguous (fall-back).
         # Per PEP 495, fold defaults to 0 — the earlier occurrence (EDT, UTC-4).
         ambiguous = datetime(2024, 11, 3, 1, 30)
         got = typepy.DateTime(
-            ambiguous, strict_level=StrictLevel.MIN, timezone=ZoneInfo("US/Eastern")
+            ambiguous, strict_level=StrictLevel.MIN, timezone=ZoneInfo("America/New_York")
         ).convert()
         assert got.tzinfo.utcoffset(got) == timedelta(hours=-4)
         assert got.tzinfo.tzname(got) == "EDT"

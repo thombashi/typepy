@@ -13,12 +13,12 @@ from ._interface import AbstractValueConverter
 class DateTimeConverter(AbstractValueConverter):
     __COMMON_DST_TIMEZONE_TABLE = {
         -36000: "America/Adak",  # -1000
-        -32400: "US/Alaska",  # -0900
-        -28800: "US/Pacific",  # -0800
-        -25200: "US/Mountain",  # -0700
-        -21600: "US/Central",  # -0600
-        -18000: "US/Eastern",  # -0500
-        -14400: "Canada/Atlantic",  # -0400
+        -32400: "America/Anchorage",  # -0900
+        -28800: "America/Los_Angeles",  # -0800
+        -25200: "America/Denver",  # -0700
+        -21600: "America/Chicago",  # -0600
+        -18000: "America/New_York",  # -0500
+        -14400: "America/Halifax",  # -0400
         -12600: "America/St_Johns",  # -0330
         -10800: "America/Miquelon",  # -0300
         7200: "Africa/Tripoli",  # 0200
